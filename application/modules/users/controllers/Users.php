@@ -453,11 +453,17 @@ public function showForgetPwd(){
 
     }
     public function getUpdateUsers(){
+       if( $this->session->userdata['user_data'][0]['role']=='buyer'){
         $data['users_data']=$this->Mdl_users->getUpdateUsers();
         $this->load->view('header/header_buyer');
 
         $this->load->view('register_update',$data);
         $this->load->view('header/footer');
+         }
+    else{
+
+       redirect('users/home'); 
+    }
     }
     public function update(){
      $data=$this->input->post();
@@ -552,16 +558,27 @@ public function showForgetPwd(){
 
 
 public function contactsBuyer(){
-
+ if( $this->session->userdata['user_data'][0]['role']=='buyer'){
     $this->load->view('header/header_buyer');
     $this->load->view('contact_buyers');
     $this->load->view('header/footer');
+     }
+    else{
+
+       redirect('users/home'); 
+    }
   }
   public function contactsSelles(){
+     if( $this->session->userdata['user_data'][0]['role']=='sellers'){
 
     $this->load->view('header/header_seller');
     $this->load->view('contact_sellers');
     $this->load->view('header/footer');
+     }
+    else{
+
+       redirect('users/home'); 
+    }
   }
 
   public function howItWork(){
@@ -581,20 +598,29 @@ public function contactsBuyer(){
 
 
   public function aboutUsBuyer(){
-
+ if( $this->session->userdata['user_data'][0]['role']=='buyer'){
       $this->load->view('header/header_buyer');
     $this->load->view('about_us');
     $this->load->view('header/footer');
+     }
+    else{
+
+       redirect('users/home'); 
+    }
   }
   public function howItWorkBuyer(){
-
+ if( $this->session->userdata['user_data'][0]['role']=='buyer'){
       $this->load->view('header/header_buyer');
     $this->load->view('how_it_work');
     $this->load->view('header/footer');
-  }
+  
+ }
+    else{
 
+       redirect('users/home'); 
+    }
 
-
+}
 
 
 

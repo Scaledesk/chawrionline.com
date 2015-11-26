@@ -38,6 +38,7 @@ class Admin extends MX_Controller{
 
 
   public function showProducts(){
+     if( $this->session->userdata['user_data'][0]['role']=='admin'){
     $data['panding_products']=$this->Mdl_admin->showProducts();
 
  /* echo "<pre/>";
@@ -46,6 +47,12 @@ die();*/
              $this->load->view('header');
              $this->load->view('panding_products',$data);
              $this->load->view('footer');
+
+              }
+    else{
+
+       redirect('users/home'); 
+    }
   }
 
   public function approval($id){
@@ -75,23 +82,41 @@ $commission=$this->input->post();
 
 public function home(){
             /* $data['counter']=$this->Mdl_users->getCounter();*/
+              if( $this->session->userdata['user_data'][0]['role']=='admin'){
              $this->load->view('header');
              $this->load->view('dashboard');
              $this->load->view('footer');
+              }
+    else{
+
+       redirect('users/home'); 
+    }
 }
 
 
-  public function selles(){
+  public function sellers(){
+     if( $this->session->userdata['user_data'][0]['role']=='admin'){
   $data['selles']=$this->Mdl_admin->getSellers();
              $this->load->view('header');
              $this->load->view('table_sellers',$data);
              $this->load->view('footer');
+              }
+    else{
+
+       redirect('users/home'); 
+    }
   }
    public function buyers(){
+     if( $this->session->userdata['user_data'][0]['role']=='admin'){
   $data['buyer']=$this->Mdl_admin->getBuyer();
              $this->load->view('header');
              $this->load->view('table_buyer',$data);
              $this->load->view('footer');
+              }
+    else{
+
+       redirect('users/home'); 
+    }
   }
 
 

@@ -202,16 +202,28 @@ public function showProducts(){
 
 
     public function aboutUsSellers(){
-    
+     if( $this->session->userdata['user_data'][0]['role']=='sellers'){
       $this->load->view('users/header/header_seller');
     $this->load->view('users/about_us');
     $this->load->view('users/header/footer');
+     }
+    else{
+
+       redirect('users/home'); 
+    }
+
   }
   public function howItWorkSellers(){
-    
+     if( $this->session->userdata['user_data'][0]['role']=='sellers'){
       $this->load->view('users/header/header_seller');
     $this->load->view('users/how_it_work');
     $this->load->view('users/header/footer');
+     }
+    else{
+
+       redirect('users/home'); 
+    }
+
   }
 
 public function manageOrder(){

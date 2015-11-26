@@ -113,7 +113,7 @@
                             <a href="<?php echo base_url().'admin/home';?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url().'admin/selles';?>"><i class="fa fa-table fa-fw"></i> Sellers</a>
+                            <a href="<?php echo base_url().'admin/sellers';?>"><i class="fa fa-table fa-fw"></i> Sellers</a>
 
                             <!-- /.nav-second-level -->
                         </li>

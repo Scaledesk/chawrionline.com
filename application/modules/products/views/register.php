@@ -209,6 +209,26 @@
                                                     <h2 class="legend">Product Information</h2>
 
                                                     <ul class="form-list">
+
+                                                    <li class="fields">      
+                                                            <div class="customer-name-middlename">     
+                                                                <div class="field name-firstname">
+                                                                    <label for="products_name" class="required"><em>*</em>Categories</label>
+                                                                    <div class="input-box"> 
+                                                                      <?php /*print_r($categories)*/ ?>
+                                                                    <select  name="categories" class="input-text  required-entry">
+                                                                      <?php foreach ($categories as $value) {
+                                                                      	
+                                                                       ?>
+                                                                    	<option value="<?php echo $value['chawri_categories_id'];?>"> <?php echo $value['chawri_categories_name'];?></option>
+                                                                    	<?php }?>
+                                                                    </select>
+
+                                                                       
+                                                                    </div>
+                                                                </div>                                                         
+                                                              </div>
+                                                        </li>
                                                         <li class="fields">      
                                                             <div class="customer-name-middlename">     
                                                                 <div class="field name-firstname">

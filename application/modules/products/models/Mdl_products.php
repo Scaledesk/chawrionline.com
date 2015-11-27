@@ -29,7 +29,7 @@ class Mdl_products extends CI_Model
     private $date;
     private $extension;
     private $description;
-
+    private $categories;
 
 
  /**
@@ -337,7 +337,21 @@ class Mdl_products extends CI_Model
         $this->sellers_id = $sellers_id;
     }
 
+/**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
 
+    /**
+     * @param mixed $sellers_id
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+    }
 
     private function _validate()
     {
@@ -359,7 +373,7 @@ class Mdl_products extends CI_Model
                     $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                     $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
                     $this->setProductsWeight($this->security->xss_clean($this->products_weight));
-
+                    $this->setCategories($this->security->xss_clean($this->categories));
 
 
                 break;
@@ -378,7 +392,7 @@ class Mdl_products extends CI_Model
                 $this->setProductsSize($this->security->xss_clean($this->products_size));
                 $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                 $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
-
+                $this->setCategories($this->security->xss_clean($this->categories));
 
 
                 break;
@@ -485,6 +499,7 @@ public function insertProductReel($data){
                     $this->setProductsWeight(func_get_arg(13));
                     $this->setProductsSubstance(func_get_arg(14));
                     $this->setProductsThickness(func_get_arg(15));
+                    $this->setCategories(func_get_arg(16));
 
 
                 break;
@@ -506,7 +521,7 @@ public function insertProductReel($data){
                 $this->setProductsPacking(func_get_arg(14));
                 $this->setProductsRate(func_get_arg(15));
                 $this->setProductsCenvatAmount(func_get_arg(16));
-
+                 $this->setCategories(func_get_arg(17));
 
                 break;
 
@@ -560,7 +575,8 @@ public function update (){
             'chawri_products_packing' => $this->products_packing,
             'chawri_products_rate' => $this->products_rate,
             'chawri_products_cenvat_amount' => $this->products_cenvat_amount,
-            'chawri_products_weight' => $this->products_weight
+            'chawri_products_weight' => $this->products_weight,
+            'chawri_products_categories' => $this->categories
 
 
         ];
@@ -600,8 +616,9 @@ public function singleProducts(){
             'chawri_products_rate' => $this->products_rate,
             'chawri_products_cenvat_amount' => $this->products_cenvat_amount,
             'chawri_products_weight' => $this->products_weight,
-            'chawri_sellers_id' => $this->sellers_id
-
+            'chawri_sellers_id' => $this->sellers_id,
+            
+            'chawri_products_categories' => $this->categories
 
 
         ];
@@ -672,7 +689,8 @@ die();
         'chawri_products_orders_products_cenvat_amount'=>        $products[0]['chawri_products_cenvat_amount'],
         'chawri_products_orders_products_reel_sheet'=>           $products[0]['chawri_products_reel_sheet'],
         'chawri_products_orders_products_weight'=>               $products[0]['chawri_products_weight'],
-        'chawri_products_orders_products_description'=>          $this->getDescription()
+        'chawri_products_orders_products_description'=>          $this->getDescription(),
+        'chawri_products_orders_categories' =>                   $products[0]['chawri_products_categories']
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;
@@ -742,4 +760,14 @@ return $this->db->where($where)->get('chawri_products_orders')->result_array();
 $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
 return $this->db->where('chawri_products_orders_status','cancelled')->get('chawri_products_orders')->result_array();
   }
+
+  public function showCategories(){
+
+    return $data=$this->db->get('chawri_categories')->result_array();
+/*
+    print_r($data);
+
+    die();*/
+}
+
 }

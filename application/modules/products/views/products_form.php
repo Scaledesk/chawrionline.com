@@ -25,7 +25,14 @@
 
             <header>Seller Add Product </header>
                 <div class="products">
-
+                   <div style="float: left" class="products_name"> <select  name="categories" class="input-text  required-entry">
+                                                                      <?php foreach ($categories as $value) {
+                                                                        
+                                                                       ?>
+                                                                        <option value="<?php echo $value['chawri_categories_id'];?>"> <?php echo $value['chawri_categories_name'];?></option>
+                                                                        <?php }?>
+                                                                    </select>
+                  </div>
                     <div style="float: left" class="products_name"> <input type="text" placeholder="Products Name" name="products_name[]"></div>
                     <div style="float: left"class="products_brand_name"> <input type="text" placeholder="Products Brand Name" name="products_brand_name[]"></div>
                     <div style="float: left"class="products_manufacturer"> <input type="text" placeholder="Manufacturer" name="products_manufacturer[]"></div>
@@ -58,7 +65,7 @@
                         rowNum++;
                         $("#count_form").innerHTML=rowNum;
                         var row = $("<div id='products-" + rowNum + "' class='products' />");
-
+                        var categories = $("<div id='products_name_"+rowNum+"' style='float: left' class='products_name'><select  name='categories[]' class='input-text  required-entry'><?php foreach ($categories as $value) {?><option value='<?php echo $value['chawri_categories_id'];?>'> <?php echo $value['chawri_categories_name'];?></option><?php }?></select></div>");
                         var products_name = $("<div id='products_name_"+rowNum+"' style='float: left' class='products_name'><input type='text'  placeholder='Products Name' name='products_name[]'></div>");
                         var products_brand_name = $("<div id='products_brand_name_"+rowNum+"' style='float: left' class='products_brand_name'><input type='text' placeholder='Products Brand Name' name='products_brand_name[]'></div>");
                         var products_manufacturer = $("<div id='products_manufacturer_"+rowNum+"' style='float: left'  class='products_manufacturer'><input type='text' placeholder='Manufacturer' name='products_manufacturer[]'></div>");
@@ -75,6 +82,7 @@
                         var products_cenvat_amount = $("<div id='products_cenvat_amount_"+rowNum+"'style='float: left' class='products_cenvat_amount'><input type='text' placeholder='Products CENVAT Amount'name='products_cenvat_amount[]'></div>");
 
                         $(".products").append(row);
+                        categories.appendTo(row);
                         products_name.appendTo(row);
                         products_brand_name.appendTo(row);
                         products_manufacturer.appendTo(row);

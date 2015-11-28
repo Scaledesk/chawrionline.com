@@ -11,22 +11,23 @@
                   <!-- ..................................counter point .......................................................... -->  
                      <div class="row">
                       <div class="col-md-24">
-                        <div class="col-md-8">
+                        <div class="col-md-8 counter-box">
 <!-- hitwebcounter Code START -->
 
-    <span><?php echo $counter['count'];?></span>
-<h3>No. of members</h3>
+<h3 class="counter-text">Members</h3>
+    <span class="counter"><?php echo $counter['count'];?></span>
                            </div> 
-                        <div class="col-md-8">
+                        <div class="col-md-8 counter-box">
                         <!-- hitwebcounter Code START -->
-                       <span> <?php echo $counter['products'];  ?></span>
-                         <h3>Quantity on Offer</h3>
+                         <h3 class="counter-text">Quantity on Offer</h3>
+                            <span class="counter"> <?php echo $counter['products'];  ?></span>
                          </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 counter-box">
                         <!-- hitwebcounter Code START -->
-                        <span>9834789</span>
-                     <h3> Total Revenue </h3>
-                            
+                     <h3 class="counter-text">Revenue </h3>
+                            <span class="counter">9834789</span>
+
+
                         </div>
                         </div>
                      </div>

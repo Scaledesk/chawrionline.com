@@ -37,6 +37,7 @@ class Sellers extends MX_Controller{
         }
     }
 
+
    public function home(){
    $data['counter']=$this->Mdl_users->getCounter();
     $this->load->view('users/header/header',$data);
@@ -46,12 +47,11 @@ class Sellers extends MX_Controller{
 
  public function homeSeller(){
   $data['counter']=$this->Mdl_users->getCounter();
+     $data['categories'] = $this->Mdl_users->getCategories();
     $this->load->view('users/header/header_seller',$data);
      $this->load->view('users/body');
      $this->load->view('users/header/footer');
    }
-
-
 public function showProducts(){
      if( $this->session->userdata['user_data'][0]['role']=='sellers'){
     $this->load->view('users/header/header_seller');
@@ -63,7 +63,6 @@ public function showProducts(){
 
        redirect('users/home'); 
     }
-
 }
 
     private function _register($data)

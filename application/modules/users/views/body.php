@@ -6,11 +6,8 @@
         getInformUser();
     }
     ?>
-
 <div class="em-wrapper-area01-02-03">
                     <div class="container">
-
-
                   <!-- ..................................counter point .......................................................... -->  
                      <div class="row">
                       <div class="col-md-24">
@@ -50,65 +47,19 @@
                                                 <div class="megamenu-wrapper wrapper-13_2552">
                                                     <div class="em_nav" id="toogle_menu_13_2552">
                                                         <ul class="vnav em-menu-icon effect-menu em-menu-long">
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-th-large">
-                                                     <a class="em-menu-link" href="#"> <span> Speciality Grades</span> </a>
+
+
+                                                            <?php
+
+                                                            foreach($categories as $row){
+                                                            ?>
+                                                            <li class="menu-item-link menu-item-depth-0">
+
+                                                            <a class="em-menu-link" href="<?php echo  base_url().'users/showCategoryProduct/'.$row->chawri_categories_id;?>"> <span><?php echo $row->chawri_categories_name; ?></span> </a>
                                                                 
                                                             </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-list-alt">
-                                                                <a class="em-menu-link" href="#"> <span> Packaging Boards Virgin Fibre </span> </a>
-                                                               
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-pencil-square-o">
-                                                                <a class="em-menu-link" href="#"> <span> Paper Writing Printing </span> </a>
-                                                                
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-clipboard">
-                                                                <a class="em-menu-link" href="#"> <span> Graphical paper & board </span> </a>
-                                                               
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-paper-plane">
-                                                                <a class="em-menu-link" href="#"> <span> Cup Stock Board </span> </a>
-                                                              
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-leaf hidden-sm ">
-                                                                <a class="em-menu-link" href="#"> <span> Food Grade Paper & Board </span> </a>
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tachometer hidden-sm ">
-                                                                <a class="em-menu-link" href="#"> <span> Soft Tissue </span> </a>
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-glass hidden-sm ">
-                                                                <a class="em-menu-link" href="#home-"> <span> Copier </span> </a>
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-university ">
-                                                                <a class="em-menu-link" href="#"> <span> Packaging Boards Recycled Grades</span> </a>
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-tree ">
-                                                                <a class="em-menu-link" href="#"> <span> Poster </span> </a>
-                                                            </li>
-                                                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
-                                                                <a class="em-menu-link" href="#"> <span> Glassine/Butter Paper </span> </a>
-                                                            </li>
-                                                            
-                                    <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
-                                                                <a class="em-menu-link" href="#"> <span> Thein Printing Paper </span> </a>
-                                                            </li>
-                                                            
-                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
-                                                                <a class="em-menu-link" href="#"> <span> Book Cover Grades </span> </a>
-                                                            </li>
-                                                            
-                                    <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
-                                                                <a class="em-menu-link" href="#"> <span> Stationary Paper </span> </a>
-                                                            </li>
-                                                            
-                                        <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
-                                                                <a class="em-menu-link" href="#"> <span> Kraft </span> </a>
-                                                            </li>
-                                                            
-                                        <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
-                                                                <a class="em-menu-link" href="#"> <span> Laminate Grades </span> </a>
-                                                            </li>
-                                                            
+
+                                                            <?php } ?>
                                                             
                                                         </ul><!-- /.vnav -->
                                                     </div>
@@ -253,13 +204,14 @@
   <li  class="list-group-item ">
     GSM
   </li>
-  <a href="#" class="list-group-item">Less than 30</a>
-  <a href="#" class="list-group-item">31 to 50</a>
-  <a href="#" class="list-group-item">51-100</a>
-  <a href="#" class="list-group-item">101-200</a>
-  <a href="#" class="list-group-item">201-300</a>
-  <a href="#" class="list-group-item">301-400</a>
-  <a href="#" class="list-group-item">Above 400</a>
+
+  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 1 . '/'. 30; ?>" class="list-group-item">Less than 30</a>
+  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 31 . '/'. 50; ?>" class="list-group-item">31 to 50</a>
+  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 51 . '/'. 100; ?>" class="list-group-item">51-100</a>
+  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 101 . '/'. 200; ?>" class="list-group-item">101-200</a>
+  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 201 . '/'. 300; ?>" class="list-group-item">201-300</a>
+  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 301 . '/'. 400; ?>" class="list-group-item">301-400</a>
+  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 401 . '/'. 500; ?>" class="list-group-item">Above 400</a>
 </div>      
                         
                     </div>

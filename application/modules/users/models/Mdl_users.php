@@ -314,6 +314,13 @@ public function chechUsers(){
 }
 
 
+    public function getCategories(){
+        return  $this->db->get('chawri_categories')->result();
+     /*   print_r($d);
+        die;*/
+    }
+
+
 
 
 

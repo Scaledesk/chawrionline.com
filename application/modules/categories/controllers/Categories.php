@@ -51,9 +51,17 @@ public function _insertCategories(){
 
      if($this->Mdl_categories->insertCategories()){
 
+
+        setInformUser('success','Added Categories  successfully');
+      
      	redirect('categories');
+
+
      }
-     else{  echo "error success";}
+
+     setInformUser('error','Added Categories Not successfully');
+      
+        redirect('categories');
 }
 
 

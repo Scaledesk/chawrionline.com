@@ -25,7 +25,7 @@
 
             <header>Seller Add Product </header>
                 <div class="products">
-                   <div style="float: left" class="products_name"> <select  name="categories" class="input-text  required-entry">
+                   <div style="float: left" class="products_name"> <select required name="categories" class="input-text  required-entry">
                                                                       <?php foreach ($categories as $value) {
                                                                         
                                                                        ?>

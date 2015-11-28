@@ -124,7 +124,7 @@
                                  ?>
                                  <br/>
                                  <br/>
-                                 <button title="Place" class="button" onclick="location.href='<?php echo base_url().'products/placeOrder/';?>';">Place Order </button>
+                                 <button title="Place" class="button" onclick="location.href='<?php echo base_url().'products/placeOrder/'.$seller[0]['chawri_sellers_id'];?>';">Place Order </button>
                               </div>
                           </div>
                       </div>

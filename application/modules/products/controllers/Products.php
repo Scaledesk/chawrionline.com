@@ -115,7 +115,7 @@ public function getProducts($id){
     }
 
 public function showUpdate($id){
-
+       $data['categories']=$this->Mdl_products->showCategories();
         $data['data']=$this->Mdl_products->showUpdate($id);
         $this->load->view('users/header/header_seller');
         $this->load->view('update',$data);
@@ -142,7 +142,8 @@ print_r($data);
             $data['products_quantity_on_offer'],
             $data['products_packing'],
             $data['products_rate'],
-            $data['products_cenvat_amount']
+            $data['products_cenvat_amount'],
+            $data['categories']
             );
 
 
@@ -330,9 +331,9 @@ else{
 public function showOrder(){
 if( $this->session->userdata['user_data'][0]['role']=='buyer'){
  $data['approvel']= $this->Mdl_products->approvel();
-$data['conform']= $this->Mdl_products->pending();
-$data['cancel']= $this->Mdl_products->cancel();
-
+ $data['conform']= $this->Mdl_products->pending();
+ $data['cancel']= $this->Mdl_products->cancel();
+ $data['completed']= $this->Mdl_products->completed();
         $this->load->view('users/header/header_buyer');
          $this->load->view('order_table',$data);
          $this->load->view('users/header/footer');
@@ -343,12 +344,32 @@ $data['cancel']= $this->Mdl_products->cancel();
     }
 
 }
-public function placeOrder(){
+public function placeOrder($id){
 
+  $data['sellers']=$this->Mdl_products->getSellers($id);
 
+ $email=$data['sellers'][0]['chawri_sellers_email'];
+/* echo $email;
+ die();*/
+/*print_r($sellers);  
+die();*/
+  //setInformUser('success',"Your order place successfully please check email. ");
+   // redirect('products/showOrder');
 
-  setInformUser('success',"Your order place successfully please check email. ");
-    redirect('products/showOrder');
+        
+        
+      /*  $query= $this->Mdl_users->getContactQuery();*/
+
+        $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->to($email);
+        /*$this->email->to($this->Mdl_users->getUserName());*/
+
+        $this->email->subject('Buy Product');
+       /* $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">'. $name.'<br/>'.$email.'<br/>'.$query.'</div>');*/
+        
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">'.$this->session->userdata['user_data'][0]['users_name']. '<br>'.$this->session->userdata['user_data'][0]['users_email'].'</div>');
+        return $this->email->send()?true:false;
+
         //
         // $data['approvel']= $this->Mdl_products->approvel();
         // $data['conform']= $this->Mdl_products->pending();
@@ -363,25 +384,26 @@ public function placeOrder(){
 public function orderApproved ($id){
 
 if($this->Mdl_products->orderApproved()){
-
-  redirect('');
+ 
 
 }
 else{
-    redirect('');
+   
 }
 
 }
 
 public function orderCancel($id){
 
-if($this->Mdl_products->orderCancel()){
+if($this->Mdl_products->orderCancel($id)){
 
-  redirect('');
+ setInformUser('success',"Product Cancel Successfully ");
+  redirect('products/showOrder');
 
 }
 else{
-    redirect('');
+   setInformUser('error',"Some error Occurred! Kindly retry ");
+    redirect('products/showOrder');
 }
 
 

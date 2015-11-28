@@ -18,6 +18,7 @@
   <table id="example" class="display " cellspacing="0" width="100%">
           <thead>
               <tr>
+              <th> Categories</th>
                 <th> Name</th>
                  <th>Buy Now</th>
                     <th>Brand Name</th>
@@ -48,6 +49,10 @@
                     <!-- <td>
                       <input type="checkbox" class="checkboxes" value="1">
                     </td> -->
+                     <td>
+                      <?php echo $rows['chawri_products_categories']; ?>
+                    </td>
+
                     <td>
                       <?php echo $rows['chawri_products_name']; ?>
                     </td>

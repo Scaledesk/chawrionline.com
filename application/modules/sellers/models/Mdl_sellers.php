@@ -570,7 +570,13 @@ public function chechSellers(){
              ];
 
 
-        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+        if ($this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)){
+            $data=$this->db->where('chawri_products_orders_id',$id)->get('chawri_products_orders')->result_array();
+            $d=$data[0]['chawri_products_orders_buyer_id'];
+           return $users=$this->db->where('chawri_users_id',$d)->get('chawri_users')->result_array();
+           
+        }
+        return false;
      }
 
 

@@ -246,9 +246,30 @@ public function manageOrder(){
  
 
 public function conform($id){
-    if($this->Mdl_sellers->conform($id)){
+
+    if($data['buyer']=$this->Mdl_sellers->conform($id)){
+
+       /* print_r($data['buyer']);*/
+         $name=$data['buyer'][0]['chawri_users_fname'];
+         $lname=$data['buyer'][0]['chawri_users_lname'];
+         $email=$data['buyer'][0]['chawri_users_username'];
+
+        $admin_mail='nkscoder@gmail.com';
+
+        $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->to($email);
+        /*$this->email->to($this->Mdl_users->getUserName());*/
+
+        $this->email->subject('Notifiction');
+        $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">Pay Amount'.$name .''.$lname.'</div>');
+      /*die();*/
+        if($this->email->send()){
                setInformUser('success','Products Successfully Conform .');
                 redirect(base_url().'sellers/manageOrder');
+            }else{
+                setInformUser('error','Some Error Occur  . Try Again');
+                redirect(base_url().'sellers/manageOrder');
+            }
     }
     else{
    setInformUser('error','Some Error Occur . Kindly try Again');

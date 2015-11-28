@@ -123,7 +123,9 @@
                         <li>
                             <a href="<?php echo base_url().'admin/showProducts';?>"><i class="fa fa-edit fa-fw"></i> Order Management</a>
                         </li>
-
+                          <li>
+                            <a href="<?php echo base_url().'categories';?>"><i class="fa fa-edit fa-fw"></i>Add Categories</a>
+                        </li>
 
 
 

@@ -15,6 +15,7 @@ class Users extends MX_Controller{
 
         $this->load->Model('Mdl_users');
         $this->load->Model('sellers/Mdl_sellers');
+        $this->load->library('upload');
     }
     /**
      * this is the index method the landing page for all operations
@@ -622,6 +623,36 @@ public function contactsBuyer(){
 
 }
 
+public function uploadReceipt(){
+ if( $this->session->userdata['user_data'][0]['role']=='buyer'){
+
+    if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
+        $config['upload_path'] = APPPATH.'modules/sellers/upload/';
+                $config['allowed_types'] = 'png|jpeg|gif|jpg|pdf';
+                $config['max_size'] = '2048000';
+                $attached=time().$_FILES['attached']['name'];
+                $config['upload_path'];
+
+                $_FILES['attached']['name']=$attached;
+
+                $this->upload->initialize($config);
+                $this->upload->do_upload('attached');
+               
+               echo 'dkljlkfjd';
+               die();
+            }
+            else{
+
+                $this->load->view('header/header_buyer');
+                $this->load->view('bank_details');
+                $this->load->view('header/footer');
+            }
+                 }
+    else{
+
+       redirect('users/home'); 
+    }
+}
 
 
 }

@@ -28,6 +28,8 @@
         <!-- Cloud Zoom CSS -->
         <!-- <link rel="stylesheet" type="text/css" href="css/em_cloudzoom.css" media="all" /> -->
 
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery-2.1.4.min.js"></script>
+
         <!-- Menu CSS -->
         <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\menu.css" media="all">
         <!-- Mega Menu CSS -->

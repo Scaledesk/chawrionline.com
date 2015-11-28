@@ -49,6 +49,7 @@
                         <th>Packing</th>
                         <th>Rate</th>
                         <th>CENVAT Amount</th>
+                         <th>Action</th>
                         
                         
                   </tr>
@@ -113,7 +114,9 @@
                         <td>
                           <?php echo $rows['chawri_products_orders_products_cenvat_amount']; ?>
                         </td>
-                        
+                         <td>
+                          <?php/* echo $rows['chawri_products_orders_products_cenvat_amount']; */?>
+                        </td>
                         <!--  <td>
                            <a href="<?php  echo base_url().'sellers/conform/'.$rows['chawri_products_orders_id'];;?>">Conform</a> /  <a href="<?php echo base_url().'sellers/cancel/'. $rows['chawri_products_orders_id'];;?>">Cancel </a>
                          </td> -->

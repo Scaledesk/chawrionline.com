@@ -15,11 +15,11 @@ class Users extends MX_Controller{
 
         $this->load->Model('Mdl_users');
         $this->load->Model('sellers/Mdl_sellers');
-<<<<<<< HEAD
+
         $this->load->library('upload');
-=======
+
         $this->load->Model('products/Mdl_products');
->>>>>>> 9d0bf2da7e054796635dc3af80fd091c42a3f90d
+
     }
     /**
      * this is the index method the landing page for all operations

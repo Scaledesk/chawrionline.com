@@ -15,7 +15,11 @@ class Users extends MX_Controller{
 
         $this->load->Model('Mdl_users');
         $this->load->Model('sellers/Mdl_sellers');
+<<<<<<< HEAD
         $this->load->library('upload');
+=======
+        $this->load->Model('products/Mdl_products');
+>>>>>>> 9d0bf2da7e054796635dc3af80fd091c42a3f90d
     }
     /**
      * this is the index method the landing page for all operations
@@ -82,7 +86,8 @@ public function home(){
                      redirect(base_url().'admin');       
                   }
                   else{
-                    $data['counter']=$this->Mdl_users->getCounter(); 
+                    $data['counter']=$this->Mdl_users->getCounter();
+                      $data['categories'] = $this->Mdl_users->getCategories();
                     $this->load->view('header/header');
                     $this->load->view('body',$data);
                     $this->load->view('header/footer');
@@ -92,7 +97,8 @@ public function home(){
       else{
    /*echo "string";
         die();*/
-        $data['counter']=$this->Mdl_users->getCounter(); 
+        $data['counter']=$this->Mdl_users->getCounter();
+          $data['categories'] = $this->Mdl_users->getCategories();
                     $this->load->view('header/header');
                     $this->load->view('body',$data);
                     $this->load->view('header/footer');
@@ -102,6 +108,7 @@ public function home(){
 
 public function buyerHome(){
        $data['counter']=$this->Mdl_users->getCounter();
+    $data['categories'] = $this->Mdl_users->getCategories();
             $this->load->view('header/header_buyer');
             $this->load->view('body',$data);
             $this->load->view('header/footer');
@@ -709,6 +716,29 @@ public function uploadReceipt($id=null){
        redirect('users/home');    } 
 
 }
+
+
+    public function showCategoryProduct($id)
+    {
+        $data['data']=$this->Mdl_products->showCategoryProducts($id);
+        $this->load->view('header/header');
+        $this->load->view('categoryTable',$data);
+        $this->load->view('header/footer');
+
+    }
+    public function searchProduct(){
+        $data['data']=$this->Mdl_products->searchProducts($this->input->post('searchText'));
+        $this->load->view('header/header');
+        $this->load->view('categoryTable',$data);
+        $this->load->view('header/footer');
+    }
+
+    public function searchProductByGSM($from, $to){
+        $data['data']=$this->Mdl_products->searchProductByGSM($from, $to);
+        $this->load->view('header/header');
+        $this->load->view('categoryTable',$data);
+        $this->load->view('header/footer');
+    }
 
 
 }

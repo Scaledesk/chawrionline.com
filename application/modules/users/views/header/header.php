@@ -354,11 +354,11 @@
                                             <div class="em-top-search">
                                                 <div class="em-search-style02">
                                                     <div class="em-no-category-search">
-                                                        <form id="search_mini_form" method="get">
+                                                        <form action="<?php  echo base_url().'users/searchProduct'; ?>" method="post">
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                    <input id="search" type="search" name="q" value="" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
+                                                                    <input id="search" type="search" name="searchText" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
                                                                     <div id="search_autocomplete" class="search-autocomplete"></div>
@@ -425,10 +425,10 @@
                                                     <div class="em-wrapper-js-search em-search-style01">
                                                         <div class="em-wrapper-search"> <a class="em-search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>
                                                             <div class="em-container-js-search" style="display: none;">
-                                                                <form id="search_mini_form_fixed_top" method="get">
+                                                                <form action="<?php  echo base_url().'users/searchProduct'; ?>" method="post">
                                                                     <div class="form-search">
                                                                         <label for="search">Search:</label>
-                                                                        <input id="search-fixed-top" type="search" name="q" value="" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
+                                                                        <input id="search-fixed-top" type="text"name="search" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
                                                                         <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                         </button>
                                                                         <div id="search_autocomplete_fixed_top" class="search-autocomplete"></div>

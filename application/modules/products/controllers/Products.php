@@ -106,7 +106,6 @@ public function getProducts($id){
         //$this->load->view('products_show',$data);
         $this->load->view('table',$data);
        $this->load->view('users/header/footer');
-
          }
     else{
 

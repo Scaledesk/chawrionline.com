@@ -791,9 +791,7 @@ return $this->db->where('chawri_products_orders_status','completed')->get('chawr
 
     public function orderCancel($id){
 
-/*echo $id;
-die();
-      */   $data = [
+  $data = [
             'chawri_products_orders_status' => 'cancelled'
              ];
 
@@ -810,4 +808,22 @@ die();
         return false;
      }*/
     //}
+
+    public function showCategoryProducts($id){
+        $this->db->where('chawri_products_categories',$id);
+        $data=$this->db->get('chawri_products')->result_array();
+        return $data;
+    }
+    public function searchProducts($searchText){
+        $data = $this->db->query("select * from chawri_products where chawri_products_name like '$searchText%' or chawri_products_brand_name like '$searchText%'")->result_array();
+        return $data;
+    }
+    public function searchProductByGSM($from, $to){
+        $data = $this->db->query("select * from chawri_products where chawri_products_thickness BETWEEN '$from' AND $to")->result_array();
+        return $data;
+    }
+
+
+
+
 }

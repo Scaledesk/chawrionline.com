@@ -77,6 +77,9 @@
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="5"></li>
   </ol>
 
   <!-- Wrapper for slides -->
@@ -99,6 +102,30 @@
         Chawri Online
       </div>
     </div>
+
+
+      <div class="item">
+          <img src="<?php echo  asset_url();?>images/slider5.jpg" alt="...">
+          <div class="carousel-caption">
+              Chawri Online
+          </div>
+      </div>
+      <div class="item">
+          <img src="<?php echo  asset_url();?>images/slider5.jpg" alt="...">
+          <div class="carousel-caption">
+              Chawri Online
+          </div>
+      </div>
+
+      <div class="item">
+          <img src="<?php echo  asset_url();?>images/chawri4.jpg" alt="...">
+          <div class="carousel-caption">
+              Chawri Online
+          </div>
+      </div>
+
+
+
   </div>
 
 
@@ -129,7 +156,68 @@
                                             <div class="em-banners-item">
                                                 <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_07.jpg" src="<?php echo  asset_url();?>images/brand/brand7.gif"> </a>
                                             </div>
-                                            
+
+
+
+
+
+
+
+
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_09.jpg" src="<?php echo  asset_url();?>images/brand/brand9.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_09.jpg" src="<?php echo  asset_url();?>images/brand/brand10.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_11.png" src="<?php echo  asset_url();?>images/brand/brand11.png"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_11.jpg" src="<?php echo  asset_url();?>images/brand/brand12.png"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_12.jpg" src="<?php echo  asset_url();?>images/brand/brand13.gif"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_13.jpg" src="<?php echo  asset_url();?>images/brand/brand14.gif"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_14.jpg" src="<?php echo  asset_url();?>images/brand/brand15.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_15.jpg" src="<?php echo  asset_url();?>images/brand/brand17.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_16.jpg" src="<?php echo  asset_url();?>images/brand/brand18.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_17.jpg" src="<?php echo  asset_url();?>images/brand/brand19.png"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_18.jpg" src="<?php echo  asset_url();?>images/brand/brand20.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_19.jpg" src="<?php echo  asset_url();?>images/brand/brand21.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_20.jpg" src="<?php echo  asset_url();?>images/brand/brand22.jpg"> </a>
+                                            </div>
+
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_21.jpg" src="<?php echo  asset_url();?>images/brand/brand23.jpg"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_22.jpg" src="<?php echo  asset_url();?>images/brand/brand24.gif"> </a>
+                                            </div>
+                                            <div class="em-banners-item">
+                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_23.jpg" src="<?php echo  asset_url();?>images/brand/brand26.png"> </a>
+                                            </div>
+
+
+
+
+
                                         </div><!-- /.em-slider -->
                                     </div>
                                 </div>

@@ -12,8 +12,7 @@
                                             </div>
                                             <?php echo form_open_multipart('users/uploadReceipt'); ?>
                                                 <div class="fieldset">
-                                                    <input type="hidden" name="success_url" value="">
-                                                    <input type="hidden" name="error_url" value="">
+                                                    
                                                     <h2 class="legend">Bank Datails</h2>
                                                     <ul class="form-list">
                                                         <li class="fields">
@@ -21,7 +20,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="attached" class="required"><em>*</em>Bank Details </label>
                                                                     <div class="input-box">
-                                                                        <input type="file" id="firstname"  required  name="attached" title="Bank Details" maxlength="255" class="input-text  required-entry">
+                                                                        <input type="file" id="attached"  required  name="attached" title="Bank Details" maxlength="255" class="input-text  required-entry">
                                                                     </div>
                                                                 </div>
 

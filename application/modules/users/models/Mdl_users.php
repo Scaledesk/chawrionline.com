@@ -22,6 +22,38 @@ class Mdl_users extends CI_Model
     private $lname;
     private $phone;
     private $contact_query;
+    private $file;
+    private $order_id;
+ /**
+     * @return mixed
+     */
+    public function getOrderId()
+    {
+        return $this->order_id;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setOrderId($order_id)
+    {
+        $this->order_id = $order_id;
+    }
+ /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
 
      /**
      * @return mixed
@@ -203,7 +235,7 @@ class Mdl_users extends CI_Model
             }
             case 'update':
 
-                $this->setFname(func_get_arg(1));
+                $this->setFname(func_get_arg(1)); 
                 $this->setLname(func_get_arg(2));
                 $this->setPhone(func_get_arg(3));
                 break;
@@ -215,7 +247,14 @@ class Mdl_users extends CI_Model
                 $this->setContactQuery(func_get_arg(3));
 
              break;
+         case 'bank_details':
 
+
+                $this->setFile(func_get_arg(1));
+                $this->setOrderId(func_get_arg(2));
+                
+
+             break;
             default:
                 break;
         }
@@ -656,7 +695,16 @@ public function chechUsers(){
 
     }
 
+    public function uploadReceipt(){
+         $data = [
+                    'chawri_products_orders_receipt_details' => $this->file,
+                    
+                   
 
+                ];
+                return $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id'] AND 'chawri_products_orders_id',$this->order_id)->update('chawri_products_orders',$data)?true:false;
+  
+    }
      public function getCounter(){
         $value=0;
       $this->db->from('chawri_users');

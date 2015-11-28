@@ -623,35 +623,91 @@ public function contactsBuyer(){
 
 }
 
-public function uploadReceipt(){
+public function uploadReceipt($id=null){
  if( $this->session->userdata['user_data'][0]['role']=='buyer'){
-
+ 
     if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
-        $config['upload_path'] = APPPATH.'modules/sellers/upload/';
+    
+        /*$config['upload_path'] = APPPATH.'modules/sellers/upload/';
                 $config['allowed_types'] = 'png|jpeg|gif|jpg|pdf';
                 $config['max_size'] = '2048000';
+
+                print_r($_FILES);
+                die;
                 $attached=time().$_FILES['attached']['name'];
                 $config['upload_path'];
-
-                $_FILES['attached']['name']=$attached;
+/*                echo 'dkljlkfjd';
+               die();
+*/
+                /*$_FILES['attached']['name']=$attached;
 
                 $this->upload->initialize($config);
-                $this->upload->do_upload('attached');
-               
-               echo 'dkljlkfjd';
-               die();
+                $this->upload->do_upload('attached');*/
+                $file=null;
+ $ci=CI::get_instance();
+    $config['upload_path']          = 'uploads/';
+    $config['allowed_types']        = 'gif|jpg|png|txt|pdf';
+    $config['max_size']             = 1000;
+    $config['max_width']            = 1920;
+    $config['max_height']           = 768;
+    $config['encrypt_name'] = TRUE;
+    //$ci->load->library('upload', $config);
+       /* echo "inside uploads";
+        print_r($config);*/
+        //die;
+        $this->upload->initialize($config);
+
+    if ( ! $ci->upload->do_upload('attached'))
+    {
+        $error = array('error' => $ci->upload->display_errors());
+        print_r($error);
+       /* die;*/
+
+        return null;
+    }
+    else
+    {
+        $data = array('upload_data' => $ci->upload->data());
+        $file=$data['upload_data']['file_name'];
+        $order_id=$this->input->post();
+
+        /*echo $order_id['order_id'];
+        die();*/
+           $this->Mdl_users->setData('bank_details',$file,$order_id);
+           if($this->Mdl_users->uploadReceipt()){
+             setInformUser('success','Receipt Upload Successfully');
+             redirect(base_url('users/home'));
+          } 
+          else{
+               setInformUser('error','Some error occurred. Try Again');
+               redirect(base_url('users/home'));
+          }
+          
+         /*echo $file;
+         echo "<pre/>";
+         echo $id;
+         print_r($_SESSION);
+         die();*/
+
+    }
+              /* print_r($file);*/
+               // echo 'dkljlkfjd';
+               /*die();*/
             }
             else{
-
+                //$_SESSION['abcd']=$id;
+/*                print_r($id);
+                die();*/
+                // echo "<br/>";
                 $this->load->view('header/header_buyer');
-                $this->load->view('bank_details');
+                $this->load->view('bank_details',['id' => $id]);
                 $this->load->view('header/footer');
             }
                  }
     else{
 
-       redirect('users/home'); 
-    }
+       redirect('users/home');    } 
+
 }
 
 

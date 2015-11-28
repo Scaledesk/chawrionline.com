@@ -35,6 +35,7 @@
               <thead>
                   <tr>
                     <th>Status</th>
+                     <th>Bank Detaila</th>
                      <th> Name</th>
                         <th>Brand Name</th>
                         <th>Manufacturer</th>
@@ -65,6 +66,9 @@
                       <tr>
                         <td>
                          <?php echo $rows['chawri_products_orders_status'];?>
+                        </td>
+                        <td>
+                       <?php if($rows['chawri_products_orders_status']=='admin_approvel_pending'){?> <a href="<?php echo base_url().'users/uploadReceipt/'.$rows['chawri_products_orders_id']; ?>">Receipt Upload</a><?php } ?> 
                         </td>
                         <td>
                           <?php echo $rows['chawri_products_orders_products_name']; ?>

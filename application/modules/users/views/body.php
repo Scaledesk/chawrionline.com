@@ -6,28 +6,30 @@
         getInformUser();
     }
     ?>
+
 <div class="em-wrapper-area01-02-03">
                     <div class="container">
+
+
                   <!-- ..................................counter point .......................................................... -->  
-                     <div class="row counter-row">
-                      <div class="col-md-24 counter-24">
-                        <div class="col-md-8 counter-box">
+                     <div class="row">
+                      <div class="col-md-24">
+                        <div class="col-md-8">
 <!-- hitwebcounter Code START -->
 
-<h3 class="counter-text">Members</h3>
-    <span class="counter"><?php echo $counter['count'];?></span>
+    <span><?php echo $counter['count'];?></span>
+<h3>No. of members</h3>
                            </div> 
-                        <div class="col-md-8 counter-box">
+                        <div class="col-md-8">
                         <!-- hitwebcounter Code START -->
-                         <h3 class="counter-text">Quantity on Offer</h3>
-                            <span class="counter"> <?php echo $counter['products'];  ?></span>
+                       <span> <?php echo $counter['products'];  ?></span>
+                         <h3>Quantity on Offer</h3>
                          </div>
-                        <div class="col-md-8 counter-box">
+                        <div class="col-md-8">
                         <!-- hitwebcounter Code START -->
-                     <h3 class="counter-text">Revenue </h3>
-                            <span class="counter">9834789</span>
-
-
+                        <span>9834789</span>
+                     <h3> Total Revenue </h3>
+                            
                         </div>
                         </div>
                      </div>
@@ -48,19 +50,65 @@
                                                 <div class="megamenu-wrapper wrapper-13_2552">
                                                     <div class="em_nav" id="toogle_menu_13_2552">
                                                         <ul class="vnav em-menu-icon effect-menu em-menu-long">
-
-
-                                                            <?php
-
-                                                            foreach($categories as $row){
-                                                            ?>
-                                                            <li class="menu-item-link menu-item-depth-0">
-
-                                                            <a class="em-menu-link" href="<?php echo  base_url().'users/showCategoryProduct/'.$row->chawri_categories_id;?>"> <span><?php echo $row->chawri_categories_name; ?></span> </a>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-th-large">
+                                                     <a class="em-menu-link" href="#"> <span> Speciality Grades</span> </a>
                                                                 
                                                             </li>
-
-                                                            <?php } ?>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-list-alt">
+                                                                <a class="em-menu-link" href="#"> <span> Packaging Boards Virgin Fibre </span> </a>
+                                                               
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-pencil-square-o">
+                                                                <a class="em-menu-link" href="#"> <span> Paper Writing Printing </span> </a>
+                                                                
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-clipboard">
+                                                                <a class="em-menu-link" href="#"> <span> Graphical paper & board </span> </a>
+                                                               
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-paper-plane">
+                                                                <a class="em-menu-link" href="#"> <span> Cup Stock Board </span> </a>
+                                                              
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-leaf hidden-sm ">
+                                                                <a class="em-menu-link" href="#"> <span> Food Grade Paper & Board </span> </a>
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tachometer hidden-sm ">
+                                                                <a class="em-menu-link" href="#"> <span> Soft Tissue </span> </a>
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-glass hidden-sm ">
+                                                                <a class="em-menu-link" href="#home-"> <span> Copier </span> </a>
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-university ">
+                                                                <a class="em-menu-link" href="#"> <span> Packaging Boards Recycled Grades</span> </a>
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-tree ">
+                                                                <a class="em-menu-link" href="#"> <span> Poster </span> </a>
+                                                            </li>
+                                                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
+                                                                <a class="em-menu-link" href="#"> <span> Glassine/Butter Paper </span> </a>
+                                                            </li>
+                                                            
+                                    <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
+                                                                <a class="em-menu-link" href="#"> <span> Thein Printing Paper </span> </a>
+                                                            </li>
+                                                            
+                            <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
+                                                                <a class="em-menu-link" href="#"> <span> Book Cover Grades </span> </a>
+                                                            </li>
+                                                            
+                                    <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
+                                                                <a class="em-menu-link" href="#"> <span> Stationary Paper </span> </a>
+                                                            </li>
+                                                            
+                                        <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
+                                                                <a class="em-menu-link" href="#"> <span> Kraft </span> </a>
+                                                            </li>
+                                                            
+                                        <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last ">
+                                                                <a class="em-menu-link" href="#"> <span> Laminate Grades </span> </a>
+                                                            </li>
+                                                            
                                                             
                                                         </ul><!-- /.vnav -->
                                                     </div>
@@ -78,9 +126,6 @@
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="5"></li>
   </ol>
 
   <!-- Wrapper for slides -->
@@ -103,30 +148,6 @@
         Chawri Online
       </div>
     </div>
-
-
-      <div class="item">
-          <img src="<?php echo  asset_url();?>images/slider5.jpg" alt="...">
-          <div class="carousel-caption">
-              Chawri Online
-          </div>
-      </div>
-      <div class="item">
-          <img src="<?php echo  asset_url();?>images/slider5.jpg" alt="...">
-          <div class="carousel-caption">
-              Chawri Online
-          </div>
-      </div>
-
-      <div class="item">
-          <img src="<?php echo  asset_url();?>images/chawri4.jpg" alt="...">
-          <div class="carousel-caption">
-              Chawri Online
-          </div>
-      </div>
-
-
-
   </div>
 
 
@@ -157,68 +178,7 @@
                                             <div class="em-banners-item">
                                                 <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_07.jpg" src="<?php echo  asset_url();?>images/brand/brand7.gif"> </a>
                                             </div>
-
-
-
-
-
-
-
-
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_09.jpg" src="<?php echo  asset_url();?>images/brand/brand9.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_09.jpg" src="<?php echo  asset_url();?>images/brand/brand10.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_11.png" src="<?php echo  asset_url();?>images/brand/brand11.png"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_11.jpg" src="<?php echo  asset_url();?>images/brand/brand12.png"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_12.jpg" src="<?php echo  asset_url();?>images/brand/brand13.gif"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_13.jpg" src="<?php echo  asset_url();?>images/brand/brand14.gif"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_14.jpg" src="<?php echo  asset_url();?>images/brand/brand15.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_15.jpg" src="<?php echo  asset_url();?>images/brand/brand17.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_16.jpg" src="<?php echo  asset_url();?>images/brand/brand18.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_17.jpg" src="<?php echo  asset_url();?>images/brand/brand19.png"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_18.jpg" src="<?php echo  asset_url();?>images/brand/brand20.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_19.jpg" src="<?php echo  asset_url();?>images/brand/brand21.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_20.jpg" src="<?php echo  asset_url();?>images/brand/brand22.jpg"> </a>
-                                            </div>
-
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_21.jpg" src="<?php echo  asset_url();?>images/brand/brand23.jpg"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_22.jpg" src="<?php echo  asset_url();?>images/brand/brand24.gif"> </a>
-                                            </div>
-                                            <div class="em-banners-item">
-                                                <a href="#"><img class="img-responsive" alt="<?php echo  asset_url();?>em_brand_23.jpg" src="<?php echo  asset_url();?>images/brand/brand26.png"> </a>
-                                            </div>
-
-
-
-
-
+                                            
                                         </div><!-- /.em-slider -->
                                     </div>
                                 </div>
@@ -293,14 +253,13 @@
   <li  class="list-group-item ">
     GSM
   </li>
-
-  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 1 . '/'. 30; ?>" class="list-group-item">Less than 30</a>
-  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 31 . '/'. 50; ?>" class="list-group-item">31 to 50</a>
-  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 51 . '/'. 100; ?>" class="list-group-item">51-100</a>
-  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 101 . '/'. 200; ?>" class="list-group-item">101-200</a>
-  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 201 . '/'. 300; ?>" class="list-group-item">201-300</a>
-  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 301 . '/'. 400; ?>" class="list-group-item">301-400</a>
-  <a href="<?php  echo base_url().'users/searchProductByGSM/'. 401 . '/'. 500; ?>" class="list-group-item">Above 400</a>
+  <a href="#" class="list-group-item">Less than 30</a>
+  <a href="#" class="list-group-item">31 to 50</a>
+  <a href="#" class="list-group-item">51-100</a>
+  <a href="#" class="list-group-item">101-200</a>
+  <a href="#" class="list-group-item">201-300</a>
+  <a href="#" class="list-group-item">301-400</a>
+  <a href="#" class="list-group-item">Above 400</a>
 </div>      
                         
                     </div>

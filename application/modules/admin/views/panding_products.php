@@ -44,7 +44,7 @@
                     <th>Buyer Name </th>
                     <th>Seller Name</th>
                     <th>order Date</th>
-                    
+                    <th>Bank Details</th>
                     <th>Status</th>
                      <th>commission</th>
                     <th>Action</th>
@@ -74,6 +74,10 @@
                    <td>
                       <?php echo $rows['chawri_products_orders_date']; ?>
                     </td>
+                     <td>
+                      <?php echo $rows['chawri_products_orders_receipt_details']; ?>
+                    </td>
+                    
                     <td>
                       <?php echo $rows['chawri_products_orders_status']; ?>
                     </td>

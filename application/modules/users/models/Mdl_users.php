@@ -248,12 +248,13 @@ class Mdl_users extends CI_Model
 
              break;
          case 'bank_details':
-
-
+              /* print_r(func_get_arg(2));
+              die();*/
                 $this->setFile(func_get_arg(1));
                 $this->setOrderId(func_get_arg(2));
-                
-
+                 
+                /* print_r();
+                 die();*/
              break;
             default:
                 break;
@@ -351,13 +352,6 @@ public function chechUsers(){
      return false;
 
 }
-
-
-    public function getCategories(){
-        return  $this->db->get('chawri_categories')->result();
-     /*   print_r($d);
-        die;*/
-    }
 
 
 
@@ -702,15 +696,22 @@ public function chechUsers(){
 
     }
 
-    public function uploadReceipt(){
+    public function uploadReceipt($order_id){
          $data = [
                     'chawri_products_orders_receipt_details' => $this->file,
                     
                    
 
                 ];
-                return $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id'] AND 'chawri_products_orders_id',$this->order_id)->update('chawri_products_orders',$data)?true:false;
+     /* //echo $this->file;
+      echo  $order_id;
+      
+     die();*/
+                $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+                $this->db->where('chawri_products_orders_id',$this->order_id);
+                $this->db->update('chawri_products_orders',$data)?true:false;
   
+         
     }
      public function getCounter(){
         $value=0;

@@ -9,8 +9,8 @@
 <div class="em-wrapper-area01-02-03">
                     <div class="container">
                   <!-- ..................................counter point .......................................................... -->  
-                     <div class="row">
-                      <div class="col-md-24">
+                     <div class="row counter-row">
+                      <div class="col-md-24 counter-24">
                         <div class="col-md-8 counter-box">
 <!-- hitwebcounter Code START -->
 

@@ -71,7 +71,17 @@
         <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css/style_marketdeal.css'>
         <!-- Market and Deal CSS -->
         <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css/marketdeal-style.css'>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        
+        
+        <!-- data table -->
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
+        <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        
+        
+       
 
     </head>
 
@@ -354,11 +364,11 @@
                                             <div class="em-top-search">
                                                 <div class="em-search-style02">
                                                     <div class="em-no-category-search">
-                                                        <form id="search_mini_form" method="get">
+                                                        <form action="<?php  echo base_url().'users/searchProduct'; ?>" method="post">
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                    <input id="search" type="search" name="q" value="" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
+                                                                    <input id="search" type="search" name="searchText" class="input-text required-entry" maxlength="128" placeholder="Search By :  Products / GSM / Size">
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
                                                                     <div id="search_autocomplete" class="search-autocomplete"></div>
@@ -402,7 +412,7 @@
 
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="#"> <span> Products </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/showAllProducts';?>"> <span> Products </span> </a>
 
                                                                     </li><!-- /.menu-item-link -->
 
@@ -425,10 +435,10 @@
                                                     <div class="em-wrapper-js-search em-search-style01">
                                                         <div class="em-wrapper-search"> <a class="em-search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>
                                                             <div class="em-container-js-search" style="display: none;">
-                                                                <form id="search_mini_form_fixed_top" method="get">
+                                                                <form action="<?php  echo base_url().'users/searchProduct'; ?>" method="post">
                                                                     <div class="form-search">
                                                                         <label for="search">Search:</label>
-                                                                        <input id="search-fixed-top" type="search" name="q" value="" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
+                                                                        <input id="search-fixed-top" type="text"name="search" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
                                                                         <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                         </button>
                                                                         <div id="search_autocomplete_fixed_top" class="search-autocomplete"></div>

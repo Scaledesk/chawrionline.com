@@ -70,6 +70,9 @@
                 <!-- <a class="navbar-brand" href="index.html">SB Admin v2.0</a> -->
             </div>
             <!-- /.navbar-header -->
+           <ul class="nav navbar-top-links navbar-left">
+               <li><a href="<?php echo base_url('users/home');?>"><h4>ChawriOnline.com - Admin Dashboard</h4></a></li>
+           </ul>
 
             <ul class="nav navbar-top-links navbar-right">
                  <li><?php if($this->session->userdata('user_data')!=''){ echo $this->session->userdata['user_data'][0]['users_name'];}?></li>
@@ -99,14 +102,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
+                            
                             <!-- /input-group -->
                         </li>
                         <li>

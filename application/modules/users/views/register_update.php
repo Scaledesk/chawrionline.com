@@ -54,7 +54,7 @@
                                                                 <div class="field name-lastname">
                                                                     <label for="phone" class="required"><em>*</em>Phone Number</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="phone" value="<?php echo $users_data[0]['chawri_users_phone']; ?>" required name="phone" title="Email" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" id="phone" value="<?php echo $users_data[0]['chawri_users_phone']; ?>" required name="phone" title="Email" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
 
@@ -74,7 +74,7 @@
                                                         <div class="field name-firstname">
                                                                     <label for="firstname" class="required"><em>*</em>Phone Number</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  required  name="" title="Phone Number" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" id="firstname"  required  name="" title="Phone Number" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                         <div class="field name-firstname">

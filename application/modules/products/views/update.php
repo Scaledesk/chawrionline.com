@@ -14,7 +14,7 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Add Products</h1>
+                                                <h1>Edit Product Information</h1>
                                             </div>
                                             <form  action="<?php echo base_url().'products/update/'.$data[0]['chawri_products_id'] ?>" method="post" id="form-validate" name"formproducts">
                                                 <div class="fieldset">
@@ -87,9 +87,9 @@
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-firstname">
-                                                                    <label for="products_substance" class="required"><em>*</em>Substance</label>
+                                                                    <label for="products_substance" class="required"><em>*</em>GSM</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname" value="<?php echo $data[0]['chawri_products_substance']; ?>" required  name="products_substance" title="Substance" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any" id="firstname" value="<?php echo $data[0]['chawri_products_substance']; ?>" required  name="products_substance" title="Substance" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -105,7 +105,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_thickness" class="required"><em>*</em>Bulk</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  value="<?php echo $data[0]['chawri_products_thickness']; ?>" required  name="products_thickness" title="Bulk" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any" id="firstname"  value="<?php echo $data[0]['chawri_products_thickness']; ?>" required  name="products_thickness" title="Bulk" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -119,7 +119,9 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_size" class="required"><em>*</em> Products Size</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname" value="<?php echo $data[0]['chawri_products_size']; ?>" required  name="products_size" title=" Products Size" maxlength="255" class="input-text required-entry">
+                                                                          <?php $str=explode("X",$data[0]['chawri_products_size']);  ?>
+                                                                        <input type="number"step="any" id="firstname" value="<?php echo $str[0]; ?>" required  name="products_size" title=" Products Size" maxlength="255" class="input-text required-entry"><span>X</span>
+                                                                        <input type="number"step="any"  id="firstname" value="<?php echo $str[1]; ?>" required  name="products_size_one" title=" Products Size" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -132,8 +134,18 @@
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-firstname">
                                                                     <label for="products_grain" class="required"><em>*</em>Grain</label>
-                                                                    <div class="input-box">
-                                                                        <input type="text" id="firstname" value="<?php echo $data[0]['chawri_products_grain']; ?>" required  name="products_grain" title="Grain" maxlength="255" class="input-text required-entry">
+                                                                    <div class="input-box"><?php $option= array('option1' => 'Long', 'option2'=>'Short',);
+
+                                                                    echo '<select name="products_grain">';
+                                                                          foreach ($option as $row)
+                                                                          {
+                                                                       echo '<option'.($data[0]['chawri_products_grain']==$row? ' selected' : '').'>'.$row.'</option>';
+                                                                       }
+                                                                       echo '</select>'; 
+
+                                                                    ?>
+                                                                      
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 
@@ -147,7 +159,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_sheets_per_packet" class="required"><em>*</em>Sheets per Packet</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  value="<?php echo $data[0]['chawri_products_sheets_per_packet']; ?>"  name="products_sheets_per_packet" title="Sheets per Packet" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any" id="firstname"  value="<?php echo $data[0]['chawri_products_sheets_per_packet']; ?>"  name="products_sheets_per_packet" title="Sheets per Packet" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -162,7 +174,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="packets_per_bundle" class="required"><em>*</em>Products Per Bundle</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  value="<?php echo $data[0]['chawri_products_packets_per_bundle']; ?>"  name="packets_per_bundle" title="Products Per Bundle" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any" id="firstname"  value="<?php echo $data[0]['chawri_products_packets_per_bundle']; ?>"  name="packets_per_bundle" title="Products Per Bundle" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -176,7 +188,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="packets_weight" class="required"><em>*</em>Pkt. Weight</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"    value="<?php echo $data[0]['chawri_products_weight']; ?>" name="products_weight" title="Pkt. Weight" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any" id="firstname"    value="<?php echo $data[0]['chawri_products_weight']; ?>" name="products_weight" title="Pkt. Weight" maxlength="10" step="any" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -190,7 +202,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_quantity_on_offer" class="required"><em>*</em>Quantity on Offer (in pkts)</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  value="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required  name="products_quantity_on_offer" title="Quantity on Offer (in pkts)" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any" id="firstname"  value="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required  name="products_quantity_on_offer" title="Quantity on Offer (in pkts)" maxlength="25" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -199,12 +211,24 @@
                                                         </li>
                                                        
 
-                                                        <li class="fields">
+                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-firstname">
                                                                     <label for="products_packing" class="required"><em>*</em>Products Packing</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname" value="<?php echo $data[0]['chawri_products_packing']; ?>" required  name="products_packing" title="Products Packing" maxlength="255" class="input-text required-entry">
+                                                                      
+                                                                         <?php $option1= array('Shrink' => 'Shrink', 'Gunny'=>'Gunny','Wrap'=>'Wrap','Pallet'=>'Pallet','Carton'=>'Carton','Other'=>'Other',);
+
+                                                                    echo '<select name="products_packing">';
+                                                                          foreach ($option1 as $row1)
+                                                                          {
+                                                                       echo '<option'.($data[0]['chawri_products_packing']==$row1? ' selected' : '').'>'.$row1.'</option>';
+                                                                       }
+                                                                       echo '</select>'; 
+
+                                                                    ?>
+                                                                      
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 
@@ -218,7 +242,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_rate" class="required"><em>*</em>Products Rate</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname" value="<?php echo $data[0]['chawri_products_rate']; ?>" required  name="products_rate" title="Products Rate" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any"  id="firstname" value="<?php echo $data[0]['chawri_products_rate']; ?>" required  name="products_rate" title="Products Rate" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -230,9 +254,9 @@
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-firstname">
-                                                                    <label for="products_cenvat_amount" class="required"><em>*</em> Products CENVAT Amount</label>
+                                                                    <label for="products_cenvat_amount" class="required"><em>*</em> Products Cenvat Amount</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  value="<?php echo $data[0]['chawri_products_cenvat_amount']; ?>" required  name="products_cenvat_amount" title=" Products CENVAT Amount" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number"step="any"  id="firstname"  value="<?php echo $data[0]['chawri_products_cenvat_amount']; ?>" required  name="products_cenvat_amount" title=" Products CENVAT Amount" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -265,4 +289,3 @@
                     </div>
                 </div>
 	
-

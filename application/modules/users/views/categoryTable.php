@@ -1,4 +1,3 @@
-
 <script>
     $(document).ready(function() {
         $('#example').DataTable();
@@ -9,11 +8,12 @@
     <table id="example" class="display " cellspacing="0" width="100%">
         <thead>
         <tr>
+        <th> Category</th>
             <th> Name</th>
             <th>Buy Now</th>
             <th>Brand Name</th>
             <th>Manufacturer</th>
-            <th>Substance</th>
+            <th>GSM</th>
             <th> Bulk</th>
             <th>Size(in s/m)</th>
 
@@ -39,6 +39,9 @@
                 <!-- <td>
                   <input type="checkbox" class="checkboxes" value="1">
                 </td> -->
+                <td>
+                    <?php echo $rows['chawri_categories_name']; ?>
+                </td>
                 <td>
                     <?php echo $rows['chawri_products_name']; ?>
                 </td>

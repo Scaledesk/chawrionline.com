@@ -23,12 +23,12 @@ return $query;
 
 
 
-public function approval($id,$commission){
+public function approval($id){
 
 
 
 
-  $data= array('chawri_products_orders_status' =>'admin_approvel_done','chawri_products_orders_commission'=>$commission );
+  $data= array('chawri_products_orders_status' =>'admin_approvel_done' );
   $this->db->WHERE('chawri_products_orders_id',$id);
   $this->db->update('chawri_products_orders',$data);
 
@@ -36,7 +36,7 @@ if($this->db->affected_rows()){
  return true;
 }
 else{
- return flase;
+ return false;
 }
 
 }
@@ -60,7 +60,7 @@ public function activateSeller($id){
 		return true;
 	}
 	else{
-		return flase;
+		return false;
 	}
 }
 
@@ -71,7 +71,7 @@ public function inActivateSeller($id){
 		return true;
 	}
 	else{
-		return flase;
+		return false;
 	}
 }
 
@@ -82,7 +82,7 @@ public function activateBuyer($id){
 		return true;
 	}
 	else{
-		return flase;
+		return false;
 	}
 }
 
@@ -93,10 +93,86 @@ public function inActivateBuyer($id){
 		return true;
 	}
 	else{
-		return flase;
+		return false;
 	}
 }
 
+public function approve (){
+       $this->db->where('chawri_products_orders_status','admin_approvel_done');
+    $this->db->from('chawri_products_orders');
+    $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
+   return $query = $this->db->get()->result_array();
+   
+     
+   }
+
+  public function cancel(){
+ 
+     $this->db->where('chawri_products_orders_status','cancelled');
+    $this->db->from('chawri_products_orders');
+    $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
+   return $query = $this->db->get()->result_array();
+   
+   
+  }
+  public function complete(){
+
+     $this->db->where('chawri_products_orders_status','Received');
+    $this->db->from('chawri_products_orders');
+    $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
+   return $query = $this->db->get()->result_array();
+
+
+   
+  }
+  
+  public function cancel_buyer(){
+
+     $this->db->where('chawri_products_orders_status','cancelled_by_buyer');
+    $this->db->from('chawri_products_orders');
+    $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
+   return $query = $this->db->get()->result_array();
+
+
+   
+  }
+   public function countSellers(){
+
+   	       $this->db->where('chawri_sellers_status=', 1);
+   	       $query = $this->db->get('chawri_sellers');
+   	      return $count  = $query->num_rows();
+       
+          
+   }
+    public function countBuyers(){
+
+   	       $this->db->where('chawri_users_status=', 1);
+   	       $query = $this->db->get('chawri_users');
+   	      return $count  = $query->num_rows();
+       
+          
+   }
+
+    public function countProducts(){
+
+   	        $this->db->where('chawri_products_orders_status=', 'admin_approvel_pending');
+   	       $query = $this->db->get('chawri_products_orders');
+   	      return $count  = $query->num_rows();
+       
+          
+   }
+
+    public function decline($id){
+      
+         $data = [
+            'chawri_products_orders_status' => 'cancelled'
+             ];
+
+
+        return  $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+        
+          
+     }
 }
 
 

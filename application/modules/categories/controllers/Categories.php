@@ -18,7 +18,7 @@ class Categories extends  MX_Controller
 
 public function index(){
 
-
+    if(islogin()){
 
 
 	 if( $this->session->userdata['user_data'][0]['role']=='admin'){
@@ -38,6 +38,12 @@ public function index(){
 
        redirect('users/home'); 
         }
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+        
 
 
 }
@@ -45,7 +51,7 @@ public function index(){
 
 
 public function _insertCategories(){
-
+if(islogin()){
 	 $data=$this->input->post();
      $this->Mdl_categories->setData('insert',$data['categories']);
 
@@ -58,18 +64,31 @@ public function _insertCategories(){
 
 
      }
+     else{
 
      setInformUser('error','Added Categories Not successfully');
       
         redirect('categories');
+        }
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
 
 
 public function getCategories()
 {
+if(islogin()){
 	$data['categories']=$this->Mdl_categories->getCategories();
 
 	/*print_r($data);*/
+	}
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 }

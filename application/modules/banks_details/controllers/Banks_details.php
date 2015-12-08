@@ -19,6 +19,7 @@ class Banks_details extends MX_Controller
 
     public function index()
     {
+    if(islogin()){
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
             $this->_insert($this->input->post());
 
@@ -28,11 +29,16 @@ class Banks_details extends MX_Controller
             $this->load->view('users/header/header');
             $this->load->view('index.php');
         }
+         }
+
+          else{
+            redirect(base_url('users/home'));
+          }
     }
 
     private function _insert($data)
     {
-
+       if(islogin()){
         $this->Mdl_banks_details->setData('insert',1 /*$this->session->userdata['user_data']['user_id']*/,$data['bank_name'], $data['ifsc_code'], $data['ac_no']
            );
 
@@ -41,5 +47,10 @@ class Banks_details extends MX_Controller
             setInformUser('success','your bank account details successful add.');
             redirect('sellers');
         }
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
     }
 }

@@ -13,12 +13,12 @@
                                                 <i class="fa fa-comments fa-5x"></i>
                                             </div>
                                             <div class="col-xs-9 text-right">
-                                                <div class="huge">26</div>
-                                                <div>New Comments!</div>
+                                                <div class="huge"><?php echo $countBuyers;?></div>
+                                                <div>Number of Buyers</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="#">
+                                    <a href="<?php echo base_url().'admin/buyers';?>">
                                         <div class="panel-footer">
                                             <span class="pull-left">View Details</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -35,12 +35,12 @@
                                                 <i class="fa fa-tasks fa-5x"></i>
                                             </div>
                                             <div class="col-xs-9 text-right">
-                                                <div class="huge">12</div>
-                                                <div>New Tasks!</div>
+                                                <div class="huge"><?php echo $countSellers;?></div>
+                                                <div>Number of Sellers</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="#">
+                                    <a href="<?php echo base_url().'admin/sellers';?>">
                                         <div class="panel-footer">
                                             <span class="pull-left">View Details</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -57,12 +57,12 @@
                                                 <i class="fa fa-shopping-cart fa-5x"></i>
                                             </div>
                                             <div class="col-xs-9 text-right">
-                                                <div class="huge">124</div>
-                                                <div>New Orders!</div>
+                                                <div class="huge"><?php echo $countProducts;?></div> 
+                                                <div>Pending Orders </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="#">
+                                    <a href="<?php echo base_url().'admin/showProducts';?>">
                                         <div class="panel-footer">
                                             <span class="pull-left">View Details</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

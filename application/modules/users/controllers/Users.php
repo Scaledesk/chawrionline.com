@@ -15,7 +15,11 @@ class Users extends MX_Controller{
 
         $this->load->Model('Mdl_users');
         $this->load->Model('sellers/Mdl_sellers');
+
         $this->load->library('upload');
+
+        $this->load->Model('products/Mdl_products');
+
     }
     /**
      * this is the index method the landing page for all operations
@@ -71,9 +75,7 @@ public function home(){
 
                 elseif ($this->session->userdata['user_data'][0]['users_email']=='admin@admin.com') {
 
-                                   $this->load->view('admin/header');
-                                   $this->load->view('admin/dashboard');
-                                   $this->load->view('admin/footer');
+                                    redirect(base_url('admin'));
                  }
                  elseif ($this->session->userdata['user_data'][0]['role']=='buyer') {
                          redirect(base_url().'users/buyerHome');       
@@ -82,7 +84,8 @@ public function home(){
                      redirect(base_url().'admin');       
                   }
                   else{
-                    $data['counter']=$this->Mdl_users->getCounter(); 
+                    $data['counter']=$this->Mdl_users->getCounter();
+                      $data['categories'] = $this->Mdl_users->getCategories();
                     $this->load->view('header/header');
                     $this->load->view('body',$data);
                     $this->load->view('header/footer');
@@ -92,7 +95,8 @@ public function home(){
       else{
    /*echo "string";
         die();*/
-        $data['counter']=$this->Mdl_users->getCounter(); 
+        $data['counter']=$this->Mdl_users->getCounter();
+          $data['categories'] = $this->Mdl_users->getCategories();
                     $this->load->view('header/header');
                     $this->load->view('body',$data);
                     $this->load->view('header/footer');
@@ -102,6 +106,7 @@ public function home(){
 
 public function buyerHome(){
        $data['counter']=$this->Mdl_users->getCounter();
+    $data['categories'] = $this->Mdl_users->getCategories();
             $this->load->view('header/header_buyer');
             $this->load->view('body',$data);
             $this->load->view('header/footer');
@@ -138,23 +143,19 @@ public function buyerHome(){
 
         $this->Mdl_sellers->setData('checkUser',$data['user_name_email'],$data['password']);
         $this->Mdl_users->setData('checkUser',$data['user_name_email'],$data['password']);
-      // echo isAccountActive();
+        
+
         if(isAccountActive()){
-           // echo $data['user_name_email'];
 
-            /* echo "login";
-                die();*/
           if($this->Mdl_users->checkUser()) {
-
+ 
                         $user_data['data'] = $this->Mdl_users->getUserData();
-
+//echo "1";
+ //die;
                         $this->_setSessionData('authorize', $user_data);
 
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
-                          $this->load->view('admin/header');
-                           //$this->load->view('admin/aside');
-                           $this->load->view('admin/dashboard');
-                           $this->load->view('admin/footer');
+                           redirect(base_url('admin'));
 
                       }
 
@@ -167,8 +168,8 @@ public function buyerHome(){
                        }
               elseif($this->Mdl_sellers->checkSellers()) {
 
-                           $user_data = $this->Mdl_sellers->getUserData();
-
+                          $user_data = $this->Mdl_sellers->getUserData();
+               
                          /* echo "Seller Login";
                            print_r($user_data);
                            die();*/
@@ -178,6 +179,7 @@ public function buyerHome(){
 
 
             else{
+         
                   //set flash message that his username and password do not match try again.
                         setInformUser('error', 'Your username and password do not match');
                         redirect('users');
@@ -186,6 +188,8 @@ public function buyerHome(){
 
 
         else{
+   //     echo "4"
+ //die;
             setInformUser('error','Your Account in not activated. Kindly verify your email to logon.');
            redirect('users');
         }
@@ -454,6 +458,7 @@ public function showForgetPwd(){
 
     }
     public function getUpdateUsers(){
+   if(islogin()){
        if( $this->session->userdata['user_data'][0]['role']=='buyer'){
         $data['users_data']=$this->Mdl_users->getUpdateUsers();
         $this->load->view('header/header_buyer');
@@ -465,8 +470,14 @@ public function showForgetPwd(){
 
        redirect('users/home'); 
     }
+     }
+
+          else{
+            redirect(base_url('users/home'));
+          }
     }
     public function update(){
+     if(islogin()){
      $data=$this->input->post();
         $this->Mdl_users->setData('update',$data['fname'],$data['lname'],$data['phone']);
 
@@ -481,7 +492,11 @@ public function showForgetPwd(){
                 setInformUser('error','Your Account not Successfully  Update . Kindly try Again' );
                 redirect(base_url().'users/getUpdateUsers');
         }
+}
 
+          else{
+            redirect(base_url('users/home'));
+          }
     }
 
 
@@ -489,7 +504,7 @@ public function showForgetPwd(){
         $data=$this->input->post();
 
         $todo=$data['todo'];
-         $this->Mdl_users->setData('contact',$data['name'],$data['email'],$data['query']);
+         $this->Mdl_users->setData('contact',$data['name'],$data['email'],$data['query'],$data['mobile']);
         if($this->Mdl_users->contact() AND $this->contactMail()){
             if($todo=='buyer'){
 
@@ -559,6 +574,7 @@ public function showForgetPwd(){
 
 
 public function contactsBuyer(){
+ if(islogin()){
  if( $this->session->userdata['user_data'][0]['role']=='buyer'){
     $this->load->view('header/header_buyer');
     $this->load->view('contact_buyers');
@@ -568,14 +584,25 @@ public function contactsBuyer(){
 
        redirect('users/home'); 
     }
+    }
+    else{
+
+       redirect('users/home'); 
+    }
   }
   public function contactsSelles(){
+   if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='sellers'){
 
     $this->load->view('header/header_seller');
     $this->load->view('contact_sellers');
     $this->load->view('header/footer');
      }
+    else{
+
+       redirect('users/home'); 
+    }
+    }
     else{
 
        redirect('users/home'); 
@@ -599,6 +626,7 @@ public function contactsBuyer(){
 
 
   public function aboutUsBuyer(){
+   if(islogin()){
  if( $this->session->userdata['user_data'][0]['role']=='buyer'){
       $this->load->view('header/header_buyer');
     $this->load->view('about_us');
@@ -608,8 +636,14 @@ public function contactsBuyer(){
 
        redirect('users/home'); 
     }
+    }
+    else{
+
+       redirect('users/home'); 
+    }
   }
   public function howItWorkBuyer(){
+   if(islogin()){
  if( $this->session->userdata['user_data'][0]['role']=='buyer'){
       $this->load->view('header/header_buyer');
     $this->load->view('how_it_work');
@@ -620,71 +654,53 @@ public function contactsBuyer(){
 
        redirect('users/home'); 
     }
+    }
+    else{
+
+       redirect('users/home'); 
+    }
 
 }
 
 public function uploadReceipt($id=null){
+ if(islogin()){
  if( $this->session->userdata['user_data'][0]['role']=='buyer'){
  
     if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
     
-        /*$config['upload_path'] = APPPATH.'modules/sellers/upload/';
-                $config['allowed_types'] = 'png|jpeg|gif|jpg|pdf';
-                $config['max_size'] = '2048000';
-
-                print_r($_FILES);
-                die;
-                $attached=time().$_FILES['attached']['name'];
-                $config['upload_path'];
-/*                echo 'dkljlkfjd';
-               die();
-*/
-                /*$_FILES['attached']['name']=$attached;
-
-                $this->upload->initialize($config);
-                $this->upload->do_upload('attached');*/
-                $file=null;
- $ci=CI::get_instance();
+        $ci=CI::get_instance();
     $config['upload_path']          = 'uploads/';
-    $config['allowed_types']        = 'gif|jpg|png|txt|pdf';
+    $config['allowed_types']        = 'gif|jpg|png|pdf';
     $config['max_size']             = 1000;
     $config['max_width']            = 1920;
     $config['max_height']           = 768;
     $config['encrypt_name'] = TRUE;
-    //$ci->load->library('upload', $config);
-       /* echo "inside uploads";
-        print_r($config);*/
-        //die;
+
         $this->upload->initialize($config);
 
     if ( ! $ci->upload->do_upload('attached'))
     {
         $error = array('error' => $ci->upload->display_errors());
-        print_r($error);
-       /* die;*/
-
-        return null;
+        setInformUser('error', $error['error'].' please upload gif, jpg, pdf formate only');
+        redirect('products/showOrder');
     }
     else
     {
+
         $data = array('upload_data' => $ci->upload->data());
         $file=$data['upload_data']['file_name'];
-         $order_id=$this->input->post();
-       
-        $id= $order_id['order_id'];
-      
-        
-           $this->Mdl_users->setData('bank_details',$file,$id);
-           if($this->Mdl_users->uploadReceipt( $id)){
-             setInformUser('success','Receipt Upload Successfully');
-             redirect(base_url('users/home'));
+        $order_id=$this->input->post('order_id');
+           $this->Mdl_users->setData('bank_details',$file,$order_id);
+           if($this->Mdl_users->uploadReceipt()){
+             setInformUser('success','Receipt Upload Successfully. Your order will be processed shortly.');
+             redirect(base_url('products/showOrder'));
           } 
           else{
                setInformUser('error','Some error occurred. Try Again');
-               redirect(base_url('users/home'));
+               redirect(base_url('products/showOrder'));
           }
           
-         /*echo $file;
+        /*echo $file;
          echo "<pre/>";
          echo $id;
          print_r($_SESSION);
@@ -708,8 +724,244 @@ public function uploadReceipt($id=null){
     else{
 
        redirect('users/home');    } 
+       }
+    else{
+
+       redirect('users/home'); 
+    }
 
 }
 
 
+    public function showCategoryProduct($id)
+    {
+        if($this->session->has_userdata('user_data')){
+            if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+
+                $data['data']=$this->Mdl_products->showCategoryProducts($id);
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable',$data);
+                $this->load->view('header/footer');
+            }
+            elseif ($this->session->userdata['user_data'][0]['role']=='buyer') {
+                $data['data']=$this->Mdl_products->showCategoryProducts($id);
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable',$data);
+                $this->load->view('header/footer');
+            }
+        }
+        else{
+
+            $data['data']=$this->Mdl_products->showCategoryProducts($id);
+            $this->load->view('header/header');
+            $this->load->view('categoryTable',$data);
+            $this->load->view('header/footer');
+        }
+
+
+    }
+    public function searchProduct(){
+        if($this->session->has_userdata('user_data')){
+            if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+
+                $data['data']=$this->Mdl_products->searchProducts($this->input->post('searchText'));
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable',$data);
+                $this->load->view('header/footer');
+            }
+            elseif ($this->session->userdata['user_data'][0]['role']=='buyer') {
+                $data['data']=$this->Mdl_products->searchProducts($this->input->post('searchText'));
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable',$data);
+                $this->load->view('header/footer');
+            }
+        }
+        else{
+
+            $data['data']=$this->Mdl_products->searchProducts($this->input->post('searchText'));
+            $this->load->view('header/header');
+            $this->load->view('categoryTable',$data);
+            $this->load->view('header/footer');
+        }
+
+    }
+
+   
+    public function searchProductByGSM($from, $to)
+    {
+        if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+
+                $data['data'] = $this->Mdl_products->searchProductByGSM($from, $to);
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByGSM($from, $to);
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByGSM($from, $to);
+            $this->load->view('header/header');
+            $this->load->view('categoryTable', $data);
+            $this->load->view('header/footer');
+        }
+    }
+    public function searchProductByGSMAbove($from)
+    {
+        if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+
+                $data['data'] = $this->Mdl_products->searchProductByGSMAbove($from);
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByGSMAbove($from);
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByGSMAbove($from);
+            $this->load->view('header/header');
+            $this->load->view('categoryTable', $data);
+            $this->load->view('header/footer');
+        }
+    }
+    public function showAllProducts(){
+        $data['data']=$this->Mdl_products->showProducts();
+        $this->load->view('header/header');
+        $this->load->view('products/table',$data);
+        $this->load->view('header/footer');
+    }
+    public function searchProductByGrain($grain)
+    {
+        if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+                $data['data'] = $this->Mdl_products->searchProductByGrain($grain);
+                $this->load->view('header/header_seller');
+                $this->load->view('products/table', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByGrain($grain);
+                $this->load->view('header/header_buyer');
+                $this->load->view('products/table', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByGrain($grain);
+            $this->load->view('header/header');
+            $this->load->view('products/table', $data);
+            $this->load->view('header/footer');
+        }
+    }
+    public function searchProductByAvailability($state)
+    {
+
+        if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+                $data['data'] = $this->Mdl_products->searchProductByAvailability($state);
+                $this->load->view('header/header_seller');
+                $this->load->view('products/table', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByAvailability($state);
+                $this->load->view('header/header_buyer');
+                $this->load->view('products/table', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByAvailability($state);
+            $this->load->view('header/header');
+            $this->load->view('products/table', $data);
+            $this->load->view('header/footer');
+        }
+    }
+    public function searchProductByPrice($from, $to)
+    {
+        if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+                $data['data'] = $this->Mdl_products->searchProductByPrice($from, $to);
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByPrice($from, $to);
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByPrice($from, $to);
+            $this->load->view('header/header');
+            $this->load->view('categoryTable', $data);
+            $this->load->view('header/footer');
+        }
+    }
+    public function searchProductByPriceAbove($from)
+    {
+        if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+                $data['data'] = $this->Mdl_products->searchProductByPriceAbove($from);
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByPriceAbove($from);
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByPriceAbove($from);
+            $this->load->view('header/header');
+            $this->load->view('categoryTable', $data);
+            $this->load->view('header/footer');
+        }
+    }
+
+ public function information(){
+
+   if(islogin()){
+    if(strtolower($_SERVER['REQUEST_METHOD'])=='post'){
+   $data=$this->input->post();
+   /*print_r($data);
+   die;*/
+   $this->Mdl_users->setData('information',$data['tin_no'],$data['pan_no'],$data['excise_no'],$data['services_tax_no'],$data['tan_no']);
+   if($this->Mdl_users->information())
+   {
+    setInformUser('success','your profile has been successfully updated.');
+    redirect(base_url('users/information')); 
+    
+   }
+   else{
+    setInformUser('error','Some error occurred.');
+    redirect(base_url('users/information')); 
+   }
+   }
+   else{
+     $this->load->view('header/header_buyer');
+      $this->load->view('profile');
+       $this->load->view('header/footer');
+   }
+
+
+   }
+
+    else{
+      redirect(base_url('users/home')); 
+    }
+ }
+
+public function updateInformation(){
+  $data['profile']=$this->Mdl_users->getInformation();
+   $this->load->view('header/header_buyer');
+      $this->load->view('profile_update',$data);
+       $this->load->view('header/footer');
 }
+
+}
+

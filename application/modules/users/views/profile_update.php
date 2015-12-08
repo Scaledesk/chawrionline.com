@@ -18,25 +18,25 @@
                                             <div class="page-title">
                                                 <h1>Update Profile</h1>
                                             </div>
-                                            <form action="<?php echo base_url().'sellers/profile';?>" method="post" id="form-validate">
+                                            <form action="<?php echo base_url().'users/information';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
-                                                    <h2 class="legend">Company Information <a href="<?php echo base_url().'sellers/getProfile'?>">Update Information</a></h2>
+                                                   
                                                     <ul class="form-list">
                                                         <li class="fields">      
                                                             <div class="customer-name-middlename">     
                                                                 <div class="field name-firstname">
                                                                     <label for="tin_no" class="required"><em>*</em>Tin Number</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="tin" onchange="numbersVal(this)"  required  name="tin_no" title="Tin Number" maxlength="11" class="input-text validate-email required-entry">
+                                                                        <input type="text" id="tin" onchange="numbersVal(this)"  required  name="tin_no" title="Tin Number" value="<?php echo $profile[0]['chawri_users_tin_no'];?>" maxlength="11" class="input-text validate-email required-entry">
                                                                     </div>
                                                                 </div>
                                                                
                                                                 <div class="field name-lastname">
                                                                     <label for="pan_no" class="required"><em>*</em>Pan Number</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="password" required name="pan_no" title="Pan Number" maxlength="10" class="input-text required-entry">
+                                                                        <input type="text" id="password" required name="pan_no" title="Pan Number" value="<?php echo $profile[0]['chawri_users_pan_no'];?>" maxlength="10" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -44,9 +44,9 @@
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-firstname">
-                                                                    <label for="excise_no" class="required"><em>*</em>Excise Number</label>
+                                                                    <label for="excise_no" class="required"><em>*</em>Excise Number</label> 
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  required  name="excise_no" title="Excise Number" maxlength="22" class="input-text required-entry">
+                                                                        <input type="text" id="firstname"  required  name="excise_no" title="Excise Number" value="<?php echo $profile[0]['chawri_users_excise_no'];?>"  maxlength="22" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -57,12 +57,10 @@
                                                                     <div class="input-box">
                        													
 
-                                                                         <input type="text" id="lastname"  name="services_tax_no" title="Services Tax Number" maxlength="15" class="input-text required-entry"> 
+                                                                         <input type="text" id="lastname"  name="services_tax_no" title="Services Tax Number" value="<?php echo $profile[0]['chawri_users_services_tax_no'];?>" maxlength="15" class="input-text required-entry"> 
                                                                     
                                                                     </div>
                                                                 </div>
-                                                             
-
                                                             </div>
                                                         </li>
                                                         <li class="fields"> 
@@ -70,16 +68,11 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="tan_no" class="required"><em>*</em>Tan Number</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  required  name="tan_no" title="Tan Number" maxlength="10" class="input-text required-entry">
+                                                                        <input type="text" id="firstname"  required  name="tan_no" value="<?php echo $profile[0]['chawri_users_tan_no'];?>" title="Tan Number" maxlength="10" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
-                                                                <div class="field name-firstname">
-                                                                    <label for="tan_no" class="required"><em>*</em>C Form Accept</label>
-                                                                    <div class="input-box">
-                                                                    <select class="input-text required-entry" required name="cform"><option>Yes</option><option>No</option></select>   
-                                                                    </div>
-                                                                </div>
+                                                                
                                                             </div>
                                                         </li>
                                                       
@@ -91,7 +84,7 @@
                                                     <div class="buttons-set">
                                                         
                                                         
-                                                        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span>
+                                                        <button type="submit" title="Submit" class="button"><span><span>Update</span></span>
                                                         </button>
                                                         <p class="required">* Required Fields</p>
                                                     </div>

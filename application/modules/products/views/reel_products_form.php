@@ -25,20 +25,40 @@
 
             <header>Seller Add Product </header>
                 <div class="products">
-
-                    <div style="float: left" class="products_name"> <input type="text" placeholder="Products Name" name="products_name[]"></div>
-                    <div style="float: left"class="products_brand_name"> <input type="text" placeholder="Products Brand Name" name="products_brand_name[]"></div>
-                    <div style="float: left"class="products_manufacturer"> <input type="text" placeholder="Manufacturer" name="products_manufacturer[]"></div>
+                              <div style="float: left" class="products_name"> <select required name="categories[]" class="input-text  required-entry">
+                                                                      <?php foreach ($categories as $value) {
+                                                                        
+                                                                       ?>
+                                                                        <option value="<?php echo $value['chawri_categories_id'];?>"> <?php echo $value['chawri_categories_name'];?></option>
+                                                                        <?php }?>
+                                                                    </select>
+                  </div>
+                    <div style="float: left" class="products_name"> <input type="text" placeholder="Products Name" name="products_name[]"class='input-text required-entry'></div>
+                    <div style="float: left"class="products_brand_name"> <input type="text" placeholder="Products Brand Name" name="products_brand_name[]"class='input-text required-entry'></div>
+                    <div style="float: left"class="products_manufacturer"> <input type="text" placeholder="Manufacturer" name="products_manufacturer[]"class='input-text required-entry'></div>
                    
-                    <div style="float: left"class="products_substance"> <input type="text" placeholder="Substance" name="products_substance[]"></div>
-                    <div style="float: left"class="products_size"> <input type="text" placeholder="Products Size" name="products_size[]"></div>
-                    <div style="float: left"class="products_thickness"> <input type="text" placeholder="Thickness" name="products_thickness[]"></div>
-                    <div style="float: left"class="products_grain"> <input type="text" placeholder=" Grain" name="products_grain[]"></div>
+                    <div style="float: left"class="products_substance"> <input type="number" t placeholder="GSM" name="products_substance[]"class='input-text required-entry'></div>
+                    <div style="float: left"class="products_size"> <input type="number" id="firstname"  required  name="products_size[]" title="  Size" maxlength="255" class=" input-text size-box1">
+                                                                        <span>X</span> <input type="number" step="any" id="firstname"  required  name="products_size_one[]" title="  Size" maxlength="255" class="input-text size-box2"></div>
+                    <div style="float: left"class="products_thickness"> <input type="number" step="any" placeholder="Bulk (mic)" name="products_thickness[]"class='input-text required-entry'></div>
+                    <div style="float: left"class="products_grain"> <select required  name="products_grain[]" placeholder="Grain"title="Grain" class="input-text required-entry" class=" input-text">
+                                                                       <option value=''>Grain</option> 
+                                                                        <option>Long</option>
+                                                                        <option>Short</option>
+                                                                    </select></div>
                     
-                    <div style="float: left"class="products_quantity_on_offer"> <input type="text" placeholder="Quantity on Offer (in pkts)" name="products_quantity_on_offer[]"></div>
-                    <div style="float: left"class="products_packing"> <input type="text" placeholder="Products Packing" name="products_packing[]"></div>
-                    <div style="float: left"class="products_rate"> <input type="text" placeholder="Products Rate" name="products_rate[]"></div>
-                    <div style="float: left"class="products_cenvat_amount"> <input type="text" placeholder="Products CENVAT Amount" name="products_cenvat_amount[]"></div>
+                    <div style="float: left"class="products_quantity_on_offer"> <input type="number" step="any"placeholder="Quantity on Offer (in pkts)" name="products_quantity_on_offer[]"class='input-text required-entry'></div>
+                    <div style="float: left"class="products_packing"> <select required  name="products_packing[]" title="Products Packing"  class="input-text required-entry">
+                                                                        <option value=''>Products Packing</option> 
+                                                                        <option> Shrink</option>
+                                                                        <option>Gunny</option>
+                                                                        <option>Wrap</option>
+                                                                        <option>Pallet</option>
+                                                                        <option>Carton</option>
+                                                                        <option>Other</option>
+                                                                      </select> </div>
+                    <div style="float: left"class="products_rate"> <input type="number" step="any"placeholder="Products Rate" name="products_rate[]"class='input-text required-entry'></div>
+                    <div style="float: left"class="products_cenvat_amount"> <input type="number" step="any" placeholder="Products CENVAT Amount" name="products_cenvat_amount[]"class='input-text required-entry'></div> </br> </br> </br><br>
 
                 </div>
 
@@ -56,20 +76,21 @@
                         rowNum++;
                         $("#count_form").innerHTML=rowNum;
                         var row = $("<div id='products-" + rowNum + "' class='products' />");
-
-                        var products_name = $("<div id='products_name_"+rowNum+"' style='float: left' class='products_name'><input type='text'  placeholder='Products Name' name='products_name[]'></div>");
-                        var products_brand_name = $("<div id='products_brand_name_"+rowNum+"' style='float: left' class='products_brand_name'><input type='text' placeholder='Products Brand Name' name='products_brand_name[]'></div>");
-                        var products_manufacturer = $("<div id='products_manufacturer_"+rowNum+"' style='float: left'  class='products_manufacturer'><input type='text' placeholder='Manufacturer' name='products_manufacturer[]'></div>");
-                        var products_substance = $("<div id='products_substance_"+rowNum+"'style='float: left' class='products_substance'><input type='text'  placeholder='Substance'name='products_substance[]'></div>");
-                        var products_size = $("<div id='products_size_"+rowNum+"'style='float: left' class='products_size'><input type='text' placeholder=' Products Size' name='products_size[]'></div>");
-                        var products_thickness = $("<div id='products_thickness_"+rowNum+"' style='float: left' class='products_thickness'><input type='text' placeholder='Thickness' name='products_thickness[]'></div>");
-                        var products_grain = $("<div id='products_grain_"+rowNum+"'style='float: left' class='products_grain'><input type='text' placeholder='Grain' name='products_grain[]'></div>");
-                        var products_quantity_on_offer = $("<div id='products_quantity_on_offer_"+rowNum+"'style='float: left'  class='products_quantity_on_offer'><input type='text'placeholder='Quantity on Offer (in pkts)' name='products_quantity_on_offer[]'></div>");
-                        var products_packing = $("<div id='products_packing_"+rowNum+"' style='float: left' class='products_packing'><input type='text' placeholder=' Products Packing'name='products_packing[]'></div>");
-                        var products_rate = $("<div id='products_rate_"+rowNum+"' style='float: left' class='products_rate'><input type='text' placeholder='Products Rate' name='products_rate[]'></div>");
-                        var products_cenvat_amount = $("<div id='products_cenvat_amount_"+rowNum+"'style='float: left' class='products_cenvat_amount'><input type='text' placeholder='Products CENVAT Amount'name='products_cenvat_amount[]'></div>");
+                        var categories = $("</br> </br> </br><div id='products_name_"+rowNum+"' style='float: left' class='products_name'><select required name='categories[]' class='input-text  required-entry'><?php foreach ($categories as $value) {?><option value='<?php echo $value['chawri_categories_id'];?>'> <?php echo $value['chawri_categories_name'];?></option><?php }?></select></div>");
+                        var products_name = $("<div id='products_name_"+rowNum+"' style='float: left' class='products_name'><input type='text'  placeholder='Products Name' name='products_name[]'class='input-text required-entry'></div>");
+                        var products_brand_name = $("<div id='products_brand_name_"+rowNum+"' style='float: left' class='products_brand_name'><input type='text'required placeholder='Products Brand Name' name='products_brand_name[]'class='input-text required-entry'></div>");
+                        var products_manufacturer = $("<div id='products_manufacturer_"+rowNum+"' style='float: left'  class='products_manufacturer'><input required type='text' placeholder='Manufacturer' name='products_manufacturer[]'class='input-text required-entry'></div>");
+                        var products_substance = $("<div id='products_substance_"+rowNum+"'style='float: left' class='products_substance'><input type='text' required  placeholder='GSM'name='products_substance[]'class='input-text required-entry'></div>");
+                        var products_size = $("<div id='products_size_"+rowNum+"'style='float: left' class='products_size'><input type='number' id='firstname'  required  name='products_size[]' title=' Size' maxlength='255' class='input-text size-box1'><span>X</span> <input type='number' id='firstname'  required  name='products_size_one[]' title='Size' maxlength='255' class='input-text size-box2'></div>");
+                        var products_thickness = $("<div id='products_thickness_"+rowNum+"' style='float: left' class='products_thickness'><input type='text' placeholder='Bulk (mic)' name='products_thickness[]'class='input-text required-entry'></div>");
+                        var products_grain = $("<div id='products_grain_"+rowNum+"'style='float: left' class='products_grain'> <select required  name='products_grain[]' title='Grain' class='input-text required-entry'><option value=''>Grain</option> <option>Long</option><option>Short</option></select></div>");
+                        var products_quantity_on_offer = $("<div id='products_quantity_on_offer_"+rowNum+"'style='float: left'  class='products_quantity_on_offer'><input type='text'placeholder='Quantity on Offer (in pkts)' name='products_quantity_on_offer[]'class='input-text required-entry'></div>");
+                        var products_packing = $("<div id='products_packing_"+rowNum+"' style='float: left' class='products_packing'><select required  name='products_packing[]' title='Products Packing' class='input-text required-entry'><option value=''> Products Packing</option><option> Shrink</option><option>Gunny</option><option>Wrap</option><option>Pallet</option><option>Carton</option><option>Other</option></select></div>");
+                        var products_rate = $("<div id='products_rate_"+rowNum+"' style='float: left' class='products_rate'><input type='text' placeholder='Products Rate' required name='products_rate[]' class='input-text required-entry'></div>");
+                        var products_cenvat_amount = $("<div id='products_cenvat_amount_"+rowNum+"'style='float: left' class='products_cenvat_amount'><input type='text' required placeholder='Products CENVAT Amount'name='products_cenvat_amount[]' class='input-text required-entry'></div></br> </br> </br><br>");
 
                         $(".products").append(row);
+                        categories.appendTo(row);
                         products_name.appendTo(row);
                         products_brand_name.appendTo(row);
                         products_manufacturer.appendTo(row);

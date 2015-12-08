@@ -30,7 +30,24 @@ class Mdl_products extends CI_Model
     private $extension;
     private $description;
     private $categories;
+    private $cform;
 
+
+ /**
+     * @return mixed
+     */
+    public function getCForm()
+    {
+        return $this->cform;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setCForm($cform)
+    {
+        $this->cform = $cform;
+    }
 
  /**
      * @return mixed
@@ -540,6 +557,7 @@ public function insertProductReel($data){
              $this->setProductsQuantityOnOffer(func_get_arg(1));
              $this->setDescription(func_get_arg(2));
              $this->setProductsId(func_get_arg(3));
+             $this->setCForm(func_get_arg(4));
 
           break;
 
@@ -552,7 +570,7 @@ public function insertProductReel($data){
 
     public function showProducts(){
 
-        $data=$this->db->get('chawri_products')->result_array();
+        $data=$this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id")->result_array();
         return $data;
     }
 
@@ -690,7 +708,8 @@ die();
         'chawri_products_orders_products_reel_sheet'=>           $products[0]['chawri_products_reel_sheet'],
         'chawri_products_orders_products_weight'=>               $products[0]['chawri_products_weight'],
         'chawri_products_orders_products_description'=>          $this->getDescription(),
-        'chawri_products_orders_categories' =>                   $products[0]['chawri_products_categories']
+        'chawri_products_orders_categories' =>                   $products[0]['chawri_products_categories'],
+        'chawri_products_orders_cform' =>                        $this->getCForm()
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;
@@ -729,7 +748,19 @@ $better_date = nice_date($input_date, 'Y-m-d');
         ];
 
         if($this->db->insert('chawri_extension',$data)){
+
+            $d=['chawri_products_orders_status'=>'extension_pending'];
+            $this->db->where('chawri_products_orders_id',$this->products_id);
+            $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);
+          if($this->db->update('chawri_products_orders',$d)){
+            /* echo $this->db->last_query();
+            die;*/
           return true;
+          } 
+          else{
+            return false;
+          } 
+          
         }
         else{
           return false;
@@ -741,33 +772,63 @@ $better_date = nice_date($input_date, 'Y-m-d');
 
 public function approvel() {
 
-$this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
-$where = "(chawri_products_orders_status='admin_approvel_pending' OR chawri_products_orders_status='admin_approvel_done')";
-return $this->db->where($where)->get('chawri_products_orders')->result_array();
+/*$this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+$where = "(chawri_products_orders_status='admin_approvel_pending' OR chawri_products_orders_status='admin_approvel_done' OR chawri_products_orders_status='Dispatched')";
+return $this->db->where($where)->get('chawri_products_orders')->result_array();*/
+
+$id = $this->session->userdata['user_data'][0]['users_id'];
+    return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_products_orders_buyer_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'admin_approvel_pending' OR chawri_products_orders.chawri_products_orders_status = 'admin_approvel_done')")->result_array();
 
 
 }
 
 
    public function pending (){
-        $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
-    return $this->db->where('chawri_products_orders_status','pending')->get('chawri_products_orders')->result_array();
-
+       /* $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+    return $this->db->where('chawri_products_orders_status','pending')->get('chawri_products_orders')->result_array();*/
+   /* 
+    $id = $this->session->userdata['user_data'][0]['users_id'];
+      $d= $this->db->query("select * from chawri_products_orders ,chawri_extension left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  on chawri_extension.chawri_products_orders_id=chawri_products_orders.chawri_products_orders_id where chawri_products_orders.chawri_products_orders_buyer_id ='$id' AND chawri_products_orders.chawri_products_orders_status = 'extension_padding'")->result_array();
+*/ $this->db->select ( '*' ); 
+    $this->db->from ( 'chawri_products_orders' );
+    $this->db->join ( 'chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories' , 'left' );
+    $this->db->join ( 'chawri_extension', 'chawri_extension.chawri_products_orders_id = chawri_products_orders.chawri_products_orders_id' , 'left' );
+    $this->db->where ( 'chawri_products_orders.chawri_products_orders_status', 'extension_pending');
+   return $query = $this->db->get ()->result_array();
+   
    }
 
   public function cancel(){
 
-$this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
-return $this->db->where('chawri_products_orders_status','cancelled')->get('chawri_products_orders')->result_array();
+/*$this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+return $this->db->where('chawri_products_orders_status','cancelled')->get('chawri_products_orders')->result_array();*/
+
+$id = $this->session->userdata['user_data'][0]['users_id'];
+      return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_products_orders_buyer_id ='$id' AND chawri_products_orders.chawri_products_orders_status = 'cancelled'")->result_array();
+  
+
   }
 
 
  public function completed(){
+// echo "<pre/>";
+/*$this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+// print_r($this->db->where('chawri_products_orders_status','Received')->get('chawri_products_orders')->result_array());
+// die;
+return $this->db->where('chawri_products_orders_status','Received')->get('chawri_products_orders')->result_array();*/
 
-$this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
-return $this->db->where('chawri_products_orders_status','completed')->get('chawri_products_orders')->result_array();
+
+$id = $this->session->userdata['user_data'][0]['users_id'];
+     return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_products_orders_buyer_id ='$id' AND chawri_products_orders.chawri_products_orders_status = 'Received'")->result_array();
+
+
+
+
   }
-
   public function showCategories(){
 
     return $data=$this->db->get('chawri_categories')->result_array();
@@ -792,7 +853,7 @@ return $this->db->where('chawri_products_orders_status','completed')->get('chawr
     public function orderCancel($id){
 
   $data = [
-            'chawri_products_orders_status' => 'cancelled'
+            'chawri_products_orders_status' => 'cancelled_by_buyer'
              ];
 
 
@@ -800,30 +861,164 @@ return $this->db->where('chawri_products_orders_status','completed')->get('chawr
      }
 
 
-       /*
-        if($this->db->affected_rows()){
-        return true;
+      public function orderApproved($id){
+
+  $data = [
+            'chawri_products_orders_status' => 'admin_approvel_pending'
+             ];
+
+
+        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
      }
-     else{
-        return false;
-     }*/
-    //}
 
     public function showCategoryProducts($id){
-        $this->db->where('chawri_products_categories',$id);
-        $data=$this->db->get('chawri_products')->result_array();
+       // $this->db->where('chawri_products_categories',$id);
+        $data=$this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_categories = '$id'")->result_array();
         return $data;
     }
     public function searchProducts($searchText){
-        $data = $this->db->query("select * from chawri_products where chawri_products_name like '$searchText%' or chawri_products_brand_name like '$searchText%'")->result_array();
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products_name like '$searchText%' or chawri_products_substance like '$searchText%' or chawri_products_size like '$searchText%'")->result_array();
         return $data;
     }
+    
+    
+    
     public function searchProductByGSM($from, $to){
-        $data = $this->db->query("select * from chawri_products where chawri_products_thickness BETWEEN '$from' AND $to")->result_array();
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_substance BETWEEN '$from' AND $to")->result_array();
+        return $data;
+    }
+
+    public function searchProductByGSMAbove($from){
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_substance >= '$from'")->result_array();
+        return $data;
+    }
+    public function searchProductByGrain($grain){
+        $data=$this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_grain = '$grain'")->result_array();
+        return $data;
+    }
+    public function searchProductByAvailability($state){
+        $data=$this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id
+ left join chawri_sellers on chawri_products.chawri_sellers_id = chawri_sellers.chawri_sellers_id  where chawri_sellers.chawri_sellers_state = '$state'")->result_array();
+        return $data;
+    }
+    public function searchProductByPrice($from, $to){
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_rate BETWEEN '$from' AND $to")->result_array();
+        return $data;
+    }
+
+    public function searchProductByPriceAbove($from){
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_rate >= '$from'")->result_array();
         return $data;
     }
 
 
 
 
+
+
+
+
+
+
+
+public function  received($id){
+
+  $data = [
+                    'chawri_products_orders_status' => 'Received'
+                    
+                   
+
+                ];
+    
+                $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+                $this->db->where('chawri_products_orders_id',$id);
+               return  $this->db->update('chawri_products_orders',$data)?true:false;
+  
+         
+ }
+
+
+public function productQtyUpdate($products_id,$qty,$bal){
+
+     $this->db->where('chawri_products_id',$products_id);
+     $data= $this->db->get('chawri_products')->result_array();
+    $quantity= $data[0]['chawri_products_quantity_on_offer'];
+    /*echo $quantity;
+    die;*/
+     $q=$quantity-$qty;
+      
+    $data = [
+                    'chawri_products_quantity_on_offer' => $q
+     
+
+                ];
+
+                $this->db->where('chawri_products_id',$products_id);
+                $this->db->update('chawri_products',$data);
+  
+
+        $order=[ 'chawri_products_orders_total_cost' =>$bal
+           ];
+
+               $this->db->where('chawri_products_orders_products_id',$products_id);
+               $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+               return $this->db->update('chawri_products_orders',$order)?true:false;
+}
+
+
+public function import($file){
+
+  $f_path ='uploads/';
+   $fopen=fopen($f_path.$file,"r");
+   if($fopen)
+   {
+      while(($A=fgetcsv($fopen))!==FALSE)
+      {
+
+         if($A[0]=='S. No.'){
+            continue;
+         }
+
+         $data = [
+            'chawri_products_name'=>$A[1],
+            'chawri_products_brand_name'=>$A[2],
+            'chawri_products_manufacturer'=>$A[3],
+            'chawri_products_substance'=>$A[4],
+            'chawri_products_size'=>$A[5],
+            'chawri_products_thickness'=>$A[6],
+            'chawri_products_grain'=>$A[7],
+            'chawri_products_sheets_per_packet'=>$A[8],
+            'chawri_products_packets_per_bundle'=>$A[9],
+            'chawri_products_quantity_on_offer'=>$A[10],
+            'chawri_products_packing'=>$A[11],
+            'chawri_products_rate'=>$A[12],
+            'chawri_products_cenvat_amount'=>$A[13],
+            'chawri_products_reel_sheet'=>$A[14],
+            'chawri_products_weight'=>$A[15],
+            'chawri_products_categories'=>$A[16],
+            'chawri_sellers_id' =>$this->session->userdata['user_data'][0]['users_id']
+         ];
+         $this->db->insert('chawri_products',$data);
+      }
+      return true;
+
+   }
+   else{
+      return false;
+   }
+
+}
+
+public function extension_buyer($id){
+
+
+     $data = [
+                    'chawri_products_orders_status' => 'extension_done'
+          ];
+    
+                $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+                $this->db->where('chawri_products_orders_id',$id);
+               return  $this->db->update('chawri_products_orders',$data)?true:false;
+  
+}
 }

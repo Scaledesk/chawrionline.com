@@ -1,4 +1,3 @@
-
 <?php
     $logout=$this->input->get('logout');
     if($logout){
@@ -17,21 +16,26 @@
   <table id="example" class="display "  cellspacing="0" width="100%">
           <thead>
               <tr>
-                 <th> Name</th>
+              
+                
+                 
+                   
+                    <th> Categories</th>
+                    <th> Name</th>
                     <th>Brand Name</th>
                     <th>Manufacturer</th>
-                    <th>Substance</th>
-                    <th> Bulk</th>
-                    <th>Size(in s/m)</th>
+                    <th>GSM</th>
+                    <th> Bulk (mic)</th>
+                    <th>Size(in cms)</th>
                     
                     <th>Grain</th>
-                    <th> Sheets Per Packet</th>
+                    <th> Sheets Per Pkt.</th>
                     <th> Pkt. Weight</th>
-                    <th>Packets Per Bundle</th>
+                    <th>Pkt Per Bdl</th>
                     <th>Qty. on Offer</th>
                     <th>Packing</th>
                     <th>Rate</th>
-                    <th>CENVAT Amount</th>
+                    <th>Cenvat Amount</th>
                     <th>Action</th>
               </tr>
           </thead>
@@ -66,6 +70,9 @@
                     <!-- <td>
                       <input type="checkbox" class="checkboxes" value="1">
                     </td> -->
+                    <td>
+                      <?php echo $rows['chawri_categories_name']; ?>
+                    </td>
                     <td>
                       <?php echo $rows['chawri_products_name']; ?>
                     </td>
@@ -116,7 +123,7 @@
                     </td>
                     
                      <td>
-                      <a href="<?php echo base_url().'products/showUpdate/'.$rows['chawri_products_id']?>"> Edit<a>/  <a href="<?php echo base_url().'products/delete/'.$rows['chawri_products_id']?>"> Delete</a>
+                      <a href="<?php echo base_url().'products/showUpdate/'.$rows['chawri_products_id']?>"> Edit<a>/  <a Onclick="ConfirmDelete()" href="<?php echo base_url().'products/delete/'.$rows['chawri_products_id']?>"> Delete</a>
                     </td>
 
                   </tr>
@@ -126,3 +133,13 @@
           </tbody>
       </table>
 </div>
+<script>  
+function ConfirmDelete()
+{
+  var x = confirm("Are you sure you want to delete?");
+  if (x)
+      return true;
+  else
+    return false;
+}
+</script>  

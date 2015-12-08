@@ -9,7 +9,7 @@
 class Mdl_sellers extends CI_Model
 {
 
-    private $sellers_id;
+     private $sellers_id;
     private $sellers_email;
     private $sellers_password;
     private $sellers_company_name;
@@ -27,8 +27,57 @@ class Mdl_sellers extends CI_Model
     private $sellers_pin_code;
     private $sellers_state;
     private $sellers_landline;
+    private $alternet_email;
+    private $decline ;
+     private $cform;
+
+
+ /**
+     * @return mixed
+     */
+    public function getCForm()
+    {
+        return $this->cform;
+    }
 
     /**
+     * @param mixed $products_id
+     */
+    public function setCForm($cform)
+    {
+        $this->cform = $cform;
+    }
+
+
+ /**
+     * @return mixed
+     */
+    public function getDecline()
+    {
+        return $this->decline;
+    }
+
+    /**
+     * @param mixed $sellers_pin_code
+     */
+    public function setDecline($decline)
+    {
+        $this->decline=$decline;
+    }    /**
+     * @return mixed
+     */
+    public function getAlternetEmail()
+    {
+        return $this->alternet_email;
+    }
+
+    /**
+     * @param mixed $sellers_pin_code
+     */
+    public function setAlternetEmail($alternet_email)
+    {
+        $this->alternet_email = $alternet_email;
+    } /**
      * @return mixed
      */
     public function getSellersPinCode()
@@ -329,6 +378,7 @@ class Mdl_sellers extends CI_Model
                 $this->setSellersPhone($this->security->xss_clean($this->sellers_phone));
                 $this->setSellersPinCode($this->security->xss_clean($this->sellers_pin_code));
                 $this->setSellersState($this->security->xss_clean($this->sellers_state));
+                $this->setSellersState($this->security->xss_clean($this->alternet_email));
                /* $this->setSellersExciseNo($this->security->xss_clean($this->sellers_excise_no));
                 $this->setSellersTinNo($this->security->xss_clean($this->sellers_tin_no));
                 $this->setSellersServicesTaxNo($this->security->xss_clean($this->sellers_services_tax_no));
@@ -381,7 +431,8 @@ public function chechSellers(){
             'chawri_sellers_landline' => $this->sellers_landline,
             'chawri_sellers_phone' => $this->sellers_phone,
             'chawri_sellers_state' => $this->sellers_state,
-            'chawri_sellers_pin_code' => $this->sellers_pin_code
+            'chawri_sellers_pin_code' => $this->sellers_pin_code,
+            'chawri_sellers_alternet_email' => $this->alternet_email
             /*'chawri_sellers_services_tax_no' => $this->sellers_services_tax_no,
             'chawri_sellers_tan_no' => $this->sellers_tan_no*/
 
@@ -406,7 +457,7 @@ public function chechSellers(){
                 $this->setSellersPinCode(func_get_arg(6));
                 $this->setSellersPhone(func_get_arg(7));
                 $this->setSellersLandline(func_get_arg(8));
-
+                 $this->setAlternetEmail(func_get_arg(9));
                 /*$this->setSellersServicesTaxNo(func_get_arg(9));
                 $this->setSellersTanNo(func_get_arg(10));
                 $data['address'],$data['state'],$data['pin'],$data['phone'],$data['landline']*/
@@ -425,12 +476,9 @@ public function chechSellers(){
                 $this->setSellersExciseNo(func_get_arg(4));
                 $this->setSellersServicesTaxNo(func_get_arg(5));
                 $this->setSellersTanNo(func_get_arg(6));
+                $this->setCForm(func_get_arg(7));
                 break;
             case "checkUser":
-                  /* echo "n";
-                   echo func_get_arg(2);
-                   echo "n";
-                   die();*/
                 $this->setSellersEmail(func_get_arg(1));
                 $this->setSellersPassword(func_get_arg(2));
                 break;
@@ -442,6 +490,11 @@ public function chechSellers(){
                 $this->setSellersPhone(func_get_arg(5));
                 $this->setSellersLandline(func_get_arg(6));
                 break;
+             case 'decline':
+                  $this->setSellersId(func_get_arg(1));
+                   $this->setDecline(func_get_arg(2));
+                  
+                  break;
             default:
                 break;
         }
@@ -491,7 +544,11 @@ public function chechSellers(){
 
       $query=$this->db->where(array('chawri_sellers_email'=>$this->getSellersEmail()))->select(array('chawri_sellers_password'))->get('chawri_sellers');
 
+  $q=$query->result();
+if(empty($q)){
 
+return false;
+}
 
       if( password_verify($this->getSellersPassword(), $query->result()[0]->chawri_sellers_password)){
 
@@ -514,7 +571,8 @@ public function chechSellers(){
 
             'chawri_sellers_tin_no' => $this->sellers_tin_no,
             'chawri_sellers_services_tax_no' => $this->sellers_services_tax_no,
-            'chawri_sellers_tan_no' => $this->sellers_tan_no
+            'chawri_sellers_tan_no' => $this->sellers_tan_no,
+             'chawri_sellers_cform' => $this->cform
 
 
         ];
@@ -535,7 +593,10 @@ public function chechSellers(){
 
  /*echo $this->session->userdata['user_data'][0]['users_id'];
  die();*/
-         $data=$this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products')->result_array();
+        $id = $this->session->userdata['user_data'][0]['users_id'];
+         //$data=$this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products')->result_array();
+          $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id
+ left join chawri_sellers on chawri_products.chawri_sellers_id = chawri_sellers.chawri_sellers_id  where chawri_sellers.chawri_sellers_id ='$id'")->result_array();
 
           return $data;
     }
@@ -581,33 +642,94 @@ public function chechSellers(){
 
 
      public function cancel($id){
+       /* echo $this->getDecline();
+         die();*/
          $data = [
             'chawri_products_orders_status' => 'cancelled'
              ];
 
 
-        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+         $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data);
+         /*echo $this->getDecline();
+         die();*/
+         $data_decline=[
+          'chawri_decline_sellers_id' =>$this->sellers_id,
+           'chawri_decline_products_id' => $id,
+            'chawri_decline_date' =>date('Y-m-d H:i:s'),
+             'chawri_decline_description' => $this->getDecline()
+         ];
+          return $this->db->insert('chawri_decline',$data_decline)?true:false;
      }
 
 
  public function getCancel(){
-            $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);
-        return $this->db->where('chawri_products_orders_status','cancelled')->get('chawri_products_orders')->result_array();
+     $id = $this->session->userdata['user_data'][0]['users_id'];
+            //$this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);
+     //'chawri_products_orders_status','cancelled'
+     //chawri_products_orders
+        return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_sellers_id ='$id' AND chawri_products_orders.chawri_products_orders_status = 'cancelled'")->result_array();
      }
       public function getPending(){
-        $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);
-        return $this->db->where('chawri_products_orders_status','pending')->get('chawri_products_orders')->result_array();
+        /*$this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);
+        return $this->db->where('chawri_products_orders_status','pending')->get('chawri_products_orders')->result_array();*/
+          $id = $this->session->userdata['user_data'][0]['users_id'];
+          return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_sellers_id ='$id' AND chawri_products_orders.chawri_products_orders_status = 'admin_approvel_done'")->result_array();
+
+
      }
+ public function getcompleted(){
+  $id = $this->session->userdata['user_data'][0]['users_id'];
+          return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_sellers_id ='$id' AND chawri_products_orders.chawri_products_orders_status = 'Received'")->result_array();
+
+ 
+ }    
      public function approvedProducts(){
-       $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);
-       $where = "(chawri_products_orders_status='admin_approvel_pending' OR chawri_products_orders_status='admin_approvel_done')";
-       //$this->db->where('chawri_products_orders_status','admin_approvel_pending');
-      return $this->db->where($where)->get('chawri_products_orders')->result_array();
+        $id = $this->session->userdata['user_data'][0]['users_id'];
+         return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_sellers_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'extension_done' OR chawri_products_orders.chawri_products_orders_status = 'extension_not')")->result_array();
+   
+      /*$id = $this->session->userdata['user_data'][0]['users_id'];
+         return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_sellers_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'extension_done' OR chawri_products_orders.chawri_products_orders_status = 'extension_done')")->result_array();
+   */
+        /* $id = $this->session->userdata['user_data'][0]['users_id'];
+       return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
+  where chawri_products_orders.chawri_sellers_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'admin_approvel_done')")->result_array();
+    */
 
-/*print_r($data);
-die();
-    return;
-*/
      }
 
+
+     public function dispatched($id){
+        $data = [
+            'chawri_products_orders_status' => 'Dispatched'
+             ];
+
+
+        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+
+     }
+
+public function extensionDone($id){
+$data = [
+            'chawri_products_orders_status' => 'extension_done'
+             ];
+
+
+        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+
+}
+
+public function extensionNot($id){
+$data = [
+            'chawri_products_orders_status' => 'extension_not'
+             ];
+
+
+        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+
+}
 }

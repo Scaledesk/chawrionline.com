@@ -18,6 +18,7 @@ class Products extends  MX_Controller
     }
 
     public function index(){
+       if(islogin()){
       if( $this->session->userdata['user_data'][0]['role']=='sellers'){
         if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
             $this->_insertProducts($this->input->post());
@@ -32,13 +33,18 @@ class Products extends  MX_Controller
          }
     else{
 
-       redirect('users/home'); 
+       redirect('users/home');
     }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
     }
     private function _insertProducts($data)
     {
-       /* echo "<pre/>";
-        print_r($this->input->post());*/
+    if(islogin()){
+       
         $post_data=$this->input->post();
         $data=array();
         for($i=0;$i<count($post_data['products_name']);$i++){
@@ -53,10 +59,11 @@ class Products extends  MX_Controller
                 'chawri_products_quantity_on_offer'=>$post_data['products_quantity_on_offer'][$i],
                 'chawri_products_rate'=>$post_data['products_rate'][$i],
                 'chawri_products_sheets_per_packet'=>$post_data['products_sheets_per_packet'][$i],
-                'chawri_products_size'=>$post_data['products_size'][$i],
+                'chawri_products_size'=>$post_data['products_size'][$i].'X'.$post_data['products_size_one'][$i],
                 'chawri_products_substance'=>$post_data['products_substance'][$i],
                 'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                 'chawri_products_weight'=>$post_data['products_weight'][$i],
+                'chawri_products_categories'=>$post_data['categories'][$i],
                 'chawri_products_reel_sheet'=>'s',
                 'chawri_sellers_id' =>$this->session->userdata['user_data'][0]['users_id']
             ]);
@@ -84,9 +91,21 @@ class Products extends  MX_Controller
             setInformUser('error',"Product's Information Not Added. Please Try Again. ");
            redirect('sellers/showProducts');
         }
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
     }
 
 public function getProducts($id){
+
+	if(!isset($_SESSION['user_data'])){
+	  setInformUser('success',"Please login first .");
+  	redirect('users');
+  	}
+  	else{
+
    if( $this->session->userdata['user_data'][0]['role']=='buyer'){
   $data['data']=$this->Mdl_products->getProducts($id);
   $this->load->view('users/header/header_buyer');
@@ -97,9 +116,13 @@ public function getProducts($id){
 
        redirect('users/home'); 
     }
+    }
+   
+    
 
 }
     public  function showProducts(){
+    if(islogin()){
  if( $this->session->userdata['user_data'][0]['role']=='buyer'){
         $data['data']=$this->Mdl_products->showProducts();
         $this->load->view('users/header/header_buyer');
@@ -113,27 +136,36 @@ public function getProducts($id){
     }
     }
 
+          else{
+            redirect(base_url('users/home'));
+          }
+    }
+
 public function showUpdate($id){
+      if(islogin()){
        $data['categories']=$this->Mdl_products->showCategories();
         $data['data']=$this->Mdl_products->showUpdate($id);
         $this->load->view('users/header/header_seller');
         $this->load->view('update',$data);
         $this->load->view('users/header/footer');
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
 public function update($id){
+    if(islogin()){
 $data=$this->input->post();
-/*echo "<pre/>";
-print_r($data);
-*/
-  // die();
+$size=$data['products_size'].'X'.$data['products_size_one'];
  $this->Mdl_products->setData('update',$this->session->userdata['user_data'][0]['users_id'],$id,
             $data['products_brand_name'],
             $data['products_name'],
             $data['products_manufacturer'],
             $data['products_substance'],
             $data['products_thickness'],
-            $data['products_size'],
+            $size,
             $data['products_grain'],
             $data['products_sheets_per_packet'],
             $data['packets_per_bundle'],
@@ -158,29 +190,44 @@ print_r($data);
            setInformUser('error',"Product's Information Not update. Please Try Again. ");
            redirect('sellers/showProducts');
         }
+         }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
 
 }
 
 
 public function productsAdd(){
-
+    if(islogin()){
      $this->load->view('users/header/header_seller');
       $this->load->view('register');
       $this->load->view('users/header/footer');
+       }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
 
 
 public function productsReel(){
-
+      if(islogin()){
      $this->load->view('users/header/header_seller');
       $this->load->view('add_products');
       $this->load->view('users/header/footer');
+       }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
 public function showForm(){
-
+       if(islogin()){
      $post_data=$this->input->post();
     //echo $post_data['reel'];
 
@@ -197,17 +244,20 @@ public function showForm(){
          $this->load->view('reel_products_form',$data);
          $this->load->view('users/header/footer');
      }
+     }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
 }
 
   public function productReel(){
 
-
+ if(islogin()){
 
       $post_data=$this->input->post();
-    /*  echo "<pre/>";
-      print_r($post_data);
-     die();*/
+   
                     $data_set=array();
                     /*echo count($post_data['products_name']);
                     die();*/
@@ -224,7 +274,7 @@ public function showForm(){
                             'chawri_products_quantity_on_offer'=>$post_data['products_quantity_on_offer'][$i],
                             'chawri_products_rate'=>$post_data['products_rate'][$i],
 
-                            'chawri_products_size'=>$post_data['products_size'][$i],
+                            'chawri_products_size'=>$post_data['products_size'][$i].'X'.$post_data['products_size_one'][$i],
                             'chawri_products_substance'=>$post_data['products_substance'][$i],
                             'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                             'chawri_products_categories'=>$post_data['categories'][$i],
@@ -246,18 +296,24 @@ public function showForm(){
              setInformUser('error',"Product's Information Not Added. Please Try Again. ");
            redirect('sellers/showProducts');
         }
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
   }
 
 
 public function singleProducts(){
-
+ if(islogin()){
  $data=$this->input->post();
+ $size=$data['products_size_one'].'X'.$data['products_size'];
 /* print_r($data);
 die();*/
         $this->Mdl_products->setData('insert',$this->session->userdata['user_data'][0]['users_id'],$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
             $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
             $data['products_quantity_on_offer'],$data['products_rate'],
-            $data['products_sheets_per_packet'],$data['products_size'],$data['packets_weight'],$data['products_substance'],$data['products_thickness'],$data['categories']);
+            $data['products_sheets_per_packet'],$size,$data['packets_weight'],$data['products_substance'],$data['products_thickness'],$data['categories']);
 
 
         if($this->Mdl_products->singleProducts($data)){
@@ -271,12 +327,17 @@ die();*/
             setInformUser('error',"Product's Information Not Added. Please Try Again. ");
               redirect('sellers/showProducts');
         }
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
 }
 
 
 public function delete($id){
-
+if(islogin()){
    if($this->Mdl_products->delete($id)){
 
        setInformUser('success',' Products Deleted successfully');
@@ -286,17 +347,27 @@ public function delete($id){
      setInformUser('error','Products Delete not successfully');
       redirect('sellers/showProducts');
    }
+   }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
 
 
 public function buyNow($id){
-
+if(islogin()){
 $data=$this->input->post();
-$this->Mdl_products->setData('buy',$data['qty'],$data['description'],$id);
+/*print_r($data);
+die;*/
+$this->Mdl_products->setData('buy',$data['qty'],$data['description'],$id,$data['cform']);
   if($this->Mdl_products->buyNow()){
         $data['order'] = $this->Mdl_products->getOrderDetails();
         $data['seller'] = $this->Mdl_products->getSellersDetails($id);
+        $data['cform']=$this->Mdl_products->getCForm();
+/*        print_r($data['cform']);
+        die;*/
          $this->load->view('users/header/header_buyer');
          $this->load->view('payment',$data);
          $this->load->view('users/header/footer');
@@ -308,26 +379,36 @@ $this->Mdl_products->setData('buy',$data['qty'],$data['description'],$id);
     setInformUser('error',"Some error Occurred! Kindly retry ");
   }
 
-
 }
 
-public function extenstion($id){
+          else{
+            redirect(base_url('users/home'));
+          }
+}
 
+public function extension($id){
+if(islogin()){
  $data=$this->input->post();
 
 
   $this->Mdl_products->setData('extension',$data['extension'],$data['date'],$id);
   if( $this->Mdl_products->extension()){
          setInformUser('success',"Extension inserted Successfully. ");
-         redirect(base_url().'sellers/manageProducts');
+         redirect(base_url().'sellers/manageOrder'); 
   }
 else{
         setInformUser('error',"Some error Occurred! Kindly retry ");
-        redirect(base_url().'sellers/manageProducts');
+        redirect(base_url().'sellers/manageOrder');
 }
 }
 
+          else{
+            redirect(base_url('users/home'));
+          }
+}
+
 public function showOrder(){
+if(islogin()){
 if( $this->session->userdata['user_data'][0]['role']=='buyer'){
  $data['approvel']= $this->Mdl_products->approvel();
  $data['conform']= $this->Mdl_products->pending();
@@ -341,59 +422,79 @@ if( $this->session->userdata['user_data'][0]['role']=='buyer'){
 
        redirect('users/home'); 
     }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
 }
-public function placeOrder($id){
-
+public function placeOrder($id,$products_id,$qty,$bal){
+if(islogin()){
   $data['sellers']=$this->Mdl_products->getSellers($id);
 
  $email=$data['sellers'][0]['chawri_sellers_email'];
-/* echo $email;
- die();*/
-/*print_r($sellers);  
-die();*/
-  //setInformUser('success',"Your order place successfully please check email. ");
-   // redirect('products/showOrder');
 
-        
-        
-      /*  $query= $this->Mdl_users->getContactQuery();*/
+$this->Mdl_products->productQtyUpdate($products_id,$qty,$bal);
 
         $this->email->from('nkscoder@gmail.com', 'Chawri');
         $this->email->to($email);
-        /*$this->email->to($this->Mdl_users->getUserName());*/
-
+       
         $this->email->subject('Buy Product');
-       /* $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">'. $name.'<br/>'.$email.'<br/>'.$query.'</div>');*/
-        
+       
          $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">'.$this->session->userdata['user_data'][0]['users_name']. '<br>'.$this->session->userdata['user_data'][0]['users_email'].'</div>');
-        return $this->email->send()?true:false;
+        if($this->email->send()){
+         setInformUser('success'," Order Place Successfully.  Please check your Email.    Admin Approval Pending.");
+          redirect('products/showOrder'); 
+        }
+      else{
+        setInformUser('error',"Some error Occurred! Kindly retry ");
+    redirect('products/showOrder');
+      }
+      }
 
-        //
-        // $data['approvel']= $this->Mdl_products->approvel();
-        // $data['conform']= $this->Mdl_products->pending();
-        // $data['cancel']= $this->Mdl_products->cancel();
-        //  $this->load->view('users/header/header_buyer');
-        //   $this->load->view('order_table',$data);
-        //   $this->load->view('users/header/footer');
+          else{
+            redirect(base_url('users/home'));
+          }  
 
 }
-
 
 public function orderApproved ($id){
-
-if($this->Mdl_products->orderApproved()){
- 
-
+if(islogin()){
+if($this->Mdl_products->orderApproved($id)){
+ setInformUser('success',"Product buy  Successfully ");
+    redirect('products/showOrder');
 }
 else{
-   
+   setInformUser('success',"Product Received Successfully ");
+    redirect('products/showOrder');
+}
 }
 
+          else{
+            redirect(base_url('users/home'));
+          }
+}
+
+public function received($id){
+if(islogin()){
+  if($this->Mdl_products->received($id)){
+     setInformUser('success',"Product Received Successfully ");
+    redirect('products/showOrder');
+
+  }else{
+    setInformUser('error',"Some error Occurred! Kindly retry ");
+    redirect('products/showOrder');
+  }
+  }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
 public function orderCancel($id){
-
+if(islogin()){
 if($this->Mdl_products->orderCancel($id)){
 
  setInformUser('success',"Product Cancel Successfully ");
@@ -404,57 +505,92 @@ else{
    setInformUser('error',"Some error Occurred! Kindly retry ");
     redirect('products/showOrder');
 }
+}
 
+          else{
+            redirect(base_url('users/home'));
+          }
 
 }
 
-  /*public function productsXml(){
+ public function uploadExcel(){
+ if(islogin()){
+  
+        $this->load->view('users/header/header_seller');
+        $this->load->view('excel');
+        $this->load->view('users/header/footer');
+ 
+   }
 
-    $excelfile=$this->input->post();
+          else{
+            redirect(base_url('users/home'));
+          }
+}
+public function import(){
+     if(islogin()){
+        if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
+            $ci=CI::get_instance();
+            $config['upload_path']          = 'uploads/';
+            $config['allowed_types']        = 'csv|xls';
+            $config['max_size']             = 1000;
+            $config['encrypt_name'] = TRUE;
+            $this->upload->initialize($config);
+            // print_r($_FILES['name']);
 
-		$this->load->libraries('reader.php');
-		//include 'reader.php';
-    	$excel = new Spreadsheet_Excel_Reader();
-   die();
-    $excel->read('upload/sample.xls');
-    $x=2;
-    while($x<=$excel->sheets[0]['numRows']) {
 
-        $products_name = isset($excel->sheets[0]['cells'][$x][1]) ? $excel->sheets[0]['cells'][$x][1] : '';
-        $products_brand_name = isset($excel->sheets[0]['cells'][$x][2]) ? $excel->sheets[0]['cells'][$x][2] : '';
-        $products_manufacturer = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_substance = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_thickness = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_size = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_grain = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_sheets_per_packet = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $packets_per_bundle = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_weight = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_quantity_on_offer = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_packing = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_rate = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
-        $products_cenvat_amount = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+            if ( ! $ci->upload->do_upload('name'))
+            {
+                $error = array('error' => $ci->upload->display_errors());
+                setInformUser('error', $error['error'].' please import csv or xls file formate only');
+                redirect('products');
+            }
+            else
+            {
+                $data = array('upload_data' => $ci->upload->data());
+                $file=$data['upload_data']['file_name'];
+                if($this->Mdl_products->import($file)){
 
-        // Save details
-        $sql_insert="INSERT INTO users_details (id,name,job,email) VALUES ('','$name','$job','$email')";
-        $result_insert = mysql_query($sql_insert) or die(mysql_error());
+                    //after succesfully uploaded code goes here
+                     setInformUser('success',' Import Products has been Successfully ');
+                     redirect('products');
+                    //die;
 
-        $x++;
-    }
+                }
+              }
 
-        if($result_insert){
-
-            echo "Successful Insert";
         }
         else {
-            echo "Some error occur";
-        }
+               redirect('users/home');
+            }
+   
+ }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+
     }
-}
-}
-}
-}
+
+
+public function extension_buyer($id){
+if(islogin()){
+if ($this->Mdl_products->extension_buyer($id)) {
+
+                setInformUser('success','Extension Successfully added .');
+                redirect(base_url('products/showOrder'));
+
+}else{
+        setInformUser('error','Some Error Occur.  Please Try Again');
+        redirect(base_url('products/showOrder'));
+
 }
 
-*/
+
+
+}else{
+   redirect(base_url('users/home'));
+}
+
+
+}
 }

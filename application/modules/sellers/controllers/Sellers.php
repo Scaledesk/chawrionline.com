@@ -23,11 +23,14 @@ class Sellers extends MX_Controller{
 
 
 
-        if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
+      if($this->session->has_userdata('user_data')){
+
+        redirect(base_url('users/home'));
+    }
+    else{
+
+         if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
             $this->_register($this->input->post());
-
-
-
         }
         else{
             $data['state']=$this->showStates();
@@ -35,24 +38,40 @@ class Sellers extends MX_Controller{
             $this->load->view('register',$data);
             $this->load->view('users/header/footer');
         }
+    
+    }
+    
     }
 
 
    public function home(){
+   if(islogin()){
    $data['counter']=$this->Mdl_users->getCounter();
     $this->load->view('users/header/header',$data);
      $this->load->view('users/body',$data);
      $this->load->view('users/header/footer');
+     }
+
+          else{
+            redirect(base_url('users/home'));
+          }
    }
 
  public function homeSeller(){
+ if(islogin()){
   $data['counter']=$this->Mdl_users->getCounter();
      $data['categories'] = $this->Mdl_users->getCategories();
     $this->load->view('users/header/header_seller',$data);
      $this->load->view('users/body');
      $this->load->view('users/header/footer');
+     }
+
+          else{
+            redirect(base_url('users/home'));
+          }
    }
 public function showProducts(){
+if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='sellers'){
     $this->load->view('users/header/header_seller');
     $data['data']=$this->Mdl_sellers->showProducts();
@@ -63,13 +82,18 @@ public function showProducts(){
 
        redirect('users/home'); 
     }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
     private function _register($data)
     {
-        $this->Mdl_sellers->setData('register',$data['user_name_email'],$data['password'],$data['company_name'],
-            $data['address'],$data['state'],$data['pin'],$data['phone'],$data['landline']
-           );
+    
+       $this->Mdl_sellers->setData('register',$data['user_name_email'],$data['password'],$data['company_name'],
+            $data['address'],$data['state'],$data['pin'],$data['phone'],$data['landline'],$data['alternet_email']);
 
          if($data['password']==$data['confirm_password']){
 
@@ -81,7 +105,7 @@ public function showProducts(){
          if($this->Mdl_sellers->registration('registration')){
 
             if($this->sendMail()){
-                echo $this->Mdl_sellers->insertToken();
+                 $this->Mdl_sellers->insertToken();
                  setInformUser('error','your account successfully created and send activation link on Email');
                   redirect('sellers');
                 
@@ -96,6 +120,7 @@ public function showProducts(){
           setInformUser('error','Password not match. Kindly try same password');
          redirect('sellers');
     }
+   
     }
 
     public  function sendMail()
@@ -110,6 +135,7 @@ public function showProducts(){
                            <a href="'.base_url().'sellers/verifyEmail?tqwertyuiasdfghjzxcvbn=' . $token . '">Click here</a>');
         $this->Mdl_sellers->setData('token',$token);
         return $this->email->send()?true:false;
+       
     }
     public function verifyEmail(){
 
@@ -131,9 +157,10 @@ public function showProducts(){
     }
 
     public function profile(){
+    if(islogin()){
         $data = $this->input->post();
         $this->Mdl_sellers->setData('profile',$this->session->userdata['user_data'][0]['users_id'],$data['tin_no'],$data['pan_no'],$data['excise_no'],
-            $data['services_tax_no'],$data['tan_no']
+            $data['services_tax_no'],$data['tan_no'],$data['cform']
         );
 
 
@@ -151,9 +178,15 @@ public function showProducts(){
                setInformUser('error','Your Account not Successfully  Update . Kindly try Again' );
                 redirect(base_url().'sellers/showProfile');
         }
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
     }
     public function showProfile(){
+    if(islogin()){
          if( $this->session->userdata['user_data'][0]['role']=='sellers'){
         $this->load->view('users/header/header_seller');
         $this->load->view('profile');
@@ -165,6 +198,11 @@ public function showProducts(){
     }
     }
 
+          else{
+            redirect(base_url('users/home'));
+          }
+    }
+
      public function showStates(){
 
        $data= $this->Mdl_sellers->getState();
@@ -174,14 +212,20 @@ public function showProducts(){
 
 
     public function getProfile(){
-         
+          if(islogin()){
         $data['profile_data']=$this->Mdl_sellers->getProfile();
         $this->load->view('users/header/header_seller'); 
         $this->load->view('register_update',$data);
         $this->load->view('users/header/footer');
+        }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
     }
     public function updateGetProfile(){
+    if(islogin()){
         $data=$this->input->post();
 
          $this->Mdl_sellers->setData('register_update',$data['company_name'],
@@ -197,10 +241,16 @@ public function showProducts(){
          setInformUser('error','Your Account not successfully Update. Kindly try Again');
                 redirect(base_url().'sellers/getProfile');
          }
+          }
+
+          else{
+            redirect(base_url('users/home'));
+          }
     }
 
 
     public function aboutUsSellers(){
+      if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='sellers'){
       $this->load->view('users/header/header_seller');
     $this->load->view('users/about_us');
@@ -210,9 +260,16 @@ public function showProducts(){
 
        redirect('users/home'); 
     }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+          
 
   }
   public function howItWorkSellers(){
+    if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='sellers'){
       $this->load->view('users/header/header_seller');
     $this->load->view('users/how_it_work');
@@ -222,13 +279,20 @@ public function showProducts(){
 
        redirect('users/home'); 
     }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
   }
 
 public function manageOrder(){
+  if(islogin()){
  if( $this->session->userdata['user_data'][0]['role']=='sellers'){
     $data['cancel']=$this->Mdl_sellers->getCancel(); 
     $data['conform']=$this->Mdl_sellers->getPending(); 
+    $data['completed']=$this->Mdl_sellers->getcompleted(); 
     $data['products']=$this->Mdl_sellers->approvedProducts(); 
     $this->load->view('users/header/header_seller');
     $this->load->view('approvedProducts',$data); 
@@ -238,14 +302,18 @@ public function manageOrder(){
 
        redirect('users/home'); 
     }
+}
 
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
 
  
 
 public function conform($id){
-
+  if(islogin()){
     if($data['buyer']=$this->Mdl_sellers->conform($id)){
 
        /* print_r($data['buyer']);*/
@@ -275,18 +343,61 @@ public function conform($id){
                 redirect(base_url().'sellers/manageOrder');
 
     }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 }
 
-public function cancel($id){
-    if($this->Mdl_sellers->cancel($id)){
-               setInformUser('success','Products Successfully Cancelled .');
-                redirect(base_url().'sellers/manageOrder');
+
+
+
+
+public function dispatched($id){
+  if(islogin()){
+     if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+    if($this->Mdl_sellers->dispatched($id)){
+         setInformUser('success','Dispatched Successfully');
+        redirect('sellers/manageOrder');
     }
     else{
-   setInformUser('error','Some Error Occur . Kindly try Again');
+         setInformUser('error','Some Error Occur.  Please Try Again');
+        redirect('sellers/manageOrder');
+    }
+     }
+    else{
+
+       redirect('users/home'); 
+    }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+}
+ 
+public function extensionNot($id){
+if(islogin()){
+if ($this->Mdl_sellers->extensionNot($id)) {
+                setInformUser('success','Order move to on going Tabe .');
                 redirect(base_url().'sellers/manageOrder');
 
-    }
+}else{
+        setInformUser('error','Some Error Occur.  Please Try Again');
+        redirect('sellers/manageOrder');
+
 }
+
+
+
+}else{
+   redirect(base_url('users/home'));
+}
+
+
+}
+
+
 
 }

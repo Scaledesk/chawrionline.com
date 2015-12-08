@@ -22,28 +22,46 @@ class Admin extends MX_Controller{
      */
     public function index(){
 
-
+           if(islogin()){
+            if( $this->session->userdata['user_data'][0]['role']=='admin'){
+             
           if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
 
           }
             else{
              /* $data['counter']=$this->Mdl_users->getCounter();*/
+              $data['countSellers']=$this->Mdl_admin->countSellers();
+                  $data['countBuyers']=$this->Mdl_admin->countBuyers();
+                   $data['countProducts']=$this->Mdl_admin->countProducts();
              $this->load->view('header');
-             $this->load->view('dashboard');
+             $this->load->view('dashboard',$data);
              $this->load->view('footer');
 
             }
+          }
+          else{
+            redirect(base_url('users/home'));
+          }
+          }
+
+          else{
+            redirect(base_url('users/home'));
+          }
 
   }
 
 
   public function showProducts(){
+      if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='admin'){
-    $data['panding_products']=$this->Mdl_admin->showProducts();
+      $data['cancel']=$this->Mdl_admin->cancel();
+      $data['complete']=$this->Mdl_admin->complete(); 
+      $data['approve']=$this->Mdl_admin->approve(); 
+      $data['cancel_buyer']=$this->Mdl_admin->cancel_buyer(); 
+      /*print_r($data['cancel_buyer']);
+      die;*/
+      $data['panding_products']=$this->Mdl_admin->showProducts();
 
- /* echo "<pre/>";
-    print_r($data['panding_products']);
-die();*/
              $this->load->view('header');
              $this->load->view('panding_products',$data);
              $this->load->view('footer');
@@ -53,18 +71,22 @@ die();*/
 
        redirect('users/home'); 
     }
+    }
+     else{
+            redirect(base_url('users/home'));
+          }
   }
 
   public function approval($id){
 
+ if(islogin()){
 
-$commission=$this->input->post();
 
 /*print_r($commission);*/
 
 
 
-    if($this->Mdl_admin->approval($id,$commission['commission'])){
+    if($this->Mdl_admin->approval($id)){
 
 
       setInformUser('success','Products Approved  successfully');
@@ -76,25 +98,36 @@ $commission=$this->input->post();
           setInformUser('error','Products  not Approved  successfully');
           redirect('admin/showProducts');
     }
-
-
+   }
+else{
+            redirect(base_url('users/home'));
+          }
   }
 
 public function home(){
+ if(islogin()){
             /* $data['counter']=$this->Mdl_users->getCounter();*/
               if( $this->session->userdata['user_data'][0]['role']=='admin'){
+               $data['countSellers']=$this->Mdl_admin->countSellers();
+                  $data['countBuyers']=$this->Mdl_admin->countBuyers();
+                   $data['countProducts']=$this->Mdl_admin->countProducts();
              $this->load->view('header');
-             $this->load->view('dashboard');
+             $this->load->view('dashboard',$data);
              $this->load->view('footer');
               }
     else{
 
        redirect('users/home'); 
     }
+    }
+else{
+            redirect(base_url('users/home'));
+          }
 }
 
 
   public function sellers(){
+   if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='admin'){
   $data['selles']=$this->Mdl_admin->getSellers();
              $this->load->view('header');
@@ -105,8 +138,13 @@ public function home(){
 
        redirect('users/home'); 
     }
+     }
+else{
+            redirect(base_url('users/home'));
+          }
   }
    public function buyers(){
+    if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='admin'){
   $data['buyer']=$this->Mdl_admin->getBuyer();
              $this->load->view('header');
@@ -117,37 +155,102 @@ public function home(){
 
        redirect('users/home'); 
     }
+     }
+else{
+            redirect(base_url('users/home'));
+          }
   }
 
 
 
 public function activateSeller($id){
-
+ if(islogin()){
   if($this->Mdl_admin->activateSeller($id))
   {
     setInformUser('success','Sellers successfully activated');
-    redirect(base_url().'admin/selles');
+    redirect(base_url().'admin/sellers');
   }
   else{
     setInformUser('error','Sellers not activated');
-    redirect(base_url().'admin/selles');
+    redirect(base_url().'admin/sellers');
   }
+  }
+else{
+            redirect(base_url('users/home'));
+          }
 }
 
 public function inActivateSeller($id){
-
+    if(islogin()){
   if($this->Mdl_admin->inActivateSeller($id))
   {
     setInformUser('success','Sellers successfully InActivated');
-    redirect(base_url().'admin/selles');
+    redirect(base_url().'admin/sellers');
   }
   else{
     setInformUser('error','Sellers not InActivated');
-    redirect(base_url().'admin/selles');
+    redirect(base_url().'admin/sellers');
   }
+   }
+else{
+            redirect(base_url('users/home'));
+          }
+}
+
+public function activateBuyer($id){
+    if(islogin()){
+  if($this->Mdl_admin->activateBuyer($id))
+  {
+    setInformUser('success','Buyers successfully activated');
+    redirect(base_url().'admin/buyers');
+  }
+  else{
+    setInformUser('error','Buyers not activated');
+    redirect(base_url().'admin/buyers');
+  }
+   }
+else{
+            redirect(base_url('users/home'));
+          }
+}
+
+public function inActivateBuyer($id){
+if(islogin()){
+  if($this->Mdl_admin->inActivateBuyer($id))
+  {
+    setInformUser('success','Buyers successfully InActivated');
+    redirect(base_url().'admin/buyers');
+  }
+  else{
+    setInformUser('error','Buyers not InActivated');
+    redirect(base_url().'admin/buyers');
+  }
+   }
+else{
+            redirect(base_url('users/home'));
+          }
 }
 
 
+public function decline($id){
+  if(islogin()){
+         
+      
+       
+    if($this->Mdl_admin->decline($id)){
+               setInformUser('success','Order Successfully Decline.');
+                redirect(base_url('admin/showProducts'));
+    }
+    else{
+   setInformUser('error','Some Error Occur . Kindly try Again');
+                redirect(base_url('admin/showProducts'));
 
+    }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+}
 
  }

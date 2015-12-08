@@ -1,4 +1,3 @@
-
 <?php
     $logout=$this->input->get('logout');
     if($logout){
@@ -18,23 +17,23 @@
   <table id="example" class="display " cellspacing="0" width="100%">
           <thead>
               <tr>
-              <th> Categories</th>
+              <th> Category</th>
                 <th> Name</th>
                  <th>Buy Now</th>
                     <th>Brand Name</th>
                     <th>Manufacturer</th>
-                    <th>Substance</th>
-                    <th> Bulk</th>
-                    <th>Size(in s/m)</th>
+                    <th>GSM</th>
+                    <th> Bulk (mic)</th>
+                    <th>Size(in cms)</th>
                     
                     <th>Grain</th>
                     <th> Sheets Per Packet</th>
-                    <th> Pkt. Weight</th>
-                    <th>Packets Per Bundle</th>
+                    <th> Pkt. Wt.</th>
+                    <th>Pkt. Per Bdl</th>
                     <th>Qty. on Offer</th>
                     <th>Packing</th>
                     <th>Rate</th>
-                    <th>CENVAT Amount</th>
+                    <th>Cenvat Amount</th>
                    
               </tr>
           </thead>
@@ -50,14 +49,13 @@
                       <input type="checkbox" class="checkboxes" value="1">
                     </td> -->
                      <td>
-                      <?php echo $rows['chawri_products_categories']; ?>
+                      <?php echo $rows['chawri_categories_name']; ?>
                     </td>
-
                     <td>
                       <?php echo $rows['chawri_products_name']; ?>
                     </td>
 
-                   <td><a href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td> 
+                   <td><a style="color: green;" href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td> 
                    <!--  <td><a href="#">Buy Now</a></td> -->
                     <td>
                       <?php echo $rows['chawri_products_brand_name']; ?>

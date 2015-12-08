@@ -24,6 +24,104 @@ class Mdl_users extends CI_Model
     private $contact_query;
     private $file;
     private $order_id;
+    private $mobile;
+    private $tin_no;
+    private $pan_no;
+    private $excise_no;
+    private $services_tax_no;
+    private $tan_no;
+/**
+     * @return mixed
+     */
+    public function getTanNo()
+    {
+        return $this->tan_no;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setTanNo($tan_no)
+    {
+        $this->tan_no = $tan_no;
+    }   
+/**
+     * @return mixed
+     */
+    public function getServicesTaxNo()
+    {
+        return $this->services_tax_no;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setServicesTaxNo($services_tax_no)
+    {
+        $this->services_tax_no = $services_tax_no;
+    }   
+/**
+     * @return mixed
+     */
+    public function getExciseNo()
+    {
+        return $this->excise_no;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setExciseNo($excise_no)
+    {
+        $this->excise_no = $excise_no;
+    }   
+/**
+     * @return mixed
+     */
+    public function getPanNo()
+    {
+        return $this->pan_no;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setPanNo($pan_no)
+    {
+        $this->pan_no = $pan_no;
+    }    
+  /**
+     * @return mixed
+     */
+    public function getTinNo()
+    {
+        return $this->tin_no;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setTinNo($tin_no)
+    {
+        $this->tin_no = $tin_no;
+    }
+
+
+/**
+     * @return mixed
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setMobile($mobile)
+    {
+        $this->mobile = $mobile;
+    }
  /**
      * @return mixed
      */
@@ -245,22 +343,35 @@ class Mdl_users extends CI_Model
                 $this->setFname(func_get_arg(1));
                 $this->setUserName(func_get_arg(2));
                 $this->setContactQuery(func_get_arg(3));
+                $this->setMobile(func_get_arg(4));
 
              break;
          case 'bank_details':
-              /* print_r(func_get_arg(2));
-              die();*/
+
+
                 $this->setFile(func_get_arg(1));
                 $this->setOrderId(func_get_arg(2));
-                 
-                /* print_r();
-                 die();*/
+                
+
+             break;
+
+       case 'information':
+
+
+                $this->setTinNo(func_get_arg(1));
+                $this->setPanNo(func_get_arg(2));
+                $this->setExciseNo(func_get_arg(3));
+                $this->setServicesTaxNo(func_get_arg(4));
+                $this->setTanNo(func_get_arg(5));
+                
+
              break;
             default:
                 break;
         }
 
     }
+
 
     /**
      * @param mixed $provider
@@ -352,6 +463,13 @@ public function chechUsers(){
      return false;
 
 }
+
+
+    public function getCategories(){
+        return  $this->db->get('chawri_categories')->result();
+     /*   print_r($d);
+        die;*/
+    }
 
 
 
@@ -454,6 +572,15 @@ public function chechUsers(){
                 $this->setToken($this->security->xss_clean($this->getToken()));
             }
                 break;
+
+             case 'information':{
+                $this->setTanNo($this->security->xss_clean($this->getTanNo()));
+                $this->setTinNo($this->security->xss_clean($this->getTinNo()));
+                $this->setPanNo($this->security->xss_clean($this->getPanNo()));
+                $this->setExciseNo($this->security->xss_clean($this->getExciseNo()));
+                $this->setServicesTaxNo($this->security->xss_clean($this->getServicesTaxNo()));
+             }
+                   break;   
             default:
                 break;
         }
@@ -605,12 +732,14 @@ public function chechUsers(){
 
     }
     public function isActive(){
+    $query=$this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users');
+  
 
-       if($this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users')->result_array()[0]['chawri_users_status']){
+       if(isset($this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users')->result_array()[0]['chawri_users_status'])){
 
            return true;
        }
-        elseif($this->db->where('chawri_sellers_email',$this->getUserName())->select(array('chawri_sellers_status'))->get('chawri_sellers')->result_array()[0]['chawri_sellers_status']){
+        elseif(isset($this->db->where('chawri_sellers_email',$this->getUserName())->select(array('chawri_sellers_status'))->get('chawri_sellers')->result_array()[0]['chawri_sellers_status'])){
 
             return true;
         }
@@ -637,22 +766,15 @@ public function chechUsers(){
 
     public function checkUser(){
 
-       /* $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
-       $q=$this->db->where(array('chawri_users_username'=>$this->getUserName(),'chawri_users_password'=>$this->getPassword()))->select(array('chawri_users_id'))->get('chawri_users');
+      
 
 
-         if($q->num_rows()){
+$query=$this->db->where(array('chawri_users_username'=>$this->getUserName()))->select(array('chawri_users_password'))->get('chawri_users');
+$q=$query->result();
+if(empty($q)){
 
-             return true;
-         }
-
-        return false;
-*/
-
-
-      $query=$this->db->where(array('chawri_users_username'=>$this->getUserName()))->select(array('chawri_users_password'))->get('chawri_users');
-
-
+return false;
+}
 
       if( password_verify($this->getPassword(), $query->result()[0]->chawri_users_password)){
 
@@ -687,7 +809,8 @@ public function chechUsers(){
         $data = [
                     'chawri_contacts_name' => $this->fname,
                     'chawri_contacts_email' => $this->user_name,
-                    'chawri_contacts_query' => $this->contact_query
+                    'chawri_contacts_query' => $this->contact_query,
+                    'chawri_contacts_mobile'=> $this->mobile
 
                 ];
 
@@ -696,22 +819,18 @@ public function chechUsers(){
 
     }
 
-    public function uploadReceipt($order_id){
+    public function uploadReceipt(){
          $data = [
                     'chawri_products_orders_receipt_details' => $this->file,
                     
                    
 
                 ];
-     /* //echo $this->file;
-      echo  $order_id;
-      
-     die();*/
-                $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
-                $this->db->where('chawri_products_orders_id',$this->order_id);
-                $this->db->update('chawri_products_orders',$data)?true:false;
+                
+              $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+                    $this->db->where('chawri_products_orders_id',$this->order_id);
+                   return $this->db->update('chawri_products_orders',$data)?true:false;
   
-         
     }
      public function getCounter(){
         $value=0;
@@ -740,6 +859,24 @@ public function chechUsers(){
         return $data;
      }
 
+public function information(){
+    $this->_validate('information');
+    $data = [
+        'chawri_users_pan_no'          =>$this->getPanNo(),
+        'chawri_users_tin_no'          =>$this->getTinNo(),
+        'chawri_users_tan_no'          =>$this->getTanNo(),
+        'chawri_users_services_tax_no' =>$this->getServicesTaxNo(),
+        'chawri_users_excise_no'       =>$this->getExciseNo()
 
+     ];
+     $this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id']);
+   return $this->db->update('chawri_users',$data)?true:false;
 
+}
+
+public function getInformation(){
+
+     $this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id']);
+    return $this->db->get('chawri_users')->result_array();
+}
 }

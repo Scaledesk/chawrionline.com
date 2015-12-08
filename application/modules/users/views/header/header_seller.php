@@ -357,11 +357,11 @@
                                             <div class="em-top-search">
                                                 <div class="em-search-style02">
                                                     <div class="em-no-category-search">
-                                                        <form id="search_mini_form" method="get">
+                                                        <form action="<?php  echo base_url().'users/searchProduct'; ?>" method="post">
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                    <input id="search" type="search" name="q" value="" class="input-text required-entry" maxlength="128" placeholder="Search entire store here...">
+                                                                     <input id="search" type="search" name="searchText" class="input-text required-entry" maxlength="128" placeholder="Search By :  Products / GSM / Size">
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
                                                                     <div id="search_autocomplete" class="search-autocomplete"></div>
@@ -423,7 +423,7 @@
                                                                     <!-- /.menu-item-link -->
 
 <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/manageOrder' ?>"> <span>Orders Manage</span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/manageOrder' ?>"> <span> Manage Orders</span> </a>
                                                                         
                                                                     </li>
                                                                     <!-- /.menu-item-link -->

@@ -1,4 +1,3 @@
-
 <?php
     $logout=$this->input->get('logout');
     if($logout){
@@ -8,18 +7,19 @@
     }
     ?>
 
-  
+  <div class="rows"> <h2>Sellers Details</h2> </div>
 <div style="overflow: auto; padding: 10px 15px 10px 15px; border:2px solid #bbbbbb; border-radius: 5px; margin: 20px;">
 
   <table id="example" class="display " cellspacing="0" width="100%">
           <thead>
               <tr>
+               <th>Status</th>
                 <th>Email</th>
                  <th>Name</th>
                     <th>Phone</th>
                      <th>Landline</th>
-                     <th>State</atth>
-                     <th>Action</atth>
+                     <th>State</th>
+                    
                    
               </tr>
           </thead>
@@ -32,7 +32,16 @@
                                   foreach($selles as $rows){
                    ?>
                   <tr>
-                   
+                   <td>
+                      <?php 
+                        if($rows['chawri_sellers_status']==0){
+                         ?><a onclick="return confirm('Are you sure you want to Activate Sellers?')" href="<?php echo base_url().'admin/activateSeller/'.$rows['chawri_sellers_id']?>"> Activate</a>
+                       <?php  }
+                        else{
+                          ?>
+                          <a onclick="return confirm('Are you sure you want to Deactivate Sellers?')" href="<?php echo base_url().'admin/inActivateSeller/'.$rows['chawri_sellers_id']?>">Deactivate</a> 
+                       <?php  } ?>
+                    </td>
                     <td>
                       <?php echo $rows['chawri_sellers_email']; ?>
                     </td>
@@ -53,16 +62,7 @@
                       <?php echo $rows['chawri_sellers_state']; ?>
                     </td>
 
-                    <td>
-                      <?php 
-                        if($rows['chawri_sellers_status']==0){
-                          echo "<a href='".base_url()."admin/activateSeller/".$rows['chawri_sellers_id']."'>Active</a>";
-                        }
-                        else{
-                          echo "<a href='".base_url()."admin/inActivateSeller/".$rows['chawri_sellers_id']."'>InActive</a>"; 
-                        }
-                     ?>
-                    </td>
+                    
 
 
                   </tr>

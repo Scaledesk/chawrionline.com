@@ -358,14 +358,20 @@ if(islogin()){
 
 public function buyNow($id){
 if(islogin()){
-$data=$this->input->post();
+$data['buyNow']=$this->input->post();
 /*print_r($data);
 die;*/
-$this->Mdl_products->setData('buy',$data['qty'],$data['description'],$id,$data['cform']);
-  if($this->Mdl_products->buyNow()){
-        $data['order'] = $this->Mdl_products->getOrderDetails();
+/*echo $id;
+die;*/
+/*$this->Mdl_products->setData('buy',$data['qty'],$data['description'],$id,$data['cform']);*/
+ /* if($this->Mdl_products->buyNow()){*/
+
+        $data['order']=$this->Mdl_products->getOrderDetails($id);
+
+       /* print_r($data['order']);
+        die;*/
         $data['seller'] = $this->Mdl_products->getSellersDetails($id);
-        $data['cform']=$this->Mdl_products->getCForm();
+       
 /*        print_r($data['cform']);
         die;*/
          $this->load->view('users/header/header_buyer');
@@ -373,11 +379,11 @@ $this->Mdl_products->setData('buy',$data['qty'],$data['description'],$id,$data['
          $this->load->view('users/header/footer');
 
 
-  }
+ /* }
   else{
 
     setInformUser('error',"Some error Occurred! Kindly retry ");
-  }
+  }*/
 
 }
 
@@ -429,21 +435,40 @@ if( $this->session->userdata['user_data'][0]['role']=='buyer'){
           }
 
 }
-public function placeOrder($id,$products_id,$qty,$bal){
+public function placeOrder(){
 if(islogin()){
-  $data['sellers']=$this->Mdl_products->getSellers($id);
+  $data=$this->input->post();
+ 
+/* print_r($data);*/
+/*echo $data['qry'];*/
 
+  $data['sellers']=$this->Mdl_products->getSellers($data['sellers_id']);
+/**/
  $email=$data['sellers'][0]['chawri_sellers_email'];
 
-$this->Mdl_products->productQtyUpdate($products_id,$qty,$bal);
+$this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['products_id'],$data['description'],$data['qry'],$data['cform']);
 
         $this->email->from('nkscoder@gmail.com', 'Chawri');
         $this->email->to($email);
        
-        $this->email->subject('Buy Product');
+        $this->email->subject('order placed');
        
-         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">'.$this->session->userdata['user_data'][0]['users_name']. '<br>'.$this->session->userdata['user_data'][0]['users_email'].'</div>');
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Thsi is to notify you that an order has beeen placed for your product lsited on chawrionline.com.</div>');
         if($this->email->send()){
+
+
+          $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->to($this->session->user_data['users_data'][0]['users_email']);
+       
+        $this->email->subject('order placed');
+       
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Thsi is to notify you that your order has beeen placed on chawrionline.com. Please upload the payment slip within 24hrs or your order will be cancelled.</div>');
+        if($this->email->send()){
+         setInformUser('success'," Order Place Successfully.  Please check your Email.    Admin Approval Pending.");
+          redirect('products/showOrder'); 
+        }
+
+
          setInformUser('success'," Order Place Successfully.  Please check your Email.    Admin Approval Pending.");
           redirect('products/showOrder'); 
         }
@@ -592,5 +617,24 @@ if ($this->Mdl_products->extension_buyer($id)) {
 }
 
 
+}
+
+
+public function raiseIssue($id){
+  if (islogin()) {
+     $data=$this->input->post();
+  if($this->Mdl_products->raiseIssue($data['raiseIssue'],$id)){
+   setInformUser('success','your issue has been raised.');
+ redirect(base_url('products/showOrder'));
+  }
+  else{
+    setInformUser('error','Some Error Occur.  Please Try Again');
+    redirect(base_url('products/showOrder'));
+  }
+
+  }
+  else{
+    redirect(base_url('users/home'));
+  }
 }
 }

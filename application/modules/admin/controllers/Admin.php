@@ -252,5 +252,17 @@ public function decline($id){
             redirect(base_url('users/home'));
           }
 }
+public function complaint (){
+  if(islogin()){
+ $data['complaint']=$this->Mdl_admin->complaint();
+$this->load->view('header');
+$this->load->view('complaint',$data);
+$this->load->view('footer');
+  }
+  else{
+    redirect(base_url('users/home'));
+  }
 
  }
+
+}

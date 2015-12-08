@@ -671,25 +671,31 @@ public function getProducts($id){
 
 
 
- public function buyNow() {
+ public function buyNow($total_cost,$sellers_id,$products_id,$description,$qty,$cform) {
 
  $date = date('Y-m-d H:i:s');
+  
+    $this->db->where('chawri_products_id',$products_id);
+     $products= $this->db->get('chawri_products')->result_array();
+    /* echo "<pre/>";
+     print_r($products);
+     echo $qty;*/
+    /* die;*/
+    $quantity= $products[0]['chawri_products_quantity_on_offer'];
+   /* echo $products_id;*/
+      $q=$quantity-$qty;
+      /*echo $q;
+      die;*/
 
+          $data = [ 'chawri_products_quantity_on_offer' => $q];
 
-$products=$this->getProducts($this->getProductsId());
-/*echo $this->getProductsQuantityOnOffer();
-echo $this->getDescription();
-echo "<pre/>";
-print_r($products);
-
-echo  $products[0]['chawri_products_name'];
-die();
-*/
+                $this->db->where('chawri_products_id',$products_id);
+                $this->db->update('chawri_products',$data);
 
      $data= array(
 
         'chawri_products_orders_buyer_id' =>                     $this->session->userdata['user_data'][0]['users_id'],
-        'chawri_products_orders_products_id' =>                  $this->getProductsId(),
+        'chawri_products_orders_products_id' =>                  $products_id,
         'chawri_sellers_id'=>                                    $products[0]['chawri_sellers_id'],
         'chawri_products_orders_date' =>                         $date,
         'chawri_products_orders_products_name'=>                 $products[0]['chawri_products_name'],
@@ -701,15 +707,16 @@ die();
         'chawri_products_orders_products_grain'=>                $products[0]['chawri_products_grain'],
         'chawri_products_orders_products_sheets_per_packet'=>    $products[0]['chawri_products_sheets_per_packet'],
         'chawri_products_orders_products_packets_per_bundle'=>   $products[0]['chawri_products_packets_per_bundle'],
-        'chawri_products_orders_products_quantity_on_offer'=>    $this->getProductsQuantityOnOffer(),
+        'chawri_products_orders_products_quantity_on_offer'=>    $qty,
         'chawri_products_orders_products_packing'=>              $products[0]['chawri_products_packing'],
         'chawri_products_orders_products_rate'=>                 $products[0]['chawri_products_rate'],
         'chawri_products_orders_products_cenvat_amount'=>        $products[0]['chawri_products_cenvat_amount'],
         'chawri_products_orders_products_reel_sheet'=>           $products[0]['chawri_products_reel_sheet'],
         'chawri_products_orders_products_weight'=>               $products[0]['chawri_products_weight'],
-        'chawri_products_orders_products_description'=>          $this->getDescription(),
+        'chawri_products_orders_products_description'=>          $description,
         'chawri_products_orders_categories' =>                   $products[0]['chawri_products_categories'],
-        'chawri_products_orders_cform' =>                        $this->getCForm()
+        'chawri_products_orders_cform' =>                        $cform,
+        'chawri_products_orders_total_cost'=>                    $total_cost
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;
@@ -719,11 +726,12 @@ die();
         }
     }
 
-    public function getOrderDetails()
+    public function getOrderDetails($id)
     {
-      $query ="select * from chawri_products_orders order by chawri_products_orders_id DESC limit 1";
-      return $this->db->query($query)->result_array();
+       $this->db->where('chawri_products_id',$id);
+      return $this->db->get('chawri_products')->result_array();
     }
+
     public function getSellersDetails($id)
     {
       return $this->db->query("select * from chawri_sellers where chawri_sellers_id=(select chawri_sellers_id from chawri_products where chawri_products_id ='$id')")->result_array();
@@ -778,7 +786,7 @@ return $this->db->where($where)->get('chawri_products_orders')->result_array();*
 
 $id = $this->session->userdata['user_data'][0]['users_id'];
     return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
-  where chawri_products_orders.chawri_products_orders_buyer_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'admin_approvel_pending' OR chawri_products_orders.chawri_products_orders_status = 'admin_approvel_done')")->result_array();
+  where chawri_products_orders.chawri_products_orders_buyer_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'admin_approvel_pending' OR chawri_products_orders.chawri_products_orders_status = 'Dispatched')")->result_array();
 
 
 }
@@ -1020,5 +1028,19 @@ public function extension_buyer($id){
                 $this->db->where('chawri_products_orders_id',$id);
                return  $this->db->update('chawri_products_orders',$data)?true:false;
   
+}
+
+public function raiseIssue($raiseIssue,$id){
+
+
+     $data = [
+                    'chawri_complaint_order_id' => $id,
+                    'chawri_complaint_message' => $raiseIssue
+                   
+          ];
+
+         /* print_r($data);
+          die;*/
+   return $this->db->insert('chawri_complaint',$data)?true:false;
 }
 }

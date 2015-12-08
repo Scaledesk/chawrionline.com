@@ -30,6 +30,38 @@ class Mdl_users extends CI_Model
     private $excise_no;
     private $services_tax_no;
     private $tan_no;
+    private $address;
+    private $state;
+     /**
+     * @return mixed
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    } 
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    } 
 /**
      * @return mixed
      */
@@ -276,6 +308,8 @@ class Mdl_users extends CI_Model
                 $this->setFname(func_get_arg(3));
                 $this->setLname(func_get_arg(4));
                 $this->setPhone(func_get_arg(5));
+                $this->setAddress(func_get_arg(6));
+                $this->setState(func_get_arg(7));
 
                 break;
                 case "checkUser":
@@ -489,7 +523,9 @@ public function chechUsers(){
                     'chawri_users_fname' => $this->fname,
                     'chawri_users_lname' => $this->lname,
                     'chawri_users_phone' =>  $this->phone,
-                    'chawri_users_role'=>'buyer'
+                    'chawri_users_role'=>'buyer',
+                    'chawri_users_address'=> $this->address,
+                    'chawri_users_state'=> $this->state
 
                 ];
                 if ($this->db->insert('chawri_users', $data)) {
@@ -879,4 +915,12 @@ public function getInformation(){
      $this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id']);
     return $this->db->get('chawri_users')->result_array();
 }
+
+
+    public function showState(){
+
+        $data= $this->db->get('chawri_states')->result_array();
+
+        return $data;
+    }
 }

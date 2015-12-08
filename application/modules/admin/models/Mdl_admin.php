@@ -173,6 +173,10 @@ public function approve (){
         
           
      }
+
+     public function complaint(){
+      return $this->db->get('chawri_complaint')->result_array();
+     }
 }
 
 

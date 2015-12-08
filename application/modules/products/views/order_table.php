@@ -62,7 +62,7 @@
 
               <tbody>
                   <?php
-                                      /*  echo "<pre/>"; print_r($approvel);
+                                       /* echo "<pre/>"; print_r($approvel);
                                          die();*/
                                       foreach($approvel as $rows){
                        ?>
@@ -416,6 +416,7 @@
       <table id="example" class="display "  cellspacing="0" width="100%">
               <thead>
                   <tr>
+                  <th>Action</th>
                   <th>Total Cost</th>
                   <th> Category</th>
                      <th> Name</th>
@@ -445,6 +446,53 @@
                                       foreach($completed as $rows3){
                        ?>
                       <tr>
+                       <td>
+                       <div class="row" >
+                         
+                          <!-- Trigger the modal with a button -->
+                       <!--    <a  data-toggle="modal" data-target="#myModal">Extension</a> -->
+                          <button type="button" style="background-color: #53287A;"  data-toggle="modal" data-target="#<?php echo $rows3['chawri_products_orders_id'];?>">Raise</button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="<?php echo $rows3['chawri_products_orders_id'];?>" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                              
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Raise Issue</h4>
+                                </div>
+                                <div class="modal-body">
+
+                                  <form role="form" action="<?php echo base_url().'products/raiseIssue/'.$rows3['chawri_products_orders_id'];?>" method="post">
+                                
+                                <div class="form-group">
+                                  <label for="extension">Raise Issue</label>
+                                  <textarea class="form-control" name="raiseIssue"></textarea>
+                                 
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+
+                                <button type="submit" style="background-color: #53287A;" class="btn btn-default btn-success btn-block">Submit</button>
+                              </form>
+                        
+                                 <!-- button type="submit" class="btn btn-default" >Submit</button> -->
+                                 <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                </div>
+                               
+                              </div>
+                              
+                            </div>
+                          </div>
+                          
+                        </div>
+
+
+
+                        </td>
                         <td>
                         <?php echo $rows3['chawri_products_orders_total_cost']; ?>
                         </td>

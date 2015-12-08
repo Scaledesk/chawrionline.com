@@ -122,6 +122,9 @@
                           <li>
                             <a href="<?php echo base_url().'categories';?>"><i class="fa fa-edit fa-fw"></i>Add Categories</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url().'admin/complaint';?>"><i class="fa fa-edit fa-fw"></i>Complaints</a>
+                        </li>
 
 
 

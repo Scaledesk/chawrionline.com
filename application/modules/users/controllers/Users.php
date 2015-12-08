@@ -206,7 +206,7 @@ public function buyerHome(){
      if($data['password']==$data['confirm_password']){
 
 
-        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname'],$data['phone']);
+        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname'],$data['phone'],$data['address'],$data['state']);
         if($this->Mdl_users->chechUsers()){
 
           setInformUser('error','Email already exists. Kindly try another Email');
@@ -248,6 +248,8 @@ public function buyerHome(){
                     'users_email' =>func_get_arg(1)['data'][0]['chawri_users_username'],
                     'users_name' =>$user_username,
                     'users_status' =>func_get_arg(1)['data'][0]['chawri_users_status'],
+                    'users_address' =>func_get_arg(1)['data'][0]['chawri_users_address'],
+                    'users_state' =>func_get_arg(1)['data'][0]['chawri_users_state'],
                     'role'=>func_get_arg(1)['data'][0]['chawri_users_role']
 
                 ]);
@@ -451,9 +453,10 @@ public function showForgetPwd(){
 
 
     public function register(){
+       $data['state']=$this->Mdl_users->showState();
         $this->load->view('header/header');
 
-        $this->load->view('register');
+        $this->load->view('register',$data);
         $this->load->view('header/footer');
 
     }
@@ -761,16 +764,40 @@ public function uploadReceipt($id=null){
 
     }
     public function searchProduct(){
+               $text=$this->input->post('searchText1');
+               $text1=$this->input->post('searchText2');
+               $text2=$this->input->post('searchText3');
+               $searchText;
+          if($text){
+                $searchText=$text;
+                echo $searchText;
+                
+               }if ($text1) {
+                 $searchText=$text1;
+
+
+               } else {
+                 $searchText=$text2;
+               }
+              echo $searchText; 
+           die;
+
         if($this->session->has_userdata('user_data')){
+
+         
             if( $this->session->userdata['user_data'][0]['role']=='sellers'){
 
-                $data['data']=$this->Mdl_products->searchProducts($this->input->post('searchText'));
+               
+               
+               
+
+                $data['data']=$this->Mdl_products->searchProducts($searchText);
                 $this->load->view('header/header_seller');
                 $this->load->view('categoryTable',$data);
                 $this->load->view('header/footer');
             }
             elseif ($this->session->userdata['user_data'][0]['role']=='buyer') {
-                $data['data']=$this->Mdl_products->searchProducts($this->input->post('searchText'));
+                $data['data']=$this->Mdl_products->searchProducts($searchText);
                 $this->load->view('header/header_buyer');
                 $this->load->view('categoryTable',$data);
                 $this->load->view('header/footer');
@@ -778,7 +805,7 @@ public function uploadReceipt($id=null){
         }
         else{
 
-            $data['data']=$this->Mdl_products->searchProducts($this->input->post('searchText'));
+            $data['data']=$this->Mdl_products->searchProducts($searchText);
             $this->load->view('header/header');
             $this->load->view('categoryTable',$data);
             $this->load->view('header/footer');

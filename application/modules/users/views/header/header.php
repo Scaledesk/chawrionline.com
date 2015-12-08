@@ -117,6 +117,7 @@
                                                 <div class="text-search">
                                                     <input id="search-mobile" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="Search entire store here..."> </br>
 
+
                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                     </button>
                                                 </div>
@@ -368,7 +369,9 @@
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                    <input id="search" type="search" name="searchText" class="input-text required-entry" maxlength="128" placeholder="Search By :  Products / GSM / Size">
+                                                                   <div style="float: left; width: 33%;"> <input id="search" type="search" name="searchText1" class="input-text required-entry"   placeholder=" Products"></div>
+                                                                    <div style="float: left; width: 33%;" > <input id="search" type="search" name="searchText2" class="input-text required-entry"  placeholder=" GSM "></div>
+                                                                     <div style="float: left; width: 33%;"> <input id="search" type="search" name="searchText3" class="input-text required-entry" placeholder=" Size"></div>
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
                                                                     <div id="search_autocomplete" class="search-autocomplete"></div>

@@ -59,7 +59,7 @@
 										<th>Manufacturer</th>
 										<th>Substance</th>
 										<th> Bulk</th>
-										<th>Size( csm)</th>
+										<th>Size( cms)</th>
 										
 										<th>Grain</th>
 										<th> Sheets Per Packet</th>

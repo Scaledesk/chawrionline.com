@@ -43,7 +43,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                         <th>Size(csm)</th>
+                         <th>Size(cms)</th>
                         
 
                         <th>Grain</th>
@@ -162,7 +162,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                        <th>Size( csm)</th>
+                        <th>Size( cms)</th>
                        
 
                         <th>Grain</th>
@@ -323,7 +323,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                         <th>Size( csm)</th>
+                         <th>Size( cms)</th>
                         
 
                         <th>Grain</th>
@@ -431,7 +431,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic) </th>
-                        <th>Size( csm)</th>
+                        <th>Size( cms)</th>
                         
 
                         <th>Grain</th>

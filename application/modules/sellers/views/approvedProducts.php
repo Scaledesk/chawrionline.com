@@ -41,7 +41,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                        <th>Size( csm)</th>
+                        <th>Size( cms)</th>
                         
                         <th>Grain</th>
                         <th> Sheets Per Packet</th>
@@ -159,7 +159,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                        <th>Size( csm)</th>
+                        <th>Size( cms)</th>
                                                 
                         <th>Grain</th>
                         <th> Sheets Per Packet</th>
@@ -311,7 +311,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk(mic)</th>
-                        <th>Size(width  csm)</th>
+                        <th>Size(width  cms)</th>
                        
                         
                         <th>Grain</th>
@@ -419,7 +419,7 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic) </th>
-                        <th>Size(csm)</th>
+                        <th>Size(cms)</th>
                         
                         <th>Grain</th>
                         <th> Sheets Per Packet</th>

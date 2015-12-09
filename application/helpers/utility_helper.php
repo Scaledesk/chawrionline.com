@@ -15,6 +15,13 @@ function checkSession(){
     }
     return false;
 }
+function islogin(){
+	$ci=CI::get_instance();
+	if ($ci->session->has_userdata('user_data')){
+		return true;
+	}
+	return false;
+}
 function hasPermission($provided_permission){
     $ci=CI::get_instance();
     $permission=$ci->session->userdata('user_data');

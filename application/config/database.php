@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'chawri2',
+	'hostname' => 'mysql.chawrionline.com',
+	'username' => 'chawri_user',
+	'password' => 'q1w2e3r4',
+	'database' => 'chawri_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

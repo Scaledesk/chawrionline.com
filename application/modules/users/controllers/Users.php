@@ -25,7 +25,7 @@ class Users extends MX_Controller{
      * this is the index method the landing page for all operations
      */
     public function index(){
-         if($this->_logged_in()){
+         
         if($this->_logged_in()){
             if($this->_getRole()=='guest'){
                 //show their dashboard
@@ -41,7 +41,8 @@ class Users extends MX_Controller{
                     $this->_register($this->input->post());
                 }
             }
-        }else{
+        }
+        else{
             $roles= array();
             foreach($this->_getRole() as $role){
                 $roles[$role['chawri_roles_id']]=$role['chawri_roles_name'];
@@ -53,10 +54,7 @@ class Users extends MX_Controller{
             $this->load->view('header/footer');
         }
 
-    }
- else{
-          redirect(base_url('users/home'));
-        }
+   
   }
 
 

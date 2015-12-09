@@ -28,7 +28,11 @@ public function approval($id){
 
 
 
-  $data= array('chawri_products_orders_status' =>'admin_approvel_done' );
+  $data= array(
+    'chawri_products_orders_status' =>'admin_approvel_done',
+   'chawri_products_order_delivery_date' =>$this->input->post('delivery_date')
+   );
+
   $this->db->WHERE('chawri_products_orders_id',$id);
   $this->db->update('chawri_products_orders',$data);
 

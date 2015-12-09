@@ -35,7 +35,7 @@
               <thead>
                   <tr>
                    <th>Status</th>
-                    
+                    <th>Delivery Date</th>
                     <th>Action</th>
                    <th> Product Name</th>
                     <th>Buyer Name </th>
@@ -58,11 +58,18 @@
                         <td>
                       <?php echo $rows['chawri_products_orders_status']; ?>
                     </td>
+                     <form action="<?php  echo base_url().'admin/approval/'.$rows['chawri_products_orders_id'];?>" method="post">
                     <td>
-                         <a onclick="return confirm('Are you sure you want to Approve Products?')" href="<?php  echo base_url().'admin/approval/'.$rows['chawri_products_orders_id'];?>">Approve</a>/ <a onclick="return confirm('Are you sure you want to Decline Products?')" href="<?php  echo base_url().'admin/decline/'.$rows['chawri_products_orders_id'];?>">Decline</a>  
+                     <input type="date" required name="delivery_date"/>
+                        
+                      
+                    </td>
+                    <td>
+                        <button type="submit" onclick="return confirm('Are you sure you want to Approve Products?')" >Approve</button> / <a onclick="return confirm('Are you sure you want to Decline Products?')" href="<?php  echo base_url().'admin/decline/'.$rows['chawri_products_orders_id'];?>">Decline</a>  
                   
                       
                     </td>
+                    </form>
                     <td>
                       <?php echo $rows['chawri_products_name']; ?>
                     </td>

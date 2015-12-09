@@ -462,7 +462,7 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
 
 
           $this->email->from('nkscoder@gmail.com', 'Chawri');
-        $this->email->to($this->session->user_data['users_data'][0]['users_email']);
+        $this->email->to($this->session->userdata['user_data'][0]['users_email']);
        
         $this->email->subject('order placed');
        

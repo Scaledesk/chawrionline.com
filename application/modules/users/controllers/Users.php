@@ -25,7 +25,7 @@ class Users extends MX_Controller{
      * this is the index method the landing page for all operations
      */
     public function index(){
-
+        
         if($this->_logged_in()){
             if($this->_getRole()=='guest'){
                 //show their dashboard

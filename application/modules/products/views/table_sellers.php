@@ -26,8 +26,8 @@
                     <th>Manufacturer</th>
                     <th>GSM</th>
                     <th> Bulk (mic)</th>
-                    <th>Size(in cms)</th>
-                    
+                    <th>Size(width  csm)</th>
+                    <th>Size(height csm)</th>
                     <th>Grain</th>
                     <th> Sheets Per Pkt.</th>
                     <th> Pkt. Weight</th>
@@ -89,10 +89,12 @@
                       <?php echo $rows['chawri_products_thickness']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_size']; ?>
+                      <?php echo $rows['chawri_products_size_w']; ?>
                     </td>
 
-                    
+                     <td>
+                      <?php echo $rows['chawri_products_size_h']; ?>
+                    </td>
 
                     <td>
                       <?php echo $rows['chawri_products_grain']; ?>

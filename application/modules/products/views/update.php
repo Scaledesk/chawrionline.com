@@ -119,9 +119,9 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_size" class="required"><em>*</em> Products Size</label>
                                                                     <div class="input-box">
-                                                                          <?php $str=explode("X",$data[0]['chawri_products_size']);  ?>
-                                                                        <input type="number"step="any" id="firstname" value="<?php echo $str[0]; ?>" required  name="products_size" title=" Products Size" maxlength="255" class="input-text required-entry"><span>X</span>
-                                                                        <input type="number"step="any"  id="firstname" value="<?php echo $str[1]; ?>" required  name="products_size_one" title=" Products Size" maxlength="255" class="input-text required-entry">
+                                                                         
+                                                                        <input type="number"step="any" id="firstname" value="<?php echo $data[0]['chawri_products_size_w']; ?>" required  name="products_size" title=" Products Size" maxlength="255" class="input-text required-entry"><span>X</span>
+                                                                        <input type="number"step="any"  id="firstname" value="<?php echo $data[0]['chawri_products_size_h']; ?>" required  name="products_size_one" title=" Products Size" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 

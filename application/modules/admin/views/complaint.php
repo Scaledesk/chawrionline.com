@@ -26,17 +26,32 @@
                                             <div class="page-title">
                                                 <h1>Complaints</h1>
                                             </div>
+                                            <div class="table-responsive">
+                                          <table class="table table-bordered">
+                                              <th>Buyer Name</th>
+                                              <th>Raise Issue</th>
+                                          
+
                                             <?php 
                                             foreach ($complaint as $row) {
+                                                ?>
+                                                <tr>
 
-                                                echo $row['chawri_complaint_message'];?> <br><br><br><br><?php
+                                               
+                                               <td><?php echo $row['chawri_complaint_buyer_name'];?></td>
+                                               <td><?php echo $row['chawri_complaint_message'];?></td>
+                                               </tr>
+
+                                                <?php
                                             }
                                              ?>
+                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
   

@@ -88,7 +88,8 @@
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Size (in s/m) </b> </label>
 	                                                                    <div class="input-box">
-	                                                                        <?php echo $data[0]['chawri_products_size']; ?>
+	                                                                        <?php echo $data[0]['chawri_products_size_w']; ?>X
+	                                                                        <?php echo $data[0]['chawri_products_size_h']; ?>
 	                                                                    </div>
 	                                                                </div>
 

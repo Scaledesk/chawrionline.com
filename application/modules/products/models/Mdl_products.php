@@ -15,7 +15,8 @@ class Mdl_products extends CI_Model
     private $products_brand_name;
     private $products_manufacturer;
     private $products_substance;
-    private $products_size;
+    private $products_size_w;
+    private $products_size_h;
     private $products_thickness;
     private $products_grain;
     private $products_sheets_per_packet;
@@ -32,6 +33,22 @@ class Mdl_products extends CI_Model
     private $categories;
     private $cform;
 
+
+ /**
+     * @return mixed
+     */
+    public function getProductsSizeH()
+    {
+        return $this->products_size_h;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setProductsSizeH($products_size_h)
+    {
+        $this->products_size_h = $products_size_h;
+    }
 
  /**
      * @return mixed
@@ -199,15 +216,16 @@ class Mdl_products extends CI_Model
      */
     public function getProductsSize()
     {
-        return $this->products_size;
+        return $this->$products_size_w;
     }
 
     /**
-     * @param mixed $products_size
+     * @param mixed $$products_size_w;
      */
-    public function setProductsSize($products_size)
+    public function setProductsSize($products_size_w)
     {
-        $this->products_size = $products_size;
+    
+        $this->products_size_w = $products_size_w;
     }
 
     /**
@@ -386,7 +404,8 @@ class Mdl_products extends CI_Model
                     $this->setProductsQuantityOnOffer($this->security->xss_clean($this->products_quantity_on_offer));
                     $this->setProductsRate($this->security->xss_clean($this->products_rate));
                     $this->setProductsSheetsPerPacket($this->security->xss_clean($this->products_sheets_per_packet));
-                    $this->setProductsSize($this->security->xss_clean($this->products_size));
+                    $this->setProductsSize($this->security->xss_clean($this->products_size_w));
+                    $this->setProductsSizeH($this->security->xss_clean($this->products_size_h));
                     $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                     $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
                     $this->setProductsWeight($this->security->xss_clean($this->products_weight));
@@ -406,7 +425,8 @@ class Mdl_products extends CI_Model
                 $this->setProductsRate($this->security->xss_clean($this->products_rate));
                 $this->setProductsWeight($this->security->xss_clean($this->products_weight));
                 $this->setProductsSheetsPerPacket($this->security->xss_clean($this->products_sheets_per_packet));
-                $this->setProductsSize($this->security->xss_clean($this->products_size));
+                $this->setProductsSize($this->security->xss_clean($this->products_size_w));
+                $this->setProductsSizeH($this->security->xss_clean($this->products_size_h));
                 $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                 $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
                 $this->setCategories($this->security->xss_clean($this->categories));
@@ -439,7 +459,7 @@ class Mdl_products extends CI_Model
             'chawri_products_manufacturer' => $this->products_manufacturer,
             'chawri_products_substance' => $this->products_substance,
 
-            'chawri_products_size' => $this->products_size,
+            'chawri_$products_size_w;' => $this->$products_size_w;,
             'chawri_products_thickness' => $this->products_thickness,
             'chawri_products_grain' => $this->products_grain,
             'chawri_products_sheets_per_packet' => $this->products_sheets_per_packet,
@@ -513,10 +533,11 @@ public function insertProductReel($data){
                     $this->setProductsRate(func_get_arg(10));
                     $this->setProductsSheetsPerPacket(func_get_arg(11));
                     $this->setProductsSize(func_get_arg(12));
-                    $this->setProductsWeight(func_get_arg(13));
-                    $this->setProductsSubstance(func_get_arg(14));
-                    $this->setProductsThickness(func_get_arg(15));
-                    $this->setCategories(func_get_arg(16));
+                    $this->setProductsSizeH(func_get_arg(13));
+                    $this->setProductsWeight(func_get_arg(14));
+                    $this->setProductsSubstance(func_get_arg(15));
+                    $this->setProductsThickness(func_get_arg(16));
+                    $this->setCategories(func_get_arg(17));
 
 
                 break;
@@ -530,15 +551,16 @@ public function insertProductReel($data){
                 $this->setProductsSubstance(func_get_arg(6));
                 $this->setProductsThickness(func_get_arg(7));
                 $this->setProductsSize(func_get_arg(8));
-                $this->setProductsGrain(func_get_arg(9));
-                $this->setProductsSheetsPerPacket(func_get_arg(10));
-                $this->setProductsPacketsPerBundle(func_get_arg(11));
-                $this->setProductsWeight(func_get_arg(12));
-                $this->setProductsQuantityOnOffer(func_get_arg(13));
-                $this->setProductsPacking(func_get_arg(14));
-                $this->setProductsRate(func_get_arg(15));
-                $this->setProductsCenvatAmount(func_get_arg(16));
-                 $this->setCategories(func_get_arg(17));
+                $this->setProductsSizeH(func_get_arg(9));
+                $this->setProductsGrain(func_get_arg(10));
+                $this->setProductsSheetsPerPacket(func_get_arg(11));
+                $this->setProductsPacketsPerBundle(func_get_arg(12));
+                $this->setProductsWeight(func_get_arg(13));
+                $this->setProductsQuantityOnOffer(func_get_arg(14));
+                $this->setProductsPacking(func_get_arg(15));
+                $this->setProductsRate(func_get_arg(16));
+                $this->setProductsCenvatAmount(func_get_arg(17));
+                 $this->setCategories(func_get_arg(18));
 
                 break;
 
@@ -583,8 +605,8 @@ public function update (){
             'chawri_products_brand_name' => $this->products_brand_name,
             'chawri_products_manufacturer' => $this->products_manufacturer,
             'chawri_products_substance' => $this->products_substance,
-
-            'chawri_products_size' => $this->products_size,
+            'chawri_products_size_h' => $this->products_size_h,
+            'chawri_products_size_w' => $this->products_size_w,
             'chawri_products_thickness' => $this->products_thickness,
             'chawri_products_grain' => $this->products_grain,
             'chawri_products_sheets_per_packet' => $this->products_sheets_per_packet,
@@ -623,8 +645,8 @@ public function singleProducts(){
             'chawri_products_brand_name' => $this->products_brand_name,
             'chawri_products_manufacturer' => $this->products_manufacturer,
             'chawri_products_substance' => $this->products_substance,
-
-            'chawri_products_size' => $this->products_size,
+            'chawri_products_size_h' => $this->products_size_h,
+            'chawri_products_size_w' => $this->products_size_w,
             'chawri_products_thickness' => $this->products_thickness,
             'chawri_products_grain' => $this->products_grain,
             'chawri_products_sheets_per_packet' => $this->products_sheets_per_packet,
@@ -702,7 +724,8 @@ public function getProducts($id){
         'chawri_products_orders_products_brand_name'=>           $products[0]['chawri_products_brand_name'],
         'chawri_products_orders_products_manufacturer'=>         $products[0]['chawri_products_manufacturer'],
         'chawri_products_orders_products_substance' =>           $products[0]['chawri_products_substance'],
-        'chawri_products_orders_products_size'=>                 $products[0]['chawri_products_size'],
+        'chawri_products_orders_products_size_w'=>               $products[0]['chawri_products_size_w'],
+        'chawri_products_orders_products_size_h'=>               $products[0]['chawri_products_size_h'],
         'chawri_products_orders_products_thickness'=>            $products[0]['chawri_products_thickness'],
         'chawri_products_orders_products_grain'=>                $products[0]['chawri_products_grain'],
         'chawri_products_orders_products_sheets_per_packet'=>    $products[0]['chawri_products_sheets_per_packet'],
@@ -885,7 +908,7 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
         return $data;
     }
     public function searchProducts($searchText){
-        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products_name like '$searchText%' or chawri_products_substance like '$searchText%' or chawri_products_size like '$searchText%'")->result_array();
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products_name like '$searchText%' or chawri_products_substance like '$searchText%' or chawri_$products_size_w; like '$searchText%'")->result_array();
         return $data;
     }
     
@@ -992,18 +1015,19 @@ public function import($file){
             'chawri_products_brand_name'=>$A[2],
             'chawri_products_manufacturer'=>$A[3],
             'chawri_products_substance'=>$A[4],
-            'chawri_products_size'=>$A[5],
-            'chawri_products_thickness'=>$A[6],
-            'chawri_products_grain'=>$A[7],
-            'chawri_products_sheets_per_packet'=>$A[8],
-            'chawri_products_packets_per_bundle'=>$A[9],
-            'chawri_products_quantity_on_offer'=>$A[10],
-            'chawri_products_packing'=>$A[11],
-            'chawri_products_rate'=>$A[12],
-            'chawri_products_cenvat_amount'=>$A[13],
-            'chawri_products_reel_sheet'=>$A[14],
-            'chawri_products_weight'=>$A[15],
-            'chawri_products_categories'=>$A[16],
+            'chawri_products_size_w'=>$A[5],
+            'chawri_products_size_h'=>$A[6],
+            'chawri_products_thickness'=>$A[7],
+            'chawri_products_grain'=>$A[8],
+            'chawri_products_sheets_per_packet'=>$A[9],
+            'chawri_products_packets_per_bundle'=>$A[10],
+            'chawri_products_quantity_on_offer'=>$A[11],
+            'chawri_products_packing'=>$A[12],
+            'chawri_products_rate'=>$A[13],
+            'chawri_products_cenvat_amount'=>$A[14],
+            'chawri_products_reel_sheet'=>$A[15],
+            'chawri_products_weight'=>$A[16],
+            'chawri_products_categories'=>$A[17],
             'chawri_sellers_id' =>$this->session->userdata['user_data'][0]['users_id']
          ];
          $this->db->insert('chawri_products',$data);
@@ -1035,7 +1059,8 @@ public function raiseIssue($raiseIssue,$id){
 
      $data = [
                     'chawri_complaint_order_id' => $id,
-                    'chawri_complaint_message' => $raiseIssue
+                    'chawri_complaint_message' => $raiseIssue,
+                    'chawri_complaint_buyer_name' => $this->session->userdata['user_data'][0]['users_name']
                    
           ];
 

@@ -59,7 +59,8 @@ class Products extends  MX_Controller
                 'chawri_products_quantity_on_offer'=>$post_data['products_quantity_on_offer'][$i],
                 'chawri_products_rate'=>$post_data['products_rate'][$i],
                 'chawri_products_sheets_per_packet'=>$post_data['products_sheets_per_packet'][$i],
-                'chawri_products_size'=>$post_data['products_size'][$i].'X'.$post_data['products_size_one'][$i],
+                'chawri_products_size_w'=>$post_data['products_size'][$i],
+                'chawri_products_size_h'=>$post_data['products_size_one'][$i],
                 'chawri_products_substance'=>$post_data['products_substance'][$i],
                 'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                 'chawri_products_weight'=>$post_data['products_weight'][$i],
@@ -158,14 +159,15 @@ public function showUpdate($id){
 public function update($id){
     if(islogin()){
 $data=$this->input->post();
-$size=$data['products_size'].'X'.$data['products_size_one'];
+
  $this->Mdl_products->setData('update',$this->session->userdata['user_data'][0]['users_id'],$id,
             $data['products_brand_name'],
             $data['products_name'],
             $data['products_manufacturer'],
             $data['products_substance'],
             $data['products_thickness'],
-            $size,
+            $data['products_size'],
+            $data['products_size_one'],
             $data['products_grain'],
             $data['products_sheets_per_packet'],
             $data['packets_per_bundle'],
@@ -274,7 +276,9 @@ public function showForm(){
                             'chawri_products_quantity_on_offer'=>$post_data['products_quantity_on_offer'][$i],
                             'chawri_products_rate'=>$post_data['products_rate'][$i],
 
-                            'chawri_products_size'=>$post_data['products_size'][$i].'X'.$post_data['products_size_one'][$i],
+                            
+                            'chawri_products_size_w'=>$post_data['products_size'][$i],
+                            'chawri_products_size_h'=>$post_data['products_size_one'][$i],
                             'chawri_products_substance'=>$post_data['products_substance'][$i],
                             'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                             'chawri_products_categories'=>$post_data['categories'][$i],
@@ -307,13 +311,13 @@ public function showForm(){
 public function singleProducts(){
  if(islogin()){
  $data=$this->input->post();
- $size=$data['products_size_one'].'X'.$data['products_size'];
+ 
 /* print_r($data);
 die();*/
         $this->Mdl_products->setData('insert',$this->session->userdata['user_data'][0]['users_id'],$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
             $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
             $data['products_quantity_on_offer'],$data['products_rate'],
-            $data['products_sheets_per_packet'],$size,$data['packets_weight'],$data['products_substance'],$data['products_thickness'],$data['categories']);
+            $data['products_sheets_per_packet'],$data['products_size'],$data['products_size_one'],$data['packets_weight'],$data['products_substance'],$data['products_thickness'],$data['categories']);
 
 
         if($this->Mdl_products->singleProducts($data)){

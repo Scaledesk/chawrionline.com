@@ -908,7 +908,7 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
         return $data;
     }
     public function searchProducts($searchText){
-        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products_name like '$searchText%' or chawri_products_substance like '$searchText%' or chawri_$products_size_w; like '$searchText%'")->result_array();
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products_name like '$searchText' or chawri_products_substance like '$searchText' or chawri_products_size_w like '$searchText'or chawri_products_size_h like '$searchText'")->result_array();
         return $data;
     }
     

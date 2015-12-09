@@ -361,7 +361,9 @@
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                     <input id="search" type="search" name="searchText" class="input-text required-entry" maxlength="128" placeholder="Search By :  Products / GSM / Size">
+                                                                   <div style="float: left; width: 33%;"> <input id="search" type="search" name="products" class="input-text required-entry"   placeholder=" Products"></div>
+                                                                    <div style="float: left; width: 33%;" > <input id="search" type="number" name="gsm" step="any"class="input-text required-entry"  placeholder=" GSM "></div>
+                                                                     <div style="float: left; width: 33%;"> <input id="search" type="number" name="size" step="any" class="input-text required-entry" placeholder=" Size"></div>
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
                                                                     <div id="search_autocomplete" class="search-autocomplete"></div>

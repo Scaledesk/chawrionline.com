@@ -369,9 +369,9 @@
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                   <div style="float: left; width: 33%;"> <input id="search" type="search" name="searchText1" class="input-text required-entry"   placeholder=" Products"></div>
-                                                                    <div style="float: left; width: 33%;" > <input id="search" type="search" name="searchText2" class="input-text required-entry"  placeholder=" GSM "></div>
-                                                                     <div style="float: left; width: 33%;"> <input id="search" type="search" name="searchText3" class="input-text required-entry" placeholder=" Size"></div>
+                                                                   <div style="float: left; width: 33%;"> <input id="search" type="search" name="products" class="input-text required-entry"   placeholder=" Products"></div>
+                                                                    <div style="float: left; width: 33%;" > <input id="search" type="number" step="any"name="gsm" class="input-text required-entry"  placeholder=" GSM "></div>
+                                                                     <div style="float: left; width: 33%;"> <input id="search" type="number"step="any" name="size" class="input-text required-entry" placeholder=" Size"></div>
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
                                                                     <div id="search_autocomplete" class="search-autocomplete"></div>

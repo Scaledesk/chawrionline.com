@@ -357,11 +357,13 @@
                                             <div class="em-top-search">
                                                 <div class="em-search-style02">
                                                     <div class="em-no-category-search">
-                                                        <form action="<?php  echo base_url().'users/searchProduct'; ?>" method="post">
+                                                         <form action="<?php  echo base_url().'users/searchProduct'; ?>" method="post">
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                    <input id="search" type="search" name="searchText" class="input-text required-entry" maxlength="128" placeholder="Search By :  Products / GSM / Size">
+                                                                   <div style="float: left; width: 33%;"> <input id="search" type="search" name="products" class="input-text required-entry"   placeholder=" Products"></div>
+                                                                    <div style="float: left; width: 33%;" > <input id="search" step="any"type="number" name="gsm" class="input-text required-entry"  placeholder=" GSM "></div>
+                                                                     <div style="float: left; width: 33%;"> <input id="search"step="any" type="number" name="size" class="input-text required-entry" placeholder=" Size"></div>
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
                                                                     <div id="search_autocomplete" class="search-autocomplete"></div>

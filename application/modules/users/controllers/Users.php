@@ -764,25 +764,26 @@ public function uploadReceipt($id=null){
 
     }
     public function searchProduct(){
-               $text=$this->input->post('searchText1');
-               $text1=$this->input->post('searchText2');
-               $text2=$this->input->post('searchText3');
-               $searchText;
-          if($text){
-                $searchText=$text;
-                echo $searchText;
-                
-               }if ($text1) {
-                 $searchText=$text1;
+              
+              if($products=$this->input->post('products')){
+
+              $this->searchProducts($products);
+              }
+           elseif ($gsm=$this->input->post('gsm')) {
+                  $this->searchProducts($gsm);
+           }else{
+                 $this->searchProducts($this->input->post('size'));
+
+           }
+               
+              
 
 
-               } else {
-                 $searchText=$text2;
-               }
-              echo $searchText; 
-           die;
+       
+    }
 
-        if($this->session->has_userdata('user_data')){
+public function searchProducts($searchText){
+   if($this->session->has_userdata('user_data')){
 
          
             if( $this->session->userdata['user_data'][0]['role']=='sellers'){
@@ -811,7 +812,7 @@ public function uploadReceipt($id=null){
             $this->load->view('header/footer');
         }
 
-    }
+}
 
    
     public function searchProductByGSM($from, $to)

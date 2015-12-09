@@ -15,7 +15,8 @@
             <th>Manufacturer</th>
             <th>GSM</th>
             <th> Bulk</th>
-            <th>Size(in s/m)</th>
+           <th>Size(csm)</th>
+          
 
             <th>Grain</th>
             <th> Sheets Per Packet</th>
@@ -60,9 +61,11 @@
                 <td>
                     <?php echo $rows['chawri_products_thickness']; ?>
                 </td>
-                <td>
-                    <?php echo $rows['chawri_products_size']; ?>
-                </td>
+               <td>
+                  <?php echo $rows['chawri_products_size_w']; ?>
+                X
+               <?php echo $rows['chawri_products_size_h']; ?>
+             </td>
 
 
 

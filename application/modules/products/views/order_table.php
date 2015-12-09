@@ -43,8 +43,8 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                         <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
+                         <th>Size(csm)</th>
+                        
 
                         <th>Grain</th>
                         <th> Sheets Per Packet</th>
@@ -102,9 +102,7 @@
                         </td>
                         <td>
                           <?php echo $rows['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
+                        X
                           <?php echo $rows['chawri_products_orders_products_size_h']; ?>
                         </td>
 
@@ -164,8 +162,8 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                        <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
+                        <th>Size( csm)</th>
+                       
 
                         <th>Grain</th>
                         <th> Sheets Per Packet</th>
@@ -259,9 +257,7 @@
                         </td>
                          <td>
                           <?php echo $rows1['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
+                       X
                           <?php echo $rows1['chawri_products_orders_products_size_h']; ?>
                         </td>
 
@@ -327,8 +323,8 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
-                         <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
+                         <th>Size( csm)</th>
+                        
 
                         <th>Grain</th>
                         <th> Sheets Per Packet</th>
@@ -374,9 +370,7 @@
                         </td>
                         <td>
                           <?php echo $rows2['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
+                       X
                           <?php echo $rows2['chawri_products_orders_products_size_h']; ?>
                         </td>
 
@@ -437,8 +431,8 @@
                         <th>Manufacturer</th>
                         <th>GSM</th>
                         <th> Bulk (mic) </th>
-                        <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
+                        <th>Size( csm)</th>
+                        
 
                         <th>Grain</th>
                         <th> Sheets Per Packet</th>
@@ -530,9 +524,7 @@
                         </td>
                         <td>
                           <?php echo $rows3['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
+                       X
                           <?php echo $rows3['chawri_products_orders_products_size_h']; ?>
                         </td>
 

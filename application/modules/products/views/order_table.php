@@ -459,7 +459,7 @@
                          
                           <!-- Trigger the modal with a button -->
                        <!--    <a  data-toggle="modal" data-target="#myModal">Extension</a> -->
-                          <button type="button" style="background-color: #53287A;"  data-toggle="modal" data-target="#<?php echo $rows3['chawri_products_orders_id'];?>">Raise</button>
+                          <button type="button" style="background-color: #53287A;"  data-toggle="modal" data-target="#<?php echo $rows3['chawri_products_orders_id'];?>">Raise Issue</button>
 
                           <!-- Modal -->
                           <div class="modal fade" id="<?php echo $rows3['chawri_products_orders_id'];?>" role="dialog">

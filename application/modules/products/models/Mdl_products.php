@@ -1076,7 +1076,8 @@ public function raiseIssue($raiseIssue,$id){
      $data = [
                     'chawri_complaint_order_id' => $id,
                     'chawri_complaint_message' => $raiseIssue,
-                    'chawri_complaint_buyer_name' => $this->session->userdata['user_data'][0]['users_name']
+                    'chawri_complaint_buyer_name' => $this->session->userdata['user_data'][0]['users_name'],
+                    'chawri_complaint_buyer_id' => $this->session->userdata['user_data'][0]['users_id']
                    
           ];
 

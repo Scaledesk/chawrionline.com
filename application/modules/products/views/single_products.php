@@ -63,7 +63,7 @@
 
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
-	                                                                    <label for="products_brand_name" class="required"><b> Substance</b></label>
+	                                                                    <label for="products_brand_name" class="required"><b> GSM</b></label>
 	                                                                    <div class="input-box">
 	                                                                        <?php echo $data[0]['chawri_products_substance']; ?>
 	                                                                    </div>
@@ -76,7 +76,7 @@
 
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
-	                                                                    <label for="products_brand_name" class="required"><b> Bulk</b> </label>
+	                                                                    <label for="products_brand_name" class="required"><b> Bulk(mic)</b> </label>
 	                                                                    <div class="input-box">
 	                                                                        <?php echo $data[0]['chawri_products_thickness']; ?>
 	                                                                    </div>
@@ -86,7 +86,7 @@
 	                                                            </div>
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
-	                                                                    <label for="products_brand_name" class="required"><b>Size (in s/m) </b> </label>
+	                                                                    <label for="products_brand_name" class="required"><b>Size (cms) </b> </label>
 	                                                                    <div class="input-box">
 	                                                                        <?php echo $data[0]['chawri_products_size_w']; ?>X
 	                                                                        <?php echo $data[0]['chawri_products_size_h']; ?>

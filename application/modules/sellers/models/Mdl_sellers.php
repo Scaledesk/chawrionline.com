@@ -689,7 +689,7 @@ return false;
      public function approvedProducts(){
         $id = $this->session->userdata['user_data'][0]['users_id'];
          return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id
-  where chawri_products_orders.chawri_sellers_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'extension_done' OR chawri_products_orders.chawri_products_orders_status = 'extension_not')")->result_array();
+  where chawri_products_orders.chawri_sellers_id ='$id' AND (chawri_products_orders.chawri_products_orders_status = 'extension_done' OR chawri_products_orders.chawri_products_orders_status = 'extension_not' OR chawri_products_orders.chawri_products_orders_status = 'Dispatched')")->result_array();
    
       /*$id = $this->session->userdata['user_data'][0]['users_id'];
          return $this->db->query("select * from chawri_products_orders left join chawri_categories on chawri_products_orders.chawri_products_orders_categories = chawri_categories.chawri_categories_id

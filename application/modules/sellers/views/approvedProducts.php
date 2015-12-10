@@ -17,7 +17,7 @@
   <div class="container">
   <h2>Manage Order</h2>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Going on Order</a></li>
+    <li class="active"><a data-toggle="tab" href="#home"> No Going Order</a></li>
     <li><a data-toggle="tab" href="#menu1">New Order</a></li>
     <li><a data-toggle="tab" href="#menu2">Cancelled</a></li>
      <li><a data-toggle="tab" href="#menu3">Completed</a></li> 
@@ -69,7 +69,7 @@
                          <?php echo $rows['chawri_products_orders_status'];?>
                         </td>
                         <td>
-                            <a onclick="return confirm('Are you sure you want to Dispatched Products?')" href="<?php  echo base_url().'sellers/dispatched/'.$rows['chawri_products_orders_id'].'/'.$rows['chawri_sellers_id'].'/'.$rows['chawri_products_orders_buyer_id'];?>">Dispatch</a> 
+                         <?php if($rows['chawri_products_orders_status']=='Dispatched') { }else{ ?>   <a onclick="return confirm('Are you sure you want to Dispatched Products?')" href="<?php echo base_url().'sellers/dispatched/'.$rows['chawri_products_orders_id'].'/'.$rows['chawri_sellers_id'].'/'.$rows['chawri_products_orders_buyer_id'];?>">Dispatch</a> <?php } ?>
                         </td>
                         <td>
                         <?php echo $rows['chawri_products_orders_total_cost']; ?>

@@ -693,7 +693,7 @@ public function getProducts($id){
 
 
 
- public function buyNow($total_cost,$sellers_id,$products_id,$description,$qty,$cform) {
+ public function buyNow($total_cost,$sellers_id,$products_id,$description,$qty,$cform,$tin_no) {
 
  $date = date('Y-m-d H:i:s');
   
@@ -739,7 +739,8 @@ public function getProducts($id){
         'chawri_products_orders_products_description'=>          $description,
         'chawri_products_orders_categories' =>                   $products[0]['chawri_products_categories'],
         'chawri_products_orders_cform' =>                        $cform,
-        'chawri_products_orders_total_cost'=>                    $total_cost
+        'chawri_products_orders_total_cost'=>                    $total_cost,
+        'chawri_products_orders_tin_no'=>                        $tin_no  
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;
@@ -883,6 +884,14 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
 
     public function orderCancel($id){
 
+
+
+         $sellers_email = $this->db->select('chawri_sellers_email')
+                  ->get_where('chawri_sellers', array('chawri_sellers_id' => $sellers_id))
+                  ->row()
+                  ->chawri_sellers_email;
+
+
   $data = [
             'chawri_products_orders_status' => 'cancelled_by_buyer'
              ];
@@ -954,6 +963,11 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
 
 public function  received($id){
 
+     $sellers_email = $this->db->select('chawri_sellers_id')
+                  ->get_where('chawri_products_orders', array('chawri_products_orders_id' => $id))
+                  ->row()
+                  ->chawri_sellers_id;
+
   $data = [
                     'chawri_products_orders_status' => 'Received'
                     
@@ -962,8 +976,10 @@ public function  received($id){
                 ];
     
                 $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
-                $this->db->where('chawri_products_orders_id',$id);
-               return  $this->db->update('chawri_products_orders',$data)?true:false;
+                $this->db->where('chawri_products_orders_id',$id); 
+                 $this->db->update('chawri_products_orders',$data);
+                 
+                 return $sellers_email;
   
          
  }

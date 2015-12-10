@@ -450,9 +450,9 @@ if(islogin()){
 /**/
  $email=$data['sellers'][0]['chawri_sellers_email'];
 
-$this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['products_id'],$data['description'],$data['qry'],$data['cform']);
+$this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['products_id'],$data['description'],$data['qry'],$data['cform'],$data['tin_no']);
 
-        $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->from('noreply@chawri.com', 'Chawri');
         $this->email->to($email);
        
         $this->email->subject('order placed');
@@ -461,7 +461,7 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
         if($this->email->send()){
 
 
-          $this->email->from('nkscoder@gmail.com', 'Chawri');
+          $this->email->from('noreply@chawri.com', 'Chawri');
          $this->email->to($this->session->userdata['user_data'][0]['users_email']);
        
         $this->email->subject('order placed');
@@ -490,11 +490,13 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
 public function orderApproved ($id){
 if(islogin()){
 if($this->Mdl_products->orderApproved($id)){
+
+
  setInformUser('success',"Product buy  Successfully ");
     redirect('products/showOrder');
 }
 else{
-   setInformUser('success',"Product Received Successfully ");
+   setInformUser('error',"Some Error Occurred ");
     redirect('products/showOrder');
 }
 }
@@ -506,9 +508,26 @@ else{
 
 public function received($id){
 if(islogin()){
-  if($this->Mdl_products->received($id)){
-     setInformUser('success',"Product Received Successfully ");
-    redirect('products/showOrder');
+  if($sellers_email=$this->Mdl_products->received($id)){
+
+ $this->email->from('noreply@chawri.com', 'Chawri');
+         $this->email->to($sellers_email);
+       
+        $this->email->subject('Received Order');
+       
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">  chawrionline.com. </div>');
+        if($this->email->send()){
+         setInformUser('success',"Product Received Successfully ");
+           redirect('products/showOrder');
+        }
+        else{
+          setInformUser('error',"Some Error Occurred ");
+           redirect('products/showOrder');
+        }
+
+
+
+     
 
   }else{
     setInformUser('error',"Some error Occurred! Kindly retry ");

@@ -361,6 +361,8 @@
                  <input type="hidden" name="description" value="<?php echo $buyNow['description']; ?>" />
                  <input type="hidden" name="qry" value="<?php echo $buyNow['qty']; ?>"/>
                  <input type="hidden" name="cform" value="<?php echo $buyNow['cform']; ?>" />
+                 
+                 <input type="hidden" name="tin_no" value="<?php echo $buyNow['tin_no']; ?>" />
                  <button type="submit" title="Place" class="button">Place Order </button>
                </form>
              

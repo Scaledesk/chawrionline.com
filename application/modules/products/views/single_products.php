@@ -194,46 +194,82 @@
 
 
                                                         </li>
-
+                                                       <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" method="post"> 		
 
                                                         <li class="fields">
                                                         <div class="customer-name-middlename">
 	                                                     <div class="field name-firstname">
-	                                                     <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" Method="post">
+	                                                     
                                                          <div class="form-group" id="form1">
                                                          <label  for="qty">Quantity</label>
-                                                         <input type="number" step="any" min="0" id="qty" onchange="checkvalue(this)" class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
+                                                           <div class="input-box">
+                                                         <input type="number" step="any" name="qty" min="0" id="qty" onchange="checkvalue(this)" class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
                                                          </div>
 	                                                     </div>
-	                                                     </div>h
-                                                            </li>
+	                                                     </div>
+															</div>
+	                                                    <div class="customer-name-middlename">
+	                                                                <div class="field name-firstname">
+	                                                                    <label for="products_brand_name" class="required"><b>C Form</b></label>
+	                                                                    <div class="input-box">
+	                                                                        <select name="cform">
+												                                   <option>Cform</option>
+												                                   <option>Vat</option>
+												                                   <option>Cst</option>
+												                                   </select>
+	                                                                        
+	                                                                    </div>
+	                                                                </div>
 
-                                                           </ul>
+
+	                                                            </div>
+
+	                                                    </li>
+                                                            
+                                                           <li class="fields">
+
+	                                                            
+	                                                            <div class="customer-name-middlename">
+	                                                                <div class="field name-firstname">
+	                                                                    <label for="products_brand_name" class="required"><b>Tin Number</b> </label>
+	                                                                    <div class="input-box">
+	                                                                       <input type=" text" name="tin_no" required class="input-text  required-entry"/>
+	                                                                    </div>
+	                                                                </div>
+
+
+	                                                            </div>
+
+
+                                                        
 
 	                                                      <div class="customer-name-middlename">
 	                                                      <div class="field name-firstname">
-	                                                      <div class="form-group" id="form2">
-                                                          <label  for="description">Description</label>
-                                                          <textarea name="description" required  class="form-control" rows="5" id="desc"></textarea>
-                                                          <!-- <div class="buttons-set"> <button type="submit" title="Submit" class="button"> Buy Now </button></div> -->
-                                                           <button type="button" onclick="modalval(this)" style="background-color: #53287A;"  data-toggle="modal" data-target="#myModal">Buy Now</button>
+	                                                      
+                                                          <label  class="required" for="description">Description</label>
+                                                          <div class="input-box">
+                                                          <textarea name="description" required  class="input-text  required-entry" rows="5" id="desc"></textarea>
+                                                          
                                                           </div>
-                                                          </form>
+                                                          
+	                                                    
 	                                                     </div>
 	                                                     </div>
+	                                                     	  <input type="submit" class="button" name="submit" value="Buy Now">
 
+	                                                     	</form>
+	                                                     	</li>
+                                                           </ul>
                                                      <!-- ............................................... -->
-                                                    <div class="row" >
+                                                   <!--  <div class="row" >
                          
-                          <!-- Trigger the modal with a button -->
-                       <!--    <a  data-toggle="modal" data-target="#myModal">Extension</a> -->
                          
 
-                          <!-- Modal -->
+                          
                           <div class="modal fade" id="myModal" role="dialog">
                             <div class="modal-dialog">
                             
-                              <!-- Modal content-->
+                             
                               <div class="modal-content">
                               
                                 <div class="modal-header">
@@ -263,8 +299,7 @@
                                 <button type="submit" style="background-color: #53287A;" class="btn btn-default btn-success btn-block">Submit</button>
                               </form>
                         
-                                 <!-- button type="submit" class="btn btn-default" >Submit</button> -->
-                                 <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                
                                 </div>
                                
                               </div>
@@ -272,7 +307,7 @@
                             </div>
                           </div>
                           
-                        </div>
+                        </div> -->
                                                      <!-- .......................................................... -->
 
 

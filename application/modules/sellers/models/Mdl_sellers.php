@@ -711,7 +711,7 @@ return false;
              ];
 
 
-        /* if($this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)){*/
+         if($this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)){
 
           /*$buyer_email=$this->db->where('chawri_users_id',$sellers_id)->get('chawri_users')->result_array();
           $sellers_email=$this->db->where('chawri_users_id',$sellers_id)->get('chawri_sellers')->result_array();
@@ -731,7 +731,8 @@ return false;
          
             return $data;
 
-       /*  }*/
+            
+         }
 
          
 

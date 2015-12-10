@@ -150,6 +150,7 @@
 	                                                                    <label for="products_brand_name" class="required"><b> Quantity on offer </b></label>
 	                                                                    <div class="input-box">
 	                                                                        <?php echo $data[0]['chawri_products_quantity_on_offer']; ?>
+	                                                                        <input type="hidden" id="qtynum" name="qtynum" value="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>">
 	                                                                    </div>
 	                                                                </div>
 
@@ -174,6 +175,7 @@
 	                                                                    <label for="products_brand_name" class="required"><b>Rate per KG</b></label>
 	                                                                    <div class="input-box">
 	                                                                        <?php echo $data[0]['chawri_products_rate']; ?>
+	                                                                        
 	                                                                    </div>
 	                                                                </div>
 
@@ -200,10 +202,10 @@
 	                                                     <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" Method="post">
                                                          <div class="form-group" id="form1">
                                                          <label  for="qty">Quantity</label>
-                                                         <input type="number" step="any" minlength="0" id="qty" class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
+                                                         <input type="number" step="any" min="0" id="qty" onchange="checkvalue(this)" class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
                                                          </div>
 	                                                     </div>
-	                                                     </div>
+	                                                     </div>h
                                                             </li>
 
                                                            </ul>
@@ -306,3 +308,23 @@ document.getElementById('hiddenDesc').value = val2;
 
 }
 </script>
+
+
+<script type="text/javascript">
+	
+function checkvalue(){
+	var qty= document.getElementById('qtynum').value;
+	var qtyn= document.getElementById('qty').value;
+
+	if (qtyn<=qty) {
+   
+     
+     return true;
+	}else{
+	 alert('Quantity must be less then Quantity on offer.');
+	  document.getElementById("qty").focus();
+      return false;
+	}
+}
+</script>
+

@@ -40,26 +40,7 @@
               </tr>
           </thead>
 
-         <!--  <tfoot>
-               <tr>
-                 <th>Product Name</th>
-                    <th>Brand Name</th>
-                    <th>Manufacturer</th>
-                    <th>Substance</th>
-                    <th> Bulk</th>
-                    <th>Products Size(in s/m)</th>
-                    
-                    <th>Grain</th>
-                    <th> Sheets Per Packet</th>
-                    <th> Pkt. Weight</th>
-                    <th>Packets Per Bundle</th>
-                    <th>Qty. on Offer (in pkts)</th>
-                    <th>Packing</th>
-                    <th>Products Rate</th>
-                    <th>Products CENVAT Amount</th>
-                    <th>Action</th>
-              </tr>
-          </tfoot> -->
+        
 
           <tbody>
               <?php

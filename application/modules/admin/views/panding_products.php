@@ -62,7 +62,7 @@
                     <td>
                      <input type="date" required name="delivery_date"/>
                         
-                      
+                      <input type="hidden" value="<?php echo $rows['chawri_users_username']; ?>" name="buyer_email">
                     </td>
                     <td>
                         <button type="submit" onclick="return confirm('Are you sure you want to Approve Products?')" >Approve</button> / <a onclick="return confirm('Are you sure you want to Decline Products?')" href="<?php  echo base_url().'admin/decline/'.$rows['chawri_products_orders_id'];?>">Decline</a>  
@@ -71,7 +71,7 @@
                     </td>
                     </form>
                     <td>
-                      <?php echo $rows['chawri_products_name']; ?>
+                      <?php echo $rows['chawri_products_name']; ?> 
                     </td>
                     <td>
                       <?php echo $rows['chawri_users_fname'].' '.$rows['chawri_users_lname']; ?>

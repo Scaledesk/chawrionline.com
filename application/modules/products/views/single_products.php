@@ -200,7 +200,7 @@
 	                                                     <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" Method="post">
                                                          <div class="form-group" id="form1">
                                                          <label  for="qty">Quantity</label>
-                                                         <input type="number" name="qty" id="qty" class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
+                                                         <input type="number" step="any" minlength="0" id="qty" class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
                                                          </div>
 	                                                     </div>
 	                                                     </div>

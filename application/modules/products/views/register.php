@@ -97,7 +97,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_substance" class="required"><em>*</em>GSM</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="substance" onchange ="checkNumber(this)" required  name="products_substance" title="Substance" maxlength="7" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength=0 id="substance" onchange ="checkNumber(this)" required  name="products_substance" title="Substance" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -128,7 +128,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_thickness" >Bulk (mic)</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"   name="products_thickness" title="Bulk" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"   name="products_thickness" title="Bulk" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -142,8 +142,8 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_size" class="required"><em>*</em> Size</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"  required  name="products_size" title="  Size" maxlength="255" class=" input-text size-box1">
-                                                                        <span>X</span> <input type="number" id="firstname"  required  name="products_size_one" title="  Size" maxlength="255" class="input-text size-box2">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"  required  name="products_size" title="  Size" maxlength="255" class=" input-text size-box1">
+                                                                        <span>X</span> <input type="number" step="any" minlength="0" id="firstname"  required  name="products_size_one" title="  Size" maxlength="255" class="input-text size-box2">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -176,7 +176,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_sheets_per_packet" class="required"><em>*</em>Sheets per Packet</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"    name="products_sheets_per_packet" title="Sheets per Packet" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"    name="products_sheets_per_packet" title="Sheets per Packet" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -191,7 +191,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="packets_per_bundle" class="required"><em>*</em>Packet Per Bundle</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"   name="packets_per_bundle" title="Products Per Bundle" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"   name="packets_per_bundle" title="Products Per Bundle" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -205,7 +205,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="packets_weight" class="required"><em>*</em>Pkt. Weight</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"    name="packets_weight" title="Pkt. Weight" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"    name="packets_weight" title="Pkt. Weight" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -219,7 +219,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_quantity_on_offer" class="required"><em>*</em>Quantity on Offer (in pkts)</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"  required  name="products_quantity_on_offer" title="Quantity on Offer (in pkts)" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"  required  name="products_quantity_on_offer" title="Quantity on Offer (in pkts)" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -255,7 +255,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_rate" class="required"><em>*</em>Products Rate</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"  required  name="products_rate" title="Products Rate" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"  required  name="products_rate" title="Products Rate" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -269,7 +269,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_cenvat_amount" class="required"><em>*</em> Products CENVAT Amount</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="firstname"  required  name="products_cenvat_amount" title=" Products CENVAT Amount" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"  required  name="products_cenvat_amount" title=" Products CENVAT Amount" maxlength="255" class="input-text required-entry">
                                                                    
                                                                     </div>
                                                                 </div>

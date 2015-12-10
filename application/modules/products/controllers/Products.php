@@ -457,12 +457,12 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
        
         $this->email->subject('order placed');
        
-         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Thsi is to notify you that an order has beeen placed for your product lsited on chawrionline.com.</div>');
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Thsi is to notify you that an order has beeen placed for your product listed on chawrionline.com.</div>');
         if($this->email->send()){
 
 
           $this->email->from('nkscoder@gmail.com', 'Chawri');
-        $this->email->to($this->session->userdata['user_data'][0]['users_email']);
+         $this->email->to($this->session->userdata['user_data'][0]['users_email']);
        
         $this->email->subject('order placed');
        
@@ -473,8 +473,7 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
         }
 
 
-         setInformUser('success'," Order Place Successfully.  Please check your Email.    Admin Approval Pending.");
-          redirect('products/showOrder'); 
+         
         }
       else{
         setInformUser('error',"Some error Occurred! Kindly retry ");

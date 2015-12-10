@@ -358,6 +358,9 @@ public function dispatched($id){
   if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='sellers'){
     if($this->Mdl_sellers->dispatched($id)){
+      
+     
+
          setInformUser('success','Dispatched Successfully');
         redirect('sellers/manageOrder');
     }

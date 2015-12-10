@@ -84,13 +84,23 @@ class Admin extends MX_Controller{
 
 /*print_r($commission);*/
 
-
+$buyer_email=$this->input->post('buyer_email');
 
     if($this->Mdl_admin->approval($id)){
 
 
-      setInformUser('success','Products Approved  successfully');
-      redirect('admin/showProducts');
+          $this->email->from('nkscoder@gmail.com', 'Chawri');
+         $this->email->to($buyer_email);
+       
+        $this->email->subject('Products Approved By Admind ');
+       
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">  chawrionline.com. </div>');
+        if($this->email->send()){
+
+           setInformUser('success','Admin Approved.');
+          redirect('products/showOrder'); 
+        }
+
     }
     else{
 

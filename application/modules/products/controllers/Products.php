@@ -562,10 +562,8 @@ public function import(){
             $config['allowed_types']        = 'csv|xls';
             $config['max_size']             = 1000;
             $config['encrypt_name'] = TRUE;
-            $ci->upload->initialize($config);
-            // print_r($_FILES['name']);
-
-
+            $this->upload->initialize($config);
+        
             if ( ! $ci->upload->do_upload('name'))
             {
                 $error = array('error' => $ci->upload->display_errors());

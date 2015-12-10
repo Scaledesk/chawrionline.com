@@ -703,7 +703,7 @@ return false;
      }
 
 
-     public function dispatched($id){
+     public function dispatched($id,$sellers_id,$buyer_id){
 
            
         $data = [
@@ -711,7 +711,29 @@ return false;
              ];
 
 
-        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+        /* if($this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)){*/
+
+          /*$buyer_email=$this->db->where('chawri_users_id',$sellers_id)->get('chawri_users')->result_array();
+          $sellers_email=$this->db->where('chawri_users_id',$sellers_id)->get('chawri_sellers')->result_array();
+          */
+          $buyer_email = $this->db->select('chawri_users_username')
+                  ->get_where('chawri_users', array('chawri_users_id' => $buyer_id))
+                  ->row()
+                  ->chawri_users_username;
+
+                  $sellers_email = $this->db->select('chawri_sellers_email')
+                  ->get_where('chawri_sellers', array('chawri_sellers_id' => $sellers_id))
+                  ->row()
+                  ->chawri_sellers_email;
+
+                  $data= ['buyer_email' => $buyer_email, 'sellers_email' => $sellers_email];
+          
+         
+            return $data;
+
+       /*  }*/
+
+         
 
      }
 

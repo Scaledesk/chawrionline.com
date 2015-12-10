@@ -354,15 +354,44 @@ public function conform($id){
 
 
 
-public function dispatched($id){
+public function dispatched($id,$sellers_id,$buyer_id){
   if(islogin()){
      if( $this->session->userdata['user_data'][0]['role']=='sellers'){
-    if($this->Mdl_sellers->dispatched($id)){
+    if($data['email']=$this->Mdl_sellers->dispatched($id,$sellers_id,$buyer_id)){
       
-     
+     $buyer_email= $data['email']['buyer_email'];
+     $sellers_email= $data['email']['sellers_email'];
+
+
+      $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->to($buyer_email);
+       
+        $this->email->subject('Dispatched order');
+       
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> chawrionline.com.</div>');
+        if($this->email->send()){
+
+
+          $this->email->from('nkscoder@gmail.com', 'Chawri');
+         $this->email->to($sellers_email);
+       
+        $this->email->subject('Dispatched order');
+       
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">  chawrionline.com. .</div>');
+        if($this->email->send()){
+
 
          setInformUser('success','Dispatched Successfully');
         redirect('sellers/manageOrder');
+
+
+
+}
+
+
+   }
+   
+
     }
     else{
          setInformUser('error','Some Error Occur.  Please Try Again');

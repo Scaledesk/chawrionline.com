@@ -69,7 +69,7 @@
                          <?php echo $rows['chawri_products_orders_status'];?>
                         </td>
                         <td>
-                            <a onclick="return confirm('Are you sure you want to Dispatched Products?')" href="<?php  echo base_url().'sellers/dispatched/'.$rows['chawri_products_orders_id'];?>">Dispatch</a> 
+                            <a onclick="return confirm('Are you sure you want to Dispatched Products?')" href="<?php  echo base_url().'sellers/dispatched/'.$rows['chawri_products_orders_id'].'/'.$rows['chawri_sellers_id'].'/'.$rows['chawri_products_orders_buyer_id'];?>">Dispatch</a> 
                         </td>
                         <td>
                         <?php echo $rows['chawri_products_orders_total_cost']; ?>

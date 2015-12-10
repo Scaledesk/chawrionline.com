@@ -515,7 +515,7 @@ if(islogin()){
        
         $this->email->subject('Received Order');
        
-         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">  chawrionline.com. </div>');
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Your order has been successfully Received. As per norms you have 4 Days to Raise any Issue regarding the Order </div>');
         if($this->email->send()){
          setInformUser('success',"Product Received Successfully ");
            redirect('products/showOrder');

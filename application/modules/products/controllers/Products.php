@@ -563,7 +563,6 @@ public function import(){
             $config['max_size']             = 1000;
             $config['encrypt_name'] = TRUE;
             $this->upload->initialize($config);
-        
             if ( ! $ci->upload->do_upload('name'))
             {
                 $error = array('error' => $ci->upload->display_errors());

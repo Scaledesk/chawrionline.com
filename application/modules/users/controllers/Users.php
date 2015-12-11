@@ -314,7 +314,7 @@ public function showForgetPwd(){
             $this->Mdl_users->setData('get_email', $email,$token);
             if ($this->Mdl_users->forgotPwd('get_email',$email)) {
 
-                $this->email->from('nkscoder@gmail.com', 'Chawri');
+                $this->email->from('noreply@chawri.com', 'Chawri');
                 $this->email->to($email);
 
                 $this->email->subject('Forgot Password');
@@ -402,7 +402,7 @@ public function showForgetPwd(){
     public  function sendMail()
     {
         $token = $this->createToken();
-        $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->from('noreply@chawri.com', 'Chawri');
         $this->email->to($this->Mdl_users->getUserName());
 
         $this->email->subject('Email Activation');
@@ -558,12 +558,12 @@ public function showForgetPwd(){
     public  function contactMail()
     {
 
-        $admin_mail='nkscoder@gmail.com';
+        $admin_mail='admin@chawri.com';
         $email= $this->Mdl_users->getUserName();
         $name= $this->Mdl_users->getFname();
         $query= $this->Mdl_users->getContactQuery();
 
-        $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->from('noreply@chawri.com', 'Chawri');
         $this->email->to($admin_mail);
         /*$this->email->to($this->Mdl_users->getUserName());*/
 

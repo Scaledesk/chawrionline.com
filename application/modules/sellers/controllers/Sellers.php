@@ -126,7 +126,7 @@ if(islogin()){
     public  function sendMail()
     {
         $token = $this->createToken();
-        $this->email->from('singhniteshbca@gmail.com', 'Chawri ');
+        $this->email->from('noreply@chawri.com', 'Chawri ');
         $this->email->to($this->Mdl_sellers->getSellersEmail());
 
         $this->email->subject('Email Activation');
@@ -321,9 +321,9 @@ public function conform($id){
          $lname=$data['buyer'][0]['chawri_users_lname'];
          $email=$data['buyer'][0]['chawri_users_username'];
 
-        $admin_mail='nkscoder@gmail.com';
+        $admin_mail='noreply@chawri.com';
 
-        $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->from('noreply@chawri.com', 'Chawri');
         $this->email->to($email);
         /*$this->email->to($this->Mdl_users->getUserName());*/
 
@@ -363,7 +363,7 @@ public function dispatched($id,$sellers_id,$buyer_id){
      $sellers_email= $data['email']['sellers_email'];
 
 
-      $this->email->from('nkscoder@gmail.com', 'Chawri');
+      $this->email->from('noreply@chawri.com', 'Chawri');
         $this->email->to($buyer_email);
        
         $this->email->subject('Dispatched order');
@@ -372,7 +372,7 @@ public function dispatched($id,$sellers_id,$buyer_id){
         if($this->email->send()){
 
 
-          $this->email->from('nkscoder@gmail.com', 'Chawri');
+          $this->email->from('noreply@chawri.com', 'Chawri');
          $this->email->to($sellers_email);
        
         $this->email->subject('Dispatched order');

@@ -89,7 +89,7 @@ $buyer_email=$this->input->post('buyer_email');
     if($this->Mdl_admin->approval($id)){
 
 
-          $this->email->from('nkscoder@gmail.com', 'Chawri');
+          $this->email->from('noreply@chawri.com', 'Chawri');
          $this->email->to($buyer_email);
        
         $this->email->subject('Products Approved By Admind ');

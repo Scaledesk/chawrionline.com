@@ -510,7 +510,9 @@ public function received($id){
 if(islogin()){
   if($sellers_email=$this->Mdl_products->received($id)){
 
- $this->email->from('noreply@chawri.com', 'Chawri');
+  /* echo $sellers_email;
+ die;*/
+       $this->email->from('noreply@chawri.com', 'Chawri');
          $this->email->to($sellers_email);
        
         $this->email->subject('Received Order');

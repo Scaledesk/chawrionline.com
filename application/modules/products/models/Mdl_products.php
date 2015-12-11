@@ -963,10 +963,20 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
 
 public function  received($id){
 
-     $sellers_email = $this->db->select('chawri_sellers_id')
+          $sellers_id = $this->db->select('chawri_sellers_id')
                   ->get_where('chawri_products_orders', array('chawri_products_orders_id' => $id))
                   ->row()
                   ->chawri_sellers_id;
+
+     $sellers_email = $this->db->select('chawri_sellers_email')
+                  ->get_where('chawri_sellers', array('chawri_sellers_id' => $sellers_id))
+                  ->row()
+                  ->chawri_sellers_email;
+
+/*echo $sellers_email;
+die;*/
+ 
+
 
   $data = [
                     'chawri_products_orders_status' => 'Received'

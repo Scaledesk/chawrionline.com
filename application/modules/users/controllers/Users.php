@@ -155,6 +155,8 @@ public function buyerHome(){
                         $user_data['data'] = $this->Mdl_users->getUserData();
 //echo "1";
  //die;
+                       /* print_r($user_data['data']);
+                        die;*/
                         $this->_setSessionData('authorize', $user_data);
 
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
@@ -243,7 +245,8 @@ public function buyerHome(){
         switch(func_get_arg(0)){
             case 'authorize':   //$this->session->set_userdata('authorize',true);
                $data=array();
-
+                          /*echo func_get_arg(1)['data'][0]['chawri_users_tin_no'];
+                          die;*/
                      $user_username=func_get_arg(1)['data'][0]['chawri_users_fname'].' '.func_get_arg(1)['data'][0]['chawri_users_lname'];
 
                 array_push($data, [
@@ -254,6 +257,7 @@ public function buyerHome(){
                     'users_address' =>func_get_arg(1)['data'][0]['chawri_users_address'],
                     'users_state' =>func_get_arg(1)['data'][0]['chawri_users_state'],
                     'users_phone_no' =>func_get_arg(1)['data'][0]['chawri_users_phone'],
+                    'users_tin_no'   =>func_get_arg(1)['data'][0]['chawri_users_tin_no'],
                     'role'=>func_get_arg(1)['data'][0]['chawri_users_role']
 
                 ]);

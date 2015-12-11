@@ -687,7 +687,7 @@ return $this->db->where('chawri_products_id',$id)->delete('chawri_products')?tru
 
 public function getProducts($id){
 
-  return $this->db->where('chawri_products_id',$id)->get('chawri_products')->result_array();
+ return $data= $this->db->where('chawri_products_id',$id)->get('chawri_products')->result_array();
 
 }
 
@@ -1096,5 +1096,12 @@ public function raiseIssue($raiseIssue,$id){
          /* print_r($data); users_phone_no
           die;*/
    return $this->db->insert('chawri_complaint',$data)?true:false;
+}
+
+public function cform($id){
+        return $this->db->select('chawri_sellers_cform')
+                  ->get_where('chawri_sellers', array('chawri_sellers_id' => $id))
+                  ->row()
+                  ->chawri_sellers_cform;
 }
 }

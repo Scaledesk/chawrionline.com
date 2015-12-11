@@ -24,7 +24,7 @@ class MY_Email extends CI_Email{
         $config['smtp_pass']=$smtp['smtp_pass'];// email's password    - set smtp values
         $config['smtp_user']=$smtp['smtp_user'];
         $config['smtp_port']=$smtp['smtp_port'];//gmail port 465 (ssl) and 587 (TSL) required
-        $config['smtp_timeout']=10;//smtp timeout in seconds
+        $config['smtp_timeout']=60;//smtp timeout in seconds
         $config['wordwrap']=TRUE;
         $config['wrapchars']=76;
         $config['mailtype']='html';

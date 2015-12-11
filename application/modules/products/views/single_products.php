@@ -210,14 +210,23 @@
 															</div>
 	                                                    <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
+
+	                                                                   
 	                                                                    <label for="products_brand_name" class="required"><b>C Form</b></label>
 	                                                                    <div class="input-box">
+	                                                                    <?php if($cform=='No'){ ?>
 	                                                                        <select name="cform">
+												                                   
+												                                   <option>Vat</option>
+												                                   <option>Cst</option>
+												                                   </select>
+												                                   <?php }else{ ?>
+												                                   <select name="cform">
 												                                   <option>Cform</option>
 												                                   <option>Vat</option>
 												                                   <option>Cst</option>
 												                                   </select>
-	                                                                        
+	                                                                            <?php } ?>
 	                                                                    </div>
 	                                                                </div>
 
@@ -233,7 +242,7 @@
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Tin Number</b> </label>
 	                                                                    <div class="input-box">
-	                                                                       <input type=" text" name="tin_no" required class="input-text  required-entry"/>
+	                                                                       <input type=" text" name="tin_no" value="<?php  echo $this->session->userdata['user_data'][0]['users_tin_no'] ; ?>" required class="input-text  required-entry"/>
 	                                                                    </div>
 	                                                                </div>
 
@@ -248,7 +257,7 @@
 	                                                      
                                                           <label  class="required" for="description">Description</label>
                                                           <div class="input-box">
-                                                          <textarea name="description" required  class="input-text  required-entry" rows="5" id="desc"></textarea>
+                                                          <textarea name="description" required  class="input-text  required-entry" rows="5" id="desc"> </textarea>
                                                           
                                                           </div>
                                                           
@@ -260,6 +269,7 @@
 	                                                     	</form>
 	                                                     	</li>
                                                            </ul>
+
                                                      <!-- ............................................... -->
                                                    <!--  <div class="row" >
                          

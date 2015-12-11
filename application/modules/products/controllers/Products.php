@@ -108,7 +108,11 @@ public function getProducts($id){
   	else{
 
    if( $this->session->userdata['user_data'][0]['role']=='buyer'){
+
   $data['data']=$this->Mdl_products->getProducts($id);
+  $data['cform']=$this->Mdl_products->cform($data['data'][0]['chawri_sellers_id']);
+
+  
   $this->load->view('users/header/header_buyer');
   $this->load->view('single_products',$data);
   $this->load->view('users/header/footer');
@@ -575,8 +579,13 @@ else{
             redirect(base_url('users/home'));
           }
 }
+
+
+
+ 
 public function import(){
      if(islogin()){
+      try {
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
             $ci=CI::get_instance();
             $config['upload_path']          = 'uploads/';
@@ -588,7 +597,10 @@ public function import(){
             {
                 $error = array('error' => $ci->upload->display_errors());
                 setInformUser('error', $error['error'].' please import csv or xls file formate only');
+                throw new Exception('Data are empty');
                 redirect('products');
+                
+
             }
             else
             {
@@ -601,21 +613,25 @@ public function import(){
                      redirect('products');
                     //die;
 
-                }
+                }}
+
               }
+               else {
+               redirect('users/home');
+            }
 
         }
+        catch (Exception $e) {
+  
+         var_dump($e->getMessage());
+            }
+          }
         else {
                redirect('users/home');
             }
    
  }
 
-          else{
-            redirect(base_url('users/home'));
-          }
-
-    }
 
 
 public function extension_buyer($id){

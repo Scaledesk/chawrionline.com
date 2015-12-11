@@ -59,7 +59,7 @@ public function getBuyer(){
 
 public function activateSeller($id){
 
-	if($this->db->where('chawri_sellers_id',$id)->update('chawri_sellers',['chawri_sellers_status'=>'1']))
+	if($this->db->where('chawri_sellers_id',$id)->update('chawri_sellers',['chawri_sellers_admin_status'=>'1']))
 	{
 		return true;
 	}
@@ -70,7 +70,7 @@ public function activateSeller($id){
 
 public function inActivateSeller($id){
 
-	if($this->db->where('chawri_sellers_id',$id)->update('chawri_sellers',['chawri_sellers_status'=>'0']))
+	if($this->db->where('chawri_sellers_id',$id)->update('chawri_sellers',['chawri_sellers_admin_status'=>'0']))
 	{
 		return true;
 	}

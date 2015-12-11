@@ -34,7 +34,7 @@
                   <tr>
                    <td>
                       <?php 
-                        if($rows['chawri_sellers_status']==0){
+                        if($rows['chawri_sellers_admin_status']==0){
                          ?><a onclick="return confirm('Are you sure you want to Activate Sellers?')" href="<?php echo base_url().'admin/activateSeller/'.$rows['chawri_sellers_id']?>"> Activate</a>
                        <?php  }
                         else{

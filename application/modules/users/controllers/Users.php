@@ -172,7 +172,8 @@ public function buyerHome(){
 
                        }
               elseif($this->Mdl_sellers->checkSellers()) {
-
+                 
+                if($this->Mdl_users->adminActive()) {
                           $user_data = $this->Mdl_sellers->getUserData();
                
                          /* echo "Seller Login";
@@ -180,6 +181,12 @@ public function buyerHome(){
                            die();*/
                           $this->_setSessionData('sellers', $user_data);
                             redirect(base_url().'sellers/homeSeller');
+                          }
+                          else{
+                                 setInformUser('error', 'Please Pay Registration Amount to ativate Account and Wai for Admin Approvad. ');
+                                 redirect('users');
+
+                          }
               }
 
 

@@ -923,4 +923,25 @@ public function getInformation(){
 
         return $data;
     }
+
+
+
+     public function adminActive(){
+     
+       $query=$this->db->where(array('chawri_sellers_email'=>$this->getUserName()))->select(array('chawri_sellers_admin_status'))->get('chawri_sellers');
+      $q=$query->result_array();
+
+
+
+
+    if($q[0]['chawri_sellers_admin_status']=='1'){
+  
+       return true;
+        }
+        else {
+            return false;
+        }
+
+
+    }
 }

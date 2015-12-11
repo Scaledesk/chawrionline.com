@@ -807,7 +807,7 @@ public function searchProducts($searchText){
                
                
 
-                $data['data']=$this->Mdl_products->searchProducts($searchText);
+                $data['data']=$this->Mdl_products->searchProductsSeller($searchText);
                 $this->load->view('header/header_seller');
                 $this->load->view('categoryTable',$data);
                 $this->load->view('header/footer');

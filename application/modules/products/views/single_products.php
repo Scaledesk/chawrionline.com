@@ -203,7 +203,7 @@
                                                          <div class="form-group" id="form1">
                                                          <label  for="qty">Quantity</label>
                                                            <div class="input-box">
-                                                         <input type="number" step="any" name="qty" min="0" id="qty" onchange="checkvalue(this)" class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
+                                                         <input type="number" step="any" name="qty" min="1" id="qty"  class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
                                                          </div>
 	                                                     </div>
 	                                                     </div>
@@ -355,21 +355,4 @@ document.getElementById('hiddenDesc').value = val2;
 </script>
 
 
-<script type="text/javascript">
-	
-function checkvalue(){
-	var qty= document.getElementById('qtynum').value;
-	var qtyn= document.getElementById('qty').value;
-
-	if (qtyn<=qty) {
-   
-     
-     return true;
-	}else{
-	 alert('Quantity must be less then Quantity on offer.');
-	  document.getElementById("qty").focus();
-      return false;
-	}
-}
-</script>
 

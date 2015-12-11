@@ -917,10 +917,34 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
         return $data;
     }
     public function searchProducts($searchText){
+
+        
         $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products_name like '$searchText' or chawri_products_substance like '$searchText' or chawri_products_size_w like '$searchText'or chawri_products_size_h like '$searchText'")->result_array();
         return $data;
+ 
     }
+    public function searchProductsSeller($searchText){
+
+        $this->db->select ( '*' ); 
+    $this->db->from ( 'chawri_products' );
+    $this->db->join ( 'chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products.chawri_products_categories' , 'left' );
+    $this->db->join ( 'chawri_sellers', 'chawri_sellers.chawri_sellers_id = chawri_products.chawri_sellers_id' , 'left' );
     
+   $query = array('chawri_products.chawri_products_name' => $searchText, 'chawri_products.chawri_products_substance' => $searchText, 'chawri_products.chawri_products_size_w' => $searchText,'chawri_products.chawri_products_size_h' => $searchText);
+   $this->db->where( 'chawri_products.chawri_sellers_id', $this->session->userdata['user_data'][0]['users_id']);
+    /*$this->db->like('chawri_products_name', $searchText);
+    $this->db->like('chawri_products_substance', $searchText);
+    $this->db->like('chawri_products_size_w', $searchText);
+     $this->db->like('chawri_products_size_h', $searchText);*/
+     $this->db->or_like($query);
+    $data = $this->db->get ()->result_array();
+           /* $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);*/
+            /* $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products_name like '$searchText' or chawri_products_substance like '$searchText' or chawri_products_size_w like '$searchText'or chawri_products_size_h like '$searchText'")->result_array();
+           */ /* echo $this->db->last_query();
+            die;*/
+            return $data;
+         
+    }
     
     
     public function searchProductByGSM($from, $to){

@@ -104,7 +104,7 @@
                     </td>
                     
                      <td>
-                      <a href="<?php echo base_url().'products/showUpdate/'.$rows['chawri_products_id']?>"> Edit<a>/  <a Onclick="ConfirmDelete()" href="<?php echo base_url().'products/delete/'.$rows['chawri_products_id']?>"> Delete</a>
+                      <a href="<?php echo base_url().'products/showUpdate/'.$rows['chawri_products_id']?>"> Edit<a>/  <a onclick="return confirm('Are you sure you want to Delete Products?')" href="<?php echo base_url().'products/delete/'.$rows['chawri_products_id']?>"> Delete</a>
                     </td>
 
                   </tr>

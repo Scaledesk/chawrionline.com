@@ -253,6 +253,7 @@ public function buyerHome(){
                     'users_status' =>func_get_arg(1)['data'][0]['chawri_users_status'],
                     'users_address' =>func_get_arg(1)['data'][0]['chawri_users_address'],
                     'users_state' =>func_get_arg(1)['data'][0]['chawri_users_state'],
+                    'users_phone_no' =>func_get_arg(1)['data'][0]['chawri_users_phone'],
                     'role'=>func_get_arg(1)['data'][0]['chawri_users_role']
 
                 ]);

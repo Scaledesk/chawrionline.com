@@ -1,3 +1,5 @@
+
+
 <?php
     $logout=$this->input->get('logout');
     if($logout){
@@ -7,51 +9,49 @@
     }
     ?>
 
+  <script>
+  $(document).ready(function() {
+    $('#example').DataTable();
+} );
+  </script>
+  <div class="rows"> <h2>Buyer Details</h2> </div>
+
+<div style="overflow: auto; padding: 10px 15px 10px 15px; border:2px solid #bbbbbb; border-radius: 5px; margin: 20px;">
+
+  <table id="example" class="display " cellspacing="0" width="100%">
+          <thead>
+              <tr>
+               <th>Buyer Name</th>
+               <th>Phone No</th>
+               <th>Email</th>
+
+              <th>Raise Issue</th>
+                    
+                   
+              </tr>
+          </thead>
 
 
-
-
-
-
-
-
-                <div class="em-wrapper-main">
-                    <div class="container container-main">
-                        <div class="em-inner-main">
-                            <div class="em-wrapper-area02"></div>
-                            <div class="em-main-container em-col1-layout">
-                                <div class="row">
-                                    <div class="em-col-main col-sm-24">
-                                        <div class="account-create">
-                                            <div class="page-title">
-                                                <h1>Complaints</h1>
-                                            </div>
-                                            <div class="table-responsive">
-                                          <table class="table table-bordered">
-                                              <th>Buyer Name</th>
-                                              <th>Raise Issue</th>
-                                          
-
-                                            <?php 
+          <tbody>
+             
+                  <?php 
                                             foreach ($complaint as $row) {
                                                 ?>
                                                 <tr>
 
-                                               
+                                             
                                                <td><?php echo $row['chawri_complaint_buyer_name'];?></td>
+                                              
+                                             
+                                               <td><?php echo $row['chawri_complaint_phone_no'];?></td>
+                                                <td><?php echo $row['chawri_complaint_email'];?></td>
                                                <td><?php echo $row['chawri_complaint_message'];?></td>
                                                </tr>
 
                                                 <?php
                                             }
                                              ?>
-                                             </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-  
+            
+          </tbody>
+      </table>
+</div>

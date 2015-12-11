@@ -1,4 +1,12 @@
 ﻿
+<?php
+    $logout=$this->input->get('logout');
+    if($logout){
+        echo "<div style='text-align:center;' class=' container alert alert-success'>".'You are successfully logged out'."</div>";
+    }else{
+        getInformUser();
+    }
+    ?>
 			<!-- 
 				MIDDLE 
 			-->

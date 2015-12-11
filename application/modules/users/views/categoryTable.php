@@ -10,7 +10,8 @@
         <tr>
         <th> Category</th>
             <th> Name</th>
-            <th>Buy Now</th>
+            <?php  if(islogin()){  if( $this->session->userdata['user_data'][0]['role']=='sellers'){}else{?>
+            <th>Buy Now</th> <?php }}else{ ?><th>Buy Now</th> <?php } ?>
             <th>Brand Name</th>
             <th>Manufacturer</th>
             <th>GSM</th>
@@ -47,7 +48,11 @@
                     <?php echo $rows['chawri_products_name']; ?>
                 </td>
 
-                <td><a href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td>
+                 <?php   if(islogin()){  if( $this->session->userdata['user_data'][0]['role']=='sellers'){}else{?> <td><a href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td>
+                 <?php } }else{ ?>
+
+                    <td><a href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td>
+                   <?php } ?>
                 <!--  <td><a href="#">Buy Now</a></td> -->
                 <td>
                     <?php echo $rows['chawri_products_brand_name']; ?>

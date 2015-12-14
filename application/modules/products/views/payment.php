@@ -349,8 +349,7 @@
                     <td class="no-line text-right">&#8377;<?php 
                    $total=$totalall+$shiping+$commission+$stc;
                   
-                     setlocale(LC_MONETARY, 'en_IN');
-                      $total = formatMoney('%!i', $total);
+                   
                      echo $total;
 
                      ?></td>

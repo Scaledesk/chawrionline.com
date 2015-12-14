@@ -80,7 +80,7 @@
                        <?php if($rows['chawri_products_orders_status']=='admin_approvel_pending'){?> <?php } ?> 
                         </td> -->
                          <td>
-                        <?php echo $rows['chawri_products_orders_total_cost']; ?>
+                        <?php echo number_format($rows['chawri_products_orders_total_cost'],2);  ?>
                         </td>
                          <td>
                         <?php echo $rows['chawri_categories_name']; ?>
@@ -235,7 +235,7 @@
 
                         </td>
                         <td>
-                        <?php echo $rows1['chawri_products_orders_total_cost']; ?>
+                        <?php echo number_format($rows1['chawri_products_orders_total_cost'],2);  ?>
                         </td>
                          <td>
                         <?php echo $rows1['chawri_categories_name']; ?>
@@ -348,7 +348,7 @@
                        ?>
                       <tr>
                         <td>
-                        <?php echo $rows2['chawri_products_orders_total_cost']; ?>
+                       <?php echo number_format($rows2['chawri_products_orders_total_cost'],2);  ?>
                         </td>
                          <td>
                         <?php echo $rows2['chawri_categories_name']; ?>
@@ -502,7 +502,7 @@
 
                         </td>
                         <td>
-                        <?php echo $rows3['chawri_products_orders_total_cost']; ?>
+                        <?php echo number_format($rows3['chawri_products_orders_total_cost'],2);  ?>
                         </td>
                          <td>
                         <?php echo $rows3['chawri_categories_name']; ?>

@@ -341,7 +341,7 @@
                     <td class="no-line text-center"><strong>Shipping</strong></td>
                     <td class="no-line text-right">&#8377;<?php /*echo $shiping;*/
                         echo number_format($shiping,2); ?>
-                     ?></td>
+                     </td>
                   </tr>
                                       <td class="no-line"></td>
                     <td class="no-line"></td>

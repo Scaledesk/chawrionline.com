@@ -69,7 +69,7 @@
                         <?php if($rows['chawri_products_orders_status']=='extension_not') { ?>Order Processing<?php } else { echo $rows['chawri_products_orders_status']; } ?>
                         </td>
                         <td>
-                         <?php if($rows['chawri_products_orders_status']=='Dispatched') { }else { ?>   <a onclick="return confirm('Are you sure you want to Dispatched Products?')" href="<?php echo base_url().'sellers/dispatched/'.$rows['chawri_products_orders_id'].'/'.$rows['chawri_sellers_id'].'/'.$rows['chawri_products_orders_buyer_id'];?>">Dispatch</a> <?php } ?>
+                         <?php if($rows['chawri_products_orders_status']=='Dispatched') { }else { ?>   <a onclick="return confirm('Are you sure you want to Dispatch the  Order?')" href="<?php echo base_url().'sellers/dispatched/'.$rows['chawri_products_orders_id'].'/'.$rows['chawri_sellers_id'].'/'.$rows['chawri_products_orders_buyer_id'];?>">Dispatch</a> <?php } ?>
                         </td>
                         <td>
                        <?php echo number_format($rows['chawri_products_orders_total_cost'],2);  ?>

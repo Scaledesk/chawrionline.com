@@ -84,8 +84,8 @@
                       <?php echo $rows['chawri_products_orders_date']; ?>
                     </td>
                      <td>
-                    <?php if ($rows['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows['chawri_products_orders_receipt_details']; ?>"> </a>
-                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                    <?php if ($rows['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows['chawri_products_orders_receipt_details'];?>" download >Uploaded </a>
+                      <?php }else{?>Receipt Not Upload <?php } ?>
                      </td>
                     
                         
@@ -150,8 +150,8 @@
                       <?php echo $rows1['chawri_products_orders_date']; ?>
                     </td>
                      <td>
-                    <?php if ($rows1['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows1['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows1['chawri_products_orders_receipt_details']; ?>"> </a>
-                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                    <?php if ($rows1['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows1['chawri_products_orders_receipt_details'];?>" download >Uploaded </a>
+                      <?php }else{?>Receipt Not Upload <?php } ?>
                      </td>
                     
                         
@@ -218,8 +218,8 @@
                       <?php echo $rows2['chawri_products_orders_date']; ?>
                     </td>
                      <td>
-                    <?php if ($rows2['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows2['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows2['chawri_products_orders_receipt_details']; ?>"> </a>
-                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                    <?php if ($rows2['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows2['chawri_products_orders_receipt_details'];?>" download >Uploaded </a>
+                      <?php }else{?>Receipt Not Upload <?php } ?>
                      </td>
                     
                         
@@ -286,8 +286,8 @@
                       <?php echo $rows3['chawri_products_orders_date']; ?>
                     </td>
                      <td>
-                    <?php if ($rows3['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows3['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows3['chawri_products_orders_receipt_details']; ?>"> </a>
-                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                    <?php if ($rows3['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows3['chawri_products_orders_receipt_details'];?>" download >Uploaded </a>
+                      <?php }else{?>Receipt Not Upload <?php } ?>
                      </td>
                     
                         
@@ -352,8 +352,8 @@
                       <?php echo $rows4['chawri_products_orders_date']; ?>
                     </td>
                      <td>
-                    <?php if ($rows4['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows4['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows4['chawri_products_orders_receipt_details']; ?>"> </a>
-                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                    <?php if ($rows4['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows4['chawri_products_orders_receipt_details'];?>" download >Uploaded </a>
+                      <?php }else{?>Receipt Not Upload <?php } ?>
                      </td>
                     
                         

@@ -275,4 +275,12 @@ $this->load->view('footer');
 
  }
 
+public function paymentRecipetDownload($id){
+
+$filePath=base_url().$id;
+
+  force_download($filePath, NULL);
+}
+
+
 }

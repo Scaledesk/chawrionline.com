@@ -181,6 +181,7 @@ public function buyerHome(){
                            print_r($user_data);
                            die();*/
                           $this->_setSessionData('sellers', $user_data);
+                           setInformUser('success', 'Successfully login ');
                             redirect(base_url().'sellers/homeSeller');
                           }
                           else{

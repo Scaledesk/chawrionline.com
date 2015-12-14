@@ -160,12 +160,13 @@ public function buyerHome(){
                         $this->_setSessionData('authorize', $user_data);
 
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
+                         setInformUser('success', 'Successfully login ');
                            redirect(base_url('admin'));
 
                       }
 
                               else {
-                                 // setInformUser('success', 'Successfully login ');
+                                 setInformUser('success', 'Successfully login ');
                                   redirect('users/buyerHome');
 
                               }

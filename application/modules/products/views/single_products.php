@@ -242,7 +242,7 @@
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Tin Number</b> </label>
 	                                                                    <div class="input-box">
-	                                                                       <input type=" text" name="tin_no" value="<?php  echo $this->session->userdata['user_data'][0]['users_tin_no'] ; ?>" required class="input-text  required-entry"/>
+	                                                                       <input type=" text" name="tin_no" required value="<?php  echo $this->session->userdata['user_data'][0]['users_tin_no'] ; ?>" required class="input-text  required-entry"/>
 	                                                                    </div>
 	                                                                </div>
 

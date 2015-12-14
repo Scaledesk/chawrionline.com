@@ -179,8 +179,8 @@
 <!-- Invoice -->
                                 <div class="container">
     <div class="row">
-        <div class="em-logo col-sm-6"><a href="#" title="Chawri Oline" class="logo"><strong> ChawriOnline</strong><img class="retina-img" src="images/chawrionline%20logo1.jpg" alt="Chawri Oline"></a>
-           </div>
+       <!--  <div class="em-logo col-sm-6"><a href="#" title="Chawri Oline" class="logo"><strong> ChawriOnline</strong><img class="retina-img" src="<?php echo base_url();?>assets/images/chawrionline%20logo1.jpg" alt="Chawri Oline"></a>
+           </div> -->
         <div class="invoice-title">
           <h2>ChawriOnline.com - Performa Invoice</h2> 
                 <h3 class="pull-right">Order # <?php echo $order[0]['chawri_products_id']; ?></h3>
@@ -346,7 +346,14 @@
                     <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line text-center"><strong>Total</strong></td>
-                    <td class="no-line text-right">&#8377;<?php  echo $total=$totalall+$shiping+$commission+$stc;?></td>
+                    <td class="no-line text-right">&#8377;<?php 
+                   $total=$totalall+$shiping+$commission+$stc;
+                  
+                     setlocale(LC_MONETARY, 'en_IN');
+                      $total = formatMoney('%!i', $total);
+                     echo $total;
+
+                     ?></td>
                   </tr>
                 </tbody>
 

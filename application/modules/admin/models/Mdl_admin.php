@@ -102,42 +102,56 @@ public function inActivateBuyer($id){
 }
 
 public function approve (){
-       $this->db->where('chawri_products_orders_status','admin_approvel_done');
+      /* $this->db->where('chawri_products_orders_status','admin_approvel_done');
     $this->db->from('chawri_products_orders');
     $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
    return $query = $this->db->get()->result_array();
-   
+   */
      
+$query=$this->db->query("SELECT * FROM `chawri_products_orders` LEFT JOIN `chawri_products` ON `chawri_products_orders`.`chawri_products_orders_products_id` = `chawri_products`.`chawri_products_id` LEFT JOIN `chawri_users` ON `chawri_products_orders`.`chawri_products_orders_buyer_id` = `chawri_users`.`chawri_users_id`LEFT JOIN `chawri_sellers` ON `chawri_sellers`.`chawri_sellers_id` = `chawri_products`.`chawri_sellers_id` WHERE `chawri_products_orders_status` = 'admin_approvel_done'")->result_array();
+
+return $query;
    }
 
   public function cancel(){
- 
+ /*
      $this->db->where('chawri_products_orders_status','cancelled');
     $this->db->from('chawri_products_orders');
     $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
    return $query = $this->db->get()->result_array();
+   */
    
-   
+$query=$this->db->query("SELECT * FROM `chawri_products_orders` LEFT JOIN `chawri_products` ON `chawri_products_orders`.`chawri_products_orders_products_id` = `chawri_products`.`chawri_products_id` LEFT JOIN `chawri_users` ON `chawri_products_orders`.`chawri_products_orders_buyer_id` = `chawri_users`.`chawri_users_id`LEFT JOIN `chawri_sellers` ON `chawri_sellers`.`chawri_sellers_id` = `chawri_products`.`chawri_sellers_id` WHERE `chawri_products_orders_status` = 'cancelled'")->result_array();
+
+return $query;
   }
   public function complete(){
 
-     $this->db->where('chawri_products_orders_status','Received');
+     /*$this->db->where('chawri_products_orders_status','Received');
     $this->db->from('chawri_products_orders');
     $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
    return $query = $this->db->get()->result_array();
 
+*/
 
+$query=$this->db->query("SELECT * FROM `chawri_products_orders` LEFT JOIN `chawri_products` ON `chawri_products_orders`.`chawri_products_orders_products_id` = `chawri_products`.`chawri_products_id` LEFT JOIN `chawri_users` ON `chawri_products_orders`.`chawri_products_orders_buyer_id` = `chawri_users`.`chawri_users_id`LEFT JOIN `chawri_sellers` ON `chawri_sellers`.`chawri_sellers_id` = `chawri_products`.`chawri_sellers_id` WHERE `chawri_products_orders_status` = 'Received'")->result_array();
+
+return $query;
    
   }
   
   public function cancel_buyer(){
-
+/*
      $this->db->where('chawri_products_orders_status','cancelled_by_buyer');
     $this->db->from('chawri_products_orders');
     $this->db->join('chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories','left');
    return $query = $this->db->get()->result_array();
 
+*/
+   
+$query=$this->db->query("SELECT * FROM `chawri_products_orders` LEFT JOIN `chawri_products` ON `chawri_products_orders`.`chawri_products_orders_products_id` = `chawri_products`.`chawri_products_id` LEFT JOIN `chawri_users` ON `chawri_products_orders`.`chawri_products_orders_buyer_id` = `chawri_users`.`chawri_users_id`LEFT JOIN `chawri_sellers` ON `chawri_sellers`.`chawri_sellers_id` = `chawri_products`.`chawri_sellers_id` WHERE `chawri_products_orders_status` = 'cancelled_by_buyer'")->result_array();
 
+return $query;
    
   }
    public function countSellers(){

@@ -108,25 +108,15 @@
       <table id="example" class="display "  cellspacing="0" width="100%">
               <thead>
                   <tr>
-                  <th>Total Cost</th>
-                  <th> Category</th>
-                     <th> Name</th>
-                        <th>Brand Name</th>
-                        <th>Manufacturer</th>
-                        <th>GSM</th>
-                        <th> Bulk (mic)</th>
-                        <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
-                        
-                        <th>Grain</th>
-                        <th> Sheets Per Packet</th>
-                        <th> Pkt. Weight</th>
-                        <th>Pkt. Per Bdl.</th>
-                        <th>Qty. on Offer</th>
-                        <th>Packing</th>
-                        <th>Rate</th>
-                        <th>Cenvat Amount</th>
-                        
+                 
+                          <th>Status</th>
+                    <th>Delivery Date</th>
+                   
+                   <th> Product Name</th>
+                    <th>Buyer Name </th>
+                    <th>Seller Name</th>
+                    <th>order Date</th>
+                    <th>Bank Details</th>
                   </tr>
               </thead>
 
@@ -137,64 +127,34 @@
                                       foreach($approve as $rows1){
                        ?>
                       <tr>
-                      <td>
-                        <?php echo $rows1['chawri_products_orders_total_cost']; ?>
-                        </td>
+                     
+                           <td>
+                      <?php echo $rows1['chawri_products_orders_status']; ?>
+                    </td>
                        
-                          <td>
-                        <?php echo $rows1['chawri_categories_name']; ?>
-                      </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_brand_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_manufacturer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_substance']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_thickness']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_size_h']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_grain']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_sheets_per_packet']; ?>
-                        </td>
-
-                                           
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_weight']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_packets_per_bundle']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_quantity_on_offer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_packing']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_rate']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows1['chawri_products_orders_products_cenvat_amount']; ?>
-                        </td>
-                         
+                    <td>
+                        <?php echo  nice_date($rows1['chawri_products_order_delivery_date'], 'Y-m-d'); ?> 
+                    </td>
+                    </form>
+                    <td>
+                      <?php echo $rows1['chawri_products_name']; ?> 
+                    </td>
+                    <td>
+                      <?php echo $rows1['chawri_users_fname'].' '.$rows1['chawri_users_lname']; ?>
+                    </td>
+                    <td>
+                      <?php echo $rows1['chawri_sellers_company_name']; ?>
+                    </td>
+                   
+                   <td>
+                      <?php echo $rows1['chawri_products_orders_date']; ?>
+                    </td>
+                     <td>
+                    <?php if ($rows1['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows1['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows1['chawri_products_orders_receipt_details']; ?>"> </a>
+                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                     </td>
+                    
+                        
                       
                       </tr>
                                        <?php }?> 
@@ -213,25 +173,16 @@
 
       <table id="example" class="display "  cellspacing="0" width="100%">
               <thead>
-                  <tr><th>Total Cost</th>
-                  <th> Category</th>
-                     <th> Name</th>
-                        <th>Brand Name</th>
-                        <th>Manufacturer</th>
-                        <th>GSM</th>
-                        <th> Bulk(mic)</th>
-                       <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
-                        
-                        <th>Grain</th>
-                        <th> Sheets Per Pkt</th>
-                        <th> Pkt. Wt</th>
-                        <th>Pkt. Per Bdl.</th>
-                        <th>Qty. on Offer</th>
-                        <th>Packing</th>
-                        <th>Rate</th>
-                        <th>Cenvat Amount</th>
-                       
+                
+                          <th>Status</th>
+                    <th>Delivery Date</th>
+                   
+                   <th> Product Name</th>
+                    <th>Buyer Name </th>
+                    <th>Seller Name</th>
+                    <th>order Date</th>
+                    <th>Bank Details</th>
+                  </tr>
                         
                   </tr>
               </thead>
@@ -243,65 +194,34 @@
                                       foreach($cancel as $rows2){
                        ?>
                       <tr>
-                       <td>
-                        <?php echo $rows2['chawri_products_orders_total_cost']; ?>
-                        </td>
-                        <td>
-                      <?php echo $rows2['chawri_categories_name']; ?>
-                       </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_brand_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_manufacturer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_substance']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_thickness']; ?>
-                        </td>
-                       <td>
-                          <?php echo $rows2['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_size_h']; ?>
-                        </td>
-
+                      
                         
-
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_grain']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_sheets_per_packet']; ?>
-                        </td>
-
-                                           
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_weight']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_packets_per_bundle']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_quantity_on_offer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_packing']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_rate']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows2['chawri_products_orders_products_cenvat_amount']; ?>
-                        </td>
-                        
+                          <td>
+                      <?php echo $rows2['chawri_products_orders_status']; ?>
+                    </td>
+                       
+                    <td>
+                        <?php echo  nice_date($rows2['chawri_products_order_delivery_date'], 'Y-m-d'); ?> 
+                    </td>
+                    </form>
+                    <td>
+                      <?php echo $rows2['chawri_products_name']; ?> 
+                    </td>
+                    <td>
+                      <?php echo $rows2['chawri_users_fname'].' '.$rows2['chawri_users_lname']; ?>
+                    </td>
+                    <td>
+                      <?php echo $rows2['chawri_sellers_company_name']; ?>
+                    </td>
+                   
+                   <td>
+                      <?php echo $rows2['chawri_products_orders_date']; ?>
+                    </td>
+                     <td>
+                    <?php if ($rows2['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows2['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows2['chawri_products_orders_receipt_details']; ?>"> </a>
+                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                     </td>
+                    
                         
 
                       </tr>
@@ -320,24 +240,16 @@
 
       <table id="example" class="display "  cellspacing="0" width="100%">
               <thead>
-                  <tr><th>Total Cost</th>
-                  <th> Category</th>
-                     <th> Name</th>
-                        <th>Brand Name</th>
-                        <th>Manufacturer</th>
-                        <th>GSM</th>
-                        <th> Bulk(mic)</th>
-                       <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
-                        
-                        <th>Grain</th>
-                        <th> Sheets Per Pkt</th>
-                        <th> Pkt. Wt</th>
-                        <th>Pkt. Per Bdl.</th>
-                        <th>Qty. on Offer</th>
-                        <th>Packing</th>
-                        <th>Rate</th>
-                        <th>Cenvat Amount</th>
+                
+                          <th>Status</th>
+                    <th>Delivery Date</th>
+                   
+                   <th> Product Name</th>
+                    <th>Buyer Name </th>
+                    <th>Seller Name</th>
+                    <th>order Date</th>
+                    <th>Bank Details</th>
+                  </tr>
                        
                         
                   </tr>
@@ -350,65 +262,34 @@
                                       foreach($cancel_buyer as $rows3){
                        ?>
                       <tr>
-                       <td>
-                        <?php echo $rows3['chawri_products_orders_total_cost']; ?>
-                        </td>
-                        <td>
-                      <?php echo $rows3['chawri_categories_name']; ?>
-                       </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_brand_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_manufacturer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_substance']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_thickness']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_size_h']; ?>
-                        </td>
-
+                     
                         
-
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_grain']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_sheets_per_packet']; ?>
-                        </td>
-
-                                           
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_weight']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_packets_per_bundle']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_quantity_on_offer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_packing']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_rate']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows3['chawri_products_orders_products_cenvat_amount']; ?>
-                        </td>
-                        
+                          <td>
+                      <?php echo $rows3['chawri_products_orders_status']; ?>
+                    </td>
+                       
+                    <td>
+                        <?php echo  nice_date($rows3['chawri_products_order_delivery_date'], 'Y-m-d'); ?> 
+                    </td>
+                    </form>
+                    <td>
+                      <?php echo $rows3['chawri_products_name']; ?> 
+                    </td>
+                    <td>
+                      <?php echo $rows3['chawri_users_fname'].' '.$rows3['chawri_users_lname']; ?>
+                    </td>
+                    <td>
+                      <?php echo $rows3['chawri_sellers_company_name']; ?>
+                    </td>
+                   
+                   <td>
+                      <?php echo $rows3['chawri_products_orders_date']; ?>
+                    </td>
+                     <td>
+                    <?php if ($rows3['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows3['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows3['chawri_products_orders_receipt_details']; ?>"> </a>
+                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                     </td>
+                    
                         
 
                       </tr>
@@ -427,24 +308,15 @@
 
       <table id="example" class="display "  cellspacing="0" width="100%">
               <thead>
-                  <tr><th>Total Cost</th>
-                  <th> Category</th>
-                     <th> Name</th>
-                        <th>Brand Name</th>
-                        <th>Manufacturer</th>
-                        <th>GSM</th>
-                        <th> Bulk(mic)</th>
-                        <th>Size(width  csm)</th>
-                        <th>Size(height csm)</th>
-                        
-                        <th>Grain</th>
-                        <th> Sheets Per Pkt</th>
-                        <th> Pkt. Wt</th>
-                        <th>Pkt. Per Bdl.</th>
-                        <th>Qty. on Offer</th>
-                        <th>Packing</th>
-                        <th>Rate</th>
-                        <th>Cenvat Amount</th>
+               
+                         <th>Status</th>
+                    <th>Delivery Date</th>
+                   
+                   <th> Product Name</th>
+                    <th>Buyer Name </th>
+                    <th>Seller Name</th>
+                    <th>order Date</th>
+                    <th>Bank Details</th>
                        
                         
                   </tr>
@@ -457,63 +329,33 @@
                                       foreach($complete as $rows4){
                        ?>
                       <tr>
-                       <td>
-                        <?php echo $rows4['chawri_products_orders_total_cost']; ?>
-                        </td>
-                        <td>
-                      <?php echo $rows4['chawri_categories_name']; ?>
-                       </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_brand_name']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_manufacturer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_substance']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_thickness']; ?>
-                        </td>
-                       <td>
-                          <?php echo $rows4['chawri_products_orders_products_size_w']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_size_h']; ?>
-                        </td>
-                        
-
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_grain']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_sheets_per_packet']; ?>
-                        </td>
-
-                                           
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_weight']; ?>
-                        </td>
-
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_packets_per_bundle']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_quantity_on_offer']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_packing']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_rate']; ?>
-                        </td>
-                        <td>
-                          <?php echo $rows4['chawri_products_orders_products_cenvat_amount']; ?>
-                        </td>
+                      
+                          <td>
+                      <?php echo $rows4['chawri_products_orders_status']; ?>
+                    </td>
+                       
+                    <td>
+                        <?php echo  nice_date($rows4['chawri_products_order_delivery_date'], 'Y-m-d'); ?> 
+                    </td>
+                    </form>
+                    <td>
+                      <?php echo $rows4['chawri_products_name']; ?> 
+                    </td>
+                    <td>
+                      <?php echo $rows4['chawri_users_fname'].' '.$rows4['chawri_users_lname']; ?>
+                    </td>
+                    <td>
+                      <?php echo $rows4['chawri_sellers_company_name']; ?>
+                    </td>
+                   
+                   <td>
+                      <?php echo $rows4['chawri_products_orders_date']; ?>
+                    </td>
+                     <td>
+                    <?php if ($rows4['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows4['chawri_products_orders_receipt_details'];?>" download ><img alt="Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src="<?php echo base_url().'uploads/'.$rows4['chawri_products_orders_receipt_details']; ?>"> </a>
+                      <?php }else{?><img alt="Receipt Not Upload" name="receipt" id="receipt" style="height:50px; width:100px" src=""> <?php } ?>
+                     </td>
+                    
                         
                         
 

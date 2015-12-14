@@ -217,14 +217,14 @@
 	                                                                    <?php if($cform=='No'){ ?>
 	                                                                        <select name="cform">
 												                                   
-												                                   <option>Vat</option>
-												                                   <option>Cst</option>
+												                                   <option>VAT</option>
+												                                   <option>CST</option>
 												                                   </select>
 												                                   <?php }else{ ?>
 												                                   <select name="cform">
-												                                   <option>Cform</option>
-												                                   <option>Vat</option>
-												                                   <option>Cst</option>
+												                                   <option>CFORM</option>
+												                                   <option>VAT</option>
+												                                   <option>CST</option>
 												                                   </select>
 	                                                                            <?php } ?>
 	                                                                    </div>

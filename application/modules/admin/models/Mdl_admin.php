@@ -108,7 +108,7 @@ public function approve (){
    return $query = $this->db->get()->result_array();
    */
      
-$query=$this->db->query("SELECT * FROM `chawri_products_orders` LEFT JOIN `chawri_products` ON `chawri_products_orders`.`chawri_products_orders_products_id` = `chawri_products`.`chawri_products_id` LEFT JOIN `chawri_users` ON `chawri_products_orders`.`chawri_products_orders_buyer_id` = `chawri_users`.`chawri_users_id`LEFT JOIN `chawri_sellers` ON `chawri_sellers`.`chawri_sellers_id` = `chawri_products`.`chawri_sellers_id` WHERE `chawri_products_orders_status` = 'admin_approvel_done'")->result_array();
+$query=$this->db->query("SELECT * FROM `chawri_products_orders` LEFT JOIN `chawri_products` ON `chawri_products_orders`.`chawri_products_orders_products_id` = `chawri_products`.`chawri_products_id` LEFT JOIN `chawri_users` ON `chawri_products_orders`.`chawri_products_orders_buyer_id` = `chawri_users`.`chawri_users_id`LEFT JOIN `chawri_sellers` ON `chawri_sellers`.`chawri_sellers_id` = `chawri_products`.`chawri_sellers_id` WHERE `chawri_products_orders_status` = 'admin_approvel_done' or `chawri_products_orders_status` = 'Dispatched'")->result_array();
 
 return $query;
    }
@@ -194,6 +194,21 @@ return $query;
 
      public function complaint(){
       return $this->db->get('chawri_complaint')->result_array();
+     }
+
+
+     public function orderDetails($id){
+
+   $this->db->select ( '*' ); 
+    $this->db->from ( 'chawri_products_orders' );
+    $this->db->join ( 'chawri_categories', 'chawri_categories.chawri_categories_id = chawri_products_orders.chawri_products_orders_categories' , 'left' );
+    $this->db->join ( 'chawri_sellers', 'chawri_sellers.chawri_sellers_id = chawri_products_orders.chawri_sellers_id' , 'left' );
+    $this->db->join('chawri_complaint','chawri_complaint.chawri_complaint_order_id=chawri_products_orders.chawri_products_orders_id','left');
+      $this->db->join('chawri_users','chawri_users.chawri_users_id=chawri_products_orders.chawri_products_orders_buyer_id','left');
+/*   $query = array('chawri_products_orders.chawri_products_order_id' => $id);*/
+   $this->db->where( 'chawri_products_orders.chawri_products_orders_id', $id);
+    $data=$this->db->get()->result_array();
+    return $data;
      }
 }
 

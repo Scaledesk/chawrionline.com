@@ -72,7 +72,7 @@
                         <?php if($rows['chawri_products_orders_status']=='extension_not') { ?>Order Processing<?php } else { echo $rows['chawri_products_orders_status']; } ?>
                         </td>
                         <td>
-                           <?php if ($rows['chawri_products_orders_status']=='Dispatched'){?> <a href="<?php echo base_url().'products/received/'.$rows['chawri_products_orders_id']; ?>">Received</a> <?php }else{?>
+                           <?php if ($rows['chawri_products_orders_status']=='Dispatched'){?> <a onclick="return confirm('are you sure you want to confirm order received')" href="<?php echo base_url().'products/received/'.$rows['chawri_products_orders_id']; ?>">Receive</a> <?php }else{?>
                        <a href="<?php echo base_url().'users/uploadReceipt/'.$rows['chawri_products_orders_id']; ?>">Receipt Upload</a> <?php }?>
                         </td>
 

@@ -282,5 +282,13 @@ $filePath=base_url().$id;
   force_download($filePath, NULL);
 }
 
+public function orderDetails($id){
+  $data['data']=$this->Mdl_admin->orderDetails($id);
+
+  $this->load->view('header');
+  $this->load->view('order_complaint',$data);
+  $this->load->view('footer');
+  
+}
 
 }

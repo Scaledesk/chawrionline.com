@@ -21,11 +21,13 @@
   <table id="example" class="display " cellspacing="0" width="100%">
           <thead>
               <tr>
+              <th>Action</th>
                <th>Buyer Name</th>
                <th>Phone No</th>
                <th>Email</th>
 
               <th>Raise Issue</th>
+
                     
                    
               </tr>
@@ -39,7 +41,7 @@
                                                 ?>
                                                 <tr>
 
-                                             
+                                             <td>  <a  href="<?php  echo base_url().'admin/orderDetails/'.$row['chawri_complaint_order_id'];?>">Order Details</a> </td> 
                                                <td><?php echo $row['chawri_complaint_buyer_name'];?></td>
                                               
                                              

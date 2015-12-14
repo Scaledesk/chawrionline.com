@@ -1113,7 +1113,8 @@ public function raiseIssue($raiseIssue,$id){
                     'chawri_complaint_buyer_name' => $this->session->userdata['user_data'][0]['users_name'],
                     'chawri_complaint_buyer_id' => $this->session->userdata['user_data'][0]['users_id'],
                     'chawri_complaint_phone_no' => $this->session->userdata['user_data'][0]['users_phone_no'],
-                    'chawri_complaint_email'   =>   $this->session->userdata['user_data'][0]['users_email']
+                    'chawri_complaint_email'   =>   $this->session->userdata['user_data'][0]['users_email'],
+                    'chawri_complaint_date'   =>  $date = date('Y-m-d H:i:s')  
                    
           ];
 

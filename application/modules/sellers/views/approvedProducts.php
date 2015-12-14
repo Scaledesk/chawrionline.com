@@ -64,7 +64,7 @@
                                          die();*/
                                       foreach($products as $rows){
                        ?>
-                      <tr>
+                      <tr>  
                         <td>
                         <?php if($rows['chawri_products_orders_status']=='extension_not') { ?>Order Processing<?php } else { echo $rows['chawri_products_orders_status']; } ?>
                         </td>

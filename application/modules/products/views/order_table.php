@@ -69,7 +69,7 @@
                        ?>
                       <tr>
                         <td>
-                         <?php echo $rows['chawri_products_orders_status'];?>
+                        <?php if($rows['chawri_products_orders_status']=='extension_not') { ?>Order Processing<?php } else { echo $rows['chawri_products_orders_status']; } ?>
                         </td>
                         <td>
                            <?php if ($rows['chawri_products_orders_status']=='Dispatched'){?> <a href="<?php echo base_url().'products/received/'.$rows['chawri_products_orders_id']; ?>">Received</a> <?php }else{?>

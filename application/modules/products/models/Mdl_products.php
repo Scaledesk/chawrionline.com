@@ -987,6 +987,18 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
         die;*/
         return $data;
     }
+ public function searchProductByPackingSellers($packing){
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_packing = '$packing' AND chawri_products.chawri_sellers_id =  $this->session->userdata['user_data'][0]['users_id']")->result_array();
+        return $data;
+    }
+
+
+ public function searchProductByMillsSellers($mills){
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_manufacturer = '$mills' AND chawri_products.chawri_sellers_id =  $this->session->userdata['user_data'][0]['users_id']")->result_array();
+        /*echo $this->db->last_query();
+        die;*/
+        return $data;
+    }
 
 
 

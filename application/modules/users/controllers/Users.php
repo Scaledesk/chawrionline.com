@@ -972,7 +972,7 @@ public function searchProductByPacking($search){
  
     if ($this->session->has_userdata('user_data')) {
             if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
-                $data['data'] = $this->Mdl_products->searchProductByPacking($search);
+                $data['data'] = $this->Mdl_products->searchProductByPackingSellers($search);
                 $this->load->view('header/header_seller');
                 $this->load->view('categoryTable', $data);
                 $this->load->view('header/footer');
@@ -1000,7 +1000,7 @@ public function searchProductByMills($search){
  
     if ($this->session->has_userdata('user_data')) {
             if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
-                $data['data'] = $this->Mdl_products->searchProductByMills($search);
+                $data['data'] = $this->Mdl_products->searchProductByMillsSellers($search);
                 $this->load->view('header/header_seller');
                 $this->load->view('categoryTable', $data);
                 $this->load->view('header/footer');

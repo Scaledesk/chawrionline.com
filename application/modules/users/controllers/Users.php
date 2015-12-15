@@ -968,6 +968,62 @@ public function searchProducts($searchText){
         }
     }
 
+public function searchProductByPacking($search){
+ 
+    if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+                $data['data'] = $this->Mdl_products->searchProductByPacking($search);
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByPacking($search);
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByPacking($search);
+            $this->load->view('header/header');
+            $this->load->view('categoryTable', $data);
+            $this->load->view('header/footer');
+        }
+  
+
+
+  
+
+
+}
+
+public function searchProductByMills($search){
+ 
+    if ($this->session->has_userdata('user_data')) {
+            if ($this->session->userdata['user_data'][0]['role'] == 'sellers') {
+                $data['data'] = $this->Mdl_products->searchProductByMills($search);
+                $this->load->view('header/header_seller');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            } elseif ($this->session->userdata['user_data'][0]['role'] == 'buyer') {
+                $data['data'] = $this->Mdl_products->searchProductByMills($search);
+                $this->load->view('header/header_buyer');
+                $this->load->view('categoryTable', $data);
+                $this->load->view('header/footer');
+            }
+        } else {
+            $data['data'] = $this->Mdl_products->searchProductByMills($search);
+            $this->load->view('header/header');
+            $this->load->view('categoryTable', $data);
+            $this->load->view('header/footer');
+        }
+  
+
+
+  
+
+
+}
+
  public function information(){
 
    if(islogin()){

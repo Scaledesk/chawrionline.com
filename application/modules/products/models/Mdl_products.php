@@ -975,9 +975,16 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
         return $data;
     }
 
+ public function searchProductByPacking($packing){
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_packing >= '$packing'")->result_array();
+        return $data;
+    }
 
 
-
+ public function searchProductByMills($mills){
+        $data = $this->db->query("select * from chawri_products left join chawri_categories on chawri_products.chawri_products_categories = chawri_categories.chawri_categories_id where chawri_products.chawri_products_manufacturer >= '$mills'")->result_array();
+        return $data;
+    }
 
 
 

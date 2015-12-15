@@ -51,7 +51,7 @@
                  <?php   if(islogin()){  if( $this->session->userdata['user_data'][0]['role']=='sellers'){}else{?> <td><a href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td>
                  <?php } }else{ ?>
 
-                    <td><a href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td>
+                    <td><a style="color: green;" href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td>
                    <?php } ?>
                 <!--  <td><a href="#">Buy Now</a></td> -->
                 <td>

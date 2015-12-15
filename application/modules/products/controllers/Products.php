@@ -27,7 +27,7 @@ class Products extends  MX_Controller
             $data['categories']=$this->Mdl_products->showCategories();
             $this->load->view('users/header/header_seller');
             $this->load->view('register',$data);
-            $this->load->view('sellers/footer');
+            $this->load->view('users/header/footer');
         }
 
          }

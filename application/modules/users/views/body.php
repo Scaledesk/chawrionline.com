@@ -321,11 +321,14 @@
   <li  class="list-group-item ">
     Packing
   </li>
-  <a href="#" class="list-group-item">Less than 30</a>
-  <a href="#" class="list-group-item">31 to 50</a>
-  <a href="#" class="list-group-item">51-100</a>
-  <a href="#" class="list-group-item">More...</a>
+  <a href="<?php  echo base_url().'users/searchProductByPrice?searh="Shrink"' ; ?>" class="list-group-item">Shrink</a>
+  <a href="<?php  echo base_url().'users/searchProductByPrice?searh="Gunny"' ; ?>" class="list-group-item">Gunny</a>
+  <a href="<?php  echo base_url().'users/searchProductByPrice?searh="Wrap"'; ?>" class="list-group-item">Wrap</a>
+  <a href="<?php  echo base_url().'users/searchProductByPrice?searh="Pallet"'; ?>" class="list-group-item">Pallet</a>
+  <a href="<?php  echo base_url().'users/searchProductByPrice?searh="Carton"' ; ?>" class="list-group-item">Carton</a>
+  <a href="<?php  echo base_url().'users/searchProductByPrice?searh="Other"'; ?>" class="list-group-item">Other</a>
 
+                                                                      
 </div>
 
                         

@@ -283,12 +283,20 @@ $filePath=base_url().$id;
 }
 
 public function orderDetails($id){
+  if (islogin()) {
+  
   $data['data']=$this->Mdl_admin->orderDetails($id);
 
   $this->load->view('header');
+
   $this->load->view('order_complaint',$data);
   $this->load->view('footer');
   
+}
+else{
+  redirect(base_url('users/home'));
+}
+
 }
 
 }

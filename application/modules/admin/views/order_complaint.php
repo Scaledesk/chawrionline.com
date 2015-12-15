@@ -27,10 +27,10 @@
 
 
                                                     <ul class="form-list row">
-
+ 														<li class="fields">
                                                     <div class="col-md-6">   
 
-                                                     <li class="fields">
+                                                     
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"> <b>Order Date </b> </label>
@@ -119,6 +119,7 @@
 
                                                         </li>
                                                          <li class="fields">
+                                                         <div class="col-md-6">  
 	                                                            <div class="customer-name-middlename complaint-details">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Sellers Company Name</b></label>
@@ -127,9 +128,9 @@
 	                                                                    </div>
 	                                                                </div>
 
-
+	                                                                </div>
 	                                                            </div>
-
+	                                                            	<div class="col-md-6">  
 	                                                            <div class="customer-name-middlename ">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Sellers Email </b> </label>
@@ -138,10 +139,11 @@
 	                                                                    </div>
 	                                                                </div>
 
-
+	                                                                </div>
 	                                                            </div>
                                                         </li>
                                                          <li class="fields">
+                                                         <div class="col-md-6">  
                                                            <div class="customer-name-middlename complaint-details">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b> Phone No. </b></label>
@@ -150,8 +152,9 @@
 	                                                                    </div>
 	                                                                </div>
 
-
+	                                                               </div>
 	                                                            </div>
+	                                                            <div class="col-md-6">  
 	                                                            <div class="customer-name-middlename ">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Alternet Email</b></label>
@@ -160,12 +163,12 @@
 	                                                                    </div>
 	                                                                </div>
 
-
+	                                                                </div>
 	                                                            </div>
 
                                                         </li>
                                                          <li class="fields">
-
+                                                         	<div class="col-md-6">  
 	                                                            <div class="customer-name-middlename complaint-details">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b> Buyer Name </b></label>
@@ -173,9 +176,10 @@
 	                                                                        <?php echo $data[0]['chawri_users_fname'].$data[0]['chawri_users_lname']; ?>
 	                                                                         </div>
 	                                                                </div>
-
+	                                                                </div>
 
 	                                                            </div>
+	                                                            <div class="col-md-6">  
 	                                                            <div class="customer-name-middlename ">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Buyer Email</b></label>
@@ -184,12 +188,12 @@
 	                                                                    </div>
 	                                                                </div>
 
-
+	                                                                </div>
 	                                                            </div>
 
                                                         </li>
                                                         <li class="fields">
-
+                                                        	<div class="col-md-6">  
 	                                                            <div class="customer-name-middlename complaint-details">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Buyer Address</b></label>
@@ -198,9 +202,10 @@
 	                                                                        
 	                                                                    </div>
 	                                                                </div>
-
+	                                                                </div>
 
 	                                                            </div>
+	                                                            <div class="col-md-6">  
 	                                                            <div class="customer-name-middlename ">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Buyer Phone No.</b> </label>
@@ -209,14 +214,14 @@
 	                                                                    </div>
 	                                                                </div>
 
-
+	                                                                </div>
 	                                                            </div>
 
 
                                                         </li>
                                                        
                                                              <li class="fields">
-
+                                                             	<div class="col-md-6">  
 	                                                            <div class="customer-name-middlename complaint-details">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Complaint</b></label>
@@ -225,6 +230,7 @@
 	                                                                        
 	                                                                    </div>
 	                                                                </div>
+	                                                                	</div>
 	                                                                	</div>
 	                                                                	</li>
                                                           

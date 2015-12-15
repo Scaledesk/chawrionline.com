@@ -14,7 +14,7 @@
     $('#example').DataTable();
 } );
   </script>
-  <div class="rows"> <h2>Buyer Details</h2> </div>
+  <div class="rows"> <h2>Complaint Details</h2> </div>
 
 <div style="overflow: auto; padding: 10px 15px 10px 15px; border:2px solid #bbbbbb; border-radius: 5px; margin: 20px;">
 

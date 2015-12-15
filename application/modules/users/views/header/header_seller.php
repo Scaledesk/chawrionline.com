@@ -28,51 +28,51 @@
         <!-- Cloud Zoom CSS -->
         <!-- <link rel="stylesheet" type="text/css" href="css/em_cloudzoom.css" media="all" /> -->
 
-        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="<?php echo  asset_url();?>js/jquery-2.1.4.min.js"></script>
 
         <!-- Menu CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\menu.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/menu.css" media="all">
         <!-- Mega Menu CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\megamenu.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/megamenu.css" media="all">
 
         <!-- Widget CSS -->
         <!-- <link rel="stylesheet" type="text/css" href="css/widgets.css" media="all" /> -->
         
         <!-- Default CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\styles.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/styles.css" media="all">
         <!-- Font Awesome CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\font-awesome.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/font-awesome.css" media="all">
         <!-- Owl Carousel CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\owl.carousel.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/owl.carousel.css" media="all">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\responsive.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/responsive.css" media="all">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\bootstrap.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/bootstrap.css" media="all">
 
         <!-- Ajax Cart CSS -->
         <!-- <link rel="stylesheet" type="text/css" href="css/em_ajaxcart.css" media="all" /> -->
         <!-- Blog Style CSS -->
         <!-- <link rel="stylesheet" type="text/css" href="css/blog-styles.css" media="all" /> -->
         <!-- Multi Deal Pro CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\em_multidealpro.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/em_multidealpro.css" media="all">
 
         <!-- Product Labels CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\em_productlabels.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/em_productlabels.css" media="all">
 
         <!-- Quick Shop CSS -->
         <!-- <link rel="stylesheet" type="text/css" href="css/em_quickshop.css" media="all" /> -->
 
         <!-- Fancybox CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\jquery.fancybox.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/jquery.fancybox.css" media="all">
 
         <!-- Responsive Tab CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\responsive-tabs.css" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/responsive-tabs.css" media="all">
         <!-- Print CSS -->
-        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css\print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="<?php echo  asset_url();?>css/print.css" media="print">
         <!-- Market and Deal CSS -->
-        <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css\style_marketdeal.css'>
+        <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css/style_marketdeal.css'>
         <!-- Market and Deal CSS -->
-        <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css\marketdeal-style.css'>
+        <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css/marketdeal-style.css'>
 
 
   <!-- for data table -->

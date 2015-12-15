@@ -78,7 +78,7 @@
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b> Total Value</b></label>
 	                                                                    <div class="input-box">
-	                                                                        <?php echo $data[0]['chawri_products_orders_total_cost']; ?>
+	                                                                        <?php echo  number_format($data[0]['chawri_products_orders_total_cost'],2); ?>
 	                                                                    </div>
 	                                                                </div>
 

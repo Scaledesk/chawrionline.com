@@ -20,7 +20,7 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>update an Account</h1>
+                                                <h1>General Information</h1>
                                             </div>
                                             <form action="<?php echo base_url().'sellers/updateGetProfile';?>" method="post" id="form-validate">
                                                 <div class="fieldset">

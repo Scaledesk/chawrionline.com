@@ -477,13 +477,32 @@ public function showForgetPwd(){
         $this->load->view('header/footer');
 
     }
-    public function getUpdateUsers(){
+    public function showUsers(){
    if(islogin()){
        if( $this->session->userdata['user_data'][0]['role']=='buyer'){
         $data['users_data']=$this->Mdl_users->getUpdateUsers();
         $this->load->view('header/header_buyer');
 
         $this->load->view('register_update',$data);
+        $this->load->view('header/footer');
+         }
+    else{
+
+       redirect('users/home'); 
+    }
+     }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+    }
+     public function getUpdateUsers(){
+   if(islogin()){
+       if( $this->session->userdata['user_data'][0]['role']=='buyer'){
+        $data['users_data']=$this->Mdl_users->getUpdateUsers();
+        $this->load->view('header/header_buyer');
+
+        $this->load->view('show_profile',$data);
         $this->load->view('header/footer');
          }
     else{
@@ -1056,6 +1075,20 @@ public function searchProductByMills($search){
       redirect(base_url('users/home')); 
     }
  }
+
+public function showInformation(){
+
+$data['users_data']=$this->Mdl_users->getInformation();
+ if(!$data['users_data'][0]['chawri_users_services_tax_no']==''){
+    $this->load->view('header/header_buyer');
+      $this->load->view('show_information',$data);
+       $this->load->view('header/footer');
+     }
+     else{
+       redirect(base_url('users/information'));
+     }
+
+}
 
 public function updateInformation(){
   $data['profile']=$this->Mdl_users->getInformation();

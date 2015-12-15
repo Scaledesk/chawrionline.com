@@ -22,13 +22,14 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Update an Account</h1>
+                                                <h1>Users Information</h1>
                                             </div>
                                             <form action="<?php echo base_url().'users/update';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
-                                                    <h2 class="legend">Personal Information</h2>
+
+                                                    <h2 class="legend">Users Information <a href="<?php echo base_url().'users/showInformation'?>">Account Information </a> </h2>
                                                     <ul class="form-list">
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
@@ -69,7 +70,25 @@
                                                             </div>
                                                         </li>
 
-                                                      
+                                                      <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-lastname">
+                                                                    <label for="phone" class="required"><em>*</em>Address</label>
+                                                                    <div class="input-box">
+                                                                        <input type="number" id="phone" value="<?php echo $users_data[0]['chawri_users_address']; ?>" required name="phone" title="Email" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="field name-firstname">
+                                                                    <label for="user_name_email" class="required"><em>*</em>State</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="user_name_email"  value="<?php echo $users_data[0]['chawri_users_state']; ?>"required  name="user_name_email" title="Email" maxlength="255" class="input-text required-entry" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                        </li>
                                                         
                                                     </ul>
                                                     
@@ -77,7 +96,7 @@
                                                     <div class="buttons-set">
                                                         
                                                         
-                                                        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span>
+                                                        <button type="submit" title="Submit" class="button"><span><span>Update</span></span>
                                                         </button>
                                                         <p class="required">* Required Fields</p>
                                                     </div>

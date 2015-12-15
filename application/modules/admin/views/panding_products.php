@@ -41,7 +41,7 @@
                     <th>Buyer Name </th>
                     <th>Seller Name</th>
                     <th>order Date</th>
-                    <th>Bank Details</th>
+                    <th>Payment Details</th>
                    
 
 
@@ -65,7 +65,7 @@
                       <input type="hidden" value="<?php echo $rows['chawri_users_username']; ?>" name="buyer_email">
                     </td>
                     <td>
-                        <button type="submit" onclick="return confirm('Are you sure you want to Approve Products?')" >Approve</button> / <a onclick="return confirm('Are you sure you want to Decline Products?')" href="<?php  echo base_url().'admin/decline/'.$rows['chawri_products_orders_id'];?>">Decline</a>  
+                        <button type="submit" onclick="return confirm('Are you sure you want to Approve the Order ?')" >Approve</button> / <a onclick="return confirm('Are you sure you want to Reject Products?')" href="<?php  echo base_url().'admin/decline/'.$rows['chawri_products_orders_id'];?>">Reject</a>  
                   
                       
                     </td>
@@ -116,7 +116,7 @@
                     <th>Buyer Name </th>
                     <th>Seller Name</th>
                     <th>order Date</th>
-                    <th>Bank Details</th>
+                    <th>Payment Details</th>
                   </tr>
               </thead>
 
@@ -181,7 +181,7 @@
                     <th>Buyer Name </th>
                     <th>Seller Name</th>
                     <th>order Date</th>
-                    <th>Bank Details</th>
+                    <th>Payment Details</th>
                   </tr>
                         
                   </tr>
@@ -248,7 +248,7 @@
                     <th>Buyer Name </th>
                     <th>Seller Name</th>
                     <th>order Date</th>
-                    <th>Bank Details</th>
+                    <th>Payment Details</th>
                   </tr>
                        
                         
@@ -316,7 +316,7 @@
                     <th>Buyer Name </th>
                     <th>Seller Name</th>
                     <th>order Date</th>
-                    <th>Bank Details</th>
+                    <th>Payment Details</th>
                        
                         
                   </tr>

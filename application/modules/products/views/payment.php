@@ -258,20 +258,22 @@
                                 $shiping;
                                 $total;
                                 $subtotoal;
-                                $totalall; 
-                                  if($buyNow['cform']=='Cform'){
+                                $totalall;
+                               /* echo $buyNow['cform'];
+                                die; */
+                                  if($buyNow['cform']=='CFORM'){
 
                                      $totalall=($qnt*$weight*$rate) + (($qnt*$weight*$rate*2.00)/100);
-                                    $subtotoal= ($qnt*$weight*$rate*2.00)/100;
-                                      $qnt*$weight*$rate;
-                                     echo number_format($qnt,2);
+                                     $subtotoal= ($qnt*$weight*$rate*2.00)/100;
+                                      
+                                     echo number_format($qnt*$weight*$rate,2);
 
                                   }
                                  else {
                                    $totalall=($qnt*$weight*$rate) + (($qnt*$weight*$rate*5.00)/100);
                                    $subtotoal= ($qnt*$weight*$rate*5.00)/100;
-                                    $qnt*$weight*$rate;
-                                   echo number_format($qnt,2);
+                                   
+                                   echo number_format($qnt*$weight*$rate,2);
                                  }
                                   
 

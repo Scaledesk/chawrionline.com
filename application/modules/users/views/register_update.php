@@ -69,23 +69,7 @@
                                                             </div>
                                                         </li>
 
-                                                        <!-- <li>
-                                                        <div class="customer-name-middlename">
-                                                        <div class="field name-firstname">
-                                                                    <label for="firstname" class="required"><em>*</em>Phone Number</label>
-                                                                    <div class="input-box">
-                                                                        <input type="number" id="firstname"  required  name="" title="Phone Number" maxlength="255" class="input-text required-entry">
-                                                                    </div>
-                                                                </div>
-                                                        <div class="field name-firstname">
-                                                            <label for="email_address" class="required"><em>*</em>Email Address</label>
-                                                            <div class="input-box">
-                                                                <input type="email" readonly value="<?php echo $users_data[0]['']; ?>" name="" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
-                                                            </div>
-                                                            </div>
-                                                            </div>
-                                                        </li> -->
-                                                       
+                                                      
                                                         
                                                     </ul>
                                                     

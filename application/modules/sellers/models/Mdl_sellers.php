@@ -563,7 +563,7 @@ return false;
     }
 
 
-    public  function profile(){
+    public  function profile(){ 
 
         $data = [
             'chawri_sellers_excise_no' => $this->sellers_excise_no,

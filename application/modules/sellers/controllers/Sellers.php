@@ -170,7 +170,7 @@ if(islogin()){
                // echo "your account successfully Update";
 
                   setInformUser('success','Your Account successfully Update');
-                redirect(base_url().'sellers/showProfile');
+                redirect(base_url().'sellers/account_infomation');
 
         }
         else{
@@ -188,8 +188,9 @@ if(islogin()){
     public function showProfile(){
     if(islogin()){
          if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+         $data['profile_data']=$this->Mdl_sellers->getProfile();
         $this->load->view('users/header/header_seller');
-        $this->load->view('profile');
+        $this->load->view('profile_show',$data);
         $this->load->view('users/header/footer');
          }
     else{
@@ -202,7 +203,51 @@ if(islogin()){
             redirect(base_url('users/home'));
           }
     }
+ public function account_infomation(){
+    if(islogin()){
+         if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+         $data['profile_data']=$this->Mdl_sellers->getProfile();
+       /* echo $data['profile_data'][0]['chawri_sellers_services_tax_no'];
+*/
+      if(!$data['profile_data'][0]['chawri_sellers_services_tax_no']==''){
+        $this->load->view('users/header/header_seller');
+        $this->load->view('update_account',$data);
+        $this->load->view('users/header/footer');
+        }else{
+        redirect(base_url('sellers/updatProfile'));
+      }
+         }
+    else{
 
+       redirect('users/home'); 
+    }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+    }
+public function updatProfile(){
+    if(islogin()){
+         if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+      $data['profile_data']=$this->Mdl_sellers->getProfile();
+
+
+        $this->load->view('users/header/header_seller');
+        $this->load->view('profile',$data);
+        $this->load->view('users/header/footer');
+      
+         }
+    else{
+
+       redirect('users/home'); 
+    }
+    }
+
+          else{
+            redirect(base_url('users/home'));
+          }
+    }
      public function showStates(){
 
        $data= $this->Mdl_sellers->getState();
@@ -234,7 +279,7 @@ if(islogin()){
 
          if($this->Mdl_sellers->updateGetProfile()){
 
-                setInformUser('success','Your Account successfully Update');
+                setInformUser('success','Your General Information successfully Update');
                 redirect(base_url().'sellers/getProfile');
          }
          else{

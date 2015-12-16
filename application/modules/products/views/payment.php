@@ -266,14 +266,14 @@
                                      $totalall=($qnt*$weight*$rate) + (($qnt*$weight*$rate*2.00)/100);
                                      $subtotoal= ($qnt*$weight*$rate*2.00)/100;
                                       
-                                     echo moneyFormatIndia($qnt*$weight*$rate);
+                                     echo $qnt*$weight*$rate;
 
                                   }
                                  else {
                                    $totalall=($qnt*$weight*$rate) + (($qnt*$weight*$rate*5.00)/100);
                                    $subtotoal= ($qnt*$weight*$rate*5.00)/100;
                                    
-                                   echo moneyFormatIndia($qnt*$weight*$rate);
+                                   echo $qnt*$weight*$rate;
                                  }
                                   
 
@@ -327,13 +327,13 @@
                     <td class="thick-line"></td>
                     <td class="thick-line"></td>
                     <td class="thick-line text-center"><strong>tax</strong></td>
-                    <td class="thick-line text-right">&#8377;<?php echo moneyFormatIndia($subtotoal);?></td>
+                    <td class="thick-line text-right">&#8377;<?php echo $subtotoal;?></td>
                   </tr>
                    <tr>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line text-center"><strong>Commision</strong></td>
-                    <td class="no-line text-right">&#8377;<?php echo moneyFormatIndia($commission = $qnt*$weight*$rate*.0025) ; 
+                    <td class="no-line text-right">&#8377;<?php echo $commission = $qnt*$weight*$rate*.0025 ; 
                            
                     ?></td>
                   </tr>
@@ -342,14 +342,14 @@
                     <td class="no-line"></td>
                     <td class="no-line text-center"><strong>Shipping</strong></td>
                     <td class="no-line text-right">&#8377;<?php /*echo $shiping;*/
-                        echo moneyFormatIndia($shiping); ?>
+                        echo $shiping; ?>
                      </td> 
                   </tr>
                                       <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line text-center"><strong>S.T on commission</strong></td>
                     <td class="no-line text-right">&#8377;<?php  $stc = $commission*.14;  
-                                                      echo moneyFormatIndia($stc);  ?></td>
+                                                      echo $stc;  ?></td>
                   </tr
                   <tr>
                     <td class="no-line"></td>
@@ -357,7 +357,7 @@
                     <td class="no-line text-center"><strong>Total</strong></td>
                     <td class="no-line text-right">&#8377;<?php 
                    $total=$totalall+$shiping+$commission+$stc;
-                  echo moneyFormatIndia($total); 
+                  echo $total; 
                    
                    /* $;*/
 

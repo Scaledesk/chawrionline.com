@@ -485,7 +485,7 @@ a.arrow span {
 }
 .em_nav .hnav .menu-item-depth-0 > a.em-menu-link,
 .em_nav .hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0 > a.em-menu-link {
-  min-height: 50px;
+  min-height: 42px;
 }
 .em_nav .hnav .menu-item-depth-0.parent > a.em-menu-link:hover, .em_nav .hnav .menu-item-depth-0.menu-item-parent > a.em-menu-link:hover,
 .em_nav .hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0.parent > a.em-menu-link:hover,

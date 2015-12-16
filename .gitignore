@@ -28,3 +28,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 application/config/database.php
 .htaccess
 *.htaccess
+uploads/
+chawri_cron/
+checkphpversion/
+system/htaccess

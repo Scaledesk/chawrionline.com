@@ -710,14 +710,14 @@ public function uploadReceipt($id=null){
         $ci=CI::get_instance();
     $config['upload_path']          = 'uploads/';
     $config['allowed_types']        = 'gif|jpg|png|pdf';
-    $config['max_size']             = 1000;
+    $config['max_size']             = 5000;
     $config['max_width']            = 1920;
     $config['max_height']           = 768;
     $config['encrypt_name'] = TRUE;
 
         $this->upload->initialize($config);
 
-    if ( ! $ci->upload->do_upload('attached'))
+    if ( ! $ci->upload->do_upload('file'))
     {
         $error = array('error' => $ci->upload->display_errors());
         setInformUser('error', $error['error'].' please upload gif, jpg, pdf formate only');
@@ -731,8 +731,9 @@ public function uploadReceipt($id=null){
         $order_id=$this->input->post('order_id');
            $this->Mdl_users->setData('bank_details',$file,$order_id);
            if($this->Mdl_users->uploadReceipt()){
-             setInformUser('success','Receipt Upload Successfully. Your order will be processed shortly.');
-             redirect(base_url('products/showOrder'));
+            echo "Uploaded File :".$_FILES["file"]["name"];
+            /* setInformUser('success','Receipt Upload Successfully. Your order will be processed shortly.');
+             redirect(base_url('products/showOrder'));*/
           } 
           else{
                setInformUser('error','Some error occurred. Try Again');

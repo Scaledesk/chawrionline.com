@@ -25,7 +25,7 @@
                                             
                                                 <div class="fieldset">
                                                     
-                                                    <h2 class="legend">Account  Information<a href="<?php echo base_url().'users/showInformation'?>">Account Information </a></h2>
+                                                    <h2 class="legend">Account  Information<a href="<?php echo base_url().'users/getUpdateUsers'?>">General Information </a></h2>
                                                     <ul class="form-list">
                                                         <li class="fields">      
                                                             <div class="customer-name-middlename">
@@ -73,7 +73,7 @@
                                                     <div class="buttons-set">
                                                         
                                                         
-                                                       <a href="<?php echo base_url().'users/showUsers';?>">Update</a>
+                                                       <a href="<?php echo base_url().'users/updateInformation';?>">Update</a>
                                                         
                                                        
                                                     </div>

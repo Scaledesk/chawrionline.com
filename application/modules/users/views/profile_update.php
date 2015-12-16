@@ -16,13 +16,13 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Update Profile</h1>
+                                                <h1>Update Account Informatiom </h1>
                                             </div>
                                             <form action="<?php echo base_url().'users/information';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
-                                                   
+                                                   <h2><a href="<?php echo base_url().'users/showInformation'?>">Account Information</a></h2>
                                                     <ul class="form-list">
                                                         <li class="fields">      
                                                             <div class="customer-name-middlename">     

@@ -249,7 +249,7 @@
                     <td><?php echo $order[0]['chawri_products_name'];?></td>
                     <td class="text-center">&#8377;<?php echo $order[0]['chawri_products_rate'];?></td>
                     <td class="text-center"><?php echo $buyNow['qty']?></td>
-                    <td class="text-right">&#8377;<?php 
+                    <td class="text-right"><?php 
                                $weight = $order[0]['chawri_products_weight'];
                                 $qnt = $buyNow['qty'];
                                 $rate = $order[0]['chawri_products_rate'];
@@ -327,7 +327,7 @@
                     <td class="thick-line"></td>
                     <td class="thick-line"></td>
                     <td class="thick-line text-center"><strong>tax</strong></td>
-                    <td class="thick-line text-right">&#8377;<?php echo moneyFormatIndia($subtotoal);?></td>
+                    <td class="thick-line text-right"><?php echo moneyFormatIndia($subtotoal);?></td>
                   </tr>
                    <tr>
                     <td class="no-line"></td>

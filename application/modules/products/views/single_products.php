@@ -257,15 +257,15 @@
 	                                                      
                                                           <label  class="required" for="description">Description</label>
                                                           <div class="input-box">
-                                                          <textarea name="description" required  class="input-text  required-entry" rows="5" id="desc"> </textarea>
+                                                          <textarea name="description" style="resize: none; width:100% "required  class="input-text  required-entry" rows="5" id="desc"> </textarea>
                                                           
                                                           </div>
                                                           
 	                                                    
 	                                                     </div>
 	                                                     </div>
-	                                                     	  <input type="submit" class="button" name="submit" value="Buy Now">
-
+	                                                     	  <!-- <input type="submit" class="button" name="submit" value="Buy Now"> -->
+															<button type="submit" title="Place" class="button">Buy Now </button>
 	                                                     	</form>
 	                                                     	</li>
                                                            </ul>

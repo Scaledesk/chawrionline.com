@@ -22,14 +22,14 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Users Information</h1>
+                                                <h1>My Profile</h1>
                                             </div>
                                             <form action="<?php echo base_url().'users/update';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
-
-                                                    <h2 class="legend">Users Information <a href="<?php echo base_url().'users/showInformation'?>">Account Information </a> </h2>
+                                                         <h2 class="profile-text"><a href="<?php echo base_url().'users/getUpdateUsers'?>">General Information </a></h2> &nbsp &nbsp &nbsp<h2 class="profile-text2"><a href="<?php echo base_url().'users/showInformation'?>">Account  Information </a></h2>
+                                                    <!-- <h2 class="legend">Users Information <a href="<?php echo base_url().'users/showInformation'?>">Account Information </a> </h2> -->
                                                     <ul class="form-list">
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
@@ -73,16 +73,16 @@
                                                       <li class="fields">
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-lastname">
-                                                                    <label for="phone" class="required"><em>*</em>Address</label>
+                                                                    <label for="address" class="required"><em>*</em>Address</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" id="phone" value="<?php echo $users_data[0]['chawri_users_address']; ?>" required name="phone" title="Email" maxlength="255" class="input-text required-entry">
+                                                                        <input type="text" id="address" value="<?php echo $users_data[0]['chawri_users_address']; ?>" required name="address" title="Address" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="field name-firstname">
-                                                                    <label for="user_name_email" class="required"><em>*</em>State</label>
+                                                                    <label for="state" class="required"><em>*</em>State</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="user_name_email"  value="<?php echo $users_data[0]['chawri_users_state']; ?>"required  name="user_name_email" title="Email" maxlength="255" class="input-text required-entry" readonly>
+                                                                        <input type="text" id="state"  value="<?php echo $users_data[0]['chawri_users_state']; ?>"required  name="state" title="State" maxlength="255" class="input-text required-entry" >
                                                                     </div>
                                                                 </div>
                                                                 

@@ -20,13 +20,13 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>General Information</h1>
+                                                <h1>My Profile</h1>
                                             </div>
                                             <form action="<?php echo base_url().'sellers/updateGetProfile';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
-                                                    <h2 class="legend">General Information <a href="<?php echo base_url().'sellers/account_infomation'?>">Account Information</a></h2> 
+                                                    <h2 class="profile-text"><a href="<?php echo base_url().'sellers/showProfile'?>">General Information </a></h2> &nbsp &nbsp &nbsp<h2 class="profile-text2"><a href="<?php echo base_url().'sellers/account_infomation'?>">Account  Information </a></h2>
                                                     <ul class="form-list">
                                                         <li class="fields">      
                                                             <div class="customer-name-middlename">

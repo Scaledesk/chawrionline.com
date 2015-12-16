@@ -518,7 +518,7 @@ public function showForgetPwd(){
     public function update(){
      if(islogin()){
      $data=$this->input->post();
-        $this->Mdl_users->setData('update',$data['fname'],$data['lname'],$data['phone']);
+        $this->Mdl_users->setData('update',$data['fname'],$data['lname'],$data['phone'],$data['address'],$data['state']);
 
     if($this->Mdl_users->update()){
 
@@ -1054,12 +1054,12 @@ public function searchProductByMills($search){
    if($this->Mdl_users->information())
    {
     setInformUser('success','your profile has been successfully updated.');
-    redirect(base_url('users/information')); 
+    redirect(base_url('users/showInformation')); 
     
    }
    else{
     setInformUser('error','Some error occurred.');
-    redirect(base_url('users/information')); 
+    redirect(base_url('users/showInformation')); 
    }
    }
    else{

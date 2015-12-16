@@ -20,12 +20,12 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>General Information</h1>
+                                                <h1>My Profile</h1>
                                             </div>
                                             
                                                 <div class="fieldset">  <?php /*print_r($users_data); die;*/ ?>
-                                                    
-                                                    <h2 class="legend">General  Information<a href="<?php echo base_url().'users/showInformation'?>">Account Information</a></h2>
+                                                     <h2 class="profile-text"><a href="<?php echo base_url().'users/getUpdateUsers'?>">General Information </a></h2> &nbsp &nbsp &nbsp<h2 class="profile-text2"><a href="<?php echo base_url().'users/showInformation'?>">Account  Information </a></h2>
+                                                   <!--  <h2 class="legend">General  Information<a href="<?php echo base_url().'users/showInformation'?>">Account Information</a></h2> -->
                                                     <ul class="form-list">
                                                         <li class="fields">      
                                                             <div class="customer-name-middlename">
@@ -85,7 +85,7 @@
                                                     <div class="buttons-set">
                                                         
                                                         
-                                                       <a href="<?php echo base_url().'users/showUsers';?>">Update</a>
+                                                        <button type="submit" title="Place" class="button"> <a href="<?php echo base_url().'users/showUsers';?>">Update</a></button>
                                                         
                                                        
                                                     </div>

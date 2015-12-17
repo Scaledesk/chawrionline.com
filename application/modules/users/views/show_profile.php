@@ -36,9 +36,9 @@
                                                                     </div>
                                                                 </div>
                                                                <div class="field name-lastname">
-                                                                    <label for="company_name" class="required"> Name</label>
+                                                                    <label for="company_name" class="required"> Last Name</label>
                                                                     <div class="input-box">
-                                                                        <?php echo $users_data[0]['chawri_users_fname'].' '.$users_data[0]['chawri_users_lname']; ?>
+                                                                        <?php echo $users_data[0]['chawri_users_lname']; ?>
                                                                     </div>
                                                                 </div>
                                                                 
@@ -48,13 +48,25 @@
                                                             <div class="customer-name-middlename">
                                                             
                                                                 <div class="field name-firstname">
+                                                                    <label for="address" class="required">First Name</label>
+                                                                    <div class="input-box">
+                                                                    <?php echo $users_data[0]['chawri_users_fname']; ?>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="field name-firstname">
                                                                     <label for="address" class="required">Address</label>
                                                                     <div class="input-box">
                                                                     <?php echo $users_data[0]['chawri_users_address']; ?>
                                                                           </div>
                                                                 </div>
                                                                 
-                                                                <div class="field name-lastname">
+                                                                
+                                                            </div>
+                                                        </li>
+                                                        <li class="fields"> 
+                                                            <div class="customer-name-middlename">
+
+                                                            <div class="field name-lastname">
                                                                     <label for="state" class="required">State</label>
                                                                    
 
@@ -64,11 +76,6 @@
                                                                     
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="fields"> 
-                                                            <div class="customer-name-middlename">
-                                                            
                                                                 
                                                                <div class="field name-firstname">
                                                                     <label for="phone" class="required">Phone</label>

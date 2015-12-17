@@ -147,7 +147,7 @@
                                                     <div class="buttons-set">
 
 
-                                                        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span>
+                                                        <button type="submit" title="Submit" class="button"><span><span>Register</span></span>
                                                         </button>
                                                         <p class="required">* Required Fields</p>
                                                     </div>

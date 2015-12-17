@@ -106,7 +106,7 @@ if(islogin()){
 
             if($this->sendMail()){
                  $this->Mdl_sellers->insertToken();
-                 setInformUser('error','your account successfully created and send activation link on Email');
+                 setInformUser('success','Please Pay Registration amount and wait for Admin Approval for Account Activation');
                   redirect('sellers');
                 
             }else{

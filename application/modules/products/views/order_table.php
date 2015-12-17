@@ -35,6 +35,7 @@
                   <tr>
                     <th>Status</th>
                      <th>Action</th>
+                     <th>Payment Receipt</th>
                       <th>Total Cost</th>
                         
                         <th> Category</th>
@@ -80,6 +81,12 @@
                        <?php if($rows['chawri_products_orders_status']=='admin_approvel_pending'){?> <?php } ?> 
                         </td> -->
                          <td>
+                    <?php if ($rows['chawri_products_orders_receipt_details']){?> <a  href="<?php  echo base_url().'uploads/'.$rows['chawri_products_orders_receipt_details'];?>" download >Uploaded </a>
+                      <?php }else{?>Receipt Not Upload <?php } ?>
+                     </td>
+
+                         <td>
+
                         <?php echo number_format($rows['chawri_products_orders_total_cost'],2);  ?>
                         </td>
                          <td>

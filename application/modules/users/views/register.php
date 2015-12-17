@@ -62,7 +62,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="email_address" class="required"><em>*</em>Phone Number</label>
                                                                     <div class="input-box">
-                                                                         <input type="tel"  name="phone" required id="phone" value="" title="Phone Number" class="input-text validate-email required-entry">
+                                                                         <input type="number"  name="phone" required id="phone" value="" title="Phone Number" class="input-text validate-email required-entry">
                                                                     </div>
                                                                 </div>
 

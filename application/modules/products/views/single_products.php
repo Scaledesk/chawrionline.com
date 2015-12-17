@@ -269,7 +269,7 @@
 	                                                     	</form>
 	                                                     	</li>
                                                            </ul>
-
+                                                           <?php /*print_r($this->session->userdata['user_data']);*/ ?>
                                                      <!-- ............................................... -->
                                                    <!--  <div class="row" >
                          

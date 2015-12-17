@@ -254,7 +254,7 @@ public function buyerHome(){
         switch(func_get_arg(0)){
             case 'authorize':   //$this->session->set_userdata('authorize',true);
                $data=array();
-                          /*echo func_get_arg(1)['data'][0]['chawri_users_tin_no'];
+                         /* echo func_get_arg(1)['data'][0]['chawri_users_tin_no'];
                           die;*/
                      $user_username=func_get_arg(1)['data'][0]['chawri_users_fname'].' '.func_get_arg(1)['data'][0]['chawri_users_lname'];
 

@@ -772,12 +772,12 @@ public function chechUsers(){
     public function isActive(){
     $query=$this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users');
   
-
-       if(isset($this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users')->result_array()[0]['chawri_users_status'])){
-
+ 
+       if(!empty($this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users')->result_array()[0]['chawri_users_status'])){
+         
            return true;
        }
-        elseif(isset($this->db->where('chawri_sellers_email',$this->getUserName())->select(array('chawri_sellers_status'))->get('chawri_sellers')->result_array()[0]['chawri_sellers_status'])){
+        elseif(!empty($this->db->where('chawri_sellers_email',$this->getUserName())->select(array('chawri_sellers_status'))->get('chawri_sellers')->result_array()[0]['chawri_sellers_status'])){
 
             return true;
         }

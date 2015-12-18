@@ -162,7 +162,8 @@
                                                         </div>
                                                         <div class="buttons-set">
                                                             <button type="submit" class="button" title="Login" name="send" id="send2"><span><span>Login</span></span>
-                                                            </button> <a href="<?php echo base_url().'users/showForgetPwd';?>" class="f-left">Forgot Your Password?</a>
+                                                            </button> <a href="<?php echo base_url().'users/showForgetPwd';?>" class="f-left">Forgot Your Password?</a> &nbsp; &nbsp; &nbsp;
+                                                           <?php if($this->session->flashdata('resent')){ ?>  <a href="<?php echo base_url().'users/resentLink';?>" class="f-left">Resent Link</a><?php } ?>
                                                             <p class="required">* Required Fields</p>
                                                         </div>
                                                     </div>

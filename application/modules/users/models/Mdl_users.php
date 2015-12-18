@@ -402,6 +402,9 @@ class Mdl_users extends CI_Model
                 
 
              break;
+      case 'resent_email':
+                   $this->setUserName(func_get_arg(1));
+                    break;         
             default:
                 break;
         }
@@ -554,6 +557,7 @@ public function chechUsers(){
                 return true;
                 break;
 
+             
             default:
                 break;
         }
@@ -948,4 +952,14 @@ public function getInformation(){
 
 
     }
+
+ public function usersEmail(){
+   
+       $query=$this->db->where(array('chawri_users_username'=>$this->getUserName()))->select(array('chawri_users_username'))->get('chawri_users');
+        return $q=$query->result_array();
+
+
+    }
+
+
 }

@@ -204,7 +204,8 @@ public function buyerHome(){
         else{
    //     echo "4"
  //die;
-            setInformUser('error','Your Account in not activated. Kindly verify your email to logon.');
+            setInformUser('error','Your Account in not activated. Kindly verify your email to logon. ');
+            $this->session->set_flashdata('resent', 'Resent Email.');
            redirect('users');
         }
 
@@ -1096,6 +1097,47 @@ public function updateInformation(){
    $this->load->view('header/header_buyer');
       $this->load->view('profile_update',$data);
        $this->load->view('header/footer');
+}
+
+public function resentLink(){
+
+   if(strtolower($_SERVER['REQUEST_METHOD'] )== 'post'){
+
+    $email= $this->input->post('email');
+    
+    $this->Mdl_users->setData('resent_email', $email);
+    $data['users_email']=$this->Mdl_users->usersEmail();
+    if($data['users_email'][0]['chawri_users_username']==$email) {
+    if($this->sendMail()){
+       if($this->Mdl_users->insertToken()){
+  
+                 setInformUser('success','Resent Link successfully  and  Active link on your Email');
+             redirect('users');
+       }else{
+
+        setInformUser('error','Some error occurred?');
+            redirect('users');
+       }
+      
+    
+    }else{
+            setInformUser('error','Some error occurred?');
+            redirect('users');
+    }
+  }
+    else{
+      setInformUser('error','Email do not match. Please try again');
+            redirect('users/resentLink');
+    }
+
+
+
+  }else{
+   $this->load->view('header/header');
+    $this->load->view('resent_link');
+    $this->load->view('header/footer');
+  }
+
 }
 
 }

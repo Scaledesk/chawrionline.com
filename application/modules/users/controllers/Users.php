@@ -1106,7 +1106,7 @@ public function resendLink(){
     $email= $this->input->post('email');
     
     $this->Mdl_users->setData('resend_email', $email);
-    $data['users_email']=$this->Mdl_users->usersEmail();
+   if($data['users_email']=$this->Mdl_users->usersEmail()){
     if($data['users_email'][0]['chawri_users_username']==$email) {
     if($this->sendMail()){
        if($this->Mdl_users->insertToken()){
@@ -1125,6 +1125,10 @@ public function resendLink(){
             redirect('users');
     }
   }
+setInformUser('error','Some error occurred?');
+            redirect('users');
+
+}
     else{
       setInformUser('error','Email do not match. Please try again');
             redirect('users/resendLink');

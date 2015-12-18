@@ -65,7 +65,7 @@ class Products extends  MX_Controller
                 'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                 'chawri_products_weight'=>$post_data['products_weight'][$i],
                 'chawri_products_categories'=>$post_data['categories'][$i],
-                'chawri_products_reel_sheet'=>'s',
+                'chawri_products_reel_sheet'=>'sheet',
                 'chawri_sellers_id' =>$this->session->userdata['user_data'][0]['users_id']
             ]);
         }
@@ -286,7 +286,7 @@ public function showForm(){
                             'chawri_products_substance'=>$post_data['products_substance'][$i],
                             'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                             'chawri_products_categories'=>$post_data['categories'][$i],
-                            'chawri_products_reel_sheet'=>'r',
+                            'chawri_products_reel_sheet'=>'reel',
                             'chawri_sellers_id' => $this->session->userdata['user_data'][0]['users_id']
                         ]);
                     }
@@ -316,15 +316,18 @@ public function singleProducts(){
  if(islogin()){
  $data=$this->input->post();
  
-/* print_r($data);
+
+/*echo $data['sheet'];
+ print_r($data);
 die();*/
+
         $this->Mdl_products->setData('insert',$this->session->userdata['user_data'][0]['users_id'],$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
             $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
             $data['products_quantity_on_offer'],$data['products_rate'],
             $data['products_sheets_per_packet'],$data['products_size'],$data['products_size_one'],$data['packets_weight'],$data['products_substance'],$data['products_thickness'],$data['categories']);
 
 
-        if($this->Mdl_products->singleProducts($data)){
+        if($this->Mdl_products->singleProducts($data['sheet'])){
 
 
              setInformUser('success',"Product's Information Was Added Successfully .");
@@ -335,6 +338,13 @@ die();*/
             setInformUser('error',"Product's Information Not Added. Please Try Again. ");
               redirect('sellers/showProducts');
         }
+
+
+
+
+
+
+
         }
 
           else{

@@ -113,8 +113,8 @@
                                                                     <label for="products_thickness" class="required"><em></em></label>
                                                                     <div class="input-box">
                                                                        
-                                                <input type="radio" name="sheet"  id="chkNo" checked   onclick="ShowHideDiv()" > Reel
-							                     <input type="radio" name="sheet" id="chkYes" onclick="ShowHideDiv()" > Sheet
+                                                <input type="radio" name="sheet"  value="reel" id="chkNo" checked   onclick="ShowHideDiv()" > Reel
+							                     <input type="radio" name="sheet" value="sheet" id="chkYes" onclick="ShowHideDiv()" > Sheet
 
                                                                     </div>
                                                                 </div>

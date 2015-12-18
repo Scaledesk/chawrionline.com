@@ -637,9 +637,13 @@ public function update (){
 
 
 
-public function singleProducts(){
+public function singleProducts($sheet){
 
+/*echo $sheet;
+die*/
  $this->_validate('insert');
+
+ 
         $data = [
             'chawri_products_name' => $this->products_name,
             'chawri_products_brand_name' => $this->products_brand_name,
@@ -657,11 +661,14 @@ public function singleProducts(){
             'chawri_products_cenvat_amount' => $this->products_cenvat_amount,
             'chawri_products_weight' => $this->products_weight,
             'chawri_sellers_id' => $this->sellers_id,
-            
+            'chawri_products_reel_sheet' =>$sheet,
             'chawri_products_categories' => $this->categories
 
 
         ];
+
+/*print_r($data);
+die;*/
 
         if($this->db->insert('chawri_products',$data)){
           return true;

@@ -102,7 +102,7 @@ class Products extends  MX_Controller
 public function getProducts($id){
 
 	if(!isset($_SESSION['user_data'])){
-	  setInformUser('success',"Please login first .");
+	  setInformUser('success',"Please Login/Register with Us.");
   	redirect('users');
   	}
   	else{

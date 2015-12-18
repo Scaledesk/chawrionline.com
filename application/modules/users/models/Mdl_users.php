@@ -402,7 +402,7 @@ class Mdl_users extends CI_Model
                 
 
              break;
-      case 'resent_email':
+      case 'resend_email':
                    $this->setUserName(func_get_arg(1));
                     break;         
             default:

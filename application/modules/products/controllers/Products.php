@@ -585,19 +585,19 @@ else{
  
 public function import(){
      if(islogin()){
-      try {
+   
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
             $ci=CI::get_instance();
             $config['upload_path']          = 'uploads/';
-            $config['allowed_types']        = 'csv|xls';
+            $config['allowed_types']        = 'csv';
             $config['max_size']             = 1000;
             $config['encrypt_name'] = TRUE;
             $this->upload->initialize($config);
             if ( ! $ci->upload->do_upload('name'))
             {
                 $error = array('error' => $ci->upload->display_errors());
-                setInformUser('error', $error['error'].' please import csv or xls file formate only');
-                throw new Exception('Data are empty');
+                setInformUser('error', $error['error'].' please import CSV file formate only');
+               
                 redirect('products');
                 
 
@@ -620,11 +620,7 @@ public function import(){
                redirect('users/home');
             }
 
-        }
-        catch (Exception $e) {
-  
-         var_dump($e->getMessage());
-            }
+       
           }
         else {
                redirect('users/home');

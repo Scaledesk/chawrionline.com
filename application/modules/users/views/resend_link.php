@@ -22,9 +22,9 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Resent Link</h1>
+                                                <h1>Resend Link</h1>
                                             </div>
-                                            <form action="<?php echo base_url().'users/resentLink';?>" method="post" id="form-validate">
+                                            <form action="<?php echo base_url().'users/resendLink';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">

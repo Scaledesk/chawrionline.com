@@ -1291,16 +1291,16 @@ margin-top:-6px;*/ }
 .em-rtl .em-search-style01 #em-search-content { left: 0; right: auto; }
 .em-rtl .em-search .em-search-style01 .em-container-js-search, .em-rtl .em-search .em-search-style01 #em-search-content-fixed-top { left: 0; right: auto; }
 
-.em-search-style02 .form-search button.button { font-size: 0; display: block; text-indent: -99999px; overflow: hidden; vertical-align: middle; text-align: left; text-indent: 0; padding: 14px; vertical-align: top; width: 44px; }
+.em-search-style02 .form-search button.button { font-size: 0; display: block; text-indent: -99999px; overflow: hidden; vertical-align: middle; text-align: left; text-indent: 0; padding: 14px; vertical-align: top; width: 68px; }
 .em-search-style02 .form-search button.button span { padding: 0; }
-.em-search-style02 .form-search button.button:before { display: inline-block; font-family: FontAwesome; font-style: normal; font-weight: normal; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "\f002"; font-size: 14px; }
+.em-search-style02 .form-search button.button:before { display: inline-block; font-family: inherit; font-style: normal; font-weight: normal; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "Search"; font-size: 14px; }
 
 .form-search { float: right; width: 100%; margin-bottom: 0; border-style: solid; border-width: 1px; position: relative; }
 .form-search .text-search { float: right; position: relative; width: 69%; }
 .form-search.no_cate_search .text-search { width: 100%; }
 .form-search label { display: none; }
 .form-search input.input-text { border: none; float: left; font-size: 100%; margin: 0; background: none; width: 100%; padding: 5px 50px 5px 10px; height: 42px; line-height: 34px; }
-.form-search button.button { float: right; position: absolute; top: -1px; right: -1px; margin: 0; padding: 13px 15px; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; 		/*&:before{
+.form-search button.button { float: right; position: absolute; top: -1px; right: -50px; margin: 0; padding: 13px 15px; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; 		/*&:before{
 			@include font-awesome("\f002",18px);
 		}
 		&:hover{
@@ -2787,7 +2787,7 @@ border-top-color: transparent;*/ -moz-transition: all 500ms ease; -webkit-transi
 .em-header-style31 .em-search .form-search .input_cat select { height: 49px; line-height: 48px; }
 .em-header-style31 .em-search .form-search .input_cat .catsearch-dropdown span.current { padding: 15px 30px 13px 5px; min-height: 49px; }
 .em-header-style31 .em-search .form-search .input_cat .catsearch-dropdown ul { top: 49px; }
-.em-header-style31 .em-search .em-search-style02 .form-search button.button { padding: 18px 17px 17px; width: 49px; }
+.em-header-style31 .em-search .em-search-style02 .form-search button.button { padding: 18px 17px 17px; width: 75px; }
 .em-header-style31 .em_nav .hnav .menu-item-depth-0, .em-header-style31 .em_nav .hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0 { margin: 0; }
 .em-header-style31 .em_nav .hnav .menu-item-depth-0 > a span, .em-header-style31 .em_nav .hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0 > a span { padding: 12px 20px; border-color: transparent; text-transform: uppercase; }
 .em-header-style31 .em-top-cart { margin-top: 32px; margin-left: 10px; }

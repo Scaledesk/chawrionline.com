@@ -569,6 +569,7 @@ button.button.btn-checkout:hover {
 /* line 295, theme.less */
 .em-wrapper-header .form-search {
   border-color: #e1e1e1;
+  border-radius: 3.5px;
 }
 /* line 297, theme.less */
 .em-wrapper-header .form-search .input_cat {
@@ -1035,14 +1036,15 @@ button.button.btn-checkout:hover {
 }
 /* line 753, theme.less */
 .em-wrapper-header .em-header-style31 .em-search .form-search button.button {
-  background: transparent;
-  color: #a1a1a1;
+  
   border-color: transparent;
+  border-top-right-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
 }
 /* line 757, theme.less */
 .em-wrapper-header .em-header-style31 .em-search .form-search button.button:hover {
   color: #ffffff;
-  background-color: #272727;
+  background-color: #53287a;
 }
 /* line 767, theme.less */
 .em-wrapper-header .em-header-style31 .welcome-msg:after,

@@ -52,11 +52,11 @@ function setInformUser(){
     unset($flash_data);
     switch(func_get_arg(0)){
         case 'success' : {
-            $ci->session->set_flashdata('message',"<div style='text-align:center;' class='alert alert-success'>".func_get_arg(1)."</div>");
+            $ci->session->set_flashdata('message',"<div style='text-align:center;' class=' container alert alert-success'>".func_get_arg(1)."</div>");
             break;
         }
         case 'error': {
-            $ci->session->set_flashdata('message',"<div  style='text-align:center;' class='alert alert-error'>".func_get_arg(1)."</div>");
+            $ci->session->set_flashdata('message',"<div style='text-align:center;' class=' container alert alert-danger'>".func_get_arg(1)."</div>");
             break;
         }
         default:{

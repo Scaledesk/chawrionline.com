@@ -257,23 +257,24 @@
                                /* echo $totalweight;*/
                                 $shiping;
                                 $total;
-                                $subtotoal;
+                                $subtotal;
                                 $totalall;
                                /* echo $buyNow['cform'];
                                 die; */
                                   if($buyNow['cform']=='CFORM'){
 
                                      $totalall=($qnt*$weight*$rate) + (($qnt*$weight*$rate*2.00)/100);
-                                     $subtotoal= ($qnt*$weight*$rate*2.00)/100;
+                                     $subtotal= ($qnt*$weight*$rate*2.00)/100;
                                       
-                                     echo moneyFormatIndia($qnt*$weight*$rate);
-
+                                     $total_amount=moneyFormatIndia($qnt*$weight*$rate);
+                                     echo $total_amount;
                                   }
                                  else {
                                    $totalall=($qnt*$weight*$rate) + (($qnt*$weight*$rate*5.00)/100);
-                                   $subtotoal= ($qnt*$weight*$rate*5.00)/100;
+                                   $subtotal= ($qnt*$weight*$rate*5.00)/100;
                                    
-                                   echo moneyFormatIndia($qnt*$weight*$rate);
+                                    $total_amount=moneyFormatIndia($qnt*$weight*$rate);
+                                    echo $total_amount;
                                  }
                                   
 
@@ -327,7 +328,7 @@
                     <td class="thick-line"></td>
                     <td class="thick-line"></td>
                     <td class="thick-line text-center"><strong>tax</strong></td>
-                    <td class="thick-line text-right"><?php echo moneyFormatIndia($subtotoal);?></td>
+                    <td class="thick-line text-right"><?php echo moneyFormatIndia($subtotal);?></td>
                   </tr>
                    <tr>
                     <td class="no-line"></td>
@@ -376,8 +377,14 @@
                  <input type="hidden" name="description" value="<?php echo $buyNow['description']; ?>" />
                  <input type="hidden" name="qry" value="<?php echo $buyNow['qty']; ?>"/>
                  <input type="hidden" name="cform" value="<?php echo $buyNow['cform']; ?>" />
-                 
                  <input type="hidden" name="tin_no" value="<?php echo $buyNow['tin_no']; ?>" />
+                  <input type="hidden" name="commission" value="<?php echo $commission; ?>" />
+                  <input type="hidden" name="stc" value="<?php echo $stc; ?>" />
+                  <input type="hidden" name="total_amount" value="<?php echo $total_amount; ?>" />
+                  <input type="hidden" name="subtotal" value="<?php echo $subtotal; ?>" />
+                  <input type="hidden" name="shiping" value="<?php echo $shiping; ?>" />
+                 <input type="hidden" name="products_name" value="<?php echo $order[0]['chawri_products_name']; ?>" />
+                 <input type="hidden" name="rate" value="<?php echo $order[0]['chawri_products_rate']; ?>" />
                  <button type="submit" title="Place" class="button">Place Order </button>
                </form>
              

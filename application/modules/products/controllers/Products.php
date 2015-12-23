@@ -463,7 +463,9 @@ if(islogin()){
   $data['sellers']=$this->Mdl_products->getSellers($data['sellers_id']);
 /**/
  $email=$data['sellers'][0]['chawri_sellers_email'];
-
+ /*$this->load->view('users/header/header_buyer');
+ $this->load->view('report',$data);
+ $this->load->view('users/header/footer');*/
 $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['products_id'],$data['description'],$data['qry'],$data['cform'],$data['tin_no']);
 
         $this->email->from('noreply@chawri.com', 'Chawri');
@@ -479,9 +481,10 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
          $this->email->to($this->session->userdata['user_data'][0]['users_email']);
        
         $this->email->subject('order placed');
+        $message=$this->load->view('report',$data,TRUE);
+        $this->email->message($message);
        
-         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Thsi is to notify you that your order has beeen placed on chawrionline.com. Please upload the payment slip within 24hrs or your order will be cancelled.</div>');
-        if($this->email->send()){
+         if($this->email->send()){
          setInformUser('success'," Order Place Successfully.  Please check your Email.    Admin Approval Pending.");
           redirect('products/showOrder'); 
         }
@@ -499,6 +502,7 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
             redirect(base_url('users/home'));
           }  
 
+          
 }
 
 public function orderApproved ($id){

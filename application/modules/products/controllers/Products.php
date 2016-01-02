@@ -180,7 +180,8 @@ $data=$this->input->post();
             $data['products_packing'],
             $data['products_rate'],
             $data['products_cenvat_amount'],
-            $data['categories']
+            $data['categories'],
+            $data['products_reel_no']
             );
 
 

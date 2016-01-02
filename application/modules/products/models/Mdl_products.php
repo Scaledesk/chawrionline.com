@@ -446,6 +446,7 @@ class Mdl_products extends CI_Model
                 $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                 $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
                 $this->setCategories($this->security->xss_clean($this->categories));
+                $this->setReelNo($this->security->xss_clean($this->reel_no));
 
 
                 break;
@@ -578,6 +579,7 @@ public function insertProductReel($data){
                 $this->setProductsRate(func_get_arg(16));
                 $this->setProductsCenvatAmount(func_get_arg(17));
                  $this->setCategories(func_get_arg(18));
+                 $this->setReelNo(func_get_arg(19));
 
                 break;
 
@@ -633,7 +635,8 @@ public function update (){
             'chawri_products_rate' => $this->products_rate,
             'chawri_products_cenvat_amount' => $this->products_cenvat_amount,
             'chawri_products_weight' => $this->products_weight,
-            'chawri_products_categories' => $this->categories
+            'chawri_products_categories' => $this->categories,
+            'chawri_products_reel_no'=>  $this->reel_no
 
 
         ];

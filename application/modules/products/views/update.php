@@ -83,6 +83,18 @@
                                                             </div>
                                                         </li>
                                                        
+                                                         <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-firstname">
+                                                                    <label for="products_manufacturer" class="required">Reel No</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="firstname" value="<?php echo $data[0]['chawri_products_reel_no']; ?>"   name="products_reel_no" title="Reel No" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                               
+                                                            </div>
+                                                        </li>
 
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">

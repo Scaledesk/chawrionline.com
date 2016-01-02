@@ -194,9 +194,20 @@
 
 
                                                         </li>
-                                                       <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" method="post"> 		
-
+                                                      
                                                         <li class="fields">
+                                                         <div class="customer-name-middlename">
+	                                                                <div class="field name-firstname">
+	                                                                    <label for="products_brand_name" class="required"><b>Reel No</b> </label>
+	                                                                    <div class="input-box">
+	                                                                        <?php echo $data[0]['chawri_products_reel_no']; ?>
+	                                                                    </div>
+	                                                                </div>
+
+
+	                                                            </div>
+	                                                    <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" method="post"> 		
+
                                                         <div class="customer-name-middlename">
 	                                                     <div class="field name-firstname">
 	                                                     
@@ -208,7 +219,11 @@
 	                                                     </div>
 	                                                     </div>
 															</div>
-	                                                    <div class="customer-name-middlename">
+	                                                   
+	                                                    </li>
+                                                            
+                                                           <li class="fields">
+                                                           	 <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 
 	                                                                   
@@ -233,10 +248,6 @@
 
 	                                                            </div>
 
-	                                                    </li>
-                                                            
-                                                           <li class="fields">
-
 	                                                            
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
@@ -249,9 +260,9 @@
 
 	                                                            </div>
 
-
+	                                                            </li>
                                                         
-
+	                                                             <li class="fields">
 	                                                      <div class="customer-name-middlename">
 	                                                      <div class="field name-firstname">
 	                                                      
@@ -268,6 +279,11 @@
 															<button type="submit" title="Place" class="button">Buy Now </button>
 	                                                     	</form>
 	                                                     	</li>
+
+
+
+
+
                                                            </ul>
                                                            <?php /*print_r($this->session->userdata['user_data']);*/ ?>
                                                      <!-- ............................................... -->

@@ -66,6 +66,7 @@
 										<th>Brand Name</th>
 										<th>Manufacturer</th>
 										<th>Substance</th>
+										<th> Reel No</th>
 										<th> Bulk</th>
 										<th>Size( cms)</th>
 										
@@ -101,6 +102,9 @@
 										</td>
 										<td>
 											<?php echo $rows['chawri_products_substance']; ?>
+										</td>
+										<td>
+											<?php echo $rows['chawri_products_reel_no']; ?>
 										</td>
 										<td>
 											<?php echo $rows['chawri_products_thickness']; ?>

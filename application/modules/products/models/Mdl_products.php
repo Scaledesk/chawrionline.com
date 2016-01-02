@@ -32,7 +32,22 @@ class Mdl_products extends CI_Model
     private $description;
     private $categories;
     private $cform;
+    private $reel_no;
+/**
+     * @return mixed
+     */
+    public function getReelNo()
+    {
+        return $this->reel_no;
+    }
 
+    /**
+     * @param mixed $products_id
+     */
+    public function setReelNo($reel_no)
+    {
+        $this->reel_no = $reel_no;
+    }
 
  /**
      * @return mixed
@@ -410,6 +425,7 @@ class Mdl_products extends CI_Model
                     $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
                     $this->setProductsWeight($this->security->xss_clean($this->products_weight));
                     $this->setCategories($this->security->xss_clean($this->categories));
+                    $this->setReelNo($this->security->xss_clean($this->reel_no));
 
 
                 break;
@@ -538,6 +554,7 @@ public function insertProductReel($data){
                     $this->setProductsSubstance(func_get_arg(15));
                     $this->setProductsThickness(func_get_arg(16));
                     $this->setCategories(func_get_arg(17));
+                    $this->setReelNo(func_get_arg(18));
 
 
                 break;
@@ -662,7 +679,8 @@ die*/
             'chawri_products_weight' => $this->products_weight,
             'chawri_sellers_id' => $this->sellers_id,
             'chawri_products_reel_sheet' =>$sheet,
-            'chawri_products_categories' => $this->categories
+            'chawri_products_categories' => $this->categories,
+            'chawri_products_reel_no'=>$this->reel_no
 
 
         ];
@@ -747,7 +765,8 @@ public function getProducts($id){
         'chawri_products_orders_categories' =>                   $products[0]['chawri_products_categories'],
         'chawri_products_orders_cform' =>                        $cform,
         'chawri_products_orders_total_cost'=>                    $total_cost,
-        'chawri_products_orders_tin_no'=>                        $tin_no  
+        'chawri_products_orders_tin_no'=>                        $tin_no  ,
+        'chawri_products_orders_reel_no'=>                       $products[0]['chawri_products_reel_no']   
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;

@@ -24,6 +24,7 @@
                     <th> Name</th>
                     <th>Brand Name</th>
                     <th>Manufacturer</th>
+                     <th>Reel No</th>
                     <th>GSM</th>
                     <th> Bulk (mic)</th>
                     <th>Size(cms)</th>
@@ -62,6 +63,9 @@
                     </td>
                     <td>
                       <?php echo $rows['chawri_products_manufacturer']; ?>
+                    </td>
+                     <td>
+                      <?php echo $rows['chawri_products_reel_no']; ?>
                     </td>
                     <td>
                       <?php echo $rows['chawri_products_substance']; ?>

@@ -42,6 +42,7 @@
                         <th> Name</th>
                         <th>Brand Name</th>
                         <th>Manufacturer</th>
+                        <th>Reel No</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
                          <th>Size(cms)</th>
@@ -100,6 +101,9 @@
                         </td>
                         <td>
                           <?php echo $rows['chawri_products_orders_products_manufacturer']; ?>
+                        </td>
+                         <td>
+                          <?php echo $rows['chawri_products_orders_reel_no']; ?>
                         </td>
                         <td>
                           <?php echo $rows['chawri_products_orders_products_substance']; ?>
@@ -167,6 +171,7 @@
                      <th> Name</th>
                         <th>Brand Name</th>
                         <th>Manufacturer</th>
+                        <th>Reel No</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
                         <th>Size( cms)</th>
@@ -257,6 +262,9 @@
                           <?php echo $rows1['chawri_products_orders_products_manufacturer']; ?>
                         </td>
                         <td>
+                          <?php echo $rows1['chawri_products_orders_reel_no']; ?>
+                        </td>
+                        <td>
                           <?php echo $rows1['chawri_products_orders_products_substance']; ?>
                         </td>
                         <td>
@@ -328,6 +336,7 @@
                      <th> Name</th>
                         <th>Brand Name</th>
                         <th>Manufacturer</th>
+                        <th>Reel No</th>
                         <th>GSM</th>
                         <th> Bulk (mic)</th>
                          <th>Size( cms)</th>
@@ -368,6 +377,9 @@
                         </td>
                         <td>
                           <?php echo $rows2['chawri_products_orders_products_manufacturer']; ?>
+                        </td>
+                        <td>
+                          <?php echo $rows2['chawri_products_orders_reel_no']; ?>
                         </td>
                         <td>
                           <?php echo $rows2['chawri_products_orders_products_substance']; ?>
@@ -436,6 +448,7 @@
                      <th> Name</th>
                         <th>Brand Name</th>
                         <th>Manufacturer</th>
+                        <th>Reel No</th>
                         <th>GSM</th>
                         <th> Bulk (mic) </th>
                         <th>Size( cms)</th>
@@ -522,6 +535,9 @@
                         </td>
                         <td>
                           <?php echo $rows3['chawri_products_orders_products_manufacturer']; ?>
+                        </td>
+                        <td>
+                          <?php echo $rows3['chawri_products_orders_reel_no']; ?>
                         </td>
                         <td>
                           <?php echo $rows3['chawri_products_orders_products_substance']; ?>

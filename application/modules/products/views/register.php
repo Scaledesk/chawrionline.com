@@ -122,6 +122,20 @@
                                                                
                                                             </div>
                                                         </li>
+                                                        <div id='show_me' style='display:none'>
+                                                         <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-firstname">
+                                                                    <label for="products_thickness" >Reel No</label>
+                                                                    <div class="input-box">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"   name="products_reel_no" title="Bulk" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                               
+                                                            </div>
+                                                        </li>
+                                                        </div>
 
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
@@ -332,4 +346,71 @@
         } 
        
     }
+</script>
+
+<script type="text/javascript">
+/*$(document).ready(function() {
+
+   $('input[type="radio"]').click(function() {
+    alert("asdasd");
+       if($(this).attr('id') == 'chkNo') {
+            $('#show-me').show();           
+       }
+
+       else {
+            $('#show-me').hide();   
+       }
+   });
+});
+*/
+
+
+</script>
+
+<script type="text/javascript">
+/*    $(document).ready(function () {
+    
+ 
+    
+    $('input[type=radio]').change(function(){
+   
+
+    if ($('#chkYes').is(':checked')) {
+        $('#show_me').show();
+    } else {
+        $('#show_me').hide();
+    }
+
+    if ($('#chkNo').is(':checked')) {
+        $('#show_me').show();
+    } else {
+        $('#show_me').hide();
+    }
+        });
+});
+$("#chkNo").prop("checked", true).change();
+*/
+
+
+
+$(document).ready(function () {
+    
+ 
+    
+    $('input[type=radio]').change(function(){
+   
+
+    if ($('#chkNo').is(':checked')) {
+        $('#show_me').show();
+    } else {
+        $('#show_me').hide();
+    }
+
+    if ($('#chkYes').is(':checked')) {
+   
+        $('#show_me').hide();
+    }
+        });
+});
+$("#chkNo").prop("checked", true).change();
 </script>

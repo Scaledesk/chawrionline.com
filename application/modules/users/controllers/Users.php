@@ -733,8 +733,8 @@ public function uploadReceipt($id=null){
            $this->Mdl_users->setData('bank_details',$file,$order_id);
            if($this->Mdl_users->uploadReceipt()){
             echo "Uploaded File :".$_FILES["file"]["name"];
-            /* setInformUser('success','Receipt Upload Successfully. Your order will be processed shortly.');
-             redirect(base_url('products/showOrder'));*/
+            /* setInformUser('success',$_FILES["file"]["name"].'Receipt Upload Successfully. Your order will be processed shortly.');
+             redirect(base_url('products/uploadReceipt'));*/
           } 
           else{
                setInformUser('error','Some error occurred. Try Again');

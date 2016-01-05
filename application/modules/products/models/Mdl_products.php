@@ -1126,8 +1126,9 @@ public function import($file){
             'chawri_products_rate'=>$A[13],
             'chawri_products_cenvat_amount'=>$A[14],
             'chawri_products_reel_sheet'=>$A[15],
-            'chawri_products_weight'=>$A[16],
-            'chawri_products_categories'=>$A[17],
+            'chawri_products_reel_no'=>$A[16],
+            'chawri_products_weight'=>$A[17],
+            'chawri_products_categories'=>$A[18],
             'chawri_sellers_id' =>$this->session->userdata['user_data'][0]['users_id']
          ];
          $this->db->insert('chawri_products',$data);

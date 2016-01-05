@@ -50,7 +50,7 @@
                                                             <br/>
 
                                                             <!-- Below code will show the upload status message -->
-                                                            <div id="message"></div>
+                                                            <div id="message"> <button class="button"><a href="<?php echo base_url().'products/showOrder'; ?>">Back</a></button></div> 
                                                                  </div>
                                                                 </div>
 
@@ -73,7 +73,7 @@
                                                     <div class="buttons-set">
 
 
-                                                        <!-- <button type="submit" title="Submit" class="button"><span><span>Upload</span></span>
+                                                        <!-- <button type="submit" title="Submit" ><span><span>Upload</span></span>
                                                         </button> -->
                                                         <p class="required">* Required Fields</p>
                                                     </div>

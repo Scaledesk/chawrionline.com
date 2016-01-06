@@ -281,7 +281,7 @@
 	                                                     <div class="customer-name-middlename">
 	                                                      <div class="field name-firstname">
 	                                                      
-                                                          <label  class="required" for="description">Shiping Charges </label>
+                                                          <label  class="required" for="description">Shipping Charges </label>
                                                           <div class="input-box">
                                                           <input type="radio" class="shiping" onclick="loadamount(this)" id="yes" name="shiping" value="yes">Yes
                                                           <input type="radio" class="shiping" onclick="loadamount(this)" id="no" name="shiping" value="no">No

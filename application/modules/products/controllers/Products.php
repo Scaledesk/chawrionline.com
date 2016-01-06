@@ -528,23 +528,43 @@ else{
 
 public function received($id){
 if(islogin()){
-  if($sellers_email=$this->Mdl_products->received($id)){
+  if($buyer_email=$this->Mdl_products->received($id)){
 
   /* echo $sellers_email;
  die;*/
+          $admin_email='admin@admin.com';
+
        $this->email->from('noreply@chawri.com', 'Chawri');
-         $this->email->to($sellers_email);
+         $this->email->to($buyer_email);
        
-        $this->email->subject('Received Order');
+        $this->email->subject('Delivered Order');
        
-         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Your order has been successfully Received. As per norms you have 4 Days to Raise any Issue regarding the Order </div>');
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Your order has been successfully Delivered. As per norms you have 4 Days to Raise any Issue regarding the Order </div>');
         if($this->email->send()){
-         setInformUser('success',"Product Received Successfully ");
-           redirect('products/showOrder');
+
+         $this->email->from('noreply@chawri.com', 'Chawri');
+         $this->email->to($admin_email);
+       
+        $this->email->subject('Delivered Order');
+       
+         $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;"> Your order has been successfully Delivered. As per norms you have 4 Days to Raise any Issue regarding the Order </div>');
+        if($this->email->send()){
+
+         setInformUser('success',"Product Delivered Successfully ");
+           redirect('sellers/manageOrder');
+
+           }
+           
+        else{
+          setInformUser('error',"Some Error Occurred ");
+           redirect('sellers/manageOrder');
+        }
+
+
         }
         else{
           setInformUser('error',"Some Error Occurred ");
-           redirect('products/showOrder');
+           redirect('sellers/manageOrder');
         }
 
 

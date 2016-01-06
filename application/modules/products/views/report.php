@@ -43,7 +43,8 @@
                 <thead>
                                 <tr>
                       <td style="Padding:20px;"><strong>Item</strong></td>
-                      <td style="Padding:20px;"><strong>Price</strong></td>
+                      <td style="Padding:20px;"><strong>Rate</strong></td>
+                      <td style="Padding:20px;"><strong>Weight</strong></td>
                       <td style="Padding:20px;"><strong>Quantity</strong></td>
                       <td style="Padding:20px;"><strong>Totals</strong></td>
                                 </tr>
@@ -53,6 +54,7 @@
                   <tr>
                     <td><?php echo $products_name;?></td>
                     <td style="Padding:20px;">&#8377;<?php echo $rate;?></td>
+                    <td style="Padding:20px;">&#8377;<?php echo $Weight;?></td>
                     <td style="Padding:20px;"><?php echo $qry; ?></td>
                     <td style="Padding:20px;"> <?php echo $total_amount; ?></td>
                   </tr>
@@ -61,10 +63,12 @@
                   <tr>
                     <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"></td>
+                    <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"><strong>tax</strong></td>
                     <td style="Padding:20px;"><?php echo moneyFormatIndia($subtotal);?></td>
                   </tr>
                    <tr>
+                    <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"><strong>Commision</strong></td>
@@ -75,18 +79,21 @@
                   <tr>
                     <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"></td>
+                    <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"><strong>Shipping</strong></td>
                     <td style="Padding:20px;"><?php /*echo $shiping;*/
                         echo moneyFormatIndia($shiping); ?>
                      </td> 
                   </tr>
-                                      <td style="Padding:20px;"></td>
+                    <td style="Padding:20px;"></td>
+                    <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"><strong>S.T on commission</strong></td>
                     <td style="Padding:20px;"><?php   
                                                       echo moneyFormatIndia($stc);  ?></td>
                   </tr>
                   <tr>
+                    <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"></td>
                     <td style="Padding:20px;"><strong>Total</strong></td>

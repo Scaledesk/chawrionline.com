@@ -37,7 +37,7 @@
         // print_r($data);
         foreach($data as $rows){
             ?>
-            <tr>
+            <tr style="text-transform: uppercase;">
                 <!-- <td>
                   <input type="checkbox" class="checkboxes" value="1">
                 </td> -->

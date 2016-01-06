@@ -266,7 +266,7 @@
 	                                                      <div class="customer-name-middlename">
 	                                                      <div class="field name-firstname">
 	                                                      
-                                                          <label  class="required" for="description">Description</label>
+                                                          <label  class="required" for="description">Remarks to Supplier</label>
                                                           <div class="input-box">
                                                           <textarea name="description" style="resize: none; width:100% "required  class="input-text  required-entry" rows="5" id="desc"> </textarea>
                                                           

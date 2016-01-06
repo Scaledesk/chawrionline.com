@@ -1037,17 +1037,17 @@ $id = $this->session->userdata['user_data'][0]['users_id'];
 
 public function  received($id){
 
-          $sellers_id = $this->db->select('chawri_sellers_id')
+          $buyer_id = $this->db->select('chawri_products_orders_buyer_id')
                   ->get_where('chawri_products_orders', array('chawri_products_orders_id' => $id))
                   ->row()
-                  ->chawri_sellers_id;
+                  ->chawri_products_orders_buyer_id;
 
-     $sellers_email = $this->db->select('chawri_sellers_email')
-                  ->get_where('chawri_sellers', array('chawri_sellers_id' => $sellers_id))
+     $buyer_email = $this->db->select('chawri_users_username')
+                  ->get_where('chawri_users', array('chawri_users_id' => $buyer_id))
                   ->row()
-                  ->chawri_sellers_email;
+                  ->chawri_users_username;
 
-/*echo $sellers_email;
+/*echo $buyer_email;
 die;*/
  
 
@@ -1059,11 +1059,11 @@ die;*/
 
                 ];
     
-                $this->db->where('chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id']);
+                $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id']);
                 $this->db->where('chawri_products_orders_id',$id); 
                  $this->db->update('chawri_products_orders',$data);
                  
-                 return $sellers_email;
+                 return $buyer_email;
   
          
  }

@@ -268,7 +268,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_cenvat_amount" class="required"><em>*</em> Products Cenvat Amount</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" step="any" minlength="0"  id="firstname"  value="<?php echo $data[0]['chawri_products_cenvat_amount']; ?>" required  name="products_cenvat_amount" title=" Products CENVAT Amount" maxlength="255" class="input-text required-entry">
+                                                                        <input type="number" step="any" minlength="0"  id="firstname"  value="<?php echo $data[0]['chawri_products_cenvat_amount']; ?>"  name="products_cenvat_amount" title=" Products CENVAT Amount" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 

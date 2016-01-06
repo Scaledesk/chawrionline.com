@@ -199,6 +199,7 @@
              <?php echo $this->session->userdata['user_data'][0]['users_name']; ?><br>
               <?php echo $this->session->userdata['user_data'][0]['users_address']; ?>
             </address>
+            <span>Tin No. <?php echo $buyNow['tin_no']?></span>
           </div>
           <div class="col-xs-12 text-right">
             <address>
@@ -237,8 +238,9 @@
                 <thead>
                                 <tr>
                       <td><strong>Item</strong></td>
-                      <td class="text-center"><strong>Price</strong></td>
+                      <td class="text-center"><strong>Rate</strong></td>
                       <td class="text-center"><strong>Quantity</strong></td>
+                      <td class="text-center"><strong>Weight</strong></td>
                       <td class="text-right"><strong>Totals</strong></td>
                                 </tr>
                 </thead>
@@ -249,6 +251,8 @@
                     <td><?php echo $order[0]['chawri_products_name'];?></td>
                     <td class="text-center">&#8377;<?php echo $order[0]['chawri_products_rate'];?></td>
                     <td class="text-center"><?php echo $buyNow['qty']?></td>
+                     <td class="text-center"><?php echo $order[0]['chawri_products_weight']?></td>
+
                     <td class="text-right"><?php 
                                $weight = $order[0]['chawri_products_weight'];
                                 $qnt = $buyNow['qty'];
@@ -327,13 +331,15 @@
                   <tr>
                     <td class="thick-line"></td>
                     <td class="thick-line"></td>
-                    <td class="thick-line text-center"><strong>tax</strong></td>
+                    <td class="thick-line"></td>
+                    <td class="thick-line text-center"  ><strong><span data-toggle="tooltip" title="Tax">tax</span></strong></td>
                     <td class="thick-line text-right"><?php echo moneyFormatIndia($subtotal);?></td>
                   </tr>
                    <tr>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
-                    <td class="no-line text-center"><strong>Commision</strong></td>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center" ><strong> <span data-toggle="tooltip" title="Commision">Commision</span></strong></td>
                     <td class="no-line text-right"><?php  $commission = $qnt*$weight*$rate*.0025 ; 
                           echo moneyFormatIndia($commission);
                     ?></td>
@@ -341,18 +347,21 @@
                   <tr>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
-                    <td class="no-line text-center"><strong>Shipping</strong></td>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center" ><strong> <span data-toggle="tooltip" title="Shipping">Shipping</span></strong></td>
                     <td class="no-line text-right"><?php /*echo $shiping;*/
                         echo moneyFormatIndia($shiping); ?>
                      </td> 
                   </tr>
                                       <td class="no-line"></td>
                     <td class="no-line"></td>
-                    <td class="no-line text-center"><strong>S.T on commission</strong></td>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center"><strong> <span data-toggle="tooltip" title="S.T on commission">S.T on commission</span></strong></td>
                     <td class="no-line text-right"><?php  $stc = $commission*.14;  
                                                       echo moneyFormatIndia($stc);  ?></td>
-                  </tr
+                  </tr>
                   <tr>
+                    <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line text-center"><strong>Total</strong></td>
@@ -364,6 +373,13 @@
 
                      ?></td>
                   </tr>
+                  <tr><td class="no-line"></td>
+                  <td class="no-line"></td>
+                  <td class="no-line"></td><td class="no-line"></td>
+                    <td style="text-transform: uppercase;" class="no-line text-right">
+                      <?php echo convert_number_to_words(round($total,'0')).'  Rupees Only.'; ?>
+                    </td>
+                  </tr>
                 </tbody>
 
               </table>
@@ -371,7 +387,7 @@
                <form action="<?php echo base_url().'products/placeOrder/'; ?>" method="post">
                  
                  <input type="hidden" name="total_cost" value="<?php echo $total; ?>" />
-                 
+                 <input type="hidden" name="weight" value="<?php echo $weight; ?>" />
                  <input type="hidden" name="sellers_id" value="<?php echo $seller[0]['chawri_sellers_id']; ?>" />
                  <input type="hidden" name="products_id" value="<?php echo $order[0]['chawri_products_id']?>">
                  <input type="hidden" name="description" value="<?php echo $buyNow['description']; ?>" />

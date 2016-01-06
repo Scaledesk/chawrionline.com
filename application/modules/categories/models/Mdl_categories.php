@@ -74,15 +74,22 @@ class Mdl_categories extends CI_Model
     {
         switch (func_get_arg(0)) {
             case "insert":
-               /* $this->setSellersId(func_get_arg(1));*/
+              
 
-                    $this->setCategoriesName(func_get_arg(1));
+                    $this->setCategoriesName(func_get_arg(1)); 
 
 
-            /* print_r(func_get_arg(1));
-             print_r(func_get_arg(2));
-             die();*/
+           
                 break;
+                 case "update":
+              
+
+                    $this->setCategoriesName(func_get_arg(1)); 
+
+
+           
+                break;
+
 
                 default:
                 break;
@@ -137,4 +144,18 @@ public function getCategories(){
 	die();*/
 }
 
+
+
+public function getCategory($id){
+
+return $this->db->where('chawri_categories_id',$id)->get('chawri_categories')->result_array();
+
+}
+
+
+public function update($id){
+    $data=['chawri_categories_name'=>$this->getCategoriesName()];
+return $this->db->where('chawri_categories_id',$id)->update('chawri_categories',$data)?true:false;
+
+}
 }

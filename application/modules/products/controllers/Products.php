@@ -108,7 +108,7 @@ public function getProducts($id){
   	else{
 
    if( $this->session->userdata['user_data'][0]['role']=='buyer'){
-
+  $data['seller'] = $this->Mdl_products->getSellersDetails($id);
   $data['data']=$this->Mdl_products->getProducts($id);
   $data['cform']=$this->Mdl_products->cform($data['data'][0]['chawri_sellers_id']);
 
@@ -706,4 +706,81 @@ public function raiseIssue($id){
     redirect(base_url('users/home'));
   }
 }
+
+
+
+public function shiping(){
+
+
+     $id=$this->input->post('id');
+     $shiping_con=$this->input->post('val');
+     $qty=$this->input->post('qty');
+     $weight=$this->input->post('weight');
+
+      $data['seller'] = $this->Mdl_products->getSellersDetails($id);
+
+
+ /*echo json_encode ($data['seller'][0]['chawri_sellers_state']);
+*/
+if($shiping_con=='yes'){
+ $totalweight=$qty*$weight;
+
+   if($data['seller'][0]['chawri_sellers_state']=='Delhi' && $this->session->userdata['user_data'][0]['users_state']=='Delhi'){
+                                    
+                                                  if ($totalweight<=1000) {
+
+                                                      $shiping=1000;
+                                                       echo json_encode($shiping);
+                                                    
+                                                  } 
+                                                  elseif ($totalweight>1000 && $totalweight<=2000 ) {
+                                                    $shiping=2000;
+                                                    echo json_encode($shiping);
+                                                   } elseif($totalweight>2000 && $totalweight<=3000) {
+                                                    $shiping=3000;
+                                                    echo json_encode($shiping);
+                                                   }
+                                                    elseif($totalweight>3000 && $totalweight<=4000){
+                                                    $shiping=4000;
+                                                    echo json_encode($shiping);
+                                                  }
+                                                  elseif($totalweight>4000 ){
+                                                    $shiping=$totalweight*1;
+                                                    echo json_encode($shiping);
+                                                  }
+                                                  }
+
+
+                                        else{
+                                                  if ($totalweight<=1000) {
+
+                                                      $shiping=2000;
+                                                      echo json_encode($shiping);
+                                                    
+                                                  } 
+                                                  elseif ($totalweight>1000 && $totalweight<=2000 ) {
+                                                    $shiping=3000;
+                                                    echo json_encode($shiping);
+                                                   } elseif($totalweight>2000 && $totalweight<=3000) {
+                                                    $shiping=4000;
+                                                    echo json_encode($shiping);
+                                                   }
+                                                    elseif($totalweight>3000 && $totalweight<=4000){
+                                                    $shiping=5000;
+                                                    echo json_encode($shiping);
+                                                  }
+                                                  elseif($totalweight>4000 ){
+                                                    $shiping=$totalweight*1;
+                                                    echo json_encode($shiping);
+                                                  }
+                                     }
+}
+
+else{
+  $shiping=0;
+  echo json_encode($shiping);
+}
+
+}
+
 }

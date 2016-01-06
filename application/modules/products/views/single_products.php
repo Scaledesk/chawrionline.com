@@ -7,6 +7,8 @@
     }
     ?>
 
+
+
                 <div class="em-wrapper-main">
                     <div class="container container-main">
                         <div class="em-inner-main">
@@ -126,6 +128,7 @@
 	                                                                    <label for="products_brand_name" class="required"><b> Pkt. Weight </b></label>
 	                                                                    <div class="input-box">
 	                                                                        <?php echo $data[0]['chawri_products_weight']; ?>
+	                                                                        <input type="hidden" name="weight" class="weight"value="<?php echo $data[0]['chawri_products_weight']; ?>">
 	                                                                    </div>
 	                                                                </div>
 
@@ -214,7 +217,7 @@
                                                          <div class="form-group" id="form1">
                                                          <label  for="qty">Quantity</label>
                                                            <div class="input-box">
-                                                         <input type="number" step="any" name="qty" min="1" id="qty"  class="form-control" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
+                                                         <input type="number" step="any" name="qty" min="1" id="qty"  class="form-control qty1" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
                                                          </div>
 	                                                     </div>
 	                                                     </div>
@@ -275,10 +278,27 @@
 	                                                    
 	                                                     </div>
 	                                                     </div>
+	                                                     <div class="customer-name-middlename">
+	                                                      <div class="field name-firstname">
+	                                                      
+                                                          <label  class="required" for="description">Shiping Charges </label>
+                                                          <div class="input-box">
+                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="yes" name="shiping" value="yes">Yes
+                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="no" name="shiping" value="no">No
+                                                         <input type="hidden" class="products_id"id="products_id"name="products_id" value="<?php echo $data[0]['chawri_products_id']; ?>">
+                                                        </div>
+                                                          
+	                                                    
+	                                                     </div>
+	                                                     </div>
 	                                                     	  <!-- <input type="submit" class="button" name="submit" value="Buy Now"> -->
-															<button type="submit" title="Place" class="button">Buy Now </button>
-	                                                     	</form>
+															
 	                                                     	</li>
+	                                                     	 <input type="text" class="totalshiping" id="totalshiping" name="totalshiping" value="">
+                                                          
+	                                                     	<button type="submit" title="Place" class="button">Buy Now </button>
+	                                                     	</form>
+
 
 
 
@@ -287,53 +307,7 @@
                                                            </ul>
                                                            <?php /*print_r($this->session->userdata['user_data']);*/ ?>
                                                      <!-- ............................................... -->
-                                                   <!--  <div class="row" >
-                         
-                         
-
-                          
-                          <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-                            
-                             
-                              <div class="modal-content">
-                              
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">C Form</h4>
-                                </div>
-                                <div class="modal-body">
-
-                                  <form role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" method="post">
-                                <div class="form-group">
-                                  <label for="date">C Form</label>
-                                   <select name="cform">
-                                   <option>Cform</option>
-                                   <option>Vat</option>
-                                   <option>Cst</option>
-                                   </select>
-                                </div>
-                                <div class="form-group" id="modal1">
-                                 
-                                  
-                                  <input type="hidden" name="qty" id="hiddenQty" value="">
-                                  <input type="hidden" name="description" id="hiddenDesc" value="">
-                                </div>
-                                </div>
-                                <div class="modal-footer">
-
-                                <button type="submit" style="background-color: #53287A;" class="btn btn-default btn-success btn-block">Submit</button>
-                              </form>
-                        
-                                
-                                </div>
-                               
-                              </div>
-                              
-                            </div>
-                          </div>
-                          
-                        </div> -->
+                                         
                                                      <!-- .......................................................... -->
 
 
@@ -371,4 +345,56 @@ document.getElementById('hiddenDesc').value = val2;
 </script>
 
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script>
+
+$(document).ready(function () {
+$(".shiping").change(function () {
+
+    var val = $('.shiping:checked').val();
+    var id =$('.products_id').val();
+    var weight=$('.weight').val();
+    var qty=$('.qty1').val();
+
+   /* alert(weight);*/
+
+     var dd ={"val":val,"id":id,"weight":weight,"qty":qty};
+                /* alert(dd);*/
+                   $.ajax({
+                  'url' : "<?php echo base_url().'products/shiping'; ?>",
+                  'type' : 'POST',  //the way you want to send data to your URL
+                  dataType: "json",
+                  'data':dd,
+                 /* 'data' : {'date' :date1, 'services' :services1, 'subjects' :subjects1, 'grade' :grade1, 'length' :length1, 'currency' :currency1},
+                 */ 'success' : function(data){
+                    /*alert(data);*/
+                    var amount=data;
+                    
+                   /* console.log(amount);*/
+                     /* document.getElementById("demo").innerHTML 
+                    console.log($('#total'));*/
+                    // document.getElementById("divtotal").innerHTML=amount;
+                    // document.getElementById('totalamount').value = amount;
+                     $("#totalshiping").val(amount);
+
+                     /*$("total").val(data);*/
+                   /* document.getElementById("total").val(amount); */
+                    /*$('#total').value(amount);*/
+                    //$('#available_amount').value=a; //jquery selector (get element by id)
+                     //alert(a);
+                  },
+                   'error': function(data){
+                     /* console.log(data);*/
+                     /* alert(data);*/
+                      alert('Some Error Occurred');
+                  }
+                  });
+});
+
+});
+
+  
+             
+</script>
 

@@ -16,160 +16,11 @@
     }
     ?>
 
- <!-- 
-<div class="em-wrapper-main">
-                    <div class="container container-main">
-                        <div class="em-inner-main">
-                            <div class="em-wrapper-area02"></div>
+<script type="text/javascript">
+  
+  
 
- <div class="em-main-container em-col1-layout">
-
-<div class="em-col-main col-md-24 col-sm-24">
-
-
-<div class="page-title"> <h1>Order Details</h1> </div>
-
-<hr>
-
-<div class="container">
-<div class="em-col-main col-sm-20">
-    <div class="account-create">
-            <div class="fieldset">
-                <ul class="form-list">
-
-                    <li class="fields">
-                          <div class="customer-name-middlename">
-                              <div class="field name-firstname">
-                                  <label for="products_brand_name" class="required"> <b> Order ID </b> </label>
-                              </div>
-                          </div>
-                          <div class="customer-name-middlename">
-                              <div class="field name-firstname">
-                                  <div class="input-box">
-                                      <?php echo $order[0]['chawri_products_orders_id']; ?>
-                                  </div>
-                              </div>
-                          </div>
-                    </li>
-
-                    <li class="fields">
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <label for="products_brand_name" class="required"> <b> Order Date </b> </label>
-                          </div>
-                      </div>
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <div class="input-box">
-                                  <?php echo $order[0]['chawri_products_orders_date']; ?>
-                              </div>
-                          </div>
-                      </div>
-                    </li>
-
-                    <li class="fields">
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <label for="products_brand_name" class="required"> <b> Product Name </b> </label>
-                          </div>
-                      </div>
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <div class="input-box">
-                                  <?php echo $order[0]['chawri_products_orders_products_name']; ?>
-                              </div>
-                          </div>
-                      </div>
-                    </li>
-
-                    <li class="fields">
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <label for="products_brand_name" class="required"> <b> Seller Name </b> </label>
-                          </div>
-                      </div>
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <div class="input-box">
-                                  <?php echo $seller[0]['chawri_sellers_company_name']; ?>
-                              </div>
-                          </div>
-                      </div>
-                    </li>
-
-                    <li class="fields">
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <label for="products_brand_name" class="required"> <b> Seller Contact Details </b> </label>
-                          </div>
-                      </div>
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <div class="input-box">
-                                Email: <?php echo $seller[0]['chawri_sellers_email']; ?>,<br/> 
-                              Phone No.:  <?php echo $seller[0]['chawri_sellers_phone']; ?> ,</br>
-                              </div>
-                          </div>
-                      </div>
-                    </li>
-
-                    <li class="fields">
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <label for="products_brand_name" class="required"> <b> Amount to be Paid </b> </label>
-                          </div>
-                      </div>
-                      <div class="customer-name-middlename">
-                          <div class="field name-firstname">
-                              <div class="input-box">
-
-                               &#8377; <?php
-                                $weight = $order[0]['chawri_products_orders_products_weight'];
-                                $qnt = $order[0]['chawri_products_orders_products_quantity_on_offer'];
-                                $rate = $order[0]['chawri_products_orders_products_rate'];
-
-                                  
-                                  if($cform=='Cform'){
-
-                                     $total=($qnt*$weight*$rate) + (($qnt*$weight*$rate*2.00)/100);
-                                     echo  $total;
-                                  }
-                                 else {
-                                   $total=($qnt*$weight*$rate) + (($qnt*$weight*$rate*5.00)/100);
-                                   echo  $total;
-                                  }
-                                 
-                                
-                                
-                              
-                                 ?>
-                                 <br/>
-                                 <br/>
-                                 <button title="Place" class="button" onclick="location.href='<?php echo base_url().'products/placeOrder/'.$seller[0]['chawri_sellers_id'].'/'.$order[0]['chawri_products_orders_products_id'].'/'.$qnt.'/'.$total;?>';">Place Order </button>
-                              </div>
-                          </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-</div>
-
- </div>
- 
-</div>
-
-</div>
- -->
-
-
-
-
+</script>
 
 
 <!-- PAGE LEVEL SCRIPTS -->
@@ -185,6 +36,7 @@
           <h2>ChawriOnline.com - Performa Invoice</h2> 
                 <h3 class="pull-right">Order # <?php echo $order[0]['chawri_products_id']; ?></h3>
         </div>
+      
         <div class="col-xs-24">
  
             
@@ -259,7 +111,9 @@
                                 $rate = $order[0]['chawri_products_rate'];
                                 $totalweight=$weight*$qnt;
                                /* echo $totalweight;*/
-                                $shiping;
+
+
+                               
                                 $total;
                                 $subtotal;
                                 $totalall;
@@ -282,47 +136,7 @@
                                  }
                                   
 
-                                  if($seller[0]['chawri_sellers_state']=='Delhi' && $this->session->userdata['user_data'][0]['users_state']=='Delhi'){
-                                    
-                                                  if ($totalweight<=1000) {
-
-                                                      $shiping=1000;
-                                                    
-                                                  } 
-                                                  elseif ($totalweight>1000 && $totalweight<=2000 ) {
-                                                    $shiping=2000;
-                                                   } elseif($totalweight>2000 && $totalweight<=3000) {
-                                                    $shiping=3000;
-                                                   }
-                                                    elseif($totalweight>3000 && $totalweight<=4000){
-                                                    $shiping=4000;
-                                                  }
-                                                  elseif($totalweight>4000 ){
-                                                    $shiping=$totalweight*1;
-                                                  }
-                                                  }
-
-
-                                        else{
-                                                  if ($totalweight<=1000) {
-
-                                                      $shiping=2000;
-                                                    
-                                                  } 
-                                                  elseif ($totalweight>1000 && $totalweight<=2000 ) {
-                                                    $shiping=3000;
-                                                   } elseif($totalweight>2000 && $totalweight<=3000) {
-                                                    $shiping=4000;
-                                                   }
-                                                    elseif($totalweight>3000 && $totalweight<=4000){
-                                                    $shiping=5000;
-                                                  }
-                                                  elseif($totalweight>4000 ){
-                                                    $shiping=$totalweight*1;
-                                                  }
-                                     }
-
-
+                                
                                    ?>
                           </td>
                   </tr>
@@ -332,14 +146,14 @@
                     <td class="thick-line"></td>
                     <td class="thick-line"></td>
                     <td class="thick-line"></td>
-                    <td class="thick-line text-center"  ><strong><span data-toggle="tooltip" title="Tax">tax</span></strong></td>
+                    <td class="thick-line text-center"  ><strong><span data-toggle="tooltip" title="5% Vat">tax</span></strong></td>
                     <td class="thick-line text-right"><?php echo moneyFormatIndia($subtotal);?></td>
                   </tr>
                    <tr>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
-                    <td class="no-line text-center" ><strong> <span data-toggle="tooltip" title="Commision">Commision</span></strong></td>
+                    <td class="no-line text-center" ><strong> <span data-toggle="tooltip" title="0.25% as per our Policy">Commision</span></strong></td>
                     <td class="no-line text-right"><?php  $commission = $qnt*$weight*$rate*.0025 ; 
                           echo moneyFormatIndia($commission);
                     ?></td>
@@ -348,15 +162,17 @@
                     <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
-                    <td class="no-line text-center" ><strong> <span data-toggle="tooltip" title="Shipping">Shipping</span></strong></td>
+                    <td class="no-line text-center" ><strong> Shipping</strong></td>
                     <td class="no-line text-right"><?php /*echo $shiping;*/
-                        echo moneyFormatIndia($shiping); ?>
+                       
+                                 $shiping=$buyNow['totalshiping'];
+                                echo moneyFormatIndia($shiping); ?>
                      </td> 
                   </tr>
                                       <td class="no-line"></td>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
-                    <td class="no-line text-center"><strong> <span data-toggle="tooltip" title="S.T on commission">S.T on commission</span></strong></td>
+                    <td class="no-line text-center"><strong> <span data-toggle="tooltip" title="14% of Commission">S.T on commission</span></strong></td>
                     <td class="no-line text-right"><?php  $stc = $commission*.14;  
                                                       echo moneyFormatIndia($stc);  ?></td>
                   </tr>
@@ -366,7 +182,13 @@
                     <td class="no-line"></td>
                     <td class="no-line text-center"><strong>Total</strong></td>
                     <td class="no-line text-right"><?php 
-                   $total=$totalall+$shiping+$commission+$stc;
+
+                               if($buyNow['totalshiping']==0){
+                                 $shiping1=1;
+                               }else{
+                                 $shiping1=$buyNow['totalshiping'];
+                               }
+                   $total=$totalall+$shiping1+$commission+$stc;
                   echo moneyFormatIndia($total); 
                    
                    /* $;*/

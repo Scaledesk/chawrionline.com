@@ -1180,4 +1180,19 @@ public function cform($id){
                   ->row()
                   ->chawri_sellers_cform;
 }
+
+
+
+public function deleteAll($data){
+/*print_r($data); die();*/
+
+$this->db
+        ->where_in('chawri_products_id', $data['select'])
+        ->where('chawri_sellers_id', $this->session->userdata['user_data'][0]['users_id'])
+        ->delete('chawri_products');
+      /* print_r($this->db->last_query());
+        die;*/
+    return $this->db->affected_rows() > 0;
+
+}
 }

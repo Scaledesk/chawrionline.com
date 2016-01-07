@@ -783,4 +783,23 @@ else{
 
 }
 
+
+public function deleteAll(){
+
+if (islogin()) {
+
+  $data=$this->input->post();
+  if($this->Mdl_products->deleteAll($data)){
+    setInformUser('success','   Has been successfully deleted ');
+                redirect(base_url('sellers/showProducts'));
+  }else{
+     setInformUser('error','   Has been not successfully deleted ');
+                redirect(base_url('sellers/showProducts'));
+  }
+
+}else{
+  redirect(base_url('users'));
+}
+
+}
 }

@@ -11,10 +11,14 @@
     $('#example').DataTable();
 } );
   </script>
+  <form  action="<?php echo base_url().'products/deleteAll';?>" method="post" id="form-validate" name"formproducts">
+<div class="container"><div class="row">
+<button type="submit" title="Submit" class="button" style="text-align: right;"><span> Delete Selected</span></button>
+ </div></div>
 <div style="overflow: auto; padding: 10px 15px 10px 15px; border:2px solid #bbbbbb; border-radius: 5px; margin: 20px;">
-
-  <table id="example" class="display "  cellspacing="0" width="100%">
-          <thead>
+ <table id="example" class="display "  cellspacing="0" width="100%">
+ 
+         <thead>
               <tr>
               
                 
@@ -38,6 +42,8 @@
                     <th>Rate</th>
                     <th>Cenvat Amount</th>
                     <th>Action</th>
+                    <th>Select</th>
+                  
               </tr>
           </thead>
 
@@ -109,14 +115,17 @@
                     
                      <td>
                       <a href="<?php echo base_url().'products/showUpdate/'.$rows['chawri_products_id']?>"> Edit<a>/  <a onclick="return confirm('Are you sure you want to Delete Products?')" href="<?php echo base_url().'products/delete/'.$rows['chawri_products_id']?>"> Delete</a>
-                    </td>
-
+                      </td><td>
+                    <input type="checkbox"  required name="select[]" value="<?php echo $rows['chawri_products_id']; ?>"></td>
                   </tr>
                                    <?php }?>
 
             
           </tbody>
+
+          </form>
       </table>
+    
 </div>
 <script>  
 function ConfirmDelete()

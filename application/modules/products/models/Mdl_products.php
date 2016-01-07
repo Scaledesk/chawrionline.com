@@ -1098,6 +1098,9 @@ public function productQtyUpdate($products_id,$qty,$bal){
 
 
 public function import($file){
+  $this->db->where('chawri_sellers_id', $this->session->userdata['user_data'][0]['users_id'])->delete('chawri_products');
+
+
 
   $f_path ='uploads/';
    $fopen=fopen($f_path.$file,"r");

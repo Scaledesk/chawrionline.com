@@ -51,7 +51,7 @@
              <?php echo $this->session->userdata['user_data'][0]['users_name']; ?><br>
               <?php echo $this->session->userdata['user_data'][0]['users_address']; ?>
             </address>
-            <span>Tin No. <?php echo $buyNow['tin_no']?></span>
+            <span>TIN :- <?php echo $buyNow['tin_no']?></span>
           </div>
           <div class="col-xs-12 text-right">
             <address>

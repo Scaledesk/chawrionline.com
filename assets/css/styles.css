@@ -3539,3 +3539,7 @@ align-content: flex-start;	*/ border-bottom-style: solid; border-bottom-width: 1
 .brand-align { margin-top:30%;}
 
 .multi-add { display: inline-block ;}
+
+.chawri_custom{
+	padding: 10px 0;
+}

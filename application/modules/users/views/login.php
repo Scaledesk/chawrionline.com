@@ -137,7 +137,7 @@
                                                                 <li>
                                                                     <label for="email" class="required"><em>*</em>Email Address</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" name="user_name_email" required value="" id="email" class="input-text required-entry validate-email" title="Email Address">
+                                                                        <input type="email" name="user_name_email" required value="" id="email" class="input-text required-entry validate-email" title="Email Address">
                                                                     </div>
                                                                 </li>
                                                                 <li>

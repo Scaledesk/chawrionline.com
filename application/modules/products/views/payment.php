@@ -199,7 +199,7 @@
                   <td class="no-line"></td>
                   <td class="no-line"></td><td class="no-line"></td>
                     <td style="text-transform: uppercase;" class="no-line text-right">
-                      <?php echo convert_number_to_words(round($total,'0')).'  Rupees Only.'; ?>
+                      <?php echo no_to_words(round($total,'0')).'  Rupees Only.'; ?>
                     </td>
                   </tr>
                 </tbody>

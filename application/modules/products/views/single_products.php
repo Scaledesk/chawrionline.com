@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     $logout=$this->input->get('logout');
     if($logout){
         echo "<div style='text-align:center;' class=' container alert alert-success'>".'you are successfully logged out'."</div>";
@@ -239,6 +239,7 @@
 	                                                    
 	                                                        <div class="row">
 	                                                         <div class="col-md-6">
+                 <div class="page-title"> Please Enter the following details...</div>
 	                                                    <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" method="post"> 		
 														<div class="col-md-24">
                                                         <div class="customer-name-middlename">
@@ -304,7 +305,7 @@
 	                                                      
                                                           <!-- <label  class="required" for="description">Remarks to Supplier</label> -->
                                                           <div class="input-box chawri_custom_textarea">
-                                                          <textarea name="description"  placeholder="Remarks to supplier"style="resize: none; width:100% "required  class="input-text  required-entry" rows="5" id="desc"> </textarea>
+                                                          <textarea name="description"  placeholder="Remarks to supplier" style="resize: none; width:100%" required  class="input-text  required-entry" rows="5"  id="desc"> </textarea>
                                                           
                                                           </div>
                                                           </div>
@@ -316,10 +317,10 @@
 	                                                     <div class="customer-name-middlename">
 	                                                      <div class="field name-firstname">
 	                                                      
-                                                          <label  class="required" for="description">Shipping Charges </label>
+                                                          <label  class="required" for="description" >Shipping Required ? </label>
                                                           <div class="input-box">
-                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="yes" name="shiping" value="yes">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;
-                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="no" name="shiping" value="no">&nbsp;&nbsp;&nbsp;No
+                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="yes" required name="shiping" value="yes">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;
+                                                          <input type="radio" class="shiping" onclick="loadamount(this)" reuired id="no" name="shiping" value="no">&nbsp;&nbsp;&nbsp;No
                                                          <input type="hidden" class="products_id"id="products_id"name="products_id" value="<?php echo $data[0]['chawri_products_id']; ?>">
                                                         </div>
                                                         </div>
@@ -330,14 +331,14 @@
 	                                                     	  <!-- <input type="submit" class="button" name="submit" value="Buy Now"> -->
 															
 	                                                     <div class="col-md-12 chawri_custom_1">
-	                                                     	<lable>Total</lable>
-	                                                     	 <input type="text" class="input-text_custom" readonly="" id="totalshiping" name="totalshiping" value="">
+	                                                     	<lable>Shipping Charges :</lable>
+	                                                     	 <input style="margin-top:4px;" type="text" class="input-text_custom" readonly="" id="totalshiping" name="totalshiping" value="" >
                                                           </div>
                                                           
 
                                                           <div class="col-md-20">
                                                           	<div class="custom_center">
-	                                                     	<button type="submit" title="Place" class=" my_chawri_custom">Buy Now </button>
+	                                                     	<button type="submit" title="Place" class="my_chawri_custom">Buy Now </button>
 	                                                     </div>
 	                                                     </div>
 	                                                     	</form>
@@ -444,3 +445,4 @@ $(".shiping").change(function () {
              
 </script>
 
+   

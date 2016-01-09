@@ -3567,6 +3567,9 @@ align-content: flex-start;	*/ border-bottom-style: solid; border-bottom-width: 1
 	margin: 15px 0;
 	background-color: #53287a;
 	box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
 }
 
 .chawri_custom_textarea {
@@ -3576,7 +3579,7 @@ align-content: flex-start;	*/ border-bottom-style: solid; border-bottom-width: 1
 
 .qty1{
 	box-sizing: border-box;
-	width: 158% !important;
+	width: 164% !important;
 }
 
 .input-text_custom{
@@ -3585,11 +3588,30 @@ align-content: flex-start;	*/ border-bottom-style: solid; border-bottom-width: 1
 }
 
 .custom_center{
-	margin-right: auto !important;
-	margin-left: auto !important;
-	display: block !important;
+	margin-left: 23%;
 }
 
+.chawri_custom .input-box
+{
+    background: rgba(136, 69, 136, 0.21);
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    padding-left: 10px;
+    
+}
+
+.chawri_custom label
+{    
+    
+}
+
+#totalshiping 
+{
+    padding: 4px;
+    border-radius: 3px;
+    
+}
 
 
 

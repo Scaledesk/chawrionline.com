@@ -140,7 +140,7 @@
 <a class="em-payment-icon em-other " title="em-sample-title" href="#">other</a>
                                             </div> -->
                                         </div>
-                                        <div class="em-footer-address"> <address class="f-left">&copy; 2015 All Rights Reserved.<span>HTML Templates by <a href="#" title="Responsive HTML Themes &amp; Responsive HTML Templates">ChawriOnline.com</a></span></address>
+                                        <div class="em-footer-address"> <address class="f-left">&copy; 2016 All Rights Reserved.<span> by <a href="#" title="Responsive HTML Themes &amp; Responsive HTML Templates">ChawriOnline.com</a></span></address>
                                         </div>
                                         
                                         

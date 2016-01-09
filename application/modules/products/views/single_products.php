@@ -15,20 +15,21 @@
                             <div class="em-wrapper-area02"></div>
                             <div class="em-main-container em-col1-layout">
                                 <div class="row">
-                                    <div class="em-col-main col-sm-24">
+                                    <div class="em-col-main">
                                         <div class="account-create">
                                             <div class="page-title">
                                                 <h1> Products Details</h1>
                                             </div>
+                                            <div class="col-md-16">
 
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
+                                                    <div class="row">
 
 
-                                                    <ul class="form-list">
+                                                    <div class="col-md-6 chawri_custom">
 
-                                                        <li class="fields">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"> <b> Name </b> </label>
@@ -36,9 +37,11 @@
 	                                                                        <?php echo $data[0]['chawri_products_name']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
+	                                                            <div class="col-md-6 chawri_custom">
 
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
@@ -47,11 +50,12 @@
 	                                                                        <?php echo $data[0]['chawri_products_brand_name']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
-                                                        </li>
-                                                           <li class="fields">
+	                                                            <div class="col-md-6 chawri_custom">
+                                                       
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Manufacturer</b></label>
@@ -59,9 +63,11 @@
 	                                                                        <?php echo $data[0]['chawri_products_manufacturer']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
+	                                                            <div class="col-md-6 chawri_custom">
 
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
@@ -70,11 +76,14 @@
 	                                                                        <?php echo $data[0]['chawri_products_substance']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
+	                                                            </div>
 
 
 	                                                            </div>
-                                                        </li>
-                                                         <li class="fields">
+	                                                            <div class="row">
+	                                                            <div class="col-md-6 chawri_custom">
+                                                        
 
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
@@ -83,9 +92,11 @@
 	                                                                        <?php echo $data[0]['chawri_products_thickness']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
+	                                                            <div class="col-md-6 chawri_custom">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Size (cms) </b> </label>
@@ -94,12 +105,12 @@
 	                                                                        <?php echo $data[0]['chawri_products_size_h']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
+	                                                            <div class="col-md-6 chawri_custom">
 
-                                                        </li>
-                                                         <li class="fields">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Grain</b></label>
@@ -107,22 +118,26 @@
 	                                                                        <?php echo $data[0]['chawri_products_grain']; ?>
 	                                                                    </div>
 	                                                                </div>
-
-
-	                                                            </div>
-
-	                                                            <div class="customer-name-middlename">
-	                                                                <div class="field name-firstname">
-	                                                                    <label for="products_brand_name" class="required"><b>Sheets  per  packet </b> </label>
-	                                                                    <div class="input-box">
-	                                                                        <?php echo $data[0]['chawri_products_sheets_per_packet']; ?>
-	                                                                    </div>
 	                                                                </div>
 
 
 	                                                            </div>
-                                                        </li>
-                                                         <li class="fields">
+	                                                            <div class="col-md-6 chawri_custom">
+
+	                                                            <div class="customer-name-middlename">
+	                                                                <div class="field name-firstname">
+	                                                                    <label for="products_brand_name" class="required"><b>Sheets per packet </b> </label>
+	                                                                    <div class="input-box">
+	                                                                        <?php echo $data[0]['chawri_products_sheets_per_packet']; ?>
+	                                                                    </div>
+	                                                                </div>
+	                                                                </div>
+
+
+	                                                            </div>
+	                                                        </div>
+	                                                        <div class="row">
+	                                                            <div class="col-md-6 chawri_custom">
                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b> Pkt. Weight </b></label>
@@ -131,9 +146,11 @@
 	                                                                        <input type="hidden" name="weight" class="weight"value="<?php echo $data[0]['chawri_products_weight']; ?>">
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
+	                                                            <div class="col-md-6 chawri_custom">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Packets Per Bundle</b></label>
@@ -141,13 +158,12 @@
 	                                                                        <?php echo $data[0]['chawri_products_packets_per_bundle']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
 
-                                                        </li>
-                                                         <li class="fields">
-
+	                                                            <div class="col-md-6 chawri_custom">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b> Quantity on offer </b></label>
@@ -156,9 +172,12 @@
 	                                                                        <input type="hidden" id="qtynum" name="qtynum" value="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>">
 	                                                                    </div>
 	                                                                </div>
-
+	                                                                </div>
 
 	                                                            </div>
+	                                                      
+
+	                                                            <div class="col-md-6 chawri_custom">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Packing</b></label>
@@ -166,13 +185,14 @@
 	                                                                        <?php echo $data[0]['chawri_products_packing']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
 
 
 	                                                            </div>
+	                                                        </div>
+	                                                        <div class="row">
 
-                                                        </li>
-                                                        <li class="fields">
-
+	                                                            <div class="col-md-6 chawri_custom">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Rate per KG</b></label>
@@ -181,9 +201,12 @@
 	                                                                        
 	                                                                    </div>
 	                                                                </div>
-
-
+	                                                                </div>
 	                                                            </div>
+
+
+	                                                            
+	                                                            <div class="col-md-6 chawri_custom">
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>CENVAT Amount</b> </label>
@@ -194,46 +217,54 @@
 
 
 	                                                            </div>
+	                                                            </div>
 
 
-                                                        </li>
-                                                      
-                                                        <li class="fields">
-                                                         <div class="customer-name-middlename">
+	                                                            <div class="col-md-6 chawri_custom">
+                                                        	 	<div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
 	                                                                    <label for="products_brand_name" class="required"><b>Reel No</b> </label>
 	                                                                    <div class="input-box">
 	                                                                        <?php echo $data[0]['chawri_products_reel_no']; ?>
 	                                                                    </div>
 	                                                                </div>
+	                                                                </div>
+	                                                            </div>
 
 
 	                                                            </div>
+	                                                            
+	                                                            </div>
+	                                                        </div>
+	                                                    
+	                                                        <div class="row">
+	                                                         <div class="col-md-6">
 	                                                    <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" method="post"> 		
-
+														<div class="col-md-24">
                                                         <div class="customer-name-middlename">
 	                                                     <div class="field name-firstname">
 	                                                     
                                                          <div class="form-group" id="form1">
-                                                         <label  for="qty">Quantity</label>
+                                                         <!-- <label  for="qty">Quantity</label> -->
                                                            <div class="input-box">
                                                          <input type="number" step="any" name="qty" min="1" id="qty"  class="form-control qty1" placeholder="Quantity" max="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>" required/>
                                                          </div>
 	                                                     </div>
 	                                                     </div>
 															</div>
+															</div>
+															
 	                                                   
-	                                                    </li>
-                                                            
-                                                           <li class="fields">
+	                                                    <div class="col-md-8 chawri_custom_1">
                                                            	 <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
+	                                                                	
 
 	                                                                   
-	                                                                    <label for="products_brand_name" class="required"><b>C Form</b></label>
+	                                                                   <!--  <label for="products_brand_name" class="required"><b>C Form</b></label> -->
 	                                                                    <div class="input-box">
 	                                                                    <?php if($cform=='No'){ ?>
-	                                                                        <select name="cform">
+	                                                                        <select name="cform" class="chawri_custom_input">
 												                                   
 												                                   <option>VAT</option>
 												                                   <option>CST</option>
@@ -250,42 +281,47 @@
 
 
 	                                                            </div>
+	                                                            </div>
+	                                                            <div class="col-md-16 chawri_custom_1">
 
 	                                                            
 	                                                            <div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">
-	                                                                    <label for="products_brand_name" class="required"><b>TIN</b> </label>
+	                                                                    <!-- <label for="products_brand_name" class="required"><b>TIN</b> </label> -->
 	                                                                    <div class="input-box">
-	                                                                       <input type=" text" name="tin_no" required value="<?php  echo $this->session->userdata['user_data'][0]['users_tin_no'] ; ?>" required maxlength="12" class="input-text  required-entry"/>
+	                                                                       <input type=" text" name="tin_no" placeholder="TIN"required value="<?php  echo $this->session->userdata['user_data'][0]['users_tin_no'] ; ?>" required maxlength="12" class="input-text  required-entry" />
 	                                                                    </div>
 	                                                                </div>
 
 
 	                                                            </div>
+	                                                            </div>
+	                                                            <div class="col-md-24 chawri_custom_1">
 
-	                                                            </li>
-                                                        
-	                                                             <li class="fields">
+	                                                            
 	                                                      <div class="customer-name-middlename">
 	                                                      <div class="field name-firstname">
 	                                                      
-                                                          <label  class="required" for="description">Remarks to Supplier</label>
-                                                          <div class="input-box">
-                                                          <textarea name="description" style="resize: none; width:100% "required  class="input-text  required-entry" rows="5" id="desc"> </textarea>
+                                                          <!-- <label  class="required" for="description">Remarks to Supplier</label> -->
+                                                          <div class="input-box chawri_custom_textarea">
+                                                          <textarea name="description"  placeholder="Remarks to supplier"style="resize: none; width:100% "required  class="input-text  required-entry" rows="5" id="desc"> </textarea>
                                                           
+                                                          </div>
                                                           </div>
                                                           
 	                                                    
 	                                                     </div>
 	                                                     </div>
+	                                                     <div class="col-md-12 chawri_custom_1">
 	                                                     <div class="customer-name-middlename">
 	                                                      <div class="field name-firstname">
 	                                                      
                                                           <label  class="required" for="description">Shipping Charges </label>
                                                           <div class="input-box">
-                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="yes" name="shiping" value="yes">Yes
-                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="no" name="shiping" value="no">No
+                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="yes" name="shiping" value="yes">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;
+                                                          <input type="radio" class="shiping" onclick="loadamount(this)" id="no" name="shiping" value="no">&nbsp;&nbsp;&nbsp;No
                                                          <input type="hidden" class="products_id"id="products_id"name="products_id" value="<?php echo $data[0]['chawri_products_id']; ?>">
+                                                        </div>
                                                         </div>
                                                           
 	                                                    
@@ -293,18 +329,28 @@
 	                                                     </div>
 	                                                     	  <!-- <input type="submit" class="button" name="submit" value="Buy Now"> -->
 															
-	                                                     	</li>
-	                                                     	 <input type="text" class="totalshiping" id="totalshiping" name="totalshiping" value="">
+	                                                     <div class="col-md-12 chawri_custom_1">
+	                                                     	<lable>Total</lable>
+	                                                     	 <input type="text" class="input-text_custom" readonly="" id="totalshiping" name="totalshiping" value="">
+                                                          </div>
                                                           
-	                                                     	<button type="submit" title="Place" class="button">Buy Now </button>
+
+                                                          <div class="col-md-20">
+                                                          	<div class="custom_center">
+	                                                     	<button type="submit" title="Place" class=" my_chawri_custom">Buy Now </button>
+	                                                     </div>
+	                                                     </div>
 	                                                     	</form>
+	                                                     	</div>
+	                                                     	</div>
+	                                                     	</div>
 
 
 
 
 
 
-                                                           </ul>
+                                                         
                                                            <?php /*print_r($this->session->userdata['user_data']);*/ ?>
                                                      <!-- ............................................... -->
                                          

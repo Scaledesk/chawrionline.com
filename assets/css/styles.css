@@ -3540,6 +3540,76 @@ align-content: flex-start;	*/ border-bottom-style: solid; border-bottom-width: 1
 
 .multi-add { display: inline-block ;}
 
+
+/*-------------CUSTOM CSS--------------*/
 .chawri_custom{
+	
+	
+	margin: 10px 0;
+	
+}
+.chawri_custom_1{
+	margin: 5px 0;
+	box-sizing: border-box;
+	
+}
+
+/*.chawri_custom_input{
+	padding: 0 10px!important;
+}*/
+
+.my_chawri_custom{
+	width: 100%;
+	padding: 10px 30px;
+	border: none;
+	color: #fff;
+	text-align: center;
+	margin: 15px 0;
+	background-color: #53287a;
+	box-sizing: border-box;
+}
+
+.chawri_custom_textarea {
+	width: 110% !important;
+
+}
+
+.qty1{
+	box-sizing: border-box;
+	width: 158% !important;
+}
+
+.input-text_custom{
+	box-sizing: border-box !important;
 	padding: 10px 0;
 }
+
+.custom_center{
+	margin-right: auto !important;
+	margin-left: auto !important;
+	display: block !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

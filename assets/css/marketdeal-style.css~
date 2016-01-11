@@ -1041,7 +1041,7 @@ button.button.btn-checkout:hover {
   border-top-right-radius: 5px 5px;
   border-bottom-right-radius: 5px 5px;
   border-top-left-radius:5px 5px;
-  border-bottom-left-radius:5px 5px;
+  border-top-left-radius:5px 5px;
 }
 /* line 757, theme.less */
 .em-wrapper-header .em-header-style31 .em-search .form-search button.button:hover {

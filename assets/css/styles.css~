@@ -2787,7 +2787,7 @@ border-top-color: transparent;*/ -moz-transition: all 500ms ease; -webkit-transi
 .em-header-style31 .em-search .form-search .input_cat select { height: 49px; line-height: 48px; }
 .em-header-style31 .em-search .form-search .input_cat .catsearch-dropdown span.current { padding: 15px 30px 13px 5px; min-height: 49px; }
 .em-header-style31 .em-search .form-search .input_cat .catsearch-dropdown ul { top: 49px; }
-.em-header-style31 .em-search .em-search-style02 .form-search button.button { padding: 17px 70px 15px 10px; width: 75px; }
+.em-header-style31 .em-search .em-search-style02 .form-search button.button { padding: 15px 15px 15px 10px; width: 75px; }
 .em-header-style31 .em_nav .hnav .menu-item-depth-0, .em-header-style31 .em_nav .hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0 { margin: 0; }
 .em-header-style31 .em_nav .hnav .menu-item-depth-0 > a span, .em-header-style31 .em_nav .hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0 > a span { padding: 12px 20px; border-color: transparent; text-transform: uppercase; }
 .em-header-style31 .em-top-cart { margin-top: 32px; margin-left: 10px; }

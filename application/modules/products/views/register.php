@@ -289,7 +289,7 @@
                                                                       <select required  name="products_packing" title="Products Packing"  class="input-text required-entry">
                                                                       	<option> Shrink</option>
                                                                       	<option>Gunny</option>
-                                                                      	<option>Wrap</option>
+                                                                      	<option>Wrapper</option>
                                                                       	<option>Pallet</option>
                                                                       	<option>Carton</option>
                                                                       	<option>Other</option>

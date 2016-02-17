@@ -113,8 +113,8 @@
                                                                     <label for="products_thickness" class="required"><em></em></label>
                                                                     <div class="input-box">
                                                                        
-                                                <input type="radio" name="sheet"  value="reel" id="chkNo"   onclick="ShowHideDiv()" > Reel
-							                     <input type="radio" name="sheet" value="sheet" id="chkYes" onclick="ShowHideDiv()" > Sheet
+                                                <input type="radio" name="sheet"  value="reel" id="chkNo"   onClick="getResults()" > Reel
+							                     <input type="radio" name="sheet" value="sheet" id="chkYes" onClick="getResults()"> Sheet
 
                                                                     </div>
                                                                 </div>
@@ -150,14 +150,53 @@
                                                             </div>
                                                         </li>
                                                        
-
+                                                        <div id="dvPassportReel" style="display: none">
+                                                            <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-firstname">
+                                                                    <label for="products_size" class="required"><em>*</em>OD</label>
+                                                                    <div class="input-box">
+                                                                         <input type="number" step="any" minlength="0" id="firstname"    name="products_od" title="  Size" maxlength="255" class="input-text size-box2">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                               
+                                                            </div>
+                                                        </li>
+                                                        <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-firstname">
+                                                                    <label for="products_size" class="required"><em>*</em> ID</label> 
+                                                                    <div class="input-box">
+                                                                         <input type="number" step="any" minlength="0" id="firstname"    name="products_Id" title="  Size" maxlength="255" class="input-text size-box2">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                               
+                                                            </div>
+                                                        </li>
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-firstname">
                                                                     <label for="products_size" class="required"><em>*</em> Size</label>
                                                                     <div class="input-box">
-                                                                        <input type="number" step="any" minlength="0" id="firstname"  required  name="products_size" title="  Size" maxlength="255" class=" input-text size-box1">
-                                                                        <span>X</span> <input type="number" step="any" minlength="0" id="firstname"  required  name="products_size_one" title="  Size" maxlength="255" class="input-text size-box2">
+                                                                     <input type="number" step="any" minlength="0" id="firstname"    name="products_size_reel" title="  Size" maxlength="255" class="input-text size-box2">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                               
+                                                            </div>
+                                                        </li>
+                                                    </div>
+
+                                                        <div id="dvPassport" style="display: none">
+                                                        <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-firstname">
+                                                                    <label for="products_size" class="required"><em>*</em> Size</label>
+                                                                    <div class="input-box">
+                                                                        <input type="number" step="any" minlength="0" id="firstname"    name="products_size" title="  Size" maxlength="255" class=" input-text size-box1">
+                                                                        <span>X</span> <input type="number" step="any" minlength="0" id="firstname"    name="products_size_one" title="  Size" maxlength="255" class="input-text size-box2">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -171,7 +210,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_grain" class="required"><em>*</em>Grain</label>
                                                                     <div class="input-box">
-                                                                    <select required  name="products_grain" title="Grain" class="input-text required-entry">
+                                                                    <select   name="products_grain" title="Grain" class="input-text required-entry">
                                                                     	<option>Long</option>
                                                                     	<option>Short</option>
                                                                     </select>
@@ -183,7 +222,7 @@
                                                                
                                                             </div>
                                                         </li>
-                                                       <div id="dvPassport" style="display: none">
+                                                      
 
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
@@ -321,14 +360,7 @@
                 </div>
 	
 
-<script type="text/javascript">
-    function ShowHideDiv(obj) {
-    	// alert(123);
-        var chkYes = document.getElementById("chkYes");
-        var dvPassport = document.getElementById("dvPassport");
-        dvPassport.style.display = chkYes.checked ? "block" : "none";
-    }
-</script>
+
 	
 	<script type="text/javascript">
     function checkNumber(obj) {
@@ -348,69 +380,27 @@
     }
 </script>
 
-<script type="text/javascript">
-/*$(document).ready(function() {
-
-   $('input[type="radio"]').click(function() {
-    alert("asdasd");
-       if($(this).attr('id') == 'chkNo') {
-            $('#show-me').show();           
-       }
-
-       else {
-            $('#show-me').hide();   
-       }
-   });
-});
-*/
 
 
-</script>
 
-<script type="text/javascript">
-/*    $(document).ready(function () {
-    
- 
-    
-    $('input[type=radio]').change(function(){
+<script>
+$(document).ready(function(){
+    $("#chkNo").click(function(){
+          
+          $("#show_me").show();
+          $("#dvPassportReel").show(); 
+          $("#dvPassport").hide();
+         
+    });
+
+    $("#chkYes").click(function(){
+        
+
+          $("#dvPassport").show(); 
+          $("#dvPassportReel").hide();
+          $("#show_me").hide();
+    });
+
    
-
-    if ($('#chkYes').is(':checked')) {
-        $('#show_me').show();
-    } else {
-        $('#show_me').hide();
-    }
-
-    if ($('#chkNo').is(':checked')) {
-        $('#show_me').show();
-    } else {
-        $('#show_me').hide();
-    }
-        });
 });
-$("#chkNo").prop("checked", true).change();
-*/
-
-
-
-$(document).ready(function () {
-    
- 
-    
-    $('input[type=radio]').change(function(){
-   
-
-    if ($('#chkNo').is(':checked')) {
-        $('#show_me').show();
-    } else {
-        $('#show_me').hide();
-    }
-
-    if ($('#chkYes').is(':checked')) {
-   
-        $('#show_me').hide();
-    }
-        });
-});
-$("#chkNo").prop("checked", true).change();
 </script>

@@ -326,7 +326,8 @@ die();*/
         $this->Mdl_products->setData('insert',$this->session->userdata['user_data'][0]['users_id'],$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
             $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
             $data['products_quantity_on_offer'],$data['products_rate'],
-            $data['products_sheets_per_packet'],$data['products_size'],$data['products_size_one'],$data['packets_weight'],$data['products_substance'],$data['products_thickness'],$data['categories'],$data['products_reel_no']);
+            $data['products_sheets_per_packet'],$data['products_size'],$data['products_size_one'],$data['packets_weight'],$data['products_substance'],
+            $data['products_thickness'],$data['categories'],$data['products_reel_no'],$data['products_size_reel'],$data['products_Id'],$data['products_od']);  
 
 
         if($this->Mdl_products->singleProducts($data['sheet'])){

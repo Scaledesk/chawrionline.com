@@ -33,6 +33,46 @@ class Mdl_products extends CI_Model
     private $categories;
     private $cform;
     private $reel_no;
+    private $products_size_reel;
+    private $products_reel_id;
+    private $products_reel_od;
+     public function getProductsSizeReel()
+    {
+        return $this->products_size_reel;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setProductsSizeReel($products_size_reel)
+    {
+        $this->products_size_reel = $products_size_reel;
+    }
+     public function getProductsReelId()
+    {
+        return $this->products_reel_id;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setProductsReelId($products_reel_id)
+    {
+        $this->products_reel_id = $products_reel_id;
+    }
+     public function getProductsReelOd()
+    {
+        return $this->products_reel_od;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setProductsReelOd($products_reel_od)
+    {
+        $this->products_reel_od = $products_reel_od;
+    }
+    /*$data[''],$data[''],$data['']*/
 /**
      * @return mixed
      */
@@ -536,7 +576,7 @@ public function insertProductReel($data){
                 //  die();
 
 
-                    //echo $products[0]['products_name'];
+                    //echo $products[0]['products_name'];  $data['products_size_reel'],$data['products_Id'],$data['products_od'
 
 
                     $this->setProductsBrandName(func_get_arg(2));
@@ -556,6 +596,9 @@ public function insertProductReel($data){
                     $this->setProductsThickness(func_get_arg(16));
                     $this->setCategories(func_get_arg(17));
                     $this->setReelNo(func_get_arg(18));
+                    $this->setProductsSizeReel(func_get_arg(19));
+                    $this->setProductsReelId(func_get_arg(20));
+                    $this->setProductsReelOd(func_get_arg(21));
 
 
                 break;
@@ -683,7 +726,10 @@ die*/
             'chawri_sellers_id' => $this->sellers_id,
             'chawri_products_reel_sheet' =>$sheet,
             'chawri_products_categories' => $this->categories,
-            'chawri_products_reel_no'=>$this->reel_no
+            'chawri_products_reel_no'=>$this->reel_no,
+            'chawri_products_reel_size'=>$this->products_size_reel,
+            'chawri_products_reel_od'=>$this->products_reel_od, 
+            'chawri_products_reel_id'=>$this->products_reel_id
 
 
         ];

@@ -32,6 +32,58 @@ class Mdl_users extends CI_Model
     private $tan_no;
     private $address;
     private $state;
+    private $tin_number;
+    private $company_address;
+    private $company_namre;
+
+    /**
+     * @return mixed
+     */
+    public function getTinNumber()
+    {
+        return $this->tin_number;
+    }
+
+    /**
+     * @param mixed $tin_number
+     */
+    public function setTinNumber($tin_number)
+    {
+        $this->tin_number = $tin_number;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCompanyAddress()
+    {
+        return $this->company_address;
+    }
+
+    /**
+     * @param mixed $company_address
+     */
+    public function setCompanyAddress($company_address)
+    {
+        $this->company_address = $company_address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCompanyNamre()
+    {
+        return $this->company_namre;
+    }
+
+    /**
+     * @param mixed $company_namre
+     */
+    public function setCompanyNamre($company_namre)
+    {
+        $this->company_namre = $company_namre;
+    }
+
      /**
      * @return mixed
      */
@@ -299,7 +351,7 @@ class Mdl_users extends CI_Model
     /**
      *perform set data for class functions.
      */
-    public function setData()
+    public function setData()/*$data['tin_number'],$data['company_address'],$data['company_name']*/
     {
         switch (func_get_arg(0)) {
             case "register":
@@ -310,6 +362,9 @@ class Mdl_users extends CI_Model
                 $this->setPhone(func_get_arg(5));
                 $this->setAddress(func_get_arg(6));
                 $this->setState(func_get_arg(7));
+                $this->setTinNumber(func_get_arg(8));
+                $this->setCompanyAddress(func_get_arg(9));
+                $this->setCompanyNamre(func_get_arg(10));
 
                 break;
                 case "checkUser":
@@ -530,7 +585,10 @@ public function chechUsers(){
                     'chawri_users_phone' =>  $this->phone,
                     'chawri_users_role'=>'buyer',
                     'chawri_users_address'=> $this->address,
-                    'chawri_users_state'=> $this->state
+                    'chawri_users_state'=> $this->state,
+                    'chawri_users_company_address'=> $this->company_address,
+                    'chawri_users_company_name'=>$this->company_namre,
+                    'chawri_users_tin_no'=>$this->tin_number
 
                 ];
                 if ($this->db->insert('chawri_users', $data)) {

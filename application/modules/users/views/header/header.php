@@ -370,7 +370,7 @@
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
                                                                   
-                                                                    <div style="float: left; width: 33%;" > <input id="search" type="number" step="any"name="gsm" class="input-text required-entry"  placeholder=" GSM "></div>
+                                                                    <div style="float: left; width: 33%;" > <input id="search" type="text" step="any"name="gsm" class="input-text required-entry" pattern="\d*" maxlength="3"  placeholder="GSM "></div>
                                                                      <div style="float: left; width: 33%;"> <input id="search" type="number"step="any" name="size" class="input-text required-entry" placeholder=" Size"></div>
                                                                       <div style="float: left; width: 33%;"> <input id="search" type="search" name="products" class="input-text required-entry"   placeholder=" Product"></div>
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>

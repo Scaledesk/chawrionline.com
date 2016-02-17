@@ -70,6 +70,23 @@
                                                             </div>
                                                         </li>
                                                         
+                                                        <li class="fields">
+                                                            <div class="field">
+                                                                <label for="company_name" >Company Name</label>
+                                                                <div class="input-box">
+                                                                    <input type="text" name="company_name" id="company_name" title="Company Name" class="input-text required-entry validate-password">
+                                                                </div>
+                                                            </div>
+                                                            <div class="field">
+                                                                <label for="tin_number" >Tin Number</label>
+                                                                <div class="input-box">
+                                                                    <input type="text" name="tin_number"  title="Tin Number" id="tin_number" class="input-text required-entry validate-cpassword">
+                                                                    
+                                                                </div> 
+                                                            </div>
+                                                        </li>
+
+
 
                                                         <li class="fields">
                                                             <div class="field">
@@ -89,12 +106,22 @@
 
                                                         <li class="fields">
                                                             <div class="field">
-                                                                <label for="password" class="required"><em>*</em>Address</label>
+                                                                <label for="address" class="required"><em>*</em>Address</label>
                                                                 <div class="input-box">
                                                                    <textarea required name="address" ></textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="field">
+                                                                <label for="company_address" > Company Address</label>
+                                                                <div class="input-box">
+                                                                   <textarea  name="company_address" ></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+
+                                                         <li class="fields">
+                                                           <div class="field">
                                                                 <label for="password" class="required"><em>*</em>State</label>
                                                                 <div class="input-box">
                                                                    <select name="state" required>
@@ -110,6 +137,7 @@
                                                                    </select>
                                                                 </div>
                                                             </div>
+                                                            
                                                         </li>
                                                     </ul>
 

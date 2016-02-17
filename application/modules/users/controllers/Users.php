@@ -220,8 +220,8 @@ public function buyerHome(){
 
      if($data['password']==$data['confirm_password']){
 
-
-        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname'],$data['phone'],$data['address'],$data['state']);
+  
+        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname'],$data['phone'],$data['address'],$data['state'],$data['tin_number'],$data['company_address'],$data['company_name']);
         if($this->Mdl_users->chechUsers()){
 
           setInformUser('error','Email already exists. Kindly try another Email');

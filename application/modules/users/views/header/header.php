@@ -493,7 +493,7 @@
         return true;
        }else{
         document.getElementById("searchrule").innerHTML = "Number only!";
-       return false;
+       return true;
        }
        
     });

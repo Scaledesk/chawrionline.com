@@ -488,9 +488,11 @@
         /*$(this).val()*/
         var search1 = $('#search1').val();
           var rule="^(([1-9]*)|(([1-9]*)\.([0-9]*)))$";
-          
+          $("#searchrule").empty();
        if(search1.match(rule)){
+        
         return true;
+
        }else{
         document.getElementById("searchrule").innerHTML = "Number only!";
        return true;

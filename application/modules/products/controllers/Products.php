@@ -462,7 +462,7 @@ public function placeOrder(){
 if(islogin()){
   $data=$this->input->post();
  
-/* print_r($data);*/
+/* print_r($data); die;*/
 /*echo $data['qry'];*/
 
   $data['sellers']=$this->Mdl_products->getSellers($data['sellers_id']);

@@ -54,7 +54,7 @@
                   <tr>
                     <td><?php echo $products_name;?></td>
                     <td style="Padding:20px;">&#8377;<?php echo $rate;?></td>
-                    <td style="Padding:20px;">&#8377;<?php echo $Weight;?></td>
+                    <td style="Padding:20px;">&#8377;<?php echo $weight;?></td>
                     <td style="Padding:20px;"><?php echo $qry; ?></td>
                     <td style="Padding:20px;"> <?php echo $total_amount; ?></td>
                   </tr>

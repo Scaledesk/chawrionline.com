@@ -241,7 +241,7 @@
 	                                                                </div>
 	                                                                </div>
 	                                                            </div>
-	                                                            <?php} if($data[0]['chawri_products_reel_id']){ ?>
+	                                                            <?php } if($data[0]['chawri_products_reel_id']){ ?>
 	                                                             <div class="col-md-6 chawri_custom">
                                                         	 	<div class="customer-name-middlename">
 	                                                                <div class="field name-firstname">

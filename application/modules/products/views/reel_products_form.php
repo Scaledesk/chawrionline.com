@@ -41,35 +41,39 @@
                    <div class=" row col-sm-24">
 
                     <div style="float: left"class="products_substance col-sm-6"> <input type="number" step="any" minlength="0" placeholder="GSM" name="products_substance[]"class='input-text required-entry'></div>
-                    <div style="float: left"class="products_size col-sm-6"> <input type="number" step="any" minlength="0" id="firstname"  required  name="products_size[]" title="  Size" maxlength="255" class=" input-text size-box1"></div>
-                                                                        <span>X</span> 
-                     <div style="float: left"class="products_size col-sm-6"><input type="number" step="any" minlength="0" id="firstname"  required  name="products_size_one[]" title="  Size" maxlength="255" class="input-text size-box2"></div>
-                    </div>
-                    <div class=" row col-sm-24">
+                    <div style="float: left"class="products_size col-sm-6"> <input type="number" step="any" minlength="0" id="firstname"  required placeholder="Size" name="products_size[]" title="  Size" maxlength="255" class=" input-text size-box1"></div>
+  
+                    
+                    
                     <div style="float: left"class="products_thickness col-sm-6"> <input type="number" step="any" minlength="0" placeholder="Bulk (mic)" name="products_thickness[]"class='input-text required-entry'></div>
-                    <div style="float: left"class="products_grain col-sm-6"> <select required  name="products_grain[]" placeholder="Grain"title="Grain" class="input-text required-entry" class=" input-text">
-                                                                       <option value=''>Grain</option> 
-                                                                        <option>Long</option>
-                                                                        <option>Short</option>
-                                                                    </select></div>
+                    
+                     <div style="float: left"class="products_od col-sm-6"> <input type="number" step="any" minlength="0" placeholder="OD" name="products_od[]"class='input-text required-entry'></div>
+                     </div>
+                      <div class=" row col-sm-24">
+                     <div style="float: left"class="products_id col-sm-6"> <input type="number" step="any" minlength="0" placeholder="ID" name="products_id[]"class='input-text required-entry'></div>
+                    
+
                     
                     <div style="float: left"class="products_quantity_on_offer col-sm-6"> <input type="number" step="any" minlength="0" placeholder="Quantity on Offer (in pkts)" name="products_quantity_on_offer[]"class='input-text required-entry'></div>
                     <div style="float: left"class="products_packing col-sm-6"> <select required  name="products_packing[]" title="Products Packing"  class="input-text required-entry">
                                                                         <option value=''>Products Packing</option> 
                                                                         <option> Shrink</option>
                                                                         <option>Gunny</option>
-                                                                        <option>Wrap</option>
+                                                                        <option>Wrapper</option>
                                                                         <option>Pallet</option>
                                                                         <option>Carton</option>
                                                                         <option>Other</option>
-                                                                      </select> </div></div>
-                     <div class=" row col-sm-24">                                                 
+                                                                        </select> </div>
+                      
+                                                                     
                     <div style="float: left"class="products_rate col-sm-6"> <input type="number" step="any" minlength="0" placeholder="Products Rate" name="products_rate[]"class='input-text required-entry'></div> 
-                    <div style="float: left"class="products_cenvat_amount col-sm-6"> <input type="number" step="any" minlength="0" placeholder="Products CENVAT Amount" name="products_cenvat_amount[]"class='input-text required-entry'/></div><br>
                     </div>
+                     <div class=" row col-sm-24">
+                    <div style="float: left"class="products_cenvat_amount col-sm-6"> <input type="number" step="any" minlength="0" placeholder="Products CENVAT Amount" name="products_cenvat_amount[]"class='input-text required-entry'/></div>
+                   
                      <div style="float: left"class="products_reel_no col-sm-6"> <input type="number" step="any" minlength="0" placeholder="Reel No" name="products_reel_no[]"class='input-text required-entry'></div>
                    
-                </div>
+                     </div>
 
 
 
@@ -86,8 +90,8 @@
                         $("#count_form").innerHTML=rowNum;
                         var row = $("<div id='products-" + rowNum + "' class='products' />");
                         var categories = $("<div class='row col-sm-24'><div id='products_name_"+rowNum+"' style='float: left' class='products_name col-sm-6'><select required name='categories[]' class='input-text  required-entry'><?php foreach ($categories as $value) {?><option value='<?php echo $value['chawri_categories_id'];?>'> <?php echo $value['chawri_categories_name'];?></option><?php }?></select></div><div id='products_name_"+rowNum+"' style='float: left' class=' col-sm-6 products_name'><input type='text'  placeholder='Products Name' name='products_name[]'class='input-text required-entry'></div><div id='products_brand_name_"+rowNum+"' style='float: left' class=' col-sm-6 products_brand_name'><input type='text'required placeholder='Products Brand Name' name='products_brand_name[]'class='input-text required-entry'></div><div id='products_manufacturer_"+rowNum+"' style='float: left'  class=' col-sm-6 products_manufacturer'><input required type='text' placeholder='Manufacturer' name='products_manufacturer[]'class='input-text required-entry'></div>");
-                        var products_substance = $(" <div class='row col-sm-24'><div id='products_substance_"+rowNum+"'style='float: left' class='col-sm-6 products_substance'><input type='number' step='any' minlength='0' required  placeholder='GSM'name='products_substance[]'class='input-text required-entry'></div><div id='products_size_"+rowNum+"'style='float: left' class=' col-sm-6 products_size'><input type='number' step='any' minlength='0' id='firstname'  required  name='products_size[]' title=' Size' maxlength='255' class='input-text size-box1'></div><span>X</span> <div id='products_size_"+rowNum+"'style='float: left' class=' col-sm-6 products_size'><input type='number' id='firstname'  required  name='products_size_one[]' title='Size' maxlength='255' class='input-text size-box2'></div><div id='products_thickness_"+rowNum+"' style='float: left' class='col-sm-6 products_thickness'><input type='number' step='any' minlength='0' placeholder='Bulk (mic)' name='products_thickness[]'class='input-text required-entry'></div>");
-                        var products_grain = $("<div id='products_grain_"+rowNum+"'style='float: left' class='col-sm-6 products_grain'> <select required  name='products_grain[]' title='Grain' class='input-text required-entry'><option value=''>Grain</option> <option>Long</option><option>Short</option></select></div><div id='products_quantity_on_offer_"+rowNum+"'style='float: left'  class='col-sm-6 products_quantity_on_offer'><input type='number' step='any' minlength='0'placeholder='Quantity on Offer (in pkts)' name='products_quantity_on_offer[]'class='input-text required-entry'></div><div id='products_packing_"+rowNum+"' style='float: left' class=' col-sm-6 products_packing'><select required  name='products_packing[]' title='Products Packing' class='input-text required-entry'><option value=''> Products Packing</option><option> Shrink</option><option>Gunny</option><option>Wrap</option><option>Pallet</option><option>Carton</option><option>Other</option></select></div><div id='products_rate_"+rowNum+"' style='float: left' class='col-sm-6 products_rate'><input type='number' step='any' minlength='0' placeholder='Products Rate' required name='products_rate[]' class='input-text required-entry'></div>");
+                        var products_substance = $(" <div class='row col-sm-24'><div id='products_substance_"+rowNum+"'style='float: left' class='col-sm-6 products_substance'><input type='number' step='any' minlength='0' required  placeholder='GSM'name='products_substance[]'class='input-text required-entry'></div><div id='products_size_"+rowNum+"'style='float: left' class=' col-sm-6 products_size'><input type='number'placeholder='Size' step='any' minlength='0' id='firstname'  required  name='products_size[]' title=' Size' maxlength='255' class='input-text size-box1'></div><div id='products_thickness_"+rowNum+"' style='float: left' class='col-sm-6 products_thickness'><input type='number' step='any' minlength='0' placeholder='Bulk (mic)' name='products_thickness[]'class='input-text required-entry'></div><div id='products_od_"+rowNum+"' style='float: left' class='col-sm-6 products_od'><input type='number' step='any' minlength='0' placeholder='OD' name='products_od[]'class='input-text required-entry'></div>");
+                        var products_grain = $("<div id='products_id_"+rowNum+"'style='float: left' class='col-sm-6 products_id'><input type='number' step='any' minlength='0' required  placeholder='ID'name='products_id[]'class='input-text required-entry'> </div><div id='products_quantity_on_offer_"+rowNum+"'style='float: left'  class='col-sm-6 products_quantity_on_offer'><input type='number' step='any' minlength='0'placeholder='Quantity on Offer (in pkts)' name='products_quantity_on_offer[]'class='input-text required-entry'></div><div id='products_packing_"+rowNum+"' style='float: left' class=' col-sm-6 products_packing'><select required  name='products_packing[]' title='Products Packing' class='input-text required-entry'><option value=''> Products Packing</option><option> Shrink</option><option>Gunny</option><option>Wrapper</option><option>Pallet</option><option>Carton</option><option>Other</option></select></div><div id='products_rate_"+rowNum+"' style='float: left' class='col-sm-6 products_rate'><input type='number' step='any' minlength='0' placeholder='Products Rate' required name='products_rate[]' class='input-text required-entry'></div>");
                         var products_cenvat_amount = $("<div class='row col-sm-24'><div id='products_cenvat_amount_"+rowNum+"'style='float: left' class='col-sm-6 products_cenvat_amount'><input type='number' step='any' minlength='0' placeholder='Products CENVAT Amount'name='products_cenvat_amount[]' class='input-text required-entry'></div><div id='products_reel_no_"+rowNum+"'style='float: left' class='col-sm-6 products_reel_no'><input type='number' step='any' minlength='0' required placeholder='Reel No'name='products_reel_no[]' class='input-text required-entry'></div><br>");
 
                         $(".products").append(row);

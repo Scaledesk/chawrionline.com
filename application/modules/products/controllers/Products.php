@@ -282,9 +282,11 @@ public function showForm(){
                             'chawri_products_rate'=>$post_data['products_rate'][$i],
 
                             
-                            'chawri_products_size_w'=>$post_data['products_size'][$i],
-                            'chawri_products_size_h'=>$post_data['products_size_one'][$i],
+                            'chawri_products_reel_size'=>$post_data['products_size'][$i],
+                            
                             'chawri_products_substance'=>$post_data['products_substance'][$i],
+                            'chawri_products_reel_od'=>$post_data['products_od'][$i],
+                            'chawri_products_reel_id'=>$post_data['products_id'][$i],
                             'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                             'chawri_products_categories'=>$post_data['categories'][$i],
                             'chawri_products_reel_sheet'=>'reel',

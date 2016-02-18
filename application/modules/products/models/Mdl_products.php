@@ -775,8 +775,8 @@ public function getProducts($id){
      $products= $this->db->get('chawri_products')->result_array();
     /* echo "<pre/>";
      print_r($products);
-     echo $qty;*/
-    /* die;*/
+     
+     die;*/
     $quantity= $products[0]['chawri_products_quantity_on_offer'];
    /* echo $products_id;*/
       $q=$quantity-$qty;
@@ -815,7 +815,10 @@ public function getProducts($id){
         'chawri_products_orders_cform' =>                        $cform,
         'chawri_products_orders_total_cost'=>                    $total_cost,
         'chawri_products_orders_tin_no'=>                        $tin_no  ,
-        'chawri_products_orders_reel_no'=>                       $products[0]['chawri_products_reel_no']   
+        'chawri_products_orders_reel_no'=>                       $products[0]['chawri_products_reel_no'],
+        'chawri_products_orders_reel_size'=>                     $products[0]['chawri_products_reel_size'],
+        'chawri_products_orders_reel_id'=>                       $products[0]['chawri_products_reel_id'],
+        'chawri_products_orders_reel_od'=>                       $products[0]['chawri_products_reel_od']   
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;

@@ -76,9 +76,10 @@
                       <?php echo $rows['chawri_products_thickness']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_size_w']; ?>
-                    X
-                      <?php echo $rows['chawri_products_size_h']; ?>
+                       <?php if($rows['chawri_products_size_w']){ echo $rows['chawri_products_size_w']; ?>
+                        X
+                          <?php echo $rows['chawri_products_size_h'];}else{ echo $rows['chawri_products_reel_size']; } ?>
+
                     </td>
                     
 

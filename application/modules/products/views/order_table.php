@@ -112,9 +112,9 @@
                           <?php echo $rows['chawri_products_orders_products_thickness']; ?>
                         </td>
                         <td>
-                          <?php echo $rows['chawri_products_orders_products_size_w']; ?>
+                          <?php if($rows['chawri_products_orders_products_size_w']){ echo $rows['chawri_products_orders_products_size_w']; ?>
                         X
-                          <?php echo $rows['chawri_products_orders_products_size_h']; ?>
+                          <?php echo $rows['chawri_products_orders_products_size_h'];}else{ echo $rows['chawri_products_orders_reel_size']; } ?>
                         </td>
 
                         <td>
@@ -271,9 +271,9 @@
                           <?php echo $rows1['chawri_products_orders_products_thickness']; ?>
                         </td>
                          <td>
-                          <?php echo $rows1['chawri_products_orders_products_size_w']; ?>
-                       X
-                          <?php echo $rows1['chawri_products_orders_products_size_h']; ?>
+                         <?php if($rows1['chawri_products_orders_products_size_w']){ echo $rows1['chawri_products_orders_products_size_w']; ?>
+                        X
+                          <?php echo $rows1['chawri_products_orders_products_size_h'];}else{ echo $rows1['chawri_products_orders_reel_size']; } ?>
                         </td>
 
 
@@ -388,9 +388,9 @@
                           <?php echo $rows2['chawri_products_orders_products_thickness']; ?>
                         </td>
                         <td>
-                          <?php echo $rows2['chawri_products_orders_products_size_w']; ?>
-                       X
-                          <?php echo $rows2['chawri_products_orders_products_size_h']; ?>
+                         <?php if($rows2['chawri_products_orders_products_size_w']){ echo $rows2['chawri_products_orders_products_size_w']; ?>
+                        X
+                          <?php echo $rows2['chawri_products_orders_products_size_h'];}else{ echo $rows2['chawri_products_orders_reel_size']; } ?>
                         </td>
 
 
@@ -546,9 +546,9 @@
                           <?php echo $rows3['chawri_products_orders_products_thickness']; ?>
                         </td>
                         <td>
-                          <?php echo $rows3['chawri_products_orders_products_size_w']; ?>
-                       X
-                          <?php echo $rows3['chawri_products_orders_products_size_h']; ?>
+                         <?php if($rows3['chawri_products_orders_products_size_w']){ echo $rows3['chawri_products_orders_products_size_w']; ?>
+                        X
+                          <?php echo $rows3['chawri_products_orders_products_size_h'];}else{ echo $rows3['chawri_products_orders_reel_size']; } ?>
                         </td>
 
 

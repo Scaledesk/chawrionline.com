@@ -89,7 +89,38 @@
                                                                 
                                                             </div>
                                                         </li>
-                                                        
+
+                                                         <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-lastname">
+                                                                    <label for="company_name" class="required">Company Name</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="company_name" value="<?php echo $users_data[0]['chawri_users_company_name']; ?>"  name="company_name" title="Company Name" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="field name-firstname">
+                                                                    <label for="company_address" class="required">Company Address</label> 
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="state"  value="<?php echo $users_data[0]['chawri_users_company_address']; ?>"  name="company_address" title="Company Address" maxlength="255" class="input-text required-entry" >
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                        </li>
+                                                         <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-lastname">
+                                                                    <label for="tin_no" class="required">Tin No</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="tin_no" value="<?php echo $users_data[0]['chawri_users_tin_no']; ?>"  name="tin_no" title="Tin No" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+
+                                                                
+                                                            </div>
+                                                        </li>
                                                     </ul>
                                                     
                                                    

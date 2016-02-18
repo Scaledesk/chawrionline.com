@@ -518,8 +518,8 @@ public function showForgetPwd(){
     }
     public function update(){
      if(islogin()){
-     $data=$this->input->post();
-        $this->Mdl_users->setData('update',$data['fname'],$data['lname'],$data['phone'],$data['address'],$data['state']);
+     $data=$this->input->post();   
+        $this->Mdl_users->setData('update',$data['fname'],$data['lname'],$data['phone'],$data['address'],$data['state'],$data['company_name'],$data['company_address'],$data['tin_no']);
 
     if($this->Mdl_users->update()){
 

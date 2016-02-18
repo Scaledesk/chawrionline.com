@@ -230,6 +230,29 @@
 	                                                                </div>
 	                                                                </div>
 	                                                            </div>
+	                                                            <?php if($data[0]['chawri_products_reel_od']){ ?>	
+	                                                             <div class="col-md-6 chawri_custom">
+                                                        	 	<div class="customer-name-middlename">
+	                                                                <div class="field name-firstname">
+	                                                                    <label for="products_brand_name" class="required"><b>OD</b> </label>
+	                                                                    <div class="input-box">
+	                                                                        <?php echo $data[0]['chawri_products_reel_od']; ?>
+	                                                                    </div>
+	                                                                </div>
+	                                                                </div>
+	                                                            </div>
+	                                                            <?php} if($data[0]['chawri_products_reel_id']){ ?>
+	                                                             <div class="col-md-6 chawri_custom">
+                                                        	 	<div class="customer-name-middlename">
+	                                                                <div class="field name-firstname">
+	                                                                    <label for="products_brand_name" class="required"><b>ID</b> </label>
+	                                                                    <div class="input-box">
+	                                                                        <?php echo $data[0]['chawri_products_reel_id']; ?>
+	                                                                    </div>
+	                                                                </div>
+	                                                                </div>
+	                                                            </div>
+	                                                            <?php } ?>
 
 
 	                                                            </div>
@@ -239,7 +262,7 @@
 	                                                    
 	                                                        <div class="row">
 	                                                         <div class="col-md-6">
-                 <div class="page-title"> Please Enter the following details...</div>
+                                                      <div class="page-title"> Please Enter the following details...</div>
 	                                                    <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" method="post"> 		
 														<div class="col-md-24">
                                                         <div class="customer-name-middlename">

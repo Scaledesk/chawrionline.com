@@ -8,7 +8,7 @@
     ?>
 
     <?php
-    /*echo "<pre/>";
+   /* echo "<pre/>";
      print_r($users_data);*/ ?>
         
                 <div class="em-wrapper-main">
@@ -87,7 +87,47 @@
                                                             </div>
                                                         </li>
                                                         
-                                                      
+                                                      <li class="fields"> 
+                                                            <div class="customer-name-middlename">
+
+                                                            <div class="field name-lastname">
+                                                                    <label for="state" class="required"> Company Name</label>
+                                                                   
+
+                                                                    <div class="input-box">
+                                                                        
+                                                                        <?php echo $users_data[0]['chawri_users_company_name']; ?>
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                               <div class="field name-firstname">
+                                                                    <label for="phone" class="required">Company Address</label>
+                                                                    <div class="input-box">
+                                                                       <?php echo $users_data[0]['chawri_users_company_address'];?>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </li>
+                                                        <li class="fields"> 
+                                                            <div class="customer-name-middlename">
+
+                                                            <div class="field name-lastname">
+                                                                    <label for="state" class="required">Tin No</label>
+                                                                   
+
+                                                                    <div class="input-box">
+                                                                        
+                                                                        <?php echo $users_data[0]['chawri_users_tin_no']; ?>
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                              
+                                                               
+                                                            </div>
+                                                        </li>
                                                     </ul>
                                                     <div class="buttons-set">
                                                         

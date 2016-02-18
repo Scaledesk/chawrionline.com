@@ -420,13 +420,16 @@ class Mdl_users extends CI_Model
                 break;
 
             }
-            case 'update':
+            case 'update':  
 
                 $this->setFname(func_get_arg(1)); 
                 $this->setLname(func_get_arg(2));
                 $this->setPhone(func_get_arg(3));
                 $this->setAddress(func_get_arg(4));
                 $this->setState(func_get_arg(5));
+                $this->setCompanyNamre(func_get_arg(6));
+                $this->setCompanyAddress(func_get_arg(7));
+                $this->setTinNo(func_get_arg(8));
                 break;
          case 'contact':
 
@@ -898,7 +901,10 @@ return false;
                     'chawri_users_lname' => $this->lname,
                     'chawri_users_phone' => $this->phone,
                     'chawri_users_address' => $this->address,
-                    'chawri_users_state' => $this->state
+                    'chawri_users_state' => $this->state,
+                    'chawri_users_company_name'=>$this->company_namre,
+                    'chawri_users_company_address'=>$this->company_address,
+                    'chawri_users_tin_no'=>$this->tin_no
 
                 ];
                 return $this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id'])->update('chawri_users',$data)?true:false;

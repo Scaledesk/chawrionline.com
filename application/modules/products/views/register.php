@@ -156,7 +156,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_size" class="required"><em>*</em>OD</label>
                                                                     <div class="input-box">
-                                                                         <input type="number" step="any" minlength="0" id="firstname"    name="products_od" title="  Size" maxlength="255" class="input-text size-box2">
+                                                                         <input type="number" min="1" max="999" step="any"   id="firstname"    name="products_od" title="  Size" class="input-text size-box2">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -168,7 +168,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="products_size" class="required"><em>*</em> ID</label> 
                                                                     <div class="input-box">
-                                                                         <input type="number" step="any" minlength="0" id="firstname"    name="products_Id" title="  Size" maxlength="255" class="input-text size-box2">
+                                                                         <input type="number" min="1" max="999" step="any" id="firstname"    name="products_Id" title="  Size"  class="input-text size-box2">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -306,7 +306,7 @@
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
                                                                 <div class="field name-firstname">
-                                                                    <label for="products_rate" class="required"><em>*</em>Products Rate</label>
+                                                                    <label for="products_rate" class="required"><em>*</em>Product Rate</label>
                                                                     <div class="input-box">
                                                                         <input type="number" step="any" minlength="0" id="firstname"  required  name="products_rate" title="Products Rate" maxlength="255" class="input-text required-entry">
                                                                     </div>

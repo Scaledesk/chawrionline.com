@@ -361,8 +361,8 @@
                                                             <div class="form-search no_cate_search">
                                                                 <div class="text-search">
                                                                     <label for="search">Search:</label>
-                                                                  <div style="float: left; width: 33%;" > <input id="search1" type="number" step="any"name="gsm" class="input-text required-entry"  placeholder=" GSM "></div>
-                                                                     <div style="float: left; width: 33%;"> <input id="search2" type="number"step="any" name="size" class="input-text required-entry" placeholder=" Size"></div>
+                                                                  <div style="float: left; width: 33%;" > <input id="search1" type="number" min="1" max="999" step="1"name="gsm" class="input-text required-entry"  placeholder=" GSM "></div>
+                                                                     <div style="float: left; width: 33%;"> <input id="search2" type="number" min="1" max="999"step="any" name="size" class="input-text required-entry" placeholder=" Size"></div>
                                                                       <div style="float: left; width: 33%;"> <input id="search" type="search" name="products" class="input-text required-entry"   placeholder=" Product"></div>
                                                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span>
                                                                     </button>
@@ -483,51 +483,3 @@
                             </div>
                         </div><!-- /.em-header-bottom -->
                     </div>
-
-
-
-
-
-<script type="text/javascript">
-
-
-                $(document).ready(function() {
-    $("#search1").keydown(function (e) {
-        /*$(this).val()*/
-        var search1 = $('#search1').val();
-          var rule="^(([1-9]*)|(([1-9]*)\.([0-9]*)))$";
-          $("#searchrule").empty();
-       if(search1.match(rule)){
-        return true;
-       }else{
-        document.getElementById("searchrule").innerHTML = "Number only!";
-       return true;
-       }
-       
-    });
-});
-  </script
-
-
-  <script type="text/javascript">
-
-
-                $(document).ready(function() {
-    $("#search2").keydown(function (e) {
-        /*$(this).val()*/
-        var search2 = $('#search2').val();
-         /* var rule="^\d{0,2}(\.\d{0,2}){0,1}$";*/
-          $("#searchrule").empty();
-          /*alert(11234567);*/
-       if(search2.match(/^\d{0,2}(?:\.\d{0,2}){0,1}$/)){
-        
-        return true;
-
-       }else{
-        document.getElementById("searchrule").innerHTML = "Number only!";
-       return true;
-       }
-       
-    });
-});
-  </script>

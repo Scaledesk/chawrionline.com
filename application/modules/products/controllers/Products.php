@@ -473,7 +473,7 @@ if(islogin()){
  $this->load->view('users/header/footer');*/
 $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['products_id'],$data['description'],$data['qry'],$data['cform'],$data['tin_no']);
 
-        $this->email->from('noreply@chawri.com', 'Chawri');
+        $this->email->from('admin@chawrionline.com', 'Chawri');
         $this->email->to($email);
        
         $this->email->subject('order placed');
@@ -482,7 +482,7 @@ $this->Mdl_products->buyNow($data['total_cost'],$data['sellers_id'],$data['produ
         if($this->email->send()){
 
 
-          $this->email->from('noreply@chawri.com', 'Chawri');
+          $this->email->from('admin@chawrionline.com', 'Chawri');
          $this->email->to($this->session->userdata['user_data'][0]['users_email']);
        
         $this->email->subject('order placed');
@@ -535,7 +535,7 @@ if(islogin()){
 
   /* echo $sellers_email;
  die;*/
-          $admin_email='admin@admin.com';
+          $admin_email='admin@chawrionline.com';
 
        $this->email->from('noreply@chawri.com', 'Chawri');
          $this->email->to($buyer_email);

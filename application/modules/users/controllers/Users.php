@@ -591,7 +591,7 @@ public function showForgetPwd(){
     public  function contactMail()
     {
 
-        $admin_mail='admin@chawri.com';
+        $admin_mail='admin@chawrionline.com';
         $email= $this->Mdl_users->getUserName();
         $name= $this->Mdl_users->getFname();
         $query= $this->Mdl_users->getContactQuery();
